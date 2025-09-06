@@ -1,0 +1,1025 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./output.css" rel="stylesheet">
+</head>
+
+<body class="2xl:max-w-[1900px] mx-auto font-livvic">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-black/5 backdrop-blur-sm shadow-[0_4px_4px_rgba(0,0,0,0.05)]">
+        <div class="px-10 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <!-- <div class="flex-shrink-0 cursor-pointer"> -->
+                <a href="./index.html" class="cursor-pointer">
+                    <h1 class="font-extrabold text-lg lg:text-[32px] text-[#D72638] font-sniglet">
+                        Halal <span class="text-black">Meat</span>
+                    </h1>
+                </a>
+                <!-- </div> -->
+
+                <!-- Navigation -->
+                <nav id="mobile-menu" class="hidden lg:flex items-center space-x-8 font-medium text-base">
+                    <a href="#" class="text-black hover:text-white/80 transition-colors font-bold">Home</a>
+                    <a href="#" class="text-black hover:text-white/80 transition-colors">build your box</a>
+                    <a href="#" class="text-black hover:text-white/80 transition-colors">About</a>
+                    <a href="#" class="text-black hover:text-white/80 transition-colors">Shop</a>
+                    <a href="#" class="text-black hover:text-white/80 transition-colors">Product</a>
+                    <a href="#" class="text-black hover:text-white/80 transition-colors">Checkout</a>
+                    <a href="#" class="text-black hover:text-white/80 transition-colors">why choose us</a>
+                    <a href="#" class="text-black hover:text-white/80 transition-colors">Contact us</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="lg:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+
+                <nav id="mobile-menu-dropdown"
+                    class="hidden lg:hidden flex flex-col gap-4 items-center space-x-8 font-medium text-base bg-black/70 backdrop-blur-md shadow-2xl border-t border-white/10">
+                    <a href="#"
+                        class="text-white hover:text-red-400 transition-all duration-300 font-bold py-3 px-6 rounded-lg hover:bg-white/10 w-full text-center">Home</a>
+                    <a href="#"
+                        class="text-white hover:text-red-400 transition-all duration-300 py-3 px-6 rounded-lg hover:bg-white/10 w-full text-center">build
+                        your box</a>
+                    <a href="#"
+                        class="text-white hover:text-red-400 transition-all duration-300 py-3 px-6 rounded-lg hover:bg-white/10 w-full text-center">About</a>
+                    <a href="#"
+                        class="text-white hover:text-red-400 transition-all duration-300 py-3 px-6 rounded-lg hover:bg-white/10 w-full text-center">Shop</a>
+                    <a href="#"
+                        class="text-white hover:text-red-400 transition-all duration-300 py-3 px-6 rounded-lg hover:bg-white/10 w-full text-center">Product</a>
+                    <a href="#"
+                        class="text-white hover:text-red-400 transition-all duration-300 py-3 px-6 rounded-lg hover:bg-white/10 w-full text-center">Checkout</a>
+                    <a href="#"
+                        class="text-white hover:text-red-400 transition-all duration-300 py-3 px-6 rounded-lg hover:bg-white/10 w-full text-center">why
+                        choose us</a>
+                    <a href="#"
+                        class="text-white hover:text-red-400 transition-all duration-300 py-3 px-6 rounded-lg hover:bg-white/10 w-full text-center">Contact
+                        us</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen 3xl:h-[40vh] flex items-start justify-start overflow-hidden">
+        <!-- Video Background -->
+        <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+            <source src="assets/images/WhatsApp Video 2025-09-06 at 10.55.19_ae9c4190.mp4" type="video/mp4">
+        </video>
+
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-red-900/30 z-10"></div>
+
+        <!-- Content - Left Aligned -->
+        <div class="relative z-20 max-w-7xl px-6 md:px-12 lg:px-40 pt-32 text-left">
+            <div class="max-w-6xl">
+                <!-- Main Title -->
+                <div class="mb-8">
+                    <h1 class="text-white font-bold leading-tight">
+                        <span class="block text-4xl mb-4 font-bold">Halal
+                            Meat</span>
+                        <span class="text-5xl md:text-8xl flex flex-col gap-4 text-[#FFEFF1]">
+                            <span class="relative flex">Eat Cleaner <svg width="75" height="62" viewBox="0 0 75 62"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <rect width="75" height="62" fill="url(#pattern0_1029_812)" />
+                                    <defs>
+                                        <pattern id="pattern0_1029_812" patternContentUnits="objectBoundingBox"
+                                            width="1" height="1">
+                                            <use xlink:href="#image0_1029_812"
+                                                transform="matrix(0.00277008 0 0 0.00335091 0 -0.00263605)" />
+                                        </pattern>
+                                        <image id="image0_1029_812" width="361" height="300" preserveAspectRatio="none"
+                                            xlink:href="data:image/png;base64,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" />
+                                    </defs>
+                                </svg>
+                            </span>
+                            <span>
+                                With Halal Meat
+                                <svg class="absolute -top-3 -right-10 w-8 h-8 text-white" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                        </span>
+                    </h1>
+                </div>
+
+                <!-- Description -->
+                <p class="text-white text-lg md:text-xl leading-relaxed mb-8 max-w-3xl font-poppins font-semibold">
+                    Discover premium, hand-slaughtered Halal meats delivered fresh to your doorstep — ethically sourced,
+                    USDA certified, and prepared with care to bring authentic taste and peace of mind to every meal.
+                </p>
+
+                <!-- CTA Button -->
+                <button
+                    class="font-livvic bg-[#D72638] text-white px-8 py-4 rounded-2xl text-xl font-bold uppercase tracking-wide hover:bg-red-700 transition-colors shadow-lg">
+                    BUILD YOUR BOX
+                </button>
+            </div>
+        </div>
+
+        <!-- Social Media Links -->
+        <div class="absolute right-6 top-1/2 transform -translate-y-1/2 z-20 hidden lg:block">
+            <div class="flex flex-col space-y-16 text-white">
+                <a href="#" class="text-sm font-medium ransform rotate-90 origin-center">Instagram</a>
+                <a href="#" class="text-sm font-medium transform rotate-90 origin-center">Facebook</a>
+                <a href="#" class="text-sm font-medium transform rotate-90 origin-center">Linkedin</a>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <section class="bg-white grid grid-cols-1 lg:grid-cols-2 min-h-screen">
+            <!-- Left Section - Visual Elements -->
+            <div class="relative p-8 lg:p-12 my-12 md:my-0">
+                <!-- Background Pattern -->
+                <div class="absolute top-0 left-0 w-[60%] sm:w-[65%] md:w-[70%] z-10">
+                    <img src="assets/images/background.png" alt="background overlay" class="w-full" />
+                    <div class="absolute inset-0 bg-[#D72638] opacity-90"></div>
+                </div>
+
+                <!-- Main Meat Image -->
+                <div class="relative z-30 mt-8 md:mt-16 ml-4 md:ml-8">
+                    <!-- Background Image behind main image -->
+                    <!-- <img src="assets/images/high-angle-meat.jpg" alt="Background Meat"
+                        class="absolute top-4 left-4 w-full max-w-[300px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[570px] h-[250px] sm:h-[350px] md:h-[450px] lg:h-[550px] object-cover rounded-2xl shadow-lg z-10" />
+                     -->
+                    <!-- Red Sidebar behind image -->
+                    <div
+                        class="absolute -left-2 md:-left-4 bottom-4 md:bottom-8 bg-[#B6282D] w-4 md:w-8 h-32 md:h-64 rounded-l-xl z-20">
+                    </div>
+
+                    <img src="assets/images/high-angle.jpg" alt="High Quality Halal Meat"
+                        class="relative w-full max-w-[300px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[570px] h-[250px] sm:h-[350px] md:h-[450px] lg:h-[550px] object-cover rounded-2xl shadow-lg z-30" />
+
+                    <!-- Call-to-Action Box positioned in middle of image -->
+                    <div
+                        class="absolute -bottom-10 sm:-bottom-16 md:-bottom-20 left-2 sm:left-6 md:left-10 bg-[#D72638] rounded-lg md:rounded-xl p-3 md:p-6 z-40 flex flex-col sm:flex-row items-center gap-4 md:gap-12 shadow-lg max-w-[90%] sm:max-w-none">
+                        <div class="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center flex-shrink-0">
+                            <svg width="40" height="40" class="md:w-[67px] md:h-[67px]" viewBox="0 0 67 67" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M3.64851 11.3848L64.6604 32.9452C64.6604 32.9452 64.8855 37.7765 64.362 41.786C63.8386 45.7955 63.1005 47.9521 63.1005 47.9521C63.1005 47.9521 61.0958 57.0913 49.4283 61.6243C37.7609 66.1573 25.8213 61.0119 22.2305 59.0228C17.9174 56.6359 12.2852 51.1294 10.0554 48.3813C7.82553 45.6333 3.50194 39.4096 2.98374 35.3948C2.46553 31.3801 1.92116 25.036 1.9421 21.0212C1.97874 15.075 3.64851 11.3848 3.64851 11.3848Z"
+                                    fill="white" />
+                                <path
+                                    d="M33.4528 15.5568C36.9442 16.3733 48.0934 17.6348 50.7681 18.3781C53.4429 19.1214 57.1279 20.5661 58.2795 21.4768C60.1639 22.9686 64.6916 30.5637 64.6654 32.9454C64.6235 37.0857 63.0846 42.1997 61.7446 43.435C60.771 44.3354 53.2178 55.2333 42.9637 55.3066C32.7096 55.3799 10.118 39.9228 9.15487 38.588C8.18651 37.248 4.83651 30.8411 3.90479 26.795C3.08299 23.2199 2.04135 15.5358 3.80534 10.872C5.16104 7.28121 8.36448 3.96785 10.5472 3.5334C14.8656 2.6802 17.3257 3.5177 17.9957 3.74278C18.6657 3.96785 19.8121 10.9348 22.6753 11.9922C26.9099 13.552 33.4528 15.5568 33.4528 15.5568Z"
+                                    fill="white" />
+                                <path
+                                    d="M20.3144 11.83C17.268 10.0294 16.9487 3.4707 16.9487 3.4707C16.9487 3.4707 19.2832 3.6225 21.8847 5.73195C24.4862 7.84141 27.4907 11.6049 28.972 12.6832C30.4534 13.7615 33.4527 15.5569 33.4527 15.5569C33.4527 15.5569 25.0096 14.599 20.3144 11.83ZM16.7707 19.4984C15.1637 24.4396 9.32742 25.9995 7.66812 25.5545C6.00882 25.1044 4.97765 21.4717 5.11374 16.1798C5.24984 10.8878 7.94031 7.92516 10.4528 8.10836C12.6041 8.26016 15.6139 10.3644 16.7341 13.5783C17.3858 15.4958 17.3986 17.5729 16.7707 19.4984ZM26.5956 18.2892C25.8994 18.9854 27.8048 21.0268 26.7317 24.2093C25.6534 27.3918 23.8633 28.2921 23.9941 29.2343C24.125 30.1765 31.5735 39.5931 36.8184 41.5665C42.0632 43.5398 56.62 42.8803 59.2895 35.4684C61.31 29.8624 57.044 25.0259 55.9238 24.1203C54.2227 22.7437 52.5372 21.6916 49.9566 21.2048C48.9726 21.0216 41.613 19.9066 37.2633 19.4565C32.9187 19.0063 27.4017 17.4831 26.5956 18.2892Z"
+                                    fill="#D72638" />
+                                <path
+                                    d="M38.9754 22.0997C38.609 23.8008 43.5973 25.4654 47.4498 28.2867C50.3026 30.3752 52.4748 34.2068 54.9402 32.6836C57.4056 31.1604 53.93 25.2717 52.6057 24.251C51.0406 23.0418 39.3784 20.2153 38.9754 22.0997ZM25.3974 11.924C25.0205 12.7615 22.2568 10.7149 20.9115 9.5895C19.8228 8.68395 18.5037 7.86215 19.2051 6.76294C20.0112 5.50669 21.4454 6.58497 22.8378 8.06106C23.7486 9.02942 25.8057 11.029 25.3974 11.924Z"
+                                    fill="white" />
+                                <path
+                                    d="M46.0152 46.9474C43.9319 47.6069 44.6595 54.9089 43.0996 54.8408C41.2938 54.7675 42.6128 48.6433 40.9535 47.1672C39.2942 45.6859 37.2057 45.9267 34.2012 44.4453C31.1966 42.964 27.8937 40.1793 25.5645 37.4417C23.2299 34.7042 20.6284 31.6107 19.4193 30.6685C18.2102 29.7263 11.8818 27.8419 9.68859 29.3703C7.49015 30.8935 8.29625 37.3528 8.29625 37.3528C8.29625 37.3528 12.578 45.0264 21.1885 50.1194C29.7991 55.2125 34.6984 57.2329 45.1777 56.0343C55.6569 54.8356 61.9434 43.2257 61.9434 43.2257C61.9434 43.2257 57.9024 44.9478 53.3328 45.6964C48.7632 46.4449 48.088 46.2931 46.0152 46.9474Z"
+                                    fill="#D72638" />
+                                <path
+                                    d="M21.1575 15.426C23.7433 16.9964 26.0464 19.9276 24.8739 23.8586C23.7014 27.7896 17.619 30.1765 13.6148 26.3449C10.0658 22.9531 10.9033 18.9959 12.5312 17.0749C14.1487 15.1591 17.7865 13.3794 21.1575 15.426Z"
+                                    fill="white" />
+                                <path
+                                    d="M15.7343 17.1846C18.4771 15.7922 21.288 17.3835 22.1621 19.1684C23.031 20.9533 22.9211 23.4606 20.8483 24.9472C18.6289 26.5436 15.2213 25.7428 14.0331 23.2983C12.8449 20.8539 13.5568 18.289 15.7343 17.1846Z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                        <div
+                            class="flex flex-col gap-1 md:gap-2 text-white w-full sm:w-[200px] md:w-[250px] border-l-0 sm:border-l border-white pl-0 sm:pl-6 md:pl-12 text-center sm:text-left">
+                            <div class="text-2xl md:text-4xl font-normal font-mistral">86,700</div>
+                            <div>
+                                <div class="text-xs sm:text-sm md:text-base font-medium">Savor the Taste of Pure Halal
+                                    Meat</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Right Section - Text Content -->
+            <div class="p-8 lg:p-12 flex flex-col justify-center my-6 sm:my-12 ">
+                <div class="max-w-lg">
+                    <!-- Small heading -->
+                    <div class="text-sm font-semibold text-gray-800 uppercase tracking-wider mb-4">OUR INTRODUCTION
+                    </div>
+
+                    <!-- Main heading -->
+                    <h1 class="text-4xl lg:text-5xl font-bold text-black mb-4 leading-tight">
+                        Pure Halal Meat and Fresh Quality
+                    </h1>
+
+                    <!-- Subheading -->
+                    <h2 class="text-xl md:text-3xl font-medium text-[#B6282D] mb-6">
+                        We're Leader in Halal Meat Market
+                    </h2>
+
+                    <!-- Description paragraph -->
+                    <p class="text-black text-lg leading-relaxed mb-8">
+                        We provide fresh, high-quality halal meat sourced from trusted suppliers, ensuring every cut
+                        meets strict halal standards. Our commitment is to bring healthy and safe meat directly to
+                        your
+                        table.
+                    </p>
+
+                    <!-- Bullet points -->
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 bg-[#B6282D] rounded-full flex items-center justify-center">
+                                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <span class="text-black">Halal meat certified and responsibly sourced</span>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 bg-[#B6282D] rounded-full flex items-center justify-center">
+                                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <span class="text-black">Fresh cuts delivered to meet your needs</span>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 bg-[#B6282D] rounded-full flex items-center justify-center">
+                                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <span class="text-black">Meat processed under strict hygiene standards</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Section -->
+        <section class="px-8 md:px-12 my-12 font-poppins">
+            <!-- Header -->
+            <div class="flex justify-between items-end mb-8">
+                <div>
+                    <h3 class="text-[#D72638] font-semibold text-xl uppercase">OUR MENU</h3>
+                    <h2 class="font-bold text-[#010F1C] text-2xl md:text-4xl my-2 max-w-4xl">
+                        Explore Our Wide Range of Fresh, Premium Halal Meats – From Beef and Lamb to Chicken and Goat.
+                    </h2>
+                </div>
+
+                <!-- Navigation Controls -->
+                <div class="hidden md:flex gap-2 items-end">
+                    <button
+                        class="w-16 h-16 rounded-full bg-[#E0E0E0] flex items-center justify-center hover:bg-gray-300 transition-colors">
+                        <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M8 0L10 2L4 8L10 14L8 16L0 8L8 0Z"
+                                fill="black" />
+                        </svg>
+                    </button>
+                    <button
+                        class="w-16 h-16 rounded-full bg-[#D72638] flex items-center justify-center hover:bg-red-700 transition-colors">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M9.005 4L17.005 12L9.005 20L7 18L13.005 12L7 6L9.005 4Z" fill="white" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- See All Link -->
+            <div class="flex justify-end mb-6">
+                <a href="#" class="text-[#010F1C] font-medium hover:text-[#D72638] transition-colors">
+                    see All >
+                </a>
+            </div>
+
+            <!-- Main Content Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                <!-- Categories Sidebar -->
+                <div class="lg:col-span-1">
+                    <div class="h-[430px] overflow-y-auto scrollbar-thin pr-2">
+                        <div class="space-y-4" id="categoriesContainer">
+                            <!-- Beef -->
+                            <div
+                                class="flex items-center gap-4 p-4 rounded-full hover:bg-gray-50 cursor-pointer transition-colors">
+                                <div class="w-10 h-10 flex items-center justify-center rounded-full bg-white">
+                                    <img src="assets/icons/beef.png" alt="beef icon" class="w-8 h-8" />
+                                </div>
+                                <span class="text-[#010F1C] font-medium">Beef</span>
+                            </div>
+
+                            <!-- Chickens (Active) -->
+                            <div class="flex items-center gap-4 p-4 rounded-full bg-[#D72638] cursor-pointer">
+                                <div class="w-10 h-10 flex items-center justify-center rounded-full bg-white">
+                                    <img src="assets/icons/chicken.png" alt="chicken icon" class="w-8 h-8" />
+                                </div>
+                                <span class="text-white font-medium">Chickens</span>
+                            </div>
+
+                            <!-- Lamb -->
+                            <div
+                                class="flex items-center gap-4 p-4 rounded-full hover:bg-gray-50 cursor-pointer transition-colors">
+                                <div class="w-10 h-10 flex items-center justify-center rounded-full bg-white">
+                                    <img src="assets/icons/lamb.png" alt="lamb icon" class="w-8 h-8" />
+                                </div>
+                                <span class="text-[#010F1C] font-medium">Lamb</span>
+                            </div>
+
+                            <!-- Goat -->
+                            <div
+                                class="flex items-center gap-4 p-4 rounded-full hover:bg-gray-50 cursor-pointer transition-colors">
+                                <div class="w-10 h-10 flex items-center justify-center rounded-full bg-white">
+                                    <img src="assets/icons/nyame.png" alt="nyama choma icon" class="w-8 h-8" />
+                                </div>
+                                <span class="text-[#010F1C] font-medium">Goat</span>
+                            </div>
+
+                            <!-- Special Cuts & Others -->
+                            <div
+                                class="flex items-center gap-4 p-4 rounded-full hover:bg-gray-50 cursor-pointer transition-colors">
+                                <div class="w-10 h-10 flex items-center justify-center rounded-full bg-white">
+                                    <img src="assets/icons/barbecue.png" alt="barbecue icon" class="w-8 h-8" />
+                                </div>
+                                <span class="text-[#010F1C] font-medium">Special Cuts & Others</span>
+                            </div>
+
+                            <!-- Repeated Categories for Infinite Scroll Effect -->
+                            <!-- Beef -->
+                            <div
+                                class="flex items-center gap-4 p-4 rounded-full hover:bg-gray-50 cursor-pointer transition-colors">
+                                <div class="w-10 h-10 flex items-center justify-center rounded-full bg-white">
+                                    <img src="assets/icons/beef.png" alt="beef icon" class="w-8 h-8" />
+                                </div>
+                                <span class="text-[#010F1C] font-medium">Beef</span>
+                            </div>
+
+                            <!-- Chickens -->
+                            <div
+                                class="flex items-center gap-4 p-4 rounded-full hover:bg-gray-50 cursor-pointer transition-colors">
+                                <div class="w-10 h-10 flex items-center justify-center rounded-full bg-white">
+                                    <img src="assets/icons/chicken.png" alt="chicken icon" class="w-8 h-8" />
+                                </div>
+                                <span class="text-[#010F1C] font-medium">Chickens</span>
+                            </div>
+
+                            <!-- Lamb -->
+                            <div
+                                class="flex items-center gap-4 p-4 rounded-full hover:bg-gray-50 cursor-pointer transition-colors">
+                                <div class="w-10 h-10 flex items-center justify-center rounded-full bg-white">
+                                    <img src="assets/icons/lamb.png" alt="lamb icon" class="w-8 h-8" />
+                                </div>
+                                <span class="text-[#010F1C] font-medium">Lamb</span>
+                            </div>
+
+                            <!-- Goat -->
+                            <div
+                                class="flex items-center gap-4 p-4 rounded-full hover:bg-gray-50 cursor-pointer transition-colors">
+                                <div class="w-10 h-10 flex items-center justify-center rounded-full bg-white">
+                                    <img src="assets/icons/nyame.png" alt="nyama choma icon" class="w-8 h-8" />
+                                </div>
+                                <span class="text-[#010F1C] font-medium">Goat</span>
+                            </div>
+
+                            <!-- Special Cuts & Others -->
+                            <div
+                                class="flex items-center gap-4 p-4 rounded-full hover:bg-gray-50 cursor-pointer transition-colors">
+                                <div class="w-10 h-10 flex items-center justify-center rounded-full bg-white">
+                                    <img src="assets/icons/barbecue.png" alt="barbecue icon" class="w-8 h-8" />
+                                </div>
+                                <span class="text-[#010F1C] font-medium">Special Cuts & Others</span>
+                            </div>
+
+                            <!-- More Repeated Categories -->
+                            <!-- Beef -->
+                            <div
+                                class="flex items-center gap-4 p-4 rounded-full hover:bg-gray-50 cursor-pointer transition-colors">
+                                <div class="w-10 h-10 flex items-center justify-center rounded-full bg-white">
+                                    <img src="assets/icons/beef.png" alt="beef icon" class="w-8 h-8" />
+                                </div>
+                                <span class="text-[#010F1C] font-medium">Beef</span>
+                            </div>
+
+                            <!-- Chickens -->
+                            <div
+                                class="flex items-center gap-4 p-4 rounded-full hover:bg-gray-50 cursor-pointer transition-colors">
+                                <div class="w-10 h-10 flex items-center justify-center rounded-full bg-white">
+                                    <img src="assets/icons/chicken.png" alt="chicken icon" class="w-8 h-8" />
+                                </div>
+                                <span class="text-[#010F1C] font-medium">Chickens</span>
+                            </div>
+
+                            <!-- Lamb -->
+                            <div
+                                class="flex items-center gap-4 p-4 rounded-full hover:bg-gray-50 cursor-pointer transition-colors">
+                                <div class="w-10 h-10 flex items-center justify-center rounded-full bg-white">
+                                    <img src="assets/icons/lamb.png" alt="lamb icon" class="w-8 h-8" />
+                                </div>
+                                <span class="text-[#010F1C] font-medium">Lamb</span>
+                            </div>
+
+                            <!-- Goat -->
+                            <div
+                                class="flex items-center gap-4 p-4 rounded-full hover:bg-gray-50 cursor-pointer transition-colors">
+                                <div class="w-10 h-10 flex items-center justify-center rounded-full bg-white">
+                                    <img src="assets/icons/nyame.png" alt="nyama choma icon" class="w-8 h-8" />
+                                </div>
+                                <span class="text-[#010F1C] font-medium">Goat</span>
+                            </div>
+
+                            <!-- Special Cuts & Others -->
+                            <div
+                                class="flex items-center gap-4 p-4 rounded-full hover:bg-gray-50 cursor-pointer transition-colors">
+                                <div class="w-10 h-10 flex items-center justify-center rounded-full bg-white">
+                                    <img src="assets/icons/barbecue.png" alt="barbecue icon" class="w-8 h-8" />
+                                </div>
+                                <span class="text-[#010F1C] font-medium">Special Cuts & Others</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products Display -->
+                <div class="lg:col-span-3">
+                    <div class="relative">
+                        <!-- Red separator line -->
+                        <!-- <div class="absolute left-0 top-0 bottom-0 w-1 bg-[#D72638] hidden lg:block"></div> -->
+
+                        <!-- Scrollable Products Container -->
+                        <div class="overflow-x-auto scrollbar-hide pl-4 lg:pl-8">
+                            <div class="flex gap-6 pb-4" style="width: max-content;">
+                                <!-- Product Card 1 -->
+                                <div class="flex-shrink-0 w-96 rounded-3xl shadow-lg overflow-hidden">
+
+                                    <div class="relative h-96 rounded-3xl">
+                                        <div class="absolute inset-0 bg-gradient rounded-3xl"></div>
+                                        <img src="assets/images/image1.jpg" alt="Lamb Chops"
+                                            class="w-full h-full object-cover rounded-3xl" />
+                                        <div
+                                            class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-8 font-poppins">
+                                            <h3 class="text-white font-medium text-xl mb-4">Lamb Chops</h3>
+                                            <div class="flex items-center gap-2 mb-4">
+                                                <span class="text-[#D72638] font-bold text-xl">$</span>
+                                                <span class="text-white font-bold text-2xl">7.49</span>
+                                            </div>
+                                            <a href="" class="text-white font-medium text-lg ">
+                                                <button class="flex items-center gap-2">
+                                                    Order Now
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M9.005 4L17.005 12L9.005 20L7 18L13.005 12L7 6L9.005 4Z"
+                                                            fill="white" />
+                                                    </svg>
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- Product Card 2 -->
+                                <div class="flex-shrink-0 w-96 rounded-3xl shadow-lg overflow-hidden">
+
+                                    <div class="relative h-96 rounded-3xl">
+                                        <div class="absolute inset-0 bg-gradient rounded-3xl"></div>
+                                        <img src="assets/images/image2.jpg" alt="Lamb Chops"
+                                            class="w-full h-full object-cover rounded-3xl" />
+                                        <div
+                                            class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-8 font-poppins">
+                                            <h3 class="text-white font-medium text-xl mb-4">Lamb Chops</h3>
+                                            <div class="flex items-center gap-2 mb-4">
+                                                <span class="text-[#D72638] font-bold text-xl">$</span>
+                                                <span class="text-white font-bold text-2xl">7.49</span>
+                                            </div>
+                                            <a href="" class="text-white font-medium text-lg ">
+                                                <button class="flex items-center gap-2">
+                                                    Order Now
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M9.005 4L17.005 12L9.005 20L7 18L13.005 12L7 6L9.005 4Z"
+                                                            fill="white" />
+                                                    </svg>
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- Product Card 3 -->
+                                <div class="flex-shrink-0 w-96 rounded-3xl shadow-lg overflow-hidden">
+
+                                    <div class="relative h-96 rounded-3xl">
+                                        <div class="absolute inset-0 bg-gradient rounded-3xl"></div>
+                                        <img src="assets/images/image1.jpg" alt="Lamb Chops"
+                                            class="w-full h-full object-cover rounded-3xl" />
+                                        <div
+                                            class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-8 font-poppins">
+                                            <h3 class="text-white font-medium text-xl mb-4">Lamb Chops</h3>
+                                            <div class="flex items-center gap-2 mb-4">
+                                                <span class="text-[#D72638] font-bold text-xl">$</span>
+                                                <span class="text-white font-bold text-2xl">7.49</span>
+                                            </div>
+                                            <a href="" class="text-white font-medium text-lg ">
+                                                <button class="flex items-center gap-2">
+                                                    Order Now
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M9.005 4L17.005 12L9.005 20L7 18L13.005 12L7 6L9.005 4Z"
+                                                            fill="white" />
+                                                    </svg>
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- Product Card 4 -->
+                                <div class="flex-shrink-0 w-96 rounded-3xl shadow-lg overflow-hidden">
+
+                                    <div class="relative h-96 rounded-3xl">
+                                        <div class="absolute inset-0 bg-gradient rounded-3xl"></div>
+                                        <img src="assets/images/image2.jpg" alt="Lamb Chops"
+                                            class="w-full h-full object-cover rounded-3xl" />
+                                        <div
+                                            class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-8 font-poppins">
+                                            <h3 class="text-white font-medium text-xl mb-4">Lamb Chops</h3>
+                                            <div class="flex items-center gap-2 mb-4">
+                                                <span class="text-[#D72638] font-bold text-xl">$</span>
+                                                <span class="text-white font-bold text-2xl">7.49</span>
+                                            </div>
+                                            <a href="" class="text-white font-medium text-lg ">
+                                                <button class="flex items-center gap-2">
+                                                    Order Now
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M9.005 4L17.005 12L9.005 20L7 18L13.005 12L7 6L9.005 4Z"
+                                                            fill="white" />
+                                                    </svg>
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Controls -->
+                <div class="flex md:hidden gap-2 items-end">
+                    <button
+                        class="w-16 h-16 rounded-full bg-[#E0E0E0] flex items-center justify-center hover:bg-gray-300 transition-colors">
+                        <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M8 0L10 2L4 8L10 14L8 16L0 8L8 0Z"
+                                fill="black" />
+                        </svg>
+                    </button>
+                    <button
+                        class="w-16 h-16 rounded-full bg-[#D72638] flex items-center justify-center hover:bg-red-700 transition-colors">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M9.005 4L17.005 12L9.005 20L7 18L13.005 12L7 6L9.005 4Z" fill="white" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section
+            class="bg-[#D72638] px-12 py-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 font-poppins text-white text-center">
+            <div>
+                <p class="font-semibold text-4xl">8</p>
+                <p class="font-medium text-sm">Years of Service</p>
+            </div>
+            <div>
+                <p class="font-semibold text-4xl">459</p>
+                <p class="font-medium text-sm">Sq. Meter Area</p>
+            </div>
+            <div>
+                <p class="font-semibold text-4xl">50</p>
+                <p class="font-medium text-sm">Nice Meat</p>
+            </div>
+            <div>
+                <p class="font-semibold text-4xl">3786</p>
+                <p class="font-medium text-sm">Happy Visitors</p>
+            </div>
+
+        </section>
+
+        <section class="bg-black mt-[20px] relative 2xl:max-w-[1600px] mx-auto">
+            <!-- Large screens: Original grid layout -->
+            <div class="hidden lg:block">
+                <div class="grid-container min-h-[100vh]  2xl:min-h-[40vh]">
+                    <!-- Main Title - HALAL -->
+                    <div class="section main-title">
+                        <div class="section-content text-center">
+                            <h1 class="text-5xl lg:text-[96px] font-semibold text-white/80 leading-none"
+                                style="letter-spacing: 1.23em">
+                                HALAL
+                            </h1>
+                        </div>
+                    </div>
+
+                    <!-- Feel Food -->
+                    <div class="feelfood-section">
+                        <p class="font-ruthie text-white leading-[169%] tracking-[0.9em]">Feel Food</p>
+                    </div>
+
+                    <!-- Fresh, Halal, Delicious -->
+                    <div class="section fresh-section">
+                        <div class="section-content text-left justify-center">
+                            <div class="p-6 mx-auto w-fit">
+                                <p class="text-white text-[44px] font-medium">Fresh,</p>
+                                <p class="text-[#FF929D] text-[44px] font-medium my-1">Halal</p>
+                                <p class="text-white text-[44px] font-medium">Delicious</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Raw meat on cutting board with tomatoes -->
+                    <div class="section meat-board"></div>
+
+                    <!-- Quote Section -->
+                    <div class="section quote-section">
+                        <div class="section-content text-center justify-center">
+                            <p
+                                class="text-white text-sm font-light font-poppins text-[24px] text-center items-center justify-center w-[267px] h-[256px] border-2 border-white p-4">
+                                "Good days<br />
+                                begin with<br />
+                                faith, love, and<br />
+                                a plate of halal<br />
+                                meat."
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Chef working section -->
+                    <div class="section chef-section"></div>
+
+                    <!-- Raw chicken pieces -->
+                    <div class="section chicken-section"></div>
+
+                    <!-- Discount Section -->
+                    <div class="section discount-section">
+                        <div class="section-content text-center justify-center">
+                            <p class="text-white text-lg lg:text-4xl font-poppins font-light">
+                                Discount
+                            </p>
+                            <p class="text-white text-2xl lg:text-[40px] font-semibold my-2">
+                                50%
+                            </p>
+                            <p class="text-white text-lg lg:text-4xl font-poppins font-light">
+                                Weekend
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Description text -->
+                    <div class="section description-text">
+                        <div class="section-content justify-center">
+                            <p class="text-white text-xl font-poppins text-center px-2 py-4 leading-relaxed">
+                                Food for us comes from our relatives, whether they have wings or
+                                fins or roots. That is how we consider food. Food has a culture. It
+                                has a history. It has a story. It has relationships.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Steaks on cutting board -->
+                    <div class="section steaks-section"></div>
+
+                    <!-- Meat cubes -->
+                    <div class="section meat-cubes"></div>
+
+                    <!-- Tomatoes and vegetables -->
+                    <div class="section vegetables-section"></div>
+                </div>
+            </div>
+
+            <!-- Mobile and Tablet: Responsive layout -->
+            <div class="lg:hidden mobile-grid">
+                <!-- Main Title -->
+                <div class="mobile-section mobile-main-title">
+                    <div class="mobile-content">
+                        <h1 class="text-3xl md:text-4xl font-semibold text-white/90 leading-none"
+                            style="letter-spacing: 0.3em">
+                            HALAL
+                        </h1>
+                        <p class="text-xl md:text-2xl font-ruthie text-white mt-2 tracking-widest">Feel Food</p>
+                    </div>
+                </div>
+
+                <!-- Fresh, Halal, Delicious -->
+                <div class="mobile-section mobile-fresh-section">
+                    <div class="mobile-content">
+                        <p class="text-white text-lg md:text-2xl font-medium">Fresh,</p>
+                        <p class="text-[#F1C74E] text-lg md:text-2xl font-medium my-1">Halal</p>
+                        <p class="text-white text-lg md:text-2xl font-medium">Delicious</p>
+                    </div>
+                </div>
+
+                <!-- Raw meat on cutting board -->
+                <div class="mobile-section mobile-meat-board">
+                    <div class="mobile-content"></div>
+                </div>
+
+                <!-- Quote Section -->
+                <div class="mobile-section mobile-quote-section">
+                    <div class="mobile-content">
+                        <p
+                            class="text-white text-sm md:text-base font-poppins text-center border-2 border-white p-3 md:p-4 bg-black/50 max-w-xs">
+                            "Good days begin with faith, love, and a plate of halal meat."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Chef working section -->
+                <div class="mobile-section mobile-chef-section">
+                    <div class="mobile-content"></div>
+                </div>
+
+                <!-- Discount Section -->
+                <div class="mobile-section mobile-discount-section">
+                    <div class="mobile-content">
+                        <p class="text-white text-lg md:text-xl font-poppins font-light">Discount</p>
+                        <p class="text-white text-2xl md:text-3xl font-semibold my-2">50%</p>
+                        <p class="text-white text-lg md:text-xl font-poppins font-light">Weekend</p>
+                    </div>
+                </div>
+
+                <!-- Description text -->
+                <div class="mobile-section mobile-description-text">
+                    <div class="mobile-content">
+                        <p
+                            class="text-white text-sm md:text-base font-poppins text-center bg-black/50 p-3 md:p-4 rounded leading-relaxed">
+                            Food for us comes from our relatives, whether they have wings or fins or roots. That is how
+                            we
+                            consider
+                            food. Food has a culture. It has a history. It has a story. It has relationships.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Raw chicken pieces -->
+                <div class="mobile-section mobile-chicken-section">
+                    <div class="mobile-content"></div>
+                </div>
+
+                <!-- Steaks on cutting board -->
+                <div class="mobile-section mobile-steaks-section">
+                    <div class="mobile-content"></div>
+                </div>
+
+                <!-- Meat cubes -->
+                <div class="mobile-section mobile-meat-cubes">
+                    <div class="mobile-content"></div>
+                </div>
+
+                <!-- Tomatoes and vegetables -->
+                <div class="mobile-section mobile-vegetables-section">
+                    <div class="mobile-content"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="bg-gray-50 py-16 px-8 md:px-12 my-12">
+            <div class="max-w-7xl mx-auto">
+                <!-- Header -->
+                <div class="text-center mb-12">
+                    <div class="flex items-center justify-center gap-4 mb-4">
+                        <div class="w-16 h-2 bg-[#D72638] rounded-xl"></div>
+                        <span
+                            class="mx-4 text-[#D72638] font-semibold text-base uppercase tracking-wider font-poppins">Our
+                            Services</span>
+                        <div class="w-16 h-2 bg-[#D72638] rounded-xl"></div>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold text-[#424242] font-poppins">
+                        Explore Our <span class="text-[#D72638]">Services</span>
+                    </h2>
+                </div>
+
+                <!-- Services Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 font-poppins">
+                    <!-- Fresh Meat Selection -->
+                    <div
+                        class="flex flex-col items-center justify-center bg-white px-8 py-12 shadow-lg hover:shadow-xl transition-shadow border border-[#EEEEEE]">
+                        <div class="w-16 h-16 flex items-center justify-center mb-6">
+                            <svg width="36" height="36" viewBox="0 0 36 36" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_966_1810)">
+                                    <path
+                                        d="M13.5 0H7.5C5.51088 0 3.60322 0.790176 2.1967 2.1967C0.790176 3.60322 0 5.51088 0 7.5L0 28.5C0 29.4849 0.193993 30.4602 0.570903 31.3701C0.947814 32.2801 1.50026 33.1069 2.1967 33.8033C3.60322 35.2098 5.51088 36 7.5 36H21V7.5C21 6.51509 20.806 5.53982 20.4291 4.62987C20.0522 3.71993 19.4997 2.89314 18.8033 2.1967C18.1069 1.50026 17.2801 0.947814 16.3701 0.570903C15.4602 0.193993 14.4849 0 13.5 0ZM7.5 28.5H6C5.60218 28.5 5.22064 28.342 4.93934 28.0607C4.65804 27.7794 4.5 27.3978 4.5 27C4.5 26.6022 4.65804 26.2206 4.93934 25.9393C5.22064 25.658 5.60218 25.5 6 25.5H7.5C7.89782 25.5 8.27936 25.658 8.56066 25.9393C8.84196 26.2206 9 26.6022 9 27C9 27.3978 8.84196 27.7794 8.56066 28.0607C8.27936 28.342 7.89782 28.5 7.5 28.5ZM7.5 22.5H6C5.60218 22.5 5.22064 22.342 4.93934 22.0607C4.65804 21.7794 4.5 21.3978 4.5 21C4.5 20.6022 4.65804 20.2206 4.93934 19.9393C5.22064 19.658 5.60218 19.5 6 19.5H7.5C7.89782 19.5 8.27936 19.658 8.56066 19.9393C8.84196 20.2206 9 20.6022 9 21C9 21.3978 8.84196 21.7794 8.56066 22.0607C8.27936 22.342 7.89782 22.5 7.5 22.5ZM7.5 16.5H6C5.60218 16.5 5.22064 16.342 4.93934 16.0607C4.65804 15.7794 4.5 15.3978 4.5 15C4.5 14.6022 4.65804 14.2206 4.93934 13.9393C5.22064 13.658 5.60218 13.5 6 13.5H7.5C7.89782 13.5 8.27936 13.658 8.56066 13.9393C8.84196 14.2206 9 14.6022 9 15C9 15.3978 8.84196 15.7794 8.56066 16.0607C8.27936 16.342 7.89782 16.5 7.5 16.5ZM7.5 10.5H6C5.60218 10.5 5.22064 10.342 4.93934 10.0607C4.65804 9.77936 4.5 9.39782 4.5 9C4.5 8.60218 4.65804 8.22064 4.93934 7.93934C5.22064 7.65804 5.60218 7.5 6 7.5H7.5C7.89782 7.5 8.27936 7.65804 8.56066 7.93934C8.84196 8.22064 9 8.60218 9 9C9 9.39782 8.84196 9.77936 8.56066 10.0607C8.27936 10.342 7.89782 10.5 7.5 10.5ZM15 28.5H13.5C13.1022 28.5 12.7206 28.342 12.4393 28.0607C12.158 27.7794 12 27.3978 12 27C12 26.6022 12.158 26.2206 12.4393 25.9393C12.7206 25.658 13.1022 25.5 13.5 25.5H15C15.3978 25.5 15.7794 25.658 16.0607 25.9393C16.342 26.2206 16.5 26.6022 16.5 27C16.5 27.3978 16.342 27.7794 16.0607 28.0607C15.7794 28.342 15.3978 28.5 15 28.5ZM15 22.5H13.5C13.1022 22.5 12.7206 22.342 12.4393 22.0607C12.158 21.7794 12 21.3978 12 21C12 20.6022 12.158 20.2206 12.4393 19.9393C12.7206 19.658 13.1022 19.5 13.5 19.5H15C15.3978 19.5 15.7794 19.658 16.0607 19.9393C16.342 20.2206 16.5 20.6022 16.5 21C16.5 21.3978 16.342 21.7794 16.0607 22.0607C15.7794 22.342 15.3978 22.5 15 22.5ZM15 16.5H13.5C13.1022 16.5 12.7206 16.342 12.4393 16.0607C12.158 15.7794 12 15.3978 12 15C12 14.6022 12.158 14.2206 12.4393 13.9393C12.7206 13.658 13.1022 13.5 13.5 13.5H15C15.3978 13.5 15.7794 13.658 16.0607 13.9393C16.342 14.2206 16.5 14.6022 16.5 15C16.5 15.3978 16.342 15.7794 16.0607 16.0607C15.7794 16.342 15.3978 16.5 15 16.5ZM15 10.5H13.5C13.1022 10.5 12.7206 10.342 12.4393 10.0607C12.158 9.77936 12 9.39782 12 9C12 8.60218 12.158 8.22064 12.4393 7.93934C12.7206 7.65804 13.1022 7.5 13.5 7.5H15C15.3978 7.5 15.7794 7.65804 16.0607 7.93934C16.342 8.22064 16.5 8.60218 16.5 9C16.5 9.39782 16.342 9.77936 16.0607 10.0607C15.7794 10.342 15.3978 10.5 15 10.5ZM28.5 7.5H24V36H28.5C30.4884 35.9976 32.3947 35.2067 33.8007 33.8007C35.2067 32.3947 35.9976 30.4884 36 28.5V15C35.9976 13.0116 35.2067 11.1053 33.8007 9.69933C32.3947 8.29332 30.4884 7.50238 28.5 7.5ZM30 28.5C29.7033 28.5 29.4133 28.412 29.1666 28.2472C28.92 28.0824 28.7277 27.8481 28.6142 27.574C28.5006 27.2999 28.4709 26.9983 28.5288 26.7074C28.5867 26.4164 28.7296 26.1491 28.9393 25.9393C29.1491 25.7296 29.4164 25.5867 29.7074 25.5288C29.9983 25.4709 30.2999 25.5006 30.574 25.6142C30.8481 25.7277 31.0824 25.92 31.2472 26.1666C31.412 26.4133 31.5 26.7033 31.5 27C31.5 27.3978 31.342 27.7794 31.0607 28.0607C30.7794 28.342 30.3978 28.5 30 28.5ZM30 22.5C29.7033 22.5 29.4133 22.412 29.1666 22.2472C28.92 22.0824 28.7277 21.8481 28.6142 21.574C28.5006 21.2999 28.4709 20.9983 28.5288 20.7074C28.5867 20.4164 28.7296 20.1491 28.9393 19.9393C29.1491 19.7296 29.4164 19.5867 29.7074 19.5288C29.9983 19.4709 30.2999 19.5006 30.574 19.6142C30.8481 19.7277 31.0824 19.92 31.2472 20.1666C31.412 20.4133 31.5 20.7033 31.5 21C31.5 21.3978 31.342 21.7794 31.0607 22.0607C30.7794 22.342 30.3978 22.5 30 22.5ZM30 16.5C29.7033 16.5 29.4133 16.412 29.1666 16.2472C28.92 16.0824 28.7277 15.8481 28.6142 15.574C28.5006 15.2999 28.4709 14.9983 28.5288 14.7074C28.5867 14.4164 28.7296 14.1491 28.9393 13.9393C29.1491 13.7296 29.4164 13.5867 29.7074 13.5288C29.9983 13.4709 30.2999 13.5006 30.574 13.6142C30.8481 13.7277 31.0824 13.92 31.2472 14.1666C31.412 14.4133 31.5 14.7033 31.5 15C31.5 15.3978 31.342 15.7794 31.0607 16.0607C30.7794 16.342 30.3978 16.5 30 16.5Z"
+                                        fill="#D72638" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_966_1810">
+                                        <rect width="36" height="36" fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+
+                        </div>
+                        <h3 class="text-xl font-bold text-[#424242] mb-4 font-poppins">Fresh Meat Selection</h3>
+                        <p class="text-[#9E9E9E] text-center leading-relaxed font-medium">Hand-picked halal
+                            beef, lamb, and chicken cuts with
+                            premium quality.</p>
+                    </div>
+
+                    <!-- Build Your Box (Highlighted) -->
+                    <div
+                        class="flex flex-col items-center justify-center bg-[#D72638] p-8 shadow-lg hover:shadow-xl transition-shadow border border-[#EEEEEE]">
+                        <div class="w-16 h-16 flex items-center justify-center mb-6">
+                            <svg width="36" height="36" viewBox="0 0 36 36" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_966_1817)">
+                                    <path
+                                        d="M33.0012 17.25C33.0012 16.8375 32.6652 16.5 32.2512 16.5H31.5012C30.6732 16.5 30.0012 15.8295 30.0012 15C30.0012 14.1705 30.6732 13.5 31.5012 13.5C31.9152 13.5 32.2512 13.1625 32.2512 12.75C32.2512 12.3375 31.9152 12 31.5012 12H28.5012C27.6732 12 27.0012 11.3295 27.0012 10.5C27.0012 9.67049 27.6732 8.99999 28.5012 8.99999H31.5012C33.5682 8.99999 35.2512 10.6815 35.2512 12.75C35.2512 13.386 35.0907 13.986 34.8102 14.5125C35.5422 15.1965 36.0012 16.17 36.0012 17.25C36.0012 19.3185 34.3182 21 32.2512 21H28.5012C27.6732 21 27.0012 20.3295 27.0012 19.5C27.0012 18.6705 27.6732 18 28.5012 18H32.2512C32.6652 18 33.0012 17.6625 33.0012 17.25ZM2.63667 11.4825C2.15067 11.745 1.69767 11.9895 1.32267 12.2175C0.286167 12.849 -0.204333 13.9065 0.0776669 14.91C0.347667 15.876 1.26567 16.5 2.41317 16.5H7.50117C8.32917 16.5 9.00117 15.8295 9.00117 15C9.00117 14.1705 8.32917 13.5 7.50117 13.5H5.19417C7.10067 12.4125 9.00117 11.046 9.00117 8.99999C9.00117 6.51899 6.98217 4.49999 4.50117 4.49999C2.02017 4.49999 0.00116695 6.51899 0.00116695 8.99999C0.00116695 9.82949 0.673167 10.5 1.50117 10.5C2.32917 10.5 3.00117 9.82949 3.00117 8.99999C3.00117 8.17049 3.67467 7.49999 4.50117 7.49999C5.32767 7.49999 6.00117 8.17199 6.00117 8.99999C6.00117 9.66599 3.46917 11.0325 2.63667 11.4825ZM16.0617 4.61999L16.5012 4.18049V10.5C16.5012 11.3295 17.1732 12 18.0012 12C18.8292 12 19.5012 11.3295 19.5012 10.5V2.16749C19.5012 1.28849 18.9762 0.50399 18.1647 0.16649C17.3517 -0.16951 16.4247 0.0134898 15.8037 0.63449L13.9407 2.49749C13.3542 3.08399 13.3542 4.03199 13.9407 4.61849C14.5272 5.20499 15.4767 5.20649 16.0617 4.61999ZM19.5012 15H16.5012C14.4297 15 12.7512 16.6785 12.7512 18.75V32.25C12.7512 34.3215 14.4297 36 16.5012 36H19.5012C21.5727 36 23.2512 34.3215 23.2512 32.25V18.75C23.2512 16.6785 21.5727 15 19.5012 15ZM32.2512 24H30.0012C27.9297 24 26.2512 25.6785 26.2512 27.75V32.25C26.2512 34.3215 27.9297 36 30.0012 36H32.2512C34.3227 36 36.0012 34.3215 36.0012 32.25V27.75C36.0012 25.6785 34.3227 24 32.2512 24ZM6.00117 19.5H3.75117C1.67967 19.5 0.00116695 21.1785 0.00116695 23.25V32.25C0.00116695 34.3215 1.67967 36 3.75117 36H6.00117C8.07267 36 9.75117 34.3215 9.75117 32.25V23.25C9.75117 21.1785 8.07267 19.5 6.00117 19.5Z"
+                                        fill="white" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_966_1817">
+                                        <rect width="36" height="36" fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-4">Build Your Box</h3>
+                        <p class="text-white text-center leading-relaxed font-medium">Customize your own halal meat box
+                            with your favorite
+                            choices.</p>
+                    </div>
+
+                    <!-- Chilled Delivery -->
+                    <div
+                        class="flex flex-col items-center justify-center bg-white px-8 py-12 shadow-lg hover:shadow-xl transition-shadow border border-[#EEEEEE]">
+                        <div class="w-16 h-16 flex items-center justify-center mb-6">
+                            <svg width="36" height="36" viewBox="0 0 36 36" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M35.5935 33.4711C35.8662 33.7611 36.0125 34.1476 36.0003 34.5455C35.9881 34.9434 35.8183 35.3202 35.5283 35.5929C35.2382 35.8656 34.8518 36.0119 34.4539 35.9997C34.056 35.9874 33.6792 35.8176 33.4065 35.5276L25.182 26.7691C23.628 26.8186 16.4715 27.0316 18.714 23.6491C18.9017 23.4583 19.1378 23.322 19.397 23.2549C19.6562 23.1878 19.9287 23.1923 20.1855 23.2681C21.8624 23.7883 23.6324 23.9367 25.3725 23.7031C25.6732 23.6646 25.9787 23.699 26.2633 23.8034C26.5479 23.9078 26.8031 24.0792 27.0075 24.3031L35.5935 33.4711ZM22.5 21.0001C23.4849 21.0015 24.4604 20.8085 25.3706 20.4322C26.2807 20.0559 27.1077 19.5036 27.804 18.8071L35.5605 11.0491C35.7 10.9099 35.8106 10.7445 35.8862 10.5624C35.9617 10.3804 36.0007 10.1853 36.0008 9.98818C36.001 9.79109 35.9623 9.5959 35.887 9.41376C35.8117 9.23161 35.7013 9.06609 35.562 8.92662C35.4227 8.78716 35.2574 8.67649 35.0753 8.60094C34.8933 8.52538 34.6982 8.48643 34.5011 8.48629C34.304 8.48615 34.1088 8.52483 33.9266 8.60013C33.7445 8.67542 33.579 8.78585 33.4395 8.92512L25.683 16.6831C25.0243 17.3361 24.1799 17.7696 23.2653 17.9242C22.3508 18.0789 21.4108 17.9472 20.574 17.5471L31.0605 7.06062C31.2038 6.92225 31.318 6.75673 31.3967 6.57373C31.4753 6.39072 31.5166 6.19389 31.5184 5.99472C31.5201 5.79556 31.4822 5.59804 31.4067 5.41369C31.3313 5.22935 31.2199 5.06187 31.0791 4.92103C30.9383 4.78019 30.7708 4.66881 30.5864 4.59339C30.4021 4.51797 30.2046 4.48002 30.0054 4.48175C29.8062 4.48348 29.6094 4.52486 29.4264 4.60347C29.2434 4.68208 29.0779 4.79636 28.9395 4.93962L18.45 15.4261C18.0499 14.5893 17.9182 13.6493 18.0729 12.7348C18.2275 11.8202 18.661 10.9758 19.314 10.3171L27.075 2.56062C27.3482 2.27772 27.4994 1.89882 27.496 1.50552C27.4926 1.11223 27.3348 0.736007 27.0567 0.457895C26.7786 0.179782 26.4024 0.022029 26.0091 0.0186114C25.6158 0.0151938 25.2369 0.166385 24.954 0.439622L17.196 8.19612C15.9761 9.42014 15.2153 11.0272 15.0419 12.7466C14.8684 14.4659 15.2927 16.1926 16.2435 17.6356L0.4395 33.4396C0.166263 33.7225 0.0150713 34.1014 0.0184889 34.4947C0.0219066 34.888 0.17966 35.2642 0.457772 35.5423C0.735884 35.8205 1.1121 35.9782 1.5054 35.9816C1.89869 35.985 2.2776 35.8339 2.5605 35.5606L18.3645 19.7566C19.5913 20.5676 21.0294 21 22.5 21.0001ZM8.178 19.4476C9.4215 20.6191 10.569 19.0636 11.4045 18.2311C11.7501 17.8817 12.0046 17.4528 12.1456 16.982C12.2865 16.5112 12.3097 16.013 12.213 15.5311C11.2875 12.9481 13.5495 9.93312 11.6775 7.85562L4.9935 0.859622C4.5812 0.459038 4.06061 0.187973 3.496 0.0798967C2.93139 -0.02818 2.3475 0.0314636 1.8164 0.251463C1.28531 0.471463 0.830271 0.842185 0.507476 1.31786C0.184681 1.79353 0.00826135 2.35332 0 2.92812C0.3555 9.84912 2.9025 13.3801 8.178 19.4476Z"
+                                    fill="#D72638" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#424242] mb-4 font-poppins">Chilled Delivery</h3>
+                        <p class="text-[#9E9E9E] text-center leading-relaxed font-medium ">Safe and fast delivery
+                            with temperature-controlled packaging.</p>
+                    </div>
+
+                    <!-- Monthly Subscription -->
+                    <div
+                        class="flex flex-col items-center justify-center bg-white px-8 py-12 shadow-lg hover:shadow-xl transition-shadow border border-[#EEEEEE]">
+                        <div class="w-16 h-16 flex items-center justify-center mb-6">
+                            <svg width="36" height="36" viewBox="0 0 36 36" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_966_1831)">
+                                    <path
+                                        d="M12.4375 5.5635C12.4375 7.461 10.8985 9 9.00105 9C7.10355 9 5.56455 7.461 5.56455 5.5635C5.56455 4.467 6.71355 2.3415 7.68255 0.7425C8.28255 -0.2475 9.71955 -0.2475 10.3195 0.7425C11.2885 2.34 12.4375 4.4655 12.4375 5.5635ZM22.4845 36C29.4325 36 35.2585 32.2425 35.9935 24.222C36.0835 23.2485 35.254 22.416 34.282 22.5255C27.682 23.2725 22.483 28.26 22.483 36M22.483 36C15.535 36 9.74205 32.2215 9.00555 24.201C8.91555 23.2275 9.74505 22.395 10.717 22.5045C17.317 23.2515 22.483 28.26 22.483 36ZM17.4445 21.543C18.0295 18.7965 19.2835 16.5 21.1525 14.139C21.829 13.284 23.131 13.284 23.8075 14.139C25.6915 16.518 26.9515 18.831 27.5485 21.5565C25.5205 22.68 23.806 24.2055 22.4905 26.0625C21.1795 24.1995 19.468 22.671 17.4445 21.543ZM6.01755 24.4725C5.89155 23.1 6.38655 21.7575 7.37355 20.7915C8.35305 19.8315 9.69255 19.3665 11.053 19.521C12.3175 19.6635 13.5205 19.9275 14.6515 20.3025C15.124 18.402 15.925 16.5975 17.0515 14.7855C15.9865 13.113 14.128 11.997 11.998 11.997H5.99805C2.68455 11.997 -0.00195312 14.6835 -0.00195312 17.997V29.997C-0.00195312 33.3105 2.68455 35.997 5.99805 35.997H11.998C12.0955 35.997 12.187 35.973 12.2845 35.9685C8.74305 33.4425 6.47505 29.4585 6.01755 24.4725Z"
+                                        fill="#D72638" />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_966_1831">
+                                        <rect width="36" height="36" fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#424242] mb-4 font-poppins">Monthly Subscription</h3>
+                        <p class="text-[#9E9E9E] text-center leading-relaxed font-medium">Get your halal meat
+                            box delivered weekly or monthly with ease.</p>
+                    </div>
+
+                    <!-- Cooking Recipes -->
+                    <div
+                        class="flex flex-col items-center justify-center bg-white px-8 py-12 shadow-lg hover:shadow-xl transition-shadow border border-[#EEEEEE]">
+                        <div class="w-16 h-16 flex items-center justify-center mb-6">
+                            <svg width="36" height="36" viewBox="0 0 36 36" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M34.9505 33.8566L28.2635 35.9326C27.8836 36.0508 27.4723 36.0132 27.1201 35.8281C26.7679 35.643 26.5037 35.3256 26.3855 34.9456C26.2674 34.5657 26.305 34.1544 26.4901 33.8022C26.6752 33.45 26.9926 33.1858 27.3725 33.0676L29.2385 32.4886L27.8615 28.4386C27.5725 28.4758 27.2815 28.4959 26.99 28.4986C25.3537 28.4952 23.7633 27.9568 22.4614 26.9653C21.1596 25.9738 20.2178 24.5838 19.7795 23.0071L19.589 22.4446L21.089 17.9971H33.9005L34.2005 18.9076C34.676 20.5229 34.5887 22.2518 33.9529 23.8109C33.317 25.3701 32.1705 26.667 30.701 27.4891L32.0975 31.5946L34.0475 30.9946C34.4275 30.8765 34.8388 30.9141 35.191 31.0992C35.5431 31.2843 35.8074 31.6017 35.9255 31.9816C36.0437 32.3616 36.0061 32.7729 35.821 33.1251C35.6359 33.4773 35.3185 33.7415 34.9385 33.8596L34.9505 33.8566ZM21.9845 15.0001H32.885L31.436 10.6981C31.0881 9.57697 30.3189 8.63443 29.2903 8.06877C28.2616 7.50311 27.0537 7.35842 25.9205 7.66514L20.6345 9.13814C20.8491 9.41014 21.045 9.69629 21.221 9.99464C22.0559 11.5216 22.3262 13.2938 21.9845 15.0001ZM15.8585 9.27614L10.079 7.66514C8.95415 7.35485 7.75278 7.49243 6.72716 8.04901C5.70155 8.60559 4.93145 9.53788 4.57854 10.6501L3.11754 15.0001H18.929L18.959 14.9116C19.1322 14.3381 19.1891 13.7358 19.1263 13.14C19.0636 12.5441 18.8825 11.9669 18.5938 11.442C18.305 10.9171 17.9143 10.4551 17.4446 10.0832C16.9749 9.71128 16.4357 9.4369 15.8585 9.27614ZM1.77804 18.9856C1.32207 20.598 1.42419 22.3172 2.06785 23.8642C2.7115 25.4113 3.85894 26.6955 5.32404 27.5086L3.90804 31.6006L1.95054 30.9916C1.76242 30.9325 1.56451 30.9111 1.36809 30.9285C1.17168 30.9459 0.980615 31.0018 0.805809 31.093C0.631003 31.1842 0.475878 31.309 0.349292 31.4602C0.222705 31.6114 0.127136 31.786 0.0680415 31.9741C0.00894668 32.1623 -0.0125168 32.3602 0.00487654 32.5566C0.0222699 32.753 0.0781794 32.9441 0.169413 33.1189C0.260647 33.2937 0.385417 33.4488 0.536602 33.5754C0.687786 33.702 0.862423 33.7975 1.05054 33.8566L7.73754 35.9326C8.11746 36.0508 8.52876 36.0132 8.88096 35.8281C9.23315 35.643 9.49739 35.3256 9.61554 34.9456C9.7337 34.5657 9.69609 34.1544 9.51099 33.8022C9.32589 33.45 9.00846 33.1858 8.62854 33.0676L6.77454 32.4901L8.17704 28.4401C8.45519 28.4759 8.73514 28.4959 9.01554 28.5001C10.6373 28.4961 12.2141 27.9666 13.5094 26.9908C14.8048 26.0151 15.7491 24.6458 16.2005 23.0881L17.918 18.0001H2.10954L1.77804 18.9856ZM23.33 5.85014C23.5071 5.93918 23.7001 5.99224 23.8979 6.00625C24.0956 6.02026 24.2941 5.99494 24.482 5.93175C24.6699 5.86857 24.8434 5.76877 24.9925 5.63813C25.1415 5.50749 25.2632 5.3486 25.3505 5.17064L26.8505 2.17064C27.0284 1.81459 27.0575 1.40247 26.9314 1.02496C26.8054 0.647452 26.5346 0.335466 26.1785 0.157638C25.8225 -0.0201893 25.4104 -0.049292 25.0329 0.0767325C24.6554 0.202757 24.3434 0.473585 24.1655 0.829638L22.6655 3.82964C22.576 4.00583 22.5221 4.19799 22.507 4.39507C22.492 4.59215 22.516 4.79027 22.5778 4.97803C22.6395 5.16579 22.7378 5.3395 22.8669 5.48916C22.996 5.63883 23.1534 5.76151 23.33 5.85014ZM10.658 5.17064C10.8359 5.52769 11.1482 5.79947 11.5265 5.9262C11.7137 5.98895 11.9115 6.01419 12.1086 6.0005C12.3056 5.98681 12.498 5.93444 12.6748 5.84639C12.8516 5.75834 13.0093 5.63633 13.1389 5.48732C13.2686 5.33832 13.3676 5.16524 13.4303 4.97797C13.4931 4.79069 13.5183 4.5929 13.5047 4.39587C13.491 4.19883 13.4386 4.00643 13.3505 3.82964L11.8505 0.829638C11.7625 0.653339 11.6406 0.496109 11.4918 0.366925C11.3429 0.237741 11.1701 0.139133 10.9832 0.0767325C10.6057 -0.049292 10.1936 -0.0201893 9.83754 0.157638C9.48149 0.335466 9.21066 0.647452 9.08463 1.02496C8.95861 1.40247 8.98771 1.81459 9.16554 2.17064L10.658 5.17064ZM18.0005 0.000138405C17.6027 0.000138405 17.2212 0.158174 16.9399 0.439478C16.6586 0.720783 16.5005 1.10231 16.5005 1.50014V4.50014C16.5005 4.89796 16.6586 5.27949 16.9399 5.5608C17.2212 5.8421 17.6027 6.00014 18.0005 6.00014C18.3984 6.00014 18.7799 5.8421 19.0612 5.5608C19.3425 5.27949 19.5005 4.89796 19.5005 4.50014V1.50014C19.5005 1.10231 19.3425 0.720783 19.0612 0.439478C18.7799 0.158174 18.3984 0.000138405 18.0005 0.000138405Z"
+                                    fill="#D72638" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#424242] mb-4 font-poppins">Cooking Recipes</h3>
+                        <p class="text-[#9E9E9E] text-center leading-relaxed font-medium">Delicious recipes and
+                            cooking tips to match your meat selection.</p>
+                    </div>
+                    <!-- Family & Party Packs -->
+                    <div
+                        class="flex flex-col items-center justify-center bg-white px-8 py-12 shadow-lg hover:shadow-xl transition-shadow border border-[#EEEEEE]">
+                        <div class="w-16 h-16 flex items-center justify-center mb-6">
+                            <svg width="36" height="36" viewBox="0 0 36 36" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M34.4141 10.2553L31.1411 6.98083L32.5616 5.56033C32.7049 5.42196 32.8192 5.25644 32.8978 5.07344C32.9764 4.89043 33.0178 4.6936 33.0195 4.49443C33.0212 4.29526 32.9833 4.09774 32.9079 3.9134C32.8324 3.72905 32.7211 3.56158 32.5802 3.42074C32.4394 3.2799 32.2719 3.16852 32.0876 3.0931C31.9032 3.01768 31.7057 2.97972 31.5065 2.98145C31.3074 2.98319 31.1105 3.02456 30.9275 3.10318C30.7445 3.18179 30.579 3.29607 30.4406 3.43933L29.0201 4.85983L25.7456 1.58683C24.7135 0.603314 23.3425 0.0546875 21.9169 0.0546875C20.4912 0.0546875 19.1202 0.603314 18.0881 1.58683C17.585 2.08958 17.1858 2.68656 16.9135 3.34364C16.6411 4.00073 16.501 4.70504 16.501 5.41633C16.501 6.12762 16.6411 6.83193 16.9135 7.48902C17.1858 8.1461 17.585 8.74308 18.0881 9.24583L21.3611 12.5188L12.5201 21.3598L9.24563 18.0868C8.21354 17.1033 6.84255 16.5547 5.41688 16.5547C3.99122 16.5547 2.62023 17.1033 1.58813 18.0868C1.08497 18.5896 0.685815 19.1866 0.413482 19.8436C0.141149 20.5007 0.000976563 21.205 0.000976562 21.9163C0.000976563 22.6276 0.141149 23.3319 0.413482 23.989C0.685815 24.6461 1.08497 25.2431 1.58813 25.7458L4.86113 29.0188L3.44063 30.4393C3.29737 30.5777 3.18309 30.7432 3.10448 30.9262C3.02587 31.1092 2.98449 31.3061 2.98276 31.5052C2.98103 31.7044 3.01898 31.9019 3.0944 32.0863C3.16982 32.2706 3.2812 32.4381 3.42204 32.5789C3.56288 32.7198 3.73036 32.8311 3.9147 32.9066C4.09905 32.982 4.29657 33.0199 4.49573 33.0182C4.6949 33.0165 4.89173 32.9751 5.07474 32.8965C5.25774 32.8179 5.42326 32.7036 5.56163 32.5603L6.98213 31.1398L10.2566 34.4128C10.7594 34.9158 11.3562 35.3147 12.0132 35.5869C12.6701 35.8591 13.3743 35.9992 14.0854 35.9992C14.7965 35.9992 15.5006 35.8591 16.1576 35.5869C16.8145 35.3147 17.4114 34.9158 17.9141 34.4128C18.4172 33.9102 18.8164 33.3134 19.0887 32.6564C19.361 31.9994 19.5012 31.2952 19.5012 30.5841C19.5012 29.8729 19.361 29.1687 19.0887 28.5118C18.8164 27.8548 18.4172 27.2579 17.9141 26.7553L14.6411 23.4823L23.4911 14.6398L26.7641 17.9128C27.2668 18.4158 27.8637 18.8147 28.5207 19.0869C29.1776 19.3591 29.8818 19.4992 30.5929 19.4992C31.304 19.4992 32.0081 19.3591 32.6651 19.0869C33.322 18.8147 33.9189 18.4158 34.4216 17.9128C34.9247 17.4102 35.3239 16.8134 35.5962 16.1564C35.8685 15.4994 36.0087 14.7952 36.0087 14.0841C36.0087 13.3729 35.8685 12.6687 35.5962 12.0118C35.3239 11.3548 34.9247 10.7579 34.4216 10.2553H34.4141Z"
+                                    fill="#D72638" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#424242] mb-4 font-poppins">Family & Party Packs</h3>
+                        <p class="text-[#9E9E9E] text-center leading-relaxed font-medium">Special halal boxes
+                            designed for families, gatherings, and events.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Let's Talk About Halal Meat -->
+       
+    </main>
+
+    <script>
+        // Product slider functionality
+        const productContainer = document.querySelector('.overflow-x-auto');
+        const leftButtons = document.querySelectorAll('.w-16.h-16.rounded-full.bg-\\[\\#E0E0E0\\]');
+        const rightButtons = document.querySelectorAll('.w-16.h-16.rounded-full.bg-\\[\\#D72638\\]');
+
+        if (productContainer && leftButtons.length > 0 && rightButtons.length > 0) {
+            const scrollAmount = 320; // Width of one card + gap
+
+            // Add event listeners to all left buttons
+            leftButtons.forEach(leftButton => {
+                leftButton.addEventListener('click', () => {
+                    productContainer.scrollBy({
+                        left: -scrollAmount,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Add event listeners to all right buttons
+            rightButtons.forEach(rightButton => {
+                rightButton.addEventListener('click', () => {
+                    productContainer.scrollBy({
+                        left: scrollAmount,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        }
+
+        // Category selection functionality
+        const categories = document.querySelectorAll('.space-y-4 > div');
+        categories.forEach(category => {
+            category.addEventListener('click', () => {
+                // Remove active class from all categories
+                categories.forEach(cat => {
+                    cat.classList.remove('bg-[#D72638]');
+                    cat.classList.add('hover:bg-gray-50');
+                    const span = cat.querySelector('span');
+                    if (span) {
+                        span.classList.remove('text-white');
+                        span.classList.add('text-[#010F1C]');
+                    }
+                });
+
+                // Add active class to clicked category
+                category.classList.add('bg-[#D72638]');
+                category.classList.remove('hover:bg-gray-50');
+                const span = category.querySelector('span');
+                if (span) {
+                    span.classList.add('text-white');
+                    span.classList.remove('text-[#010F1C]');
+                }
+            });
+        });
+
+        // Mobile menu functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenuDropdown = document.getElementById('mobile-menu-dropdown');
+
+        if (mobileMenuButton && mobileMenuDropdown) {
+            mobileMenuButton.addEventListener('click', () => {
+                // Toggle mobile menu visibility with smooth animation
+                if (mobileMenuDropdown.classList.contains('hidden')) {
+                    mobileMenuDropdown.classList.remove('hidden');
+                    mobileMenuDropdown.classList.add('animate-slide-down');
+                } else {
+                    mobileMenuDropdown.classList.add('animate-slide-up');
+                    setTimeout(() => {
+                        mobileMenuDropdown.classList.add('hidden');
+                        mobileMenuDropdown.classList.remove('animate-slide-down', 'animate-slide-up');
+                    }, 300);
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>#424242
