@@ -10,7 +10,7 @@
 
 <body class="2xl:max-w-[1900px] mx-auto font-livvic">
     <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-black/5 backdrop-blur-sm shadow-[0_4px_4px_rgba(0,0,0,0.05)]">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#ffffff58] backdrop-blur-sm shadow-[0_4px_4px_#0000000D]">
         <div class="px-10 py-4">
             <div class="flex items-center justify-between">
                 <!-- Logo -->
@@ -208,7 +208,7 @@
     </section>
 
     <main>
-        <section class="bg-white grid grid-cols-1 lg:grid-cols-2 min-h-screen">
+        <section class="bg-white grid grid-cols-1 lg:grid-cols-2 min-h-screen 3xl:min-h-[40vh]">
             <!-- Left Section - Visual Elements -->
             <div class="relative p-8 lg:p-12 my-12 md:my-0">
                 <!-- Background Pattern -->
@@ -341,7 +341,7 @@
             <div class="flex justify-between items-end mb-8">
                 <div>
                     <h3 class="text-[#D72638] font-semibold text-xl uppercase">OUR MENU</h3>
-                    <h2 class="font-bold text-[#010F1C] text-2xl md:text-4xl my-2 max-w-4xl">
+                    <h2 class="font-semibold text-[#010F1C] text-2xl md:text-4xl my-2 max-w-4xl">
                         Explore Our Wide Range of Fresh, Premium Halal Meats – From Beef and Lamb to Chicken and Goat.
                     </h2>
                 </div>
@@ -879,7 +879,7 @@
                             Services</span>
                         <div class="w-16 h-2 bg-[#D72638] rounded-xl"></div>
                     </div>
-                    <h2 class="text-4xl md:text-5xl font-bold text-[#424242] font-poppins">
+                    <h2 class="text-4xl font-semibold text-[#424242] font-poppins">
                         Explore Our <span class="text-[#D72638]">Services</span>
                     </h2>
                 </div>
@@ -1134,7 +1134,7 @@
 
             <div class="relative w-full md:w-3/5">
                 <img src="assets/images/background.png" alt="background overlay" class="w-full h-full" />
-                <div class="absolute inset-0 bg-[#57070f] opacity-90"></div>
+                <div class="absolute inset-0 bg-[#B30310] opacity-[93%]"></div>
 
                 <div class="hidden md:flex absolute top-5 -left-12">
                     <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -1211,9 +1211,11 @@
         <!-- Hero Section with Services -->
         <section class="relative">
             <!-- Hero Background with Meat -->
-            <div class="relative h-[600px] lg:h-[700px] bg-cover bg-center bg-no-repeat"
-                style="background-image: url('./assets/images/healty-meat.jpg');">
+            <div class="relative h-[535px] bg-no-repeat bg-cover"
+                
+                style="background-image: url('./assets/images/healty-meat.jpg'); object-fit: cover;  background-position: bottom left;">
                 <!-- Dark Overlay -->
+                 <!-- <img src="./assets/images/healty-meat.jpg" class="bg-no-repeat bg-cover w-full"/> -->
                 <div class="absolute inset-0 bg-[#0000005C]"></div>
 
                 <!-- Hero Content -->
@@ -1314,7 +1316,7 @@
 
         <section class="mt-20 mb-10 px-8 md:px-12 lg:px-20">
             <div class="flex flex-col lg:flex-row gap-20">
-                <div class="relative w-full lg:w-2/3 h-[730px]">
+                <div class="relative w-full lg:w-[60%] h-[730px]">
                     <img src="assets/images/bg-section.jpg" alt="" class="h-full w-full" />
 
                     <!-- Group: Bubble + Icon -->
@@ -1349,7 +1351,7 @@
 
                 </div>
 
-                <div class="w-full lg:w-1/3 space-y-4">
+                <div class="w-full lg:w-[40%] space-y-4">
                     <h3 class="font-livvic font-bold text-2xl md:text-4xl">Fresh Premium Halal Meats Delivered to Your
                         Door.</h3>
                     <p class="font-manrope text-[#878680] font-medium text-base">There are many variations of passages
@@ -1419,7 +1421,7 @@
         const rightButtons = document.querySelectorAll('.w-16.h-16.rounded-full.bg-\\[\\#D72638\\]');
 
         if (productContainer && leftButtons.length > 0 && rightButtons.length > 0) {
-            const scrollAmount = 320; // Width of one card + gap
+            const scrollAmount = 400; // Width of one card + gap
 
             // Add event listeners to all left buttons
             leftButtons.forEach(leftButton => {

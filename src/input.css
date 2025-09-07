@@ -735,6 +735,16 @@
         #mobile-menu-dropdown::-webkit-scrollbar-thumb:hover {
           background: rgba(255, 255, 255, 0.5);
         }
+ /* 3xl breakpoint styles
+        @media (min-width: 1920px) {
+          .\33xl\:h-\[40vh\] {
+            height: 40vh;
+          }
+          .\33xl\:min-h-\[40vh\] {
+            min-height: 40vh;
+          } */
+        /* } */
+/* image-removebg-preview (4) 2 */
 
        
       }
