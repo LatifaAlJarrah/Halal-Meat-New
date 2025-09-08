@@ -4,12 +4,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Sniglet:wght@400;800&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 @import "tailwindcss";
 
 @font-face {
     font-family: 'Mistral';
     src: url('assets/fonts/MISTRAL.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Century Gothic';
+    src: url('assets/fonts/centurygothic.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -34,9 +41,14 @@
       font-family: "Manrope", sans-serif;
     }
     .font-covered-by-your-grace {
-  font-family: "Covered By Your Grace", cursive;
-
-}
+      font-family: "Covered By Your Grace", cursive;
+    }
+    .font-inter {
+      font-family: "Inter", sans-serif;
+    }
+    .font-century-gothic {
+        font-family: "Century Gothic", cursive;
+    }
     .scrollbar-hide {
         -ms-overflow-style: none;
         scrollbar-width: none;
@@ -134,7 +146,6 @@
 
     .mobile-fresh-section {
       background-image: url("./assets/images/Vector.png");
-      /* background-color: #4E3032; */
       background-blend-mode: screen;
       min-height: 180px;
     }
@@ -147,16 +158,32 @@
       right: 0;
       bottom: 0;
       background-color: #4E3032;
-      background-image: url("./assets/images/background-green.jpg");
       background-blend-mode: screen;
       opacity: 0.7;
       z-index: 1;
     }
 
-    .mobile-meat-board {
-      background-image: url("./assets/images/high-angle-meat.jpg");
-      min-height: 200px;
-    }
+   .mobile-meat-board {
+  position: relative;
+  min-height: 200px;
+  overflow: hidden;
+}
+
+.mobile-meat-board .mobile-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.mobile-meat-board .mobile-slide.active {
+  opacity: 1;
+}
+
 
     .mobile-quote-section {
       /* background-image: url("./assets/images/background-green.jpg"); */
@@ -340,7 +367,19 @@
       background-blend-mode: screen;
       background-repeat: no-repeat;
       background-position: center;
+
+        animation: pulseVector 4s infinite ease-in-out;
+
     }
+
+    @keyframes pulseVector {
+  0%{
+    background-size: 80%; 
+  }
+  50% {
+    background-size: 100%; 
+  }
+}
     .fresh-section::before {
       content: '';
       position: absolute;
@@ -355,14 +394,88 @@
     }
 
     /* Raw meat on cutting board */
-    .meat-board {
+    /* .meat-board {
       grid-column: 7 / 13;
       grid-row: 4 / 10;
       background-image: url("./assets/images/high-angle-meat.jpg");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-    }
+    } */
+.meat-board {
+  grid-column: 7 / 13;
+  grid-row: 4 / 10;
+  position: relative;
+  overflow: hidden;
+}
+
+.meat-board .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.meat-board .slide.active {
+  opacity: 1;
+}
+
+/* Background slides for main title */
+.main-title {
+  position: relative;
+}
+
+.main-title .bg-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 1;
+}
+
+.main-title .bg-slide.active {
+  opacity: 1;
+}
+
+.main-title .section-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Mobile background slides for main title */
+.mobile-main-title {
+  position: relative;
+}
+
+.mobile-main-title .mobile-bg-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 1;
+}
+
+.mobile-main-title .mobile-bg-slide.active {
+  opacity: 1;
+}
+
+.mobile-main-title .mobile-content {
+  position: relative;
+  z-index: 2;
+}
+
 
     /* Quote section */
     .quote-section {

@@ -82,7 +82,7 @@
                 </button>
 
                 <nav id="mobile-menu-dropdown"
-                    class="xl:hidden flex flex-col gap-4 items-start space-x-8 font-medium text-base bg-black/70 backdrop-blur-md shadow-2xl border-t border-white/10 scrollbar-y-thin">
+                    class="xl:hidden hidden gap-4 items-start space-x-8 font-medium text-base bg-black/70 backdrop-blur-md shadow-2xl border-t border-white/10 scrollbar-y-thin absolute top-full left-0 right-0 z-50 p-4">
                     <a href="#"
                         class="text-white hover:text-red-400 transition-all duration-300 font-bold py-3 px-6 rounded-lg hover:bg-white/10 w-full text-center">Home</a>
                     <a href="#"
@@ -135,6 +135,45 @@
             </div>
         </div>
     </header>
+
+    <script>
+        // Mobile Menu Toggle Functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenuDropdown = document.getElementById('mobile-menu-dropdown');
+
+            if (mobileMenuButton && mobileMenuDropdown) {
+                mobileMenuButton.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    // Toggle the mobile menu
+                    if (mobileMenuDropdown.classList.contains('hidden')) {
+                        mobileMenuDropdown.classList.remove('hidden');
+                        mobileMenuDropdown.classList.add('flex', 'flex-col');
+                    } else {
+                        mobileMenuDropdown.classList.add('hidden');
+                        mobileMenuDropdown.classList.remove('flex', 'flex-col');
+                    }
+                });
+
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function (event) {
+                    if (!mobileMenuButton.contains(event.target) && !mobileMenuDropdown.contains(event.target)) {
+                        mobileMenuDropdown.classList.add('hidden');
+                        mobileMenuDropdown.classList.remove('flex', 'flex-col');
+                    }
+                });
+
+                // Close mobile menu when clicking on a menu item
+                const menuItems = mobileMenuDropdown.querySelectorAll('a');
+                menuItems.forEach(item => {
+                    item.addEventListener('click', function () {
+                        mobileMenuDropdown.classList.add('hidden');
+                        mobileMenuDropdown.classList.remove('flex', 'flex-col');
+                    });
+                });
+            }
+        });
+    </script>
 
     <!-- Hero Section -->
     <section class="relative flex items-start justify-start overflow-hidden pb-40">
@@ -219,7 +258,7 @@
 
                 <!-- Main Meat Image -->
                 <div class="relative z-30 mt-8 md:mt-16 ml-4 md:ml-8">
-                   
+
                     <!-- Red Sidebar behind image -->
                     <div
                         class="absolute -left-2 md:-left-4 bottom-4 md:bottom-8 bg-[#B6282D] w-4 md:w-8 h-32 md:h-64 rounded-l-xl z-20">
@@ -694,6 +733,9 @@
                 <div class="grid-container min-h-[100vh]  2xl:min-h-[40vh]">
                     <!-- Main Title - HALAL -->
                     <div class="section main-title">
+                        <img src="./assets/images/lamp-ribs.png" class="bg-slide active">
+                        <img src="./assets/images/lamp-ribs2.jpg" class="bg-slide">
+                        <img src="./assets/images/lamp-ribs3.jpg" class="bg-slide">
                         <div class="section-content text-center">
                             <h1 class="text-5xl lg:text-[96px] font-semibold text-white/80 leading-none"
                                 style="letter-spacing: 1.23em">
@@ -719,7 +761,11 @@
                     </div>
 
                     <!-- Raw meat on cutting board with tomatoes -->
-                    <div class="section meat-board"></div>
+                    <div class="meat-board">
+                        <img src="./assets/images/high-angle-meat.jpg" class="slide active">
+                        <img src="./assets/images/meat-board2.jpg" class="slide">
+                        <img src="./assets/images/meat-board3.jpg" class="slide">
+                    </div>
 
                     <!-- Quote Section -->
                     <div class="section quote-section">
@@ -782,6 +828,9 @@
             <div class="lg:hidden mobile-grid">
                 <!-- Main Title -->
                 <div class="mobile-section mobile-main-title">
+                    <img src="./assets/images/lamp-ribs.png" class="mobile-bg-slide active">
+                    <img src="./assets/images/lamp-ribs2.jpg" class="mobile-bg-slide">
+                    <img src="./assets/images/lamp-ribs3.jpg" class="mobile-bg-slide">
                     <div class="mobile-content">
                         <h1 class="text-3xl md:text-4xl font-semibold text-white/90 leading-none"
                             style="letter-spacing: 0.3em">
@@ -802,8 +851,12 @@
 
                 <!-- Raw meat on cutting board -->
                 <div class="mobile-section mobile-meat-board">
+                    <img src="./assets/images/high-angle-meat.jpg" class="mobile-slide active">
+                    <img src="./assets/images/meat-board2.jpg" class="mobile-slide">
+                    <img src="./assets/images/meat-board3.jpg" class="mobile-slide">
                     <div class="mobile-content"></div>
                 </div>
+
 
                 <!-- Quote Section -->
                 <div class="mobile-section mobile-quote-section">
@@ -1149,7 +1202,7 @@
                     </svg>
                 </div>
 
-                <div class="absolute top-[10%] left-0 right-0 p-8 md:p-20 space-y-8 max-w-4xl">
+                <div class="absolute top-[10%] left-0 right-0 p-8 md:p-20 space-y-8  max-w-4xl">
                     <h2 class="text-white text-xl font-normal font-poppins">MODERN HALAL MEATS</h2>
                     <p class="text-white text-lg md:text-3xl lg:text-5xl font-livvic">Providing Fresh & Premium <br />
                         Halal Meat</p>
@@ -1209,10 +1262,9 @@
         <section class="relative">
             <!-- Hero Background with Meat -->
             <div class="relative h-[535px] bg-no-repeat bg-cover"
-                
                 style="background-image: url('./assets/images/healty-meat.jpg'); object-fit: cover;  background-position: bottom left;">
                 <!-- Dark Overlay -->
-                 <!-- <img src="./assets/images/healty-meat.jpg" class="bg-no-repeat bg-cover w-full"/> -->
+                <!-- <img src="./assets/images/healty-meat.jpg" class="bg-no-repeat bg-cover w-full"/> -->
                 <div class="absolute inset-0 bg-[#0000005C]"></div>
 
                 <!-- Hero Content -->
@@ -1409,8 +1461,904 @@
                 </div>
             </div>
         </section>
+
+        <!-- Hero Banner Section with Video -->
+        <section class="relative h-[600px] bg-cover bg-center bg-no-repeat"
+            style="background-image: url('./assets/images/video-bg.jpg');">
+            <!-- Dark overlay -->
+            <div class="absolute inset-0 bg-linear-to-r from-[#263C28] via-[#00000000] to-[#263C2838]"></div>
+
+            <!-- Content -->
+            <div class="relative  h-full flex items-center">
+                <div class="container mx-auto px-20 z-10">
+                    <div class="max-w-xl">
+                        <h1 class="text-white text-4xl md:text-5xl font-bold mb-6 leading-tight font-livvic">
+                            Premium Halal Meat You Can Trust
+                        </h1>
+                    </div>
+                </div>
+
+                <!-- Background Video -->
+                <video id="backgroundVideo" class="absolute inset-0 w-full h-full object-cover z-0 hidden" muted loop>
+                    <source src="./assets/images/video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+                <!-- Video Play Button -->
+                <div class="absolute right-8 md:right-16 top-2/3 md:top-1/2 transform -translate-y-1/2 z-10">
+                    <button id="videoPlayBtn" class="group">
+                        <div
+                            class="w-20 h-20 bg-white border border-white p-3  rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-110">
+                            <svg id="playIcon" class="w-8 h-8 text-black ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                            <svg id="pauseIcon" class="w-8 h-8 text-black hidden" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
+                            </svg>
+                        </div>
+                        <p id="videoText" class="text-[#D72638] text-xl font-normal italic mt-3 text-center">Watch the
+                            video</p>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Showcase Section -->
+        <section class="py-16 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <!-- Section Header -->
+                <div class="flex flex-col md:flex-row gap-4 items-center justify-between mb-12">
+                    <div class="flex-1">
+                        <h2 class="text-3xl md:text-4xl font-semibold text-black text-center">Make The Switch To Halal
+                        </h2>
+                    </div>
+                    <!-- Navigation Arrows -->
+                    <div class="flex gap-3">
+                        <button id="prevBtn"
+                            class="w-12 h-12 bg-[#E0E0E0] rounded-full flex items-center justify-center hover:bg-gray-400 transition-colors">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M15 4L17 6L11 12L17 18L15 20L7 12L15 4Z" fill="black" />
+                            </svg>
+                        </button>
+                        <button id="nextBtn"
+                            class="w-12 h-12 bg-[#D72638] rounded-full flex items-center justify-center hover:bg-red-700 transition-colors">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M9.005 4L17.005 12L9.005 20L7 18L13.005 12L7 6L9.005 4Z" fill="white" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Cards -->
+                <div class="overflow-hidden">
+                    <div id="productSwiper" class="flex transition-transform duration-300 ease-in-out gap-6 px-6">
+                        <!-- Product Card 1 -->
+                        <div
+                            class="border border-[#DBDDE3] bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow p-3 flex-shrink-0 w-[280px]">
+                            <div class="relative font-livvic">
+                                <img src="./assets/images/product1.jpg" alt="Premium Beef Breast Boneless"
+                                    class="w-full object-cover rounded-lg h-[160px]">
+                                <div
+                                    class="absolute top-2 left-2 bg-black text-white text-xs font-medium px-2 py-1 rounded">
+                                    New
+                                </div>
+                                <div
+                                    class="absolute top-2 right-2 bg-[#B30310] text-white text-xs font-medium px-2 py-1 rounded">
+                                    17% OFF
+                                </div>
+                            </div>
+                            <div class="font-poppins space-y-4">
+                                <h3 class="font-medium text-base mt-2 max-w-[178px]">Premium Beef Breast Boneless</h3>
+                                <div class="flex items-center">
+                                    <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M7.04894 0.92705C7.3483 0.00573921 8.6517 0.00573969 8.95106 0.92705L10.0206 4.21885C10.1545 4.63087 10.5385 4.90983 10.9717 4.90983H14.4329C15.4016 4.90983 15.8044 6.14945 15.0207 6.71885L12.2205 8.75329C11.87 9.00793 11.7234 9.4593 11.8572 9.87132L12.9268 13.1631C13.2261 14.0844 12.1717 14.8506 11.388 14.2812L8.58778 12.2467C8.2373 11.9921 7.7627 11.9921 7.41221 12.2467L4.61204 14.2812C3.82833 14.8506 2.77385 14.0844 3.0732 13.1631L4.14277 9.87132C4.27665 9.4593 4.12999 9.00793 3.7795 8.75329L0.979333 6.71885C0.195619 6.14945 0.598395 4.90983 1.56712 4.90983H5.02832C5.46154 4.90983 5.8455 4.63087 5.97937 4.21885L7.04894 0.92705Z"
+                                            fill="#F1C74E" />
+                                    </svg>
+                                    <div class="flex gap-2 mx-2">
+                                        <span class="text-sm text-black">4.5 </span>
+                                        <span class="text-sm text-[#676565]">(125 reviews)</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2">
+                                        <span class="font-bold text-sm">$299</span>
+                                        <span class="text-sm font-normal text-[#717171] line-through">$350</span>
+                                    </div>
+                                    <span class="text-sm font-normal text-[#717171]">500g</span>
+                                </div>
+                                <button
+                                    class="mt-8 w-full bg-[#D72638] text-white font-medium text-sm py-2 px-4 rounded hover:bg-red-700 transition-colors">
+                                    Build a Box
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 2 -->
+                        <div
+                            class="border border-[#DBDDE3] bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow p-3 flex-shrink-0 w-[280px]">
+                            <div class="relative font-livvic">
+                                <img src="./assets/images/product2.jpg" alt="Premium Beef Breast Boneless"
+                                    class="w-full object-cover rounded-lg h-[160px]">
+                                <div
+                                    class="absolute top-2 left-2 bg-black text-white text-xs font-medium px-2 py-1 rounded">
+                                    New
+                                </div>
+                                <div
+                                    class="absolute top-2 right-2 bg-[#B30310] text-white text-xs font-medium px-2 py-1 rounded">
+                                    17% OFF
+                                </div>
+                            </div>
+                            <div class="font-poppins space-y-4">
+                                <h3 class="font-medium text-base mt-2 max-w-[178px]">Premium Beef Breast Boneless</h3>
+                                <div class="flex items-center">
+                                    <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M7.04894 0.92705C7.3483 0.00573921 8.6517 0.00573969 8.95106 0.92705L10.0206 4.21885C10.1545 4.63087 10.5385 4.90983 10.9717 4.90983H14.4329C15.4016 4.90983 15.8044 6.14945 15.0207 6.71885L12.2205 8.75329C11.87 9.00793 11.7234 9.4593 11.8572 9.87132L12.9268 13.1631C13.2261 14.0844 12.1717 14.8506 11.388 14.2812L8.58778 12.2467C8.2373 11.9921 7.7627 11.9921 7.41221 12.2467L4.61204 14.2812C3.82833 14.8506 2.77385 14.0844 3.0732 13.1631L4.14277 9.87132C4.27665 9.4593 4.12999 9.00793 3.7795 8.75329L0.979333 6.71885C0.195619 6.14945 0.598395 4.90983 1.56712 4.90983H5.02832C5.46154 4.90983 5.8455 4.63087 5.97937 4.21885L7.04894 0.92705Z"
+                                            fill="#F1C74E" />
+                                    </svg>
+                                    <div class="flex gap-2 mx-2">
+                                        <span class="text-sm text-black">4.5 </span>
+                                        <span class="text-sm text-[#676565]">(125 reviews)</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2">
+                                        <span class="font-bold text-sm">$299</span>
+                                        <span class="text-sm font-normal text-[#717171] line-through">$350</span>
+                                    </div>
+                                    <span class="text-sm font-normal text-[#717171]">500g</span>
+                                </div>
+                                <button
+                                    class="mt-8 w-full bg-[#D72638] text-white font-medium text-sm py-2 px-4 rounded hover:bg-red-700 transition-colors">
+                                    Build a Box
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 3 -->
+                        <div
+                            class="border border-[#DBDDE3] bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow p-3 flex-shrink-0 w-[280px]">
+                            <div class="relative font-livvic">
+                                <img src="./assets/images/product3.jpg" alt="Premium Beef Breast Boneless"
+                                    class="w-full object-cover rounded-lg h-[160px]">
+                                <div
+                                    class="absolute top-2 left-2 bg-black text-white text-xs font-medium px-2 py-1 rounded">
+                                    New
+                                </div>
+                                <div
+                                    class="absolute top-2 right-2 bg-[#B30310] text-white text-xs font-medium px-2 py-1 rounded">
+                                    17% OFF
+                                </div>
+                            </div>
+                            <div class="font-poppins space-y-4">
+                                <h3 class="font-medium text-base mt-2 max-w-[178px]">Premium Beef Breast Boneless</h3>
+                                <div class="flex items-center">
+                                    <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M7.04894 0.92705C7.3483 0.00573921 8.6517 0.00573969 8.95106 0.92705L10.0206 4.21885C10.1545 4.63087 10.5385 4.90983 10.9717 4.90983H14.4329C15.4016 4.90983 15.8044 6.14945 15.0207 6.71885L12.2205 8.75329C11.87 9.00793 11.7234 9.4593 11.8572 9.87132L12.9268 13.1631C13.2261 14.0844 12.1717 14.8506 11.388 14.2812L8.58778 12.2467C8.2373 11.9921 7.7627 11.9921 7.41221 12.2467L4.61204 14.2812C3.82833 14.8506 2.77385 14.0844 3.0732 13.1631L4.14277 9.87132C4.27665 9.4593 4.12999 9.00793 3.7795 8.75329L0.979333 6.71885C0.195619 6.14945 0.598395 4.90983 1.56712 4.90983H5.02832C5.46154 4.90983 5.8455 4.63087 5.97937 4.21885L7.04894 0.92705Z"
+                                            fill="#F1C74E" />
+                                    </svg>
+                                    <div class="flex gap-2 mx-2">
+                                        <span class="text-sm text-black">4.5 </span>
+                                        <span class="text-sm text-[#676565]">(125 reviews)</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2">
+                                        <span class="font-bold text-sm">$299</span>
+                                        <span class="text-sm font-normal text-[#717171] line-through">$350</span>
+                                    </div>
+                                    <span class="text-sm font-normal text-[#717171]">500g</span>
+                                </div>
+                                <button
+                                    class="mt-8 w-full bg-[#D72638] text-white font-medium text-sm py-2 px-4 rounded hover:bg-red-700 transition-colors">
+                                    Build a Box
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 4 -->
+                        <div
+                            class="border border-[#DBDDE3] bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow p-3 flex-shrink-0 w-[280px]">
+                            <div class="relative font-livvic">
+                                <img src="./assets/images/vibrant-studio-image.jpg" alt="Premium Beef Breast Boneless"
+                                    class="w-full object-cover rounded-lg h-[160px]">
+                                <div
+                                    class="absolute top-2 left-2 bg-black text-white text-xs font-medium px-2 py-1 rounded">
+                                    New
+                                </div>
+                                <div
+                                    class="absolute top-2 right-2 bg-[#B30310] text-white text-xs font-medium px-2 py-1 rounded">
+                                    17% OFF
+                                </div>
+                            </div>
+                            <div class="font-poppins space-y-4">
+                                <h3 class="font-medium text-base mt-2 max-w-[178px]">Premium Beef Breast Boneless</h3>
+                                <div class="flex items-center">
+                                    <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M7.04894 0.92705C7.3483 0.00573921 8.6517 0.00573969 8.95106 0.92705L10.0206 4.21885C10.1545 4.63087 10.5385 4.90983 10.9717 4.90983H14.4329C15.4016 4.90983 15.8044 6.14945 15.0207 6.71885L12.2205 8.75329C11.87 9.00793 11.7234 9.4593 11.8572 9.87132L12.9268 13.1631C13.2261 14.0844 12.1717 14.8506 11.388 14.2812L8.58778 12.2467C8.2373 11.9921 7.7627 11.9921 7.41221 12.2467L4.61204 14.2812C3.82833 14.8506 2.77385 14.0844 3.0732 13.1631L4.14277 9.87132C4.27665 9.4593 4.12999 9.00793 3.7795 8.75329L0.979333 6.71885C0.195619 6.14945 0.598395 4.90983 1.56712 4.90983H5.02832C5.46154 4.90983 5.8455 4.63087 5.97937 4.21885L7.04894 0.92705Z"
+                                            fill="#F1C74E" />
+                                    </svg>
+                                    <div class="flex gap-2 mx-2">
+                                        <span class="text-sm text-black">4.5 </span>
+                                        <span class="text-sm text-[#676565]">(125 reviews)</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2">
+                                        <span class="font-bold text-sm">$299</span>
+                                        <span class="text-sm font-normal text-[#717171] line-through">$350</span>
+                                    </div>
+                                    <span class="text-sm font-normal text-[#717171]">500g</span>
+                                </div>
+                                <button
+                                    class="mt-8 w-full bg-[#D72638] text-white font-medium text-sm py-2 px-4 rounded hover:bg-red-700 transition-colors">
+                                    Build a Box
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 5 -->
+                        <div
+                            class="border border-[#DBDDE3] bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow p-3 flex-shrink-0 w-[280px]">
+                            <div class="relative font-livvic">
+                                <img src="./assets/images/product5.jpg" alt="Premium Beef Breast Boneless"
+                                    class="w-full object-cover rounded-lg h-[160px]">
+                                <div
+                                    class="absolute top-2 left-2 bg-black text-white text-xs font-medium px-2 py-1 rounded">
+                                    New
+                                </div>
+                                <div
+                                    class="absolute top-2 right-2 bg-[#B30310] text-white text-xs font-medium px-2 py-1 rounded">
+                                    17% OFF
+                                </div>
+                            </div>
+                            <div class="font-poppins space-y-4">
+                                <h3 class="font-medium text-base mt-2 max-w-[178px]">Premium Beef Breast Boneless</h3>
+                                <div class="flex items-center">
+                                    <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M7.04894 0.92705C7.3483 0.00573921 8.6517 0.00573969 8.95106 0.92705L10.0206 4.21885C10.1545 4.63087 10.5385 4.90983 10.9717 4.90983H14.4329C15.4016 4.90983 15.8044 6.14945 15.0207 6.71885L12.2205 8.75329C11.87 9.00793 11.7234 9.4593 11.8572 9.87132L12.9268 13.1631C13.2261 14.0844 12.1717 14.8506 11.388 14.2812L8.58778 12.2467C8.2373 11.9921 7.7627 11.9921 7.41221 12.2467L4.61204 14.2812C3.82833 14.8506 2.77385 14.0844 3.0732 13.1631L4.14277 9.87132C4.27665 9.4593 4.12999 9.00793 3.7795 8.75329L0.979333 6.71885C0.195619 6.14945 0.598395 4.90983 1.56712 4.90983H5.02832C5.46154 4.90983 5.8455 4.63087 5.97937 4.21885L7.04894 0.92705Z"
+                                            fill="#F1C74E" />
+                                    </svg>
+                                    <div class="flex gap-2 mx-2">
+                                        <span class="text-sm text-black">4.5 </span>
+                                        <span class="text-sm text-[#676565]">(125 reviews)</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2">
+                                        <span class="font-bold text-sm">$299</span>
+                                        <span class="text-sm font-normal text-[#717171] line-through">$350</span>
+                                    </div>
+                                    <span class="text-sm font-normal text-[#717171]">500g</span>
+                                </div>
+                                <button
+                                    class="mt-8 w-full bg-[#D72638] text-white font-medium text-sm py-2 px-4 rounded hover:bg-red-700 transition-colors">
+                                    Build a Box
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 6 -->
+                        <div
+                            class="border border-[#DBDDE3] bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow p-3 flex-shrink-0 w-[280px]">
+                            <div class="relative font-livvic">
+                                <img src="./assets/images/product1.jpg" alt="Premium Beef Breast Boneless"
+                                    class="w-full object-cover rounded-lg h-[160px]">
+                                <div
+                                    class="absolute top-2 left-2 bg-black text-white text-xs font-medium px-2 py-1 rounded">
+                                    New
+                                </div>
+                                <div
+                                    class="absolute top-2 right-2 bg-[#B30310] text-white text-xs font-medium px-2 py-1 rounded">
+                                    17% OFF
+                                </div>
+                            </div>
+                            <div class="font-poppins space-y-4">
+                                <h3 class="font-medium text-base mt-2 max-w-[178px]">Premium Beef Breast Boneless</h3>
+                                <div class="flex items-center">
+                                    <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M7.04894 0.92705C7.3483 0.00573921 8.6517 0.00573969 8.95106 0.92705L10.0206 4.21885C10.1545 4.63087 10.5385 4.90983 10.9717 4.90983H14.4329C15.4016 4.90983 15.8044 6.14945 15.0207 6.71885L12.2205 8.75329C11.87 9.00793 11.7234 9.4593 11.8572 9.87132L12.9268 13.1631C13.2261 14.0844 12.1717 14.8506 11.388 14.2812L8.58778 12.2467C8.2373 11.9921 7.7627 11.9921 7.41221 12.2467L4.61204 14.2812C3.82833 14.8506 2.77385 14.0844 3.0732 13.1631L4.14277 9.87132C4.27665 9.4593 4.12999 9.00793 3.7795 8.75329L0.979333 6.71885C0.195619 6.14945 0.598395 4.90983 1.56712 4.90983H5.02832C5.46154 4.90983 5.8455 4.63087 5.97937 4.21885L7.04894 0.92705Z"
+                                            fill="#F1C74E" />
+                                    </svg>
+                                    <div class="flex gap-2 mx-2">
+                                        <span class="text-sm text-black">4.5 </span>
+                                        <span class="text-sm text-[#676565]">(125 reviews)</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2">
+                                        <span class="font-bold text-sm">$299</span>
+                                        <span class="text-sm font-normal text-[#717171] line-through">$350</span>
+                                    </div>
+                                    <span class="text-sm font-normal text-[#717171]">500g</span>
+                                </div>
+                                <button
+                                    class="mt-8 w-full bg-[#D72638] text-white font-medium text-sm py-2 px-4 rounded hover:bg-red-700 transition-colors">
+                                    Build a Box
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 7 -->
+                        <div
+                            class="border border-[#DBDDE3] bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow p-3 flex-shrink-0 w-[280px]">
+                            <div class="relative font-livvic">
+                                <img src="./assets/images/product3.jpg" alt="Premium Beef Breast Boneless"
+                                    class="w-full object-cover rounded-lg h-[160px]">
+                                <div
+                                    class="absolute top-2 left-2 bg-black text-white text-xs font-medium px-2 py-1 rounded">
+                                    New
+                                </div>
+                                <div
+                                    class="absolute top-2 right-2 bg-[#B30310] text-white text-xs font-medium px-2 py-1 rounded">
+                                    17% OFF
+                                </div>
+                            </div>
+                            <div class="font-poppins space-y-4">
+                                <h3 class="font-medium text-base mt-2 max-w-[178px]">Premium Beef Breast Boneless</h3>
+                                <div class="flex items-center">
+                                    <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M7.04894 0.92705C7.3483 0.00573921 8.6517 0.00573969 8.95106 0.92705L10.0206 4.21885C10.1545 4.63087 10.5385 4.90983 10.9717 4.90983H14.4329C15.4016 4.90983 15.8044 6.14945 15.0207 6.71885L12.2205 8.75329C11.87 9.00793 11.7234 9.4593 11.8572 9.87132L12.9268 13.1631C13.2261 14.0844 12.1717 14.8506 11.388 14.2812L8.58778 12.2467C8.2373 11.9921 7.7627 11.9921 7.41221 12.2467L4.61204 14.2812C3.82833 14.8506 2.77385 14.0844 3.0732 13.1631L4.14277 9.87132C4.27665 9.4593 4.12999 9.00793 3.7795 8.75329L0.979333 6.71885C0.195619 6.14945 0.598395 4.90983 1.56712 4.90983H5.02832C5.46154 4.90983 5.8455 4.63087 5.97937 4.21885L7.04894 0.92705Z"
+                                            fill="#F1C74E" />
+                                    </svg>
+                                    <div class="flex gap-2 mx-2">
+                                        <span class="text-sm text-black">4.5 </span>
+                                        <span class="text-sm text-[#676565]">(125 reviews)</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2">
+                                        <span class="font-bold text-sm">$299</span>
+                                        <span class="text-sm font-normal text-[#717171] line-through">$350</span>
+                                    </div>
+                                    <span class="text-sm font-normal text-[#717171]">500g</span>
+                                </div>
+                                <button
+                                    class="mt-8 w-full bg-[#D72638] text-white font-medium text-sm py-2 px-4 rounded hover:bg-red-700 transition-colors">
+                                    Build a Box
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Product Card 8 -->
+                        <div
+                            class="border border-[#DBDDE3] bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow p-3 flex-shrink-0 w-[280px]">
+                            <div class="relative font-livvic">
+                                <img src="./assets/images/product5.jpg" alt="Premium Beef Breast Boneless"
+                                    class="w-full object-cover rounded-lg h-[160px]">
+                                <div
+                                    class="absolute top-2 left-2 bg-black text-white text-xs font-medium px-2 py-1 rounded">
+                                    New
+                                </div>
+                                <div
+                                    class="absolute top-2 right-2 bg-[#B30310] text-white text-xs font-medium px-2 py-1 rounded">
+                                    17% OFF
+                                </div>
+                            </div>
+                            <div class="font-poppins space-y-4">
+                                <h3 class="font-medium text-base mt-2 max-w-[178px]">Premium Beef Breast Boneless</h3>
+                                <div class="flex items-center">
+                                    <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M7.04894 0.92705C7.3483 0.00573921 8.6517 0.00573969 8.95106 0.92705L10.0206 4.21885C10.1545 4.63087 10.5385 4.90983 10.9717 4.90983H14.4329C15.4016 4.90983 15.8044 6.14945 15.0207 6.71885L12.2205 8.75329C11.87 9.00793 11.7234 9.4593 11.8572 9.87132L12.9268 13.1631C13.2261 14.0844 12.1717 14.8506 11.388 14.2812L8.58778 12.2467C8.2373 11.9921 7.7627 11.9921 7.41221 12.2467L4.61204 14.2812C3.82833 14.8506 2.77385 14.0844 3.0732 13.1631L4.14277 9.87132C4.27665 9.4593 4.12999 9.00793 3.7795 8.75329L0.979333 6.71885C0.195619 6.14945 0.598395 4.90983 1.56712 4.90983H5.02832C5.46154 4.90983 5.8455 4.63087 5.97937 4.21885L7.04894 0.92705Z"
+                                            fill="#F1C74E" />
+                                    </svg>
+                                    <div class="flex gap-2 mx-2">
+                                        <span class="text-sm text-black">4.5 </span>
+                                        <span class="text-sm text-[#676565]">(125 reviews)</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2">
+                                        <span class="font-bold text-sm">$299</span>
+                                        <span class="text-sm font-normal text-[#717171] line-through">$350</span>
+                                    </div>
+                                    <span class="text-sm font-normal text-[#717171]">500g</span>
+                                </div>
+                                <button
+                                    class="mt-8 w-full bg-[#D72638] text-white font-medium text-sm py-2 px-4 rounded hover:bg-red-700 transition-colors">
+                                    Build a Box
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="relative overflow-hidden bg-[#F0F0F0]">
+            <!-- Background -->
+            <img src="assets/images/image-removebg-preview.png" alt="background overlay"
+                class="absolute inset-0 w-full object-cover h-[500px]" />
+            <div class="absolute inset-0 bg-[#D72638] mix-blend-overlay z-10 h-[500px]"></div>
+
+            <!-- Content -->
+            <div class="relative z-10">
+                <!-- Title -->
+                <div class="container mx-auto px-6 pt-20">
+                    <h2 class="text-4xl md:text-5xl font-semibold text-white text-center mb-16 font-livvic">
+                        How It Works
+                    </h2>
+                </div>
+
+                <!-- Process Cards -->
+                <div class="py-16">
+                    <div class="container mx-auto px-6 md:px-12">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8  mx-auto">
+                            <!-- Step 1 -->
+                            <div class="text-start">
+                                <div class="relative">
+                                    <img src="./assets/images/cow1.jpg" alt="Healthy Animals"
+                                        class="w-full h-[365px] object-cover rounded-t-lg shadow-lg">
+                                    <div
+                                        class="absolute bottom-0 right-0 w-10 h-10 bg-[#D72638] rounded-tl-xl flex items-center justify-center">
+                                        <span class="text-black font-medium text-sm">1</span>
+                                    </div>
+                                </div>
+                                <div class="bg-black text-white p-6 rounded-b-lg font-livvic">
+                                    <p class="text-xl font-bold">Healthy, Well-Raised Animals for Trusted Halal Meat</p>
+                                </div>
+                            </div>
+
+                            <!-- Step 2 -->
+                            <div class="text-start">
+                                <div class="relative">
+                                    <img src="./assets/images/cow2.jpg" alt="Healthy Animals"
+                                        class="w-full h-[365px] object-cover rounded-t-lg shadow-lg">
+                                    <div
+                                        class="absolute bottom-0 right-0 w-10 h-10 bg-[#D72638] rounded-tl-xl flex items-center justify-center">
+                                        <span class="text-black font-medium text-sm">2</span>
+                                    </div>
+                                </div>
+                                <div class="bg-black text-white p-6 rounded-b-lg font-livvic">
+                                    <p class="text-xl font-bold">Freshly Hand-Slaughtered Halal Meat, Prepared with Care
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Step 3 -->
+                            <div class="text-start">
+                                <div class="relative">
+                                    <img src="./assets/images/cow3.jpg" alt="Healthy Animals"
+                                        class="w-full h-[365px] object-cover rounded-t-lg shadow-lg">
+                                    <div
+                                        class="absolute bottom-0 right-0 w-10 h-10 bg-[#D72638] rounded-tl-xl flex items-center justify-center">
+                                        <span class="text-black font-medium text-sm">3</span>
+                                    </div>
+                                </div>
+                                <div class="bg-black text-white p-6 rounded-b-lg font-livvic">
+                                    <p class="text-xl font-bold">Expertly Processed for Premium-Quality Halal Cuts</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Build A Box Button -->
+                        <div class="text-center mt-12">
+                            <button
+                                class="bg-[#D72638] text-white font-bold text-xl px-12 py-4 rounded-lg hover:bg-red-700 transition-colors font-livvic">
+                                Build A Box
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Newsletter Subscription Section -->
+        <section class="relative pt-56 h-[600px]">
+            <!-- Background Image -->
+            <div class="absolute inset-0">
+                <img src="./assets/images/raw-meat-table.png" alt="Meat Background" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-[#00000033]"></div>
+            </div>
+
+            <!-- Content -->
+            <div class="container mx-auto px-6 md:px-12 relative z-10">
+                <div class="max-w-2xl font-poppins">
+                    <!-- Newsletter Card -->
+                    <div class="bg-white rounded-[40px] shadow-xl px-4 md:px-8 py-16">
+                        <h3 class="text-xl font-semibold text-[#333333] mb-4">
+                            Subscribe to our newsletter
+                        </h3>
+                        <p class="text-[#666666] font-normal mb-6 text-xl">
+                            Be the first to know about exclusive offers
+                        </p>
+
+                        <!-- Email Form -->
+                        <div
+                            class="flex items-center w-full p-1 bg-white border border-[#CCCCCC] rounded-[40px] overflow-hidden">
+                            <input type="email" placeholder="Your email"
+                                class="flex-1 px-4 py-3 font-normal text-base focus:outline-none" />
+                            <button
+                                class="hidden md:block bg-[#D72638] text-white font-semibold text-xl px-6 py-3 rounded-[40px] hover:bg-red-700 transition-colors whitespace-nowrap">
+                                Subscribe
+                            </button>
+                        </div>
+                        <button
+                            class="block mt-2 w-full md:hidden bg-[#D72638] text-white font-semibold text-base px-4 py-2 rounded-[40px] hover:bg-red-700 transition-colors whitespace-nowrap">
+                            Subscribe
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <div class="py-12 md:py-16 px-4">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl md:text-[40px] font-bold text-center text-[#424242] mb-12 font-poppins">
+                    What People <span class="text-[#D72638]">Say?</span>
+                </h2>
+
+                <!-- Reviews Grid -->
+                <div class="grid md:grid-cols-2 gap-8 mb-8 font-inter">
+                    <!-- Review 1 -->
+                    <div
+                        class="rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow duration-300 border border-[#C6C6C6]">
+                        <div class="flex items-start mb-4">
+                            <img src="assets/images/andia.png" alt="Andia Jorida"
+                                class="w-12 h-12 rounded-full object-cover mr-4 flex-shrink-0">
+                            <div>
+                                <h3 class="font-medium text-black text-2xl font-inter">Andia Jorida</h3>
+                            </div>
+                        </div>
+                        <p class="text-black leading-relaxed text-sm md:text-base font-normal">
+                            My experience at your restaurant was truly excellent. The food was absolutely delicious -
+                            every dish
+                            was
+                            perfectly cooked and bursting with flavor. But what really impressed me was the service.
+                            Your staff
+                            was
+                            attentive, friendly which made me feel want to be there again.
+                        </p>
+                        <div class="flex items-center mt-4 text-sm text-gray-500">
+                            <div class="mr-2 flex items-center gap-2">
+                                <svg width="24" height="22" viewBox="0 0 24 22" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12 0L14.6942 8.2918H23.4127L16.3593 13.4164L19.0534 21.7082L12 16.5836L4.94658 21.7082L7.64074 13.4164L0.587322 8.2918H9.30583L12 0Z"
+                                        fill="#F1C74E" />
+                                </svg>
+                                <svg width="24" height="22" viewBox="0 0 24 22" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12 0L14.6942 8.2918H23.4127L16.3593 13.4164L19.0534 21.7082L12 16.5836L4.94658 21.7082L7.64074 13.4164L0.587322 8.2918H9.30583L12 0Z"
+                                        fill="#F1C74E" />
+                                </svg>
+                                <svg width="24" height="22" viewBox="0 0 24 22" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12 0L14.6942 8.2918H23.4127L16.3593 13.4164L19.0534 21.7082L12 16.5836L4.94658 21.7082L7.64074 13.4164L0.587322 8.2918H9.30583L12 0Z"
+                                        fill="#F1C74E" />
+                                </svg>
+                                <svg width="24" height="22" viewBox="0 0 24 22" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12 0L14.6942 8.2918H23.4127L16.3593 13.4164L19.0534 21.7082L12 16.5836L4.94658 21.7082L7.64074 13.4164L0.587322 8.2918H9.30583L12 0Z"
+                                        fill="#F1C74E" />
+                                </svg>
+                                <svg width="24" height="22" viewBox="0 0 24 22" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12 0L14.6942 8.2918H23.4127L16.3593 13.4164L19.0534 21.7082L12 16.5836L4.94658 21.7082L7.64074 13.4164L0.587322 8.2918H9.30583L12 0Z"
+                                        fill="#F1C74E" />
+                                </svg>
+                            </div>
+                            <span class="font-medium">5 stars</span>
+                        </div>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div
+                        class="rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow duration-300 border border-[#C6C6C6]">
+                        <div class="flex items-start mb-4">
+                            <img src="assets/images/william.png" alt="William Henry"
+                                class="w-12 h-12 rounded-full object-cover mr-4 flex-shrink-0">
+                            <div>
+                                <h3 class="font-medium text-black text-2xl font-inter">William Henry</h3>
+                                <div class="flex items-center mt-1" id="stars-2">
+                                    <!-- Stars will be generated by JS -->
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-[#000000] leading-relaxed text-sm md:text-base font-normal">
+                            Living in Canada, I hadn't ventured much into Asian cuisine until recently. But wow, what a
+                            delicious
+                            world I've been missing! Khmer food, in particular, has captured my heart, and Bok Lon Hong
+                            holds a
+                            special place in my memory as the dish that first made me say, "Asian food is so yummy!"
+                        </p>
+                        <div class="flex items-center mt-4 text-sm text-gray-500">
+                            <div class="mr-2 flex items-center gap-2">
+                                <svg width="24" height="22" viewBox="0 0 24 22" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12 0L14.6942 8.2918H23.4127L16.3593 13.4164L19.0534 21.7082L12 16.5836L4.94658 21.7082L7.64074 13.4164L0.587322 8.2918H9.30583L12 0Z"
+                                        fill="#F1C74E" />
+                                </svg>
+                                <svg width="24" height="22" viewBox="0 0 24 22" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12 0L14.6942 8.2918H23.4127L16.3593 13.4164L19.0534 21.7082L12 16.5836L4.94658 21.7082L7.64074 13.4164L0.587322 8.2918H9.30583L12 0Z"
+                                        fill="#F1C74E" />
+                                </svg>
+                                <svg width="24" height="22" viewBox="0 0 24 22" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12 0L14.6942 8.2918H23.4127L16.3593 13.4164L19.0534 21.7082L12 16.5836L4.94658 21.7082L7.64074 13.4164L0.587322 8.2918H9.30583L12 0Z"
+                                        fill="#F1C74E" />
+                                </svg>
+                                <svg width="24" height="22" viewBox="0 0 24 22" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12 0L14.6942 8.2918H23.4127L16.3593 13.4164L19.0534 21.7082L12 16.5836L4.94658 21.7082L7.64074 13.4164L0.587322 8.2918H9.30583L12 0Z"
+                                        fill="#F1C74E" />
+                                </svg>
+                            </div>
+                            <span class="font-medium">4 stars</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Us Section -->
+        <section class="relative overflow-hidden">
+            <div class="container mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <!-- Google Maps -->
+                    <div class="h-[500px] lg:h-[600px]">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.5466479523775!2d-0.11951919999999999!3d51.5031864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604b900d26973%3A0x4291f3172409ea92!2slastminute.com%20London%20Eye!5e0!3m2!1sen!2s!4v1757326007212!5m2!1sen!2s"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade" class="shadow-lg"></iframe>
+                    </div>
+
+                    <!-- Contact Form Section -->
+                    <div class="relative h-[500px] lg:h-[600px] bg-[#f8f7f0]">
+                        <img src="assets/images/bg-contact.jpg" alt="background" class="w-full h-full object-cover">
+                        <!-- <div class="absolute inset-0  bg-opacity-50 rounded-lg"></div> -->
+
+                        <!-- Form Content -->
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-full px-6 max-w-2xl">
+                                <!-- Section Header -->
+                                <div class="text-start mb-8">
+                                    <h2
+                                        class="text-xl md:text-2xl font-normal text-[#D72638] mb-4 font-covered-by-your-grace">
+                                        Contact us
+                                    </h2>
+                                    <h3 class="text-3xl md:text-4xl font-extrabold text-black font-poppins">
+                                        Write a Message
+                                    </h3>
+                                </div>
+
+                                <!-- Contact Form -->
+                                <form class="space-y-6">
+                                    <!-- Name and Email Row -->
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <input type="text" placeholder="Name"
+                                                class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent bg-white bg-opacity-95 backdrop-blur-sm border border-white border-opacity-30 shadow-lg">
+                                        </div>
+                                        <div>
+                                            <input type="email" placeholder="Email Address"
+                                                class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent bg-white bg-opacity-95 backdrop-blur-sm border border-white border-opacity-30 shadow-lg">
+                                        </div>
+                                    </div>
+
+                                    <!-- Message Textarea -->
+                                    <div>
+                                        <textarea placeholder="Write a Message" rows="4"
+                                            class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent bg-white bg-opacity-95 backdrop-blur-sm border border-white border-opacity-30 resize-none shadow-lg"></textarea>
+                                    </div>
+
+                                    <!-- Submit Button -->
+                                    <div>
+                                        <button type="submit"
+                                            class="bg-[#D72638] text-white font-semibold text-lg px-12 py-4 rounded-lg hover:bg-red-700 transition-colors font-poppins shadow-lg hover:shadow-xl">
+                                            Send a Message
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
+    <!-- Footer -->
+    <footer class="bg-linear-to-r from-[#D72638] to-[#58080E] text-white">
+        <!-- Main Footer Content -->
+        <div class="px-6 md:px-12 lg:px-20 mx-auto py-16 text-center md:text-start">
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-20">
+                <!-- Left Column - Halal Meat -->
+                <div class="col-span-1 lg:col-span-3">
+                    <a href="./index.html" class="cursor-pointer">
+                        <h1 class="font-extrabold text-lg lg:text-[32px] text-white font-sniglet">
+                            Halal Meat</span>
+                        </h1>
+                    </a>
+                    <p class="text-white font-normal text-base my-8 leading-relaxed font-century-gothic">
+                        Lorem ipsum dolor sit amet, adipiscing elit. In hac habitasse platea dictumst. Duis porta, quam
+                        ut finibus ultrices.
+                    </p>
+
+                    <div class="w-full bg-[#FFFFFF33] h-[1px]"></div>
+                    <!-- Social Media Icons -->
+                    <div class="flex space-x-4 mt-6 justify-center md:justify-start">
+                        <a href="#">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M14 13.5H16.5L17.5 9.5H14V7.5C14 6.47 14 5.5 16 5.5H17.5V2.14C17.174 2.097 15.943 2 14.643 2C11.928 2 10 3.657 10 6.7V9.5H7V13.5H10V22H14V13.5Z"
+                                    fill="white" />
+                            </svg>
+                        </a>
+                        <a href="#">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M22.46 6C21.69 6.35 20.86 6.58 20 6.69C20.88 6.16 21.56 5.32 21.88 4.31C21.05 4.81 20.13 5.16 19.16 5.36C18.37 4.5 17.26 4 16 4C13.65 4 11.73 5.92 11.73 8.29C11.73 8.63 11.77 8.96 11.84 9.27C8.28004 9.09 5.11004 7.38 3.00004 4.79C2.63004 5.42 2.42004 6.16 2.42004 6.94C2.42004 8.43 3.17004 9.75 4.33004 10.5C3.62004 10.5 2.96004 10.3 2.38004 10V10.03C2.38004 12.11 3.86004 13.85 5.82004 14.24C5.19077 14.4122 4.53013 14.4362 3.89004 14.31C4.16165 15.1625 4.69358 15.9084 5.41106 16.4429C6.12854 16.9775 6.99549 17.2737 7.89004 17.29C6.37367 18.4904 4.49404 19.1393 2.56004 19.13C2.22004 19.13 1.88004 19.11 1.54004 19.07C3.44004 20.29 5.70004 21 8.12004 21C16 21 20.33 14.46 20.33 8.79C20.33 8.6 20.33 8.42 20.32 8.23C21.16 7.63 21.88 6.87 22.46 6Z"
+                                    fill="white" />
+                            </svg>
+                        </a>
+                        <a href="#">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M10 15L15.19 12L10 9V15ZM21.56 7.17C21.69 7.64 21.78 8.27 21.84 9.07C21.91 9.87 21.94 10.56 21.94 11.16L22 12C22 14.19 21.84 15.8 21.56 16.83C21.31 17.73 20.73 18.31 19.83 18.56C19.36 18.69 18.5 18.78 17.18 18.84C15.88 18.91 14.69 18.94 13.59 18.94L12 19C7.81 19 5.2 18.84 4.17 18.56C3.27 18.31 2.69 17.73 2.44 16.83C2.31 16.36 2.22 15.73 2.16 14.93C2.09 14.13 2.06 13.44 2.06 12.84L2 12C2 9.81 2.16 8.2 2.44 7.17C2.69 6.27 3.27 5.69 4.17 5.44C4.64 5.31 5.5 5.22 6.82 5.16C8.12 5.09 9.31 5.06 10.41 5.06L12 5C16.19 5 18.8 5.16 19.83 5.44C20.73 5.69 21.31 6.27 21.56 7.17Z"
+                                    fill="white" />
+                            </svg>
+                        </a>
+                        <a href="#">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12 8.75C11.138 8.75 10.3114 9.09241 9.7019 9.7019C9.09241 10.3114 8.75 11.138 8.75 12C8.75 12.862 9.09241 13.6886 9.7019 14.2981C10.3114 14.9076 11.138 15.25 12 15.25C12.862 15.25 13.6886 14.9076 14.2981 14.2981C14.9076 13.6886 15.25 12.862 15.25 12C15.25 11.138 14.9076 10.3114 14.2981 9.7019C13.6886 9.09241 12.862 8.75 12 8.75Z"
+                                    fill="white" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M6.76982 3.08194C10.2458 2.69664 13.7538 2.69664 17.2298 3.08194C19.1288 3.29394 20.6598 4.78894 20.8828 6.69494C21.295 10.2196 21.295 13.7803 20.8828 17.3049C20.6598 19.2109 19.1288 20.7059 17.2308 20.9189C13.7545 21.3043 10.2462 21.3043 6.76982 20.9189C4.87082 20.7059 3.33982 19.2109 3.11682 17.3059C2.70455 13.781 2.70455 10.2199 3.11682 6.69494C3.33982 4.78894 4.87082 3.29394 6.76982 3.08194ZM16.9998 5.99994C16.7346 5.99994 16.4802 6.1053 16.2927 6.29284C16.1052 6.48037 15.9998 6.73473 15.9998 6.99994C15.9998 7.26516 16.1052 7.51951 16.2927 7.70705C16.4802 7.89459 16.7346 7.99994 16.9998 7.99994C17.265 7.99994 17.5194 7.89459 17.7069 7.70705C17.8945 7.51951 17.9998 7.26516 17.9998 6.99994C17.9998 6.73473 17.8945 6.48037 17.7069 6.29284C17.5194 6.1053 17.265 5.99994 16.9998 5.99994ZM7.24982 11.9999C7.24982 10.7402 7.75027 9.53198 8.64106 8.64119C9.53186 7.75039 10.74 7.24994 11.9998 7.24994C13.2596 7.24994 14.4678 7.75039 15.3586 8.64119C16.2494 9.53198 16.7498 10.7402 16.7498 11.9999C16.7498 13.2597 16.2494 14.4679 15.3586 15.3587C14.4678 16.2495 13.2596 16.7499 11.9998 16.7499C10.74 16.7499 9.53186 16.2495 8.64106 15.3587C7.75027 14.4679 7.24982 13.2597 7.24982 11.9999Z"
+                                    fill="white" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Middle Column - Useful Links -->
+                <div class="col-span-1">
+                    <h3 class="text-xl font-semibold mb-4 font-livvic">Useful Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#"
+                                class="text-white hover:text-white/60 font-normal text-sm font-century-gothic transition-colors">New
+                                Projects</a></li>
+                        <li><a href="#"
+                                class="text-white hover:text-white/60 font-normal text-sm font-century-gothic transition-colors">Our
+                                Services</a></li>
+                        <li><a href="#"
+                                class="text-white hover:text-white/60 font-normal text-sm font-century-gothic transition-colors">Testimonials</a>
+                        </li>
+                        <li><a href="#"
+                                class="text-white hover:text-white/60 font-normal text-sm font-century-gothic transition-colors">About
+                                Us</a></li>
+                        <li><a href="#"
+                                class="text-white hover:text-white/60 font-normal text-sm font-century-gothic transition-colors">Contact
+                                us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Right Column - Newsletter -->
+                <div class="col-span-1 lg:col-span-2">
+                    <h3 class="text-xl font-semibold mb-4 font-livvic">Newsletter</h3>
+                    <p class="text-white mb-6 font-century-gothic font-normal text-base">
+                        Subscribe to our weekly Newsletter and receive updates via email.
+                    </p>
+                    <!-- Newsletter Form -->
+                    <div
+                        class="flex items-center w-full max-w-md bg-white p-1 bg-opacity-20 rounded-[50px] overflow-hidden focus-within:ring-2 focus-within:ring-white focus-within:ring-opacity-50">
+                        <input type="email" placeholder="Enter your mail here..."
+                            class="flex-1 px-4 py-3 font-normal text-base font-century-gothic bg-transparent text-[#00000080] placeholder-[#00000080] focus:outline-none" />
+                        <button
+                            class="bg-[#FF9CA6] text-[#1A1A1A] font-medium text-base font-livvic p-3 rounded-[50px] hover:bg-opacity-70 transition-colors whitespace-nowrap">
+                            GO
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Footer Bar -->
+        <div class="border-t border-[#FFFFFF80] border-opacity-20">
+            <div class="container mx-auto px-6 py-6">
+                <div
+                    class="flex flex-col md:flex-row justify-center md:justify-between text-center md:text-start items-center space-y-4 md:space-y-0 text-base font-century-gothic font-normal">
+                    <div class="text-white hover:text-white/60 transition-colors">
+                        Copyright ©Smart Agro. All Right Reserved.
+                    </div>
+                    <div class="flex space-x-6 text-sm">
+                        <a href="#" class="text-white hover:text-white/60 transition-colors">Terms & Conditions</a>
+                        <a href="#" class="text-white hover:text-white/60 transition-colors">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function () {
+            // Meat board slides
+            const slides = document.querySelectorAll(".meat-board .slide");
+            let index = 0;
+
+            if (slides.length > 0) {
+                setInterval(() => {
+                    slides[index].classList.remove("active");
+                    index = (index + 1) % slides.length;
+                    slides[index].classList.add("active");
+                }, 3000);
+            }
+
+            // Mobile meat board slides
+            const mobileSlides = document.querySelectorAll(".mobile-meat-board .mobile-slide");
+            let mobileIndex = 0;
+
+            if (mobileSlides.length > 0) {
+                setInterval(() => {
+                    mobileSlides[mobileIndex].classList.remove("active");
+                    mobileIndex = (mobileIndex + 1) % mobileSlides.length;
+                    mobileSlides[mobileIndex].classList.add("active");
+                }, 3000);
+            }
+
+            // Main title background slides
+            const bgSlides = document.querySelectorAll(".main-title .bg-slide");
+            let bgIndex = 0;
+
+            if (bgSlides.length > 0) {
+                setInterval(() => {
+                    bgSlides[bgIndex].classList.remove("active");
+                    bgIndex = (bgIndex + 1) % bgSlides.length;
+                    bgSlides[bgIndex].classList.add("active");
+                }, 3000);
+            }
+
+            // Mobile main title background slides
+            const mobileBgSlides = document.querySelectorAll(".mobile-main-title .mobile-bg-slide");
+            let mobileBgIndex = 0;
+
+            if (mobileBgSlides.length > 0) {
+                setInterval(() => {
+                    mobileBgSlides[mobileBgIndex].classList.remove("active");
+                    mobileBgIndex = (mobileBgIndex + 1) % mobileBgSlides.length;
+                    mobileBgSlides[mobileBgIndex].classList.add("active");
+                }, 3000);
+            }
+        });
+    </script>
     <script>
         // Product slider functionality
         const productContainer = document.querySelector('.overflow-x-auto');
@@ -1486,7 +2434,69 @@
                 }
             });
         }
+        // Background Video Functionality
+        document.getElementById('videoPlayBtn').addEventListener('click', function () {
+            const backgroundVideo = document.getElementById('backgroundVideo');
+            const playIcon = document.getElementById('playIcon');
+            const pauseIcon = document.getElementById('pauseIcon');
+            const videoText = document.getElementById('videoText');
+            const heroSection = document.querySelector('section[style*="background-image"]');
+
+            if (backgroundVideo.paused) {
+                // Show and play video, hide background image
+                backgroundVideo.classList.remove('hidden');
+                heroSection.style.backgroundImage = 'none';
+                backgroundVideo.play().then(() => {
+                    playIcon.classList.add('hidden');
+                    pauseIcon.classList.remove('hidden');
+                    videoText.textContent = 'Pause video';
+                }).catch((error) => {
+                    console.log('Video play failed:', error);
+                });
+            } else {
+                // Pause video, show background image
+                backgroundVideo.pause();
+                backgroundVideo.classList.add('hidden');
+                heroSection.style.backgroundImage = "url('./assets/images/video-bg.jpg')";
+                playIcon.classList.remove('hidden');
+                pauseIcon.classList.add('hidden');
+                videoText.textContent = 'Watch the video';
+            }
+        });
+
+        // Product Carousel Functionality
+        let currentSlide = 0;
+        const productSwiper = document.getElementById('productSwiper');
+        const productCards = document.querySelectorAll('#productSwiper > div');
+        const totalSlides = productCards.length;
+        const cardsPerView = 5;
+        const maxSlide = Math.max(0, totalSlides - cardsPerView);
+
+        function updateCarousel() {
+            const translateX = -currentSlide * (280 + 40); // 280px card width + 24px gap
+            productSwiper.style.transform = `translateX(${translateX}px)`;
+        }
+
+        // Previous button
+        document.getElementById('prevBtn').addEventListener('click', function () {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateCarousel();
+            }
+        });
+
+        // Next button
+        document.getElementById('nextBtn').addEventListener('click', function () {
+            if (currentSlide < maxSlide) {
+                currentSlide++;
+                updateCarousel();
+            }
+        });
+
+        // Initialize carousel
+        updateCarousel();
     </script>
+
 </body>
 
-</html>#424242
+</html>
