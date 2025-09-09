@@ -5,6 +5,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
 @import "tailwindcss";
 
@@ -49,6 +50,9 @@
     .font-century-gothic {
         font-family: "Century Gothic", cursive;
     }
+  .font-playfair{
+    font-family: "Playfair Display", serif;
+  }
     .scrollbar-hide {
         -ms-overflow-style: none;
         scrollbar-width: none;
@@ -147,7 +151,19 @@
     .mobile-fresh-section {
       background-image: url("./assets/images/Vector.png");
       background-blend-mode: screen;
+      background-repeat: no-repeat;
+      background-position: center;
       min-height: 180px;
+      animation: pulseVector 4s infinite ease-in-out;
+    }
+
+    @keyframes pulseVector {
+      0%{
+        background-size: 80%; 
+      }
+      50% {
+        background-size: 100%; 
+      }
     }
 
     .mobile-fresh-section::before {
@@ -193,7 +209,9 @@
 
     .mobile-chef-section {
       background-image: url("./assets/images/chef.png");
-      min-height: 250px;
+     
+       min-height: 700px;
+        /* grid-column: 1 / -1; */
     }
 
     .mobile-chicken-section {
@@ -217,32 +235,77 @@
       background-size: cover;
       background-position: center;
     }
-
-  
-
-    
     .mobile-description-text {
-      /* background-image: url("./assets/images/background-green.jpg"); */
       background-color: #B30310;
       min-height: 180px;
     }
-
     .mobile-steaks-section {
-      background-image: url("./assets/images/meat.jpg");
       min-height: 200px;
+      position: relative;
+      overflow: hidden;
+    }
+    .mobile-steaks-section .mobile-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .mobile-steaks-section .mobile-slide.active {
+      opacity: 1;
+    }
+    .mobile-view-more-slide {
+      background-image: url("./assets/images/meat2.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
       background-position: center;
+      opacity: 0.7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(5px);
     }
 
+    .mobile-view-more-text {
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      font-family: 'playfair';
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      letter-spacing: 1px;
+    }
     .mobile-meat-cubes {
-        background-image: url("./assets/images/vibrant-studio-image.jpg");
-        min-height: 200px;
-        grid-column: 1 / -1;
+        min-height: 250px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .mobile-meat-cubes .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+    }
+
+    .mobile-meat-cubes .slide.active {
+        opacity: 1;
     }
 
     .mobile-vegetables-section {
         background-image: url("./assets/images/front-close.jpg");
-        min-height: 200px;
-        grid-column: 1 / -1;
+        min-height: 500px;
+        /* grid-column: 1 / -1; */
     }
 
     /* Mobile responsive text sizes */
@@ -314,6 +377,28 @@
     .mobile-section {
       min-height: 180px;
     }
+    .mobile-chef-section, .mobile-vegetables-section {
+      min-height: 400px;
+      transition: all 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+    }
+
+    /* Mobile vertical swap animation */
+    .mobile-chef-section.swapped {
+      transform: translateX(100%);
+      z-index: 1;
+    }
+
+    .mobile-vegetables-section.swapped {
+      transform: translateX(-100%);
+      z-index: 2;
+    }
+
+    /* Add shadow during animation */
+    .mobile-chef-section.swapped,
+    .mobile-vegetables-section.swapped {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
 
     .mobile-main-title {
       min-height: 120px;
@@ -367,19 +452,16 @@
       background-blend-mode: screen;
       background-repeat: no-repeat;
       background-position: center;
-
-        animation: pulseVector 4s infinite ease-in-out;
-
+      animation: pulseVector 4s infinite ease-in-out;
     }
-
     @keyframes pulseVector {
-  0%{
-    background-size: 80%; 
-  }
-  50% {
-    background-size: 100%; 
-  }
-}
+      0%{
+        background-size: 80%; 
+      }
+      50% {
+        background-size: 100%; 
+      }
+    }
     .fresh-section::before {
       content: '';
       position: absolute;
@@ -392,16 +474,6 @@
       opacity: 0.7;
       z-index: 1;
     }
-
-    /* Raw meat on cutting board */
-    /* .meat-board {
-      grid-column: 7 / 13;
-      grid-row: 4 / 10;
-      background-image: url("./assets/images/high-angle-meat.jpg");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    } */
 .meat-board {
   grid-column: 7 / 13;
   grid-row: 4 / 10;
@@ -451,7 +523,7 @@
 }
 
 /* Mobile background slides for main title */
-.mobile-main-title {
+/* .mobile-main-title {
   position: relative;
 }
 
@@ -465,111 +537,225 @@
   opacity: 0;
   transition: opacity 1s ease-in-out;
   z-index: 1;
-}
+} */
 
-.mobile-main-title .mobile-bg-slide.active {
+/* .mobile-main-title .mobile-bg-slide.active {
   opacity: 1;
 }
 
-.mobile-main-title .mobile-content {
-  position: relative;
-  z-index: 2;
+  .mobile-main-title .mobile-content {
+    position: relative;
+    z-index: 2;
+  } */
+  /* Quote section */
+  .quote-section {
+    grid-column: 13 / 18;
+    grid-row: 4 / 10;
+    background-color: #B30310;
+  }
+.quote-section::after {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: -40px;
+  border: 2px solid #FFFFFF;
+  z-index: 1000;
+  width: 400px;
+  height: 400px;
+  pointer-events: none;
+  overflow: visible;
 }
 
+.quote-section p::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 270px;
+  height: 256px;
+  border: 2px solid #FFFFFF;
+  padding: 40px;
+  animation: pulseQuote1 4s infinite ease-in-out;
 
-    /* Quote section */
-    .quote-section {
-      grid-column: 13 / 18;
-      grid-row: 4 / 10;
-      /* background-image: url("./assets/images/background-green.jpg"); */
-      background-color: #B30310;
-    }
+  transform-origin: top left; 
+}
+.section-content-border {
+  width: 267px;
+  height: 256px;
+  border: 2px solid #FFFFFF;
+  padding: 40px;
+  animation: pulseQuote2 4s infinite ease-in-out;
+  transform-origin: top left; 
+}
 
-    .quote-section::after {
-      content: "";
-      position: absolute;
-      top: -30px;
-      left: -40px;
-      border: 2px solid #FFFFFF;
-      z-index: 1000;
-      width: 400px;
-      height: 400px;
-      pointer-events: none;
-      overflow: visible;
-    }
+@keyframes pulseQuote1 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes pulseQuote2 {
+  0% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
 
-    .quote-section p::before {
-      content: "";
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      width: 267px;
-      height: 256px;
-      border: 2px solid #FFFFFF;
-      padding: 16px;
-    }
+  /* Chef working */
+  .chef-section {
+    grid-column: 18 / 25;
+    grid-row: 4 / 15;
+    background-image: url("./assets/images/chef.png");
+    background-size: cover;
+    transition: all 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* transform: translateY(0); */
+    z-index: 2;
+  }
+  /* Steaks on cutting board */
+  .chicken-section {
+    grid-column: 1 / 7;
+    grid-row: 10 / 21;
+    position: relative;
+    overflow: hidden;
+  }
+  .chicken-section .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  .chicken-section .slide.active {
+    opacity: 1;
+  }
+  .view-more-slide-chicken-section {
+    background-image: url("./assets/images/uncooked-chicken.jpg");
+    background-size: cover;
+    opacity: 0.7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 8px;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+  }
+  .view-more-text-chicken-section {
+    color: white;
+    font-size: 16px;
+    font-weight: normal;
+    font-family: 'livvic';
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    letter-spacing: 2px;
+  }
+  /*888888888888888888888888888888888888888888888888888 */
+  /* Discount section */
+  .discount-section {
+    grid-column: 7 / 11;
+    grid-row: 10 / 13;
+    position: relative;
+    background-color: #4E3032;
+    background-size: cover;
+    background-blend-mode: screen;
+    background-position: center;
+  }
+  .discount-section > * {
+    position: relative;
+    z-index: 2;
+  }
+  /* Description text */
+  .description-text {
+    grid-column: 11 / 18;
+    grid-row: 10 / 13;
+    background-color: #B30310;
+  }
+  /* Steaks on cutting board */
+  .steaks-section {
+    grid-column: 7 / 13;
+    grid-row: 13 / 21;
+    position: relative;
+    overflow: hidden;
+  }
+  .steaks-section .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  .steaks-section .slide.active {
+    opacity: 1;
+  }
 
-    /* Chef working */
-    .chef-section {
-      grid-column: 18 / 25;
-      grid-row: 4 / 15;
-      background-image: url("./assets/images/chef.png");
-      background-size: cover;
-    }
+.view-more-slide {
+  background-image: url("./assets/images/meat2.jpg");
+  background-size: cover;
+  opacity: 0.7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+}
 
-    /* Raw chicken */
-    .chicken-section {
-      grid-column: 1 / 7;
-      grid-row: 10 / 21;
-      background-image: url("./assets/images/uncooked-chicken.png");
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-
-    /*888888888888888888888888888888888888888888888888888 */
-    /* Discount section */
-    .discount-section {
-      grid-column: 7 / 11;
-      grid-row: 10 / 13;
-      position: relative;
-      /* background-image: url("./assets/images/background-green.jpg"); */
-       background-color: #4E3032;
-      background-size: cover;
-       background-blend-mode: screen;
-      background-position: center;
-    }
-
-    .discount-section > * {
-      position: relative;
-      z-index: 2;
-    }
-
-    /* Description text */
-    .description-text {
-      grid-column: 11 / 18;
-      grid-row: 10 / 13;
-      background-color: #B30310;
-      /* background-image: url("./assets/images/background-green.jpg"); */
-    }
-
-    /* Steaks on cutting board */
-    .steaks-section {
-      grid-column: 7 / 13;
-      grid-row: 13 / 21;
-      background-image: url("./assets/images/meat.jpg");
-      background-size: cover;
-       background-position: center;
-    }
-
+.view-more-text {
+  color: white;
+  font-size: 90px;
+  font-weight: bold;
+  font-family: 'playfair';
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  letter-spacing: 1px;
+}
     /* Meat cubes */
     .meat-cubes {
       grid-column: 13 / 18;
       grid-row: 13 / 21;
-      background-image: url("./assets/images/vibrant-studio-image.jpg");
+      /* background-image: url("./assets/images/vibrant-studio-image.jpg");
       background-repeat: no-repeat;
-      background-size: cover;
+      background-size: cover; */
+        position: relative;
+  overflow: hidden;
     }
-
+    .meat-cubes .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .meat-cubes .slide.active {
+      opacity: 1;
+    }
     /* Tomatoes and vegetables */
     .vegetables-section {
       grid-column: 18 / 25;
@@ -577,6 +763,25 @@
       background-image: url("./assets/images/front-close.jpg");
       background-repeat: no-repeat;
       background-size: cover;
+      transition: all 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      z-index: 1;
+    }
+
+    /* Animation states for position swapping with visual movement */
+    .chef-section.swapped {
+      grid-row: 15 / 21;
+      z-index: 1;
+    }
+
+    .vegetables-section.swapped {
+      grid-row: 4 / 15;
+      z-index: 2;
+    }
+
+    /* Add a subtle shadow during animation */
+    .chef-section.swapped,
+    .vegetables-section.swapped {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
 
     .section {
@@ -671,48 +876,44 @@
             transform: translateX(0);
         }
     }
-     .chef-image {
-            background-image: url('assets/images/chef-cooking.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            display: block;
-            position: relative;
-        }
-
-        .content-section {
-  position: relative; 
-}
-
-.content-section::before {
-  content: '';
-  position: absolute;
-  left: -40px;
-  width: 2px;
-  height: 100%;
-  background: #022700;
-}
-
-@media (max-width: 768px) {
+  .chef-image {
+    background-image: url('assets/images/chef-cooking.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    display: block;
+    position: relative;
+    }
+  .content-section {
+    position: relative; 
+  }
   .content-section::before {
-  content: '';
-  position: absolute;
-  left: -14px;
-  width: 2px;
-  height: 100%;
-  background: #022700;
-}
-}
+    content: '';
+    position: absolute;
+    left: -40px;
+    width: 2px;
+    height: 100%;
+    background: #022700;
+  }
+  @media (max-width: 768px) {
+    .content-section::before {
+      content: '';
+      position: absolute;
+      left: -14px;
+      width: 2px;
+      height: 100%;
+      background: #022700;
+    }
+  }
 
  .map-interactive-section {
-            position: relative;
-            z-index: 10;
-            /* height: 100vh; */
-            display: flex;
-            align-items: center;
-            justify-content: center;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
         }
 
         .full-page-map {
@@ -848,26 +1049,8 @@
         #mobile-menu-dropdown::-webkit-scrollbar-thumb:hover {
           background: rgba(255, 255, 255, 0.5);
         }
- /* 3xl breakpoint styles */
-
         }
-/* image-removebg-preview (4) 2 */
-
-/*        
-@media (max-width: 1600px) {
-  .hero-section{
-    height: 100vh;
-  }
-}
-  */
  @media (min-width: 1920px) {
-  /* .hero-section{
-    height: 70vh;
-  }
-  .high-quality-image {
-    width: 800px;
-    height: 700px;
-  } */
    .bg-pattern {
     width: 90%;
    }
@@ -880,3 +1063,32 @@
    }
 } 
           
+/* Mobile background slides for main title */
+.mobile-main-title {
+  position: relative;
+  min-height: 150px; 
+  grid-column: 1 / -1; 
+  overflow: hidden; 
+}
+
+.mobile-main-title .mobile-bg-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 1;
+}
+
+.mobile-main-title .mobile-bg-slide.active {
+  opacity: 1;
+}
+
+.mobile-main-title .mobile-content {
+  position: relative;
+  z-index: 2;
+  text-align: center; 
+}

@@ -21,7 +21,7 @@
                 </a>
 
                 <!-- Navigation -->
-                <nav id="mobile-menu" class="hidden xl:flex items-center space-x-8 font-medium text-base">
+                <nav id="mobile-menu" class="hidden xl:flex items-center space-x-4 2xl:space-x-8 font-medium text-base">
                     <a href="#" class="text-[#D72638] hover:text-white/80 transition-colors font-bold">Home</a>
                     <a href="#" class="text-black hover:text-white/80 transition-colors">build your box</a>
                     <a href="#" class="text-black hover:text-white/80 transition-colors">About</a>
@@ -32,7 +32,7 @@
                     <a href="#" class="text-black hover:text-white/80 transition-colors">Contact us</a>
                 </nav>
 
-                <div class="hidden xl:flex items-center justify-between gap-8">
+                <div class="hidden xl:flex items-center justify-between gap-4 2xl:gap-8">
                     <a href=".build-your-box.html">
                         <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -136,44 +136,7 @@
         </div>
     </header>
 
-    <script>
-        // Mobile Menu Toggle Functionality
-        document.addEventListener('DOMContentLoaded', function () {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenuDropdown = document.getElementById('mobile-menu-dropdown');
 
-            if (mobileMenuButton && mobileMenuDropdown) {
-                mobileMenuButton.addEventListener('click', function (e) {
-                    e.stopPropagation();
-                    // Toggle the mobile menu
-                    if (mobileMenuDropdown.classList.contains('hidden')) {
-                        mobileMenuDropdown.classList.remove('hidden');
-                        mobileMenuDropdown.classList.add('flex', 'flex-col');
-                    } else {
-                        mobileMenuDropdown.classList.add('hidden');
-                        mobileMenuDropdown.classList.remove('flex', 'flex-col');
-                    }
-                });
-
-                // Close mobile menu when clicking outside
-                document.addEventListener('click', function (event) {
-                    if (!mobileMenuButton.contains(event.target) && !mobileMenuDropdown.contains(event.target)) {
-                        mobileMenuDropdown.classList.add('hidden');
-                        mobileMenuDropdown.classList.remove('flex', 'flex-col');
-                    }
-                });
-
-                // Close mobile menu when clicking on a menu item
-                const menuItems = mobileMenuDropdown.querySelectorAll('a');
-                menuItems.forEach(item => {
-                    item.addEventListener('click', function () {
-                        mobileMenuDropdown.classList.add('hidden');
-                        mobileMenuDropdown.classList.remove('flex', 'flex-col');
-                    });
-                });
-            }
-        });
-    </script>
 
     <!-- Hero Section -->
     <section class="relative flex items-start justify-start overflow-hidden pb-40">
@@ -771,7 +734,7 @@
                     <div class="section quote-section">
                         <div class="section-content text-center justify-center">
                             <p
-                                class="text-white text-sm font-light font-poppins text-[24px] text-center items-center justify-center w-[267px] h-[256px] border-2 border-white p-4">
+                                class="text-white text-sm font-light font-poppins text-[24px] text-center items-center justify-center section-content-border">
                                 "Good days<br />
                                 begin with<br />
                                 faith, love, and<br />
@@ -785,7 +748,18 @@
                     <div class="section chef-section"></div>
 
                     <!-- Raw chicken pieces -->
-                    <div class="section chicken-section"></div>
+                    <div class="section chicken-section">
+                        <img src="./assets/images/uncooked-chicken.png" class="slide active">
+                        <div class="slide view-more-slide-chicken-section">
+                            <div>
+                                <span class="view-more-text-chicken-section">Halal meat is not only a matter of
+                                    tradition, but also a symbol of purity and quality. Carefully prepared and ethically
+                                    sourced, it ensures both health and peace of mind. Choosing halal means choosing
+                                    freshness, trust, and a mindful way of enjoying food. Every cut tells a story of
+                                    care, making each meal wholesome and satisfying.</span>
+                            </div>
+                        </div>
+                    </div>
 
                     <!-- Discount Section -->
                     <div class="section discount-section">
@@ -814,10 +788,19 @@
                     </div>
 
                     <!-- Steaks on cutting board -->
-                    <div class="section steaks-section"></div>
+                    <div class="section steaks-section">
+                        <img src="./assets/images/meat.jpg" class="slide active">
+                        <div class="slide view-more-slide">
+                            <span class="view-more-text">View More</span>
+                        </div>
+                    </div>
 
                     <!-- Meat cubes -->
-                    <div class="section meat-cubes"></div>
+                    <div class="section meat-cubes">
+                        <img src="./assets/images/vibrant-studio-image.jpg" class="slide active">
+                        <img src="./assets/images/meat-cubes2.jpg" class="slide">
+                        <img src="./assets/images/meat-cubes3.jpg" class="slide">
+                    </div>
 
                     <!-- Tomatoes and vegetables -->
                     <div class="section vegetables-section"></div>
@@ -844,7 +827,7 @@
                 <div class="mobile-section mobile-fresh-section">
                     <div class="mobile-content">
                         <p class="text-white text-lg md:text-2xl font-medium">Fresh,</p>
-                        <p class="text-[#F1C74E] text-lg md:text-2xl font-medium my-1">Halal</p>
+                        <p class="text-[#D72638] text-lg md:text-2xl font-medium my-1">Halal</p>
                         <p class="text-white text-lg md:text-2xl font-medium">Delicious</p>
                     </div>
                 </div>
@@ -868,11 +851,16 @@
                     </div>
                 </div>
 
-                <!-- Chef working section -->
-                <div class="mobile-section mobile-chef-section">
-                    <div class="mobile-content"></div>
-                </div>
 
+
+                <!-- Meat cubes -->
+                <div class="mobile-section mobile-meat-cubes">
+                    <img src="./assets/images/vibrant-studio-image.jpg" class="slide active">
+                    <img src="./assets/images/meat-cubes2.jpg" class="slide">
+                    <img src="./assets/images/meat-cubes3.jpg" class="slide">
+                    <div class="mobile-content">
+                    </div>
+                </div>
                 <!-- Discount Section -->
                 <div class="mobile-section mobile-discount-section">
                     <div class="mobile-content">
@@ -902,11 +890,14 @@
 
                 <!-- Steaks on cutting board -->
                 <div class="mobile-section mobile-steaks-section">
-                    <div class="mobile-content"></div>
+                    <img src="./assets/images/meat.jpg" class="mobile-slide active">
+                    <div class="mobile-slide mobile-view-more-slide">
+                        <span class="mobile-view-more-text">View More</span>
+                    </div>
                 </div>
 
-                <!-- Meat cubes -->
-                <div class="mobile-section mobile-meat-cubes">
+                <!-- Chef working section -->
+                <div class="mobile-section mobile-chef-section">
                     <div class="mobile-content"></div>
                 </div>
 
@@ -918,7 +909,7 @@
         </section>
 
         <!-- Services Section -->
-        <section class="bg-gray-50 py-16 px-8 md:px-12 my-12">
+        <section class="bg-gray-50 py-16 px-8 md:px-12 mt-12">
             <div class="max-w-7xl mx-auto">
                 <!-- Header -->
                 <div class="text-center mb-12">
@@ -1091,11 +1082,10 @@
                     <div class="map-gradient-overlay"></div>
                 </div>
 
-                <section class="py-16 lg:py-24 relative z-10  2xl:max-w-[1600px] mx-auto">
+                <section class="py-16 lg:py-24 relative z-10 2xl:max-w-[1600px] mx-auto">
                     <div class="py-16 lg:py-24">
                         <div class="mx-6 lg:mx-0 pl-0 lg:pl-24">
-                            <div class="grid lg:grid-cols-2 gap-12 items-center">
-
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                                 <!-- Left Content -->
                                 <div class="space-y-8 mx-auto lg:mx-0">
                                     <div class="space-y-6">
@@ -1127,25 +1117,24 @@
                                                 Meat, where every bite brings us closer together.
                                             </p>
 
-                                            <button>
+                                            <button class="mt-8 md:mt-4">
                                                 <a href="about.html"
-                                                    class="bg-[#D72638] text-white px-4 py-3 rounded-2xl font-normal uppercase tracking-wide text-xl shadow-lg mt-4">
+                                                    class="bg-[#D72638] text-white px-4 py-3 rounded-2xl font-normal uppercase tracking-wide text-base md:text-xl shadow-lg">
                                                     Read More
                                                 </a>
                                             </button>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="space-y-8">
-                                    <div class="chef-image h-80 lg:h-[650px] w-full"></div>
+                                <div class="space-y-8 mx-auto">
+                                    <div class="chef-image h-96 lg:h-[650px] w-full"></div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <section class="map-interactive-section">
+                <section class="map-interactive-section -left-[20%] md:-left-0">
                     <div class="relative">
                         <div class="relative w-full h-[500px] flex items-start justify-center pt-10">
                             <div class="relative location-pin w-[120px] h-[120px] z-10">
@@ -1177,16 +1166,18 @@
             </div>
         </section>
 
-        <section class="flex flex-col md:flex-row h-[700px]">
-            <div class="w-full md:w-2/5">
-                <img src="assets/images/chef-journy.jpg" alt="chef" class="h-full" />
+        
+
+        <section class="flex flex-col md:flex-row h-auto md:h-[700px]">
+            <div class="w-full md:w-2/5 h-full">
+                <img src="assets/images/chef-journy.jpg" alt="chef" class="h-full w-full" />
             </div>
 
-            <div class="relative w-full md:w-3/5">
+            <div class="relative w-full md:w-3/5 h-full">
                 <img src="assets/images/background.png" alt="background overlay" class="w-full h-full" />
                 <div class="absolute inset-0 bg-[#B30310] opacity-[93%]"></div>
 
-                <div class="hidden md:flex absolute top-5 -left-12">
+                <div class="hidden md:flex absolute top-5 -left-13">
                     <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink">
                         <rect width="100" height="100" fill="url(#pattern0_966_1454)" />
@@ -1202,7 +1193,7 @@
                     </svg>
                 </div>
 
-                <div class="absolute top-[10%] left-0 right-0 p-8 md:p-20 space-y-8  max-w-4xl">
+                <div class="absolute inset-0 p-10 md:p-20 space-y-4 md:space-y-8 flex flex-col justify-center">
                     <h2 class="text-white text-xl font-normal font-poppins">MODERN HALAL MEATS</h2>
                     <p class="text-white text-lg md:text-3xl lg:text-5xl font-livvic">Providing Fresh & Premium <br />
                         Halal Meat</p>
@@ -1238,7 +1229,7 @@
                         </div>
                         <div class="w-full h-[1px] bg-[#FFFFFF33]"></div>
                         <div class="flex gap-8 items-center">
-                            <div class="bg-white rounded-full p-4">
+                            <div class="bg-white rounded-full p-4 flex-shrink-0">
                                 <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -1261,10 +1252,9 @@
         <!-- Hero Section with Services -->
         <section class="relative">
             <!-- Hero Background with Meat -->
-            <div class="relative h-[535px] bg-no-repeat bg-cover"
+            <div class="relative h-[400px] md:h-[535px] bg-no-repeat bg-cover"
                 style="background-image: url('./assets/images/healty-meat.jpg'); object-fit: cover;  background-position: bottom left;">
                 <!-- Dark Overlay -->
-                <!-- <img src="./assets/images/healty-meat.jpg" class="bg-no-repeat bg-cover w-full"/> -->
                 <div class="absolute inset-0 bg-[#0000005C]"></div>
 
                 <!-- Hero Content -->
@@ -1282,8 +1272,8 @@
             </div>
 
             <!-- Services Information Bar -->
-            <div class="bg-white -mt-20 relative z-30 mx-6 lg:mx-12 rounded-2xl shadow-lg">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 p-8 lg:p-12">
+            <div class="bg-white mx-6 lg:mx-12 rounded-2xl shadow-lg transform translate-y-[-50px] relative z-10">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 p-6 md:p-8 lg:p-12 lg:pb-0">
                     <!-- Return Policy -->
                     <div class="flex flex-col md:flex-row items-center justify-center text-center space-y-4 gap-4">
                         <div class="w-16 h-16 flex items-center justify-center">
@@ -1308,8 +1298,6 @@
                         </div>
                     </div>
 
-                    <!-- <div class="h-full w-[2px] bg-[#E4E2D7]"></div> -->
-
                     <!-- Free Shipping -->
                     <div class="flex flex-col md:flex-row items-center justify-center text-start space-y-4 gap-4">
                         <div class="w-16 h-16 flex items-center justify-center">
@@ -1333,8 +1321,6 @@
                             <p class="text-[#878680] font-medium font-base">On All Orders Over $45.00</p>
                         </div>
                     </div>
-
-                    <!-- <div class="h-full w-[2px] bg-[#E4E2D7]"></div> -->
 
                     <!-- Store Locator -->
                     <div class="flex flex-col md:flex-row items-center justify-center text-start space-y-4 gap-4">
@@ -1363,7 +1349,10 @@
             </div>
         </section>
 
-        <section class="mt-20 mb-10 px-8 md:px-12 lg:px-20">
+        <!-- Additional spacing for mobile -->
+        <!-- <div class="h-2 md:h-0"></div> -->
+
+        <section class="mb-10 px-8 md:px-12 lg:px-20">
             <div class="flex flex-col lg:flex-row gap-20">
                 <div class="relative w-full lg:w-[60%] h-[730px]">
                     <img src="assets/images/bg-section.jpg" alt="" class="h-full w-full" />
@@ -1888,9 +1877,13 @@
         <!-- How It Works Section -->
         <section class="relative overflow-hidden bg-[#F0F0F0]">
             <!-- Background -->
-            <img src="assets/images/image-removebg-preview.png" alt="background overlay"
+            <!-- <img src="assets/images/image-removebg-preview.png" alt="background overlay"
                 class="absolute inset-0 w-full object-cover h-[500px]" />
-            <div class="absolute inset-0 bg-[#D72638] mix-blend-overlay z-10 h-[500px]"></div>
+            <div class="absolute inset-0 bg-[#D72638] bg-blend-overlay z-10 h-[500px]"></div> -->
+            <div class="absolute inset-0 h-[500px] bg-[#D72638] bg-blend-overlay">
+                <img src="assets/images/image-removebg-preview.png"
+                    class="w-full h-full object-cover mix-blend-overlay" />
+            </div>
 
             <!-- Content -->
             <div class="relative z-10">
@@ -2293,7 +2286,7 @@
 
         <!-- Bottom Footer Bar -->
         <div class="border-t border-[#FFFFFF80] border-opacity-20">
-            <div class="container mx-auto px-6 py-6">
+            <div class="container px-6 md:px-12 lg:px-20 mx-auto py-6">
                 <div
                     class="flex flex-col md:flex-row justify-center md:justify-between text-center md:text-start items-center space-y-4 md:space-y-0 text-base font-century-gothic font-normal">
                     <div class="text-white hover:text-white/60 transition-colors">
@@ -2356,6 +2349,152 @@
                     mobileBgIndex = (mobileBgIndex + 1) % mobileBgSlides.length;
                     mobileBgSlides[mobileBgIndex].classList.add("active");
                 }, 3000);
+            }
+
+            const steaksSection = document.querySelectorAll(".steaks-section .slide");
+            let steaksSectionIndex = 0;
+
+            if (steaksSection.length > 0) {
+                setInterval(() => {
+                    steaksSection[steaksSectionIndex].classList.remove("active");
+                    steaksSectionIndex = (steaksSectionIndex + 1) % steaksSection.length;
+                    steaksSection[steaksSectionIndex].classList.add("active");
+                }, 2000);
+            }
+            const meatCubesSection = document.querySelectorAll(".meat-cubes .slide");
+            let meatCubesSectionIndex = 0;
+
+            if (meatCubesSection.length > 0) {
+                setInterval(() => {
+                    meatCubesSection[meatCubesSectionIndex].classList.remove("active");
+                    meatCubesSectionIndex = (meatCubesSectionIndex + 1) % meatCubesSection.length;
+                    meatCubesSection[meatCubesSectionIndex].classList.add("active");
+                }, 3000);
+            }
+
+            const chickenSection = document.querySelectorAll(".chicken-section .slide");
+            let chickenSectionIndex = 0;
+
+            if (chickenSection.length > 0) {
+                setInterval(() => {
+                    chickenSection[chickenSectionIndex].classList.remove("active");
+                    chickenSectionIndex = (chickenSectionIndex + 1) % chickenSection.length;
+                    chickenSection[chickenSectionIndex].classList.add("active");
+                }, 2000);
+            }
+
+            // Mobile steaks section animation
+            const mobileSteaksSection = document.querySelectorAll(".mobile-steaks-section .mobile-slide");
+            let mobileSteaksSectionIndex = 0;
+
+            if (mobileSteaksSection.length > 0) {
+                setInterval(() => {
+                    mobileSteaksSection[mobileSteaksSectionIndex].classList.remove("active");
+                    mobileSteaksSectionIndex = (mobileSteaksSectionIndex + 1) % mobileSteaksSection.length;
+                    mobileSteaksSection[mobileSteaksSectionIndex].classList.add("active");
+                }, 2000);
+            }
+
+            // Mobile meat cubes section animation
+            const mobileMeatCubesSection = document.querySelectorAll(".mobile-meat-cubes .slide");
+            let mobileMeatCubesSectionIndex = 0;
+
+            if (mobileMeatCubesSection.length > 0) {
+                setInterval(() => {
+                    mobileMeatCubesSection[mobileMeatCubesSectionIndex].classList.remove("active");
+                    mobileMeatCubesSectionIndex = (mobileMeatCubesSectionIndex + 1) % mobileMeatCubesSection.length;
+                    mobileMeatCubesSection[mobileMeatCubesSectionIndex].classList.add("active");
+                }, 3000);
+            }
+
+            // Mobile vertical swap animation for chef and vegetables sections
+            const mobileChefSection = document.querySelector(".mobile-chef-section");
+            const mobileVegetablesSection = document.querySelector(".mobile-vegetables-section");
+            let mobileIsSwapped = false;
+
+            if (mobileChefSection && mobileVegetablesSection) {
+                // Add initial animation class for smooth start
+                mobileChefSection.style.transition = 'all 2s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                mobileVegetablesSection.style.transition = 'all 2s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+
+                setInterval(() => {
+                    if (mobileIsSwapped) {
+                        // Return to original positions - chef moves up, vegetables move down
+                        mobileChefSection.classList.remove("swapped");
+                        mobileVegetablesSection.classList.remove("swapped");
+                        console.log("Mobile: Returning to original positions");
+                    } else {
+                        // Swap positions - chef moves down, vegetables move up
+                        mobileChefSection.classList.add("swapped");
+                        mobileVegetablesSection.classList.add("swapped");
+                        console.log("Mobile: Swapping positions");
+                    }
+                    mobileIsSwapped = !mobileIsSwapped;
+                }, 3000);
+            }
+
+            // Animation for swapping chef-section and vegetables-section positions
+            const chefSection = document.querySelector(".chef-section");
+            const vegetablesSection = document.querySelector(".vegetables-section");
+            let isSwapped = false;
+
+            if (chefSection && vegetablesSection) {
+                // Add initial animation class for smooth start
+                chefSection.style.transition = 'all 2s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                vegetablesSection.style.transition = 'all 2s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+
+                setInterval(() => {
+                    if (isSwapped) {
+                        // Return to original positions - chef moves up, vegetables move down
+                        chefSection.classList.remove("swapped");
+                        vegetablesSection.classList.remove("swapped");
+                        console.log("Returning to original positions");
+                    } else {
+                        // Swap positions - chef moves down, vegetables move up
+                        chefSection.classList.add("swapped");
+                        vegetablesSection.classList.add("swapped");
+                        console.log("Swapping positions");
+                    }
+                    isSwapped = !isSwapped;
+                }, 3000);
+            }
+        });
+    </script>
+    <script>
+        // Mobile Menu Toggle Functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenuDropdown = document.getElementById('mobile-menu-dropdown');
+
+            if (mobileMenuButton && mobileMenuDropdown) {
+                mobileMenuButton.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    // Toggle the mobile menu
+                    if (mobileMenuDropdown.classList.contains('hidden')) {
+                        mobileMenuDropdown.classList.remove('hidden');
+                        mobileMenuDropdown.classList.add('flex', 'flex-col');
+                    } else {
+                        mobileMenuDropdown.classList.add('hidden');
+                        mobileMenuDropdown.classList.remove('flex', 'flex-col');
+                    }
+                });
+
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function (event) {
+                    if (!mobileMenuButton.contains(event.target) && !mobileMenuDropdown.contains(event.target)) {
+                        mobileMenuDropdown.classList.add('hidden');
+                        mobileMenuDropdown.classList.remove('flex', 'flex-col');
+                    }
+                });
+
+                // Close mobile menu when clicking on a menu item
+                const menuItems = mobileMenuDropdown.querySelectorAll('a');
+                menuItems.forEach(item => {
+                    item.addEventListener('click', function () {
+                        mobileMenuDropdown.classList.add('hidden');
+                        mobileMenuDropdown.classList.remove('flex', 'flex-col');
+                    });
+                });
             }
         });
     </script>
