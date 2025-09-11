@@ -140,16 +140,15 @@
         </div>
     </header>
     <!-- Progress Indicator -->
-    <div class="pt-20 pb-8">
+    <div class="pt-40">
         <div class="container mx-auto px-6 md:px-12 lg:px-20">
             <div class="flex flex-col items-center justify-center space-y-4">
                 <div class="flex items-center justify-between text-center w-full font-euclid-circular">
                     <span class=" text-[#B30310] font-semibold text-base">Cart</span>
                     <span class=" text-[#6E7583] font-semibold text-base">Checkout</span>
                     <span class=" text-[#6E7583] font-semibold text-base">Payment</span>
-
                 </div>
-                <div class="flex items-center justify-between space-x-8 w-full">
+                <div class="flex items-center justify-between space-x-4 sm:space-x-8 w-full">
                     <div
                         class="w-5 h-5 border-3 p-2 border-[#B30310] text-white rounded-full flex items-center justify-center text-sm font-semibold">
                     </div>
@@ -161,16 +160,14 @@
                     <div
                         class="w-5 h-5 border-3 p-2 border-[#6E7583] text-white rounded-full flex items-center justify-center text-sm font-semibold">
                     </div>
-
                 </div>
-
             </div>
         </div>
     </div>
     </div>
 
     <!-- Main Content -->
-    <main class="min-h-screen py-8">
+    <main class=" my-20">
         <div class="container mx-auto px-6 md:px-12 lg:px-20">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
@@ -180,7 +177,86 @@
 
                         <!-- Cart Table -->
                         <div class="font-poppins">
-                            <table class="w-full">
+                            <!-- Mobile Card Layout (visible on screens smaller than sm) -->
+                            <div class="sm:hidden space-y-4 p-4" id="mobile-cart-items">
+                                <!-- Mobile Cart Item 1 -->
+                                <div class="bg-white border border-[#E6E6E6] rounded-lg p-4 shadow-sm">
+                                    <div class="flex items-start space-x-4">
+                                        <img src="assets/images/product1.jpg" alt="Lang Box" class="w-20 h-20 object-cover rounded-lg flex-shrink-0">
+                                        
+                                        <div class="flex-1 min-w-0">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h3 class="font-normal text-[#1A1A1A] text-base mb-2">Lang Box</h3>
+                                                <button class="remove-item text-[#666666] border border-[#CCCCCC] rounded-full p-1 hover:text-red-700 transition-colors" data-product="lang-box">
+                                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="flex items-center justify-between mb-3">
+                                                <span class="font-normal text-[#1A1A1A] text-sm">$14.00</span>
+                                                <span class="font-semibold text-[#1A1A1A] text-base subtotal" data-product="lang-box">$70.00</span>
+                                            </div>
+                                            <div class="flex items-center justify-between">
+                                                <div class="flex items-center space-x-2 border border-[#E6E6E6] rounded-full p-1">
+                                                    <button class="quantity-decrease w-7 h-7 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors" data-product="lang-box">
+                                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path>
+                                                        </svg>
+                                                    </button>
+                                                    <input type="text" value="5" min="1" class="quantity-input w-12 text-center text-sm" data-product="lang-box" data-price="14.00">
+                                                    <button class="quantity-increase w-7 h-7 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors" data-product="lang-box">
+                                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Mobile Cart Item 2 -->
+                                <div class="bg-white border border-[#E6E6E6] rounded-lg p-4 shadow-sm">
+                                    <div class="flex items-start space-x-4">
+                                        <img src="assets/images/chicken.jpg" alt="Chicken Wings" class="w-20 h-20 object-cover rounded-lg flex-shrink-0">
+                                        <div class="flex-1 min-w-0">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h3 class="font-normal text-[#1A1A1A] text-base mb-2">Chicken Wings</h3>
+                                                <button class="remove-item text-[#666666] border border-[#CCCCCC] rounded-full p-1 hover:text-red-700 transition-colors" data-product="chicken-wings">
+                                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="flex items-center justify-between mb-3">
+                                                <span class="font-normal text-[#1A1A1A] text-sm">$14.00</span>
+                                                <span class="font-semibold text-[#1A1A1A] text-base subtotal" data-product="chicken-wings">$14.00</span>
+                                            </div>
+                                            <div class="flex items-center justify-between">
+                                                <div class="flex items-center space-x-2 border border-[#E6E6E6] rounded-full p-1">
+                                                    <button class="quantity-decrease w-7 h-7 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors" data-product="chicken-wings">
+                                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path>
+                                                        </svg>
+                                                    </button>
+                                                    <input type="text" value="1" min="1" class="quantity-input w-12 text-center text-sm" data-product="chicken-wings" data-price="14.00">
+                                                    <button class="quantity-increase w-7 h-7 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors" data-product="chicken-wings">
+                                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Desktop Table Layout (visible on sm and larger screens) -->
+                            <table class="w-full hidden sm:table">
                                 <thead class="hidden md:table-header-group">
                                     <tr class="border-b border-[#E6E6E6] p-2">
                                         <th class="text-left py-4 px-2 text-sm font-medium text-[#808080]">PRODUCT</th>
@@ -276,7 +352,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </td>
+                                        </td>                                
                                         <td class="py-6 px-2 hidden md:table-cell">
                                             <span class="font-normal text-[#1A1A1A] text-base">$14.00</span>
                                         </td>
@@ -328,11 +404,7 @@
                         <!-- Return to Shop Button -->
                         <div class="mt-6 mb-4 mx-4">
                             <a href="./shop.html"
-                                class="inline-flex items-center px-6 py-3 bg-[#F2F2F2] hover:bg-gray-200 text-[#4D4D4D] rounded-full font-semibold text-base font-poppins transition-colors">
-                                <!-- <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18">
-                                    </path>
-                                </svg> -->
+                                class="inline-flex items-center px-6 py-3 bg-[#F2F2F2] hover:bg-gray-200 text-[#4D4D4D] rounded-full font-semibold text-sm sm:text-base font-poppins transition-colors">
                                 Return to shop
                             </a>
                         </div>
@@ -346,17 +418,21 @@
                             <input type="text" id="coupon-input" placeholder="Enter code"
                                 class="w-full flex-1 px-4 py-3 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent placeholder-[#999999] font-normal text-base">
                             <button id="apply-coupon"
-                                class="absolute right-0 px-10 py-3 bg-[#333333] text-base font-semibold text-white rounded-full hover:bg-gray-900 transition-colors">
+                                class="hidden sm:flex absolute right-0 px-10 py-3 bg-[#333333] text-base font-semibold text-white rounded-full hover:bg-gray-900 transition-colors">
                                 Apply Coupon
                             </button>
                         </div>
+                        <button id="apply-coupon"
+                                class="sm:hidden w-full px-10 py-3 bg-[#333333] text-base font-semibold text-white rounded-full hover:bg-gray-900 transition-colors">
+                                Apply Coupon
+                            </button>
                         <div id="coupon-message" class="mt-2 text-sm hidden"></div>
                     </div>
                 </div>
 
                 <!-- Cart Total Summary -->
                 <div class="lg:col-span-1 font-poppins">
-                    <div class="bg-white p-6 sticky top-24 border border-[#E6E6E6] rounded-lg">
+                    <div class="bg-white p-4 sm:p-6 sticky top-24 border border-[#E6E6E6] rounded-lg">
                         <h3 class="text-xl font-medium text-[#1A1A1A] mb-6">Cart Total</h3>
 
                         <div class="space-y-4">
@@ -617,12 +693,24 @@
                     const productId = this.getAttribute('data-product');
                     if (confirm('Are you sure you want to remove this item from your cart?')) {
                         cartItems = cartItems.filter(item => item.id !== productId);
-                        const row = this.closest('tr');
-                        row.remove();
+                        
+                        // Remove from desktop table
+                        const tableRow = this.closest('tr');
+                        if (tableRow) {
+                            tableRow.remove();
+                        }
+                        
+                        // Remove from mobile card
+                        const mobileCard = this.closest('.bg-white.border');
+                        if (mobileCard) {
+                            mobileCard.remove();
+                        }
+                        
                         updateCartTotals();
 
                         // Show empty cart message if no items
                         if (cartItems.length === 0) {
+                            // Empty desktop table
                             document.getElementById('cart-items').innerHTML = `
                                 <tr>
                                     <td colspan="5" class="text-center py-12">
@@ -638,6 +726,22 @@
                                         </div>
                                     </td>
                                 </tr>
+                            `;
+                            
+                            // Empty mobile cards
+                            document.getElementById('mobile-cart-items').innerHTML = `
+                                <div class="text-center py-12">
+                                    <div class="text-gray-500">
+                                        <svg class="w-16 h-16 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01"></path>
+                                        </svg>
+                                        <p class="text-lg font-semibold">Your cart is empty</p>
+                                        <p class="text-sm">Add some items to get started</p>
+                                        <a href="./shop.html" class="inline-block mt-4 px-6 py-2 bg-[#D72638] text-white rounded-lg hover:bg-[#B91C2C] transition-colors">
+                                            Continue Shopping
+                                        </a>
+                                    </div>
+                                </div>
                             `;
                         }
                     }
