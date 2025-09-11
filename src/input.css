@@ -21,6 +21,12 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'Euclid Circular';
+    src: url('assets/fonts/Euclid\ Circular\ A\ Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 @layer utilities {
     .font-livvic {
@@ -52,6 +58,9 @@
     }
   .font-playfair{
     font-family: "Playfair Display", serif;
+  }
+  .font-euclid-circular {
+    font-family: "Euclid Circular", sans-serif;
   }
     .scrollbar-hide {
         -ms-overflow-style: none;
@@ -1109,9 +1118,7 @@
     max-width: 100%;
     height: 800px;
    }
-   .categories-section {
-     margin-top: 10%;
-   }
+   
 } 
           
 /* Mobile background slides for main title */
