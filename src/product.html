@@ -80,11 +80,17 @@
                 font-size: 14px;
             }
 
-            /* Mobile: show all thumbnails horizontally */
+            /* Mobile: show only 3 thumbnails horizontally with scroll */
             #thumbnail-container {
                 max-height: none !important;
-                overflow-x: auto;
+                /* overflow-x: auto; */
                 overflow-y: hidden;
+                /* Show only 3 images: 3 * (64px + 8px gap) = 216px */
+                width: 216px;
+            }
+
+            #thumbnail-wrapper {
+                width: max-content;
             }
         }
     </style>
@@ -224,22 +230,32 @@
     </header>
 
     <!-- Main Product Content -->
-    <main class="pt-24 pb-16 bg-white font-poppins">
-        <div class=" mx-auto px-6 md:px-12 lg:px-20">
+    <main class="pt-36 pb-16 bg-white font-poppins">
+        <div class="2xl:max-w-[1900px] mx-auto px-6 lg:px-12">
             <!-- Product Section -->
-            <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 mb-16">
+            <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 mb-16">
                 <!-- Product Images -->
                 <div class="order-1">
-                    <div class="flex flex-col lg:flex-row gap-4 h-[550px]">
+                    <div class="flex flex-col lg:flex-row gap-4 h-[469px]">
                         <!-- Thumbnail Gallery with Scroll Buttons -->
                         <div class="flex lg:flex-col items-center gap-2 lg:gap-4 order-2 lg:order-1">
-                            <!-- Scroll Up Button -->
+                            <!-- Scroll Up Button (Desktop) / Left Button (Mobile) -->
                             <button id="thumbnail-scroll-up"
                                 class="hidden lg:block w-8 h-8 p-1 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors duration-200">
                                 <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor"
                                     viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M5 15l7-7 7 7"></path>
+                                </svg>
+                            </button>
+
+                            <!-- Mobile Left Button -->
+                            <button id="thumbnail-scroll-left"
+                                class="lg:hidden w-8 h-8 p-1 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors duration-200">
+                                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 19l-7-7 7-7"></path>
                                 </svg>
                             </button>
 
@@ -323,7 +339,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Scroll Down Button -->
+                            <!-- Scroll Down Button (Desktop) / Right Button (Mobile) -->
                             <button id="thumbnail-scroll-down"
                                 class="hidden lg:block w-8 h-8 p-1 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors duration-200">
                                 <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor"
@@ -332,21 +348,31 @@
                                         d="M19 9l-7 7-7-7"></path>
                                 </svg>
                             </button>
+
+                            <!-- Mobile Right Button -->
+                            <button id="thumbnail-scroll-right"
+                                class="lg:hidden w-8 h-8 p-1 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors duration-200">
+                                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
                         </div>
 
                         <!-- Main Product Image -->
-                        <div class="order-1 lg:order-2 flex-1 ">
-                            <div class="aspect-square overflow-hidden shadow-lg  h-full">
+                        <div class="order-1 lg:order-2 w-full md:w-2/3 lg:w-full h-full mx-auto">
+                            <div class=" overflow-hidden shadow-lg h-full w-full">
                                 <img id="main-product-image" src="assets/images/chicken.jpg"
-                                    alt="Boneless Chicken Wings" class="w-full h-full object-cover">
+                                    alt="Boneless Chicken Wings" class="h-full w-full object-cover">
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Product Details -->
-                <div class="order-2">
-                    <div class="space-y-6 max-w-[580px]">
+                <div class="order-2 mt-0 md:mt-20 lg:mt-0">
+                    <div class="space-y-6 w-full lg:max-w-[580px]">
                         <!-- Product Title -->
                         <div>
                             <h1 class="text-lg md:text-xl lg:text-xl font-bold text-[#374151] mb-4">
@@ -525,10 +551,11 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 class="font-normal text-[#1F2937] text-lg">Free Shipping</h3>
-                                    <p class="text-base font-normal text-[#6B7280]">Free standard shipping on
+                                    <h3 class="font-normal text-[#1F2937] text-base lg:text-lg">Free Shipping</h3>
+                                    <p class="text-sm lg:text-base font-normal text-[#6B7280]">Free standard shipping on
                                         orders over 8,00$</p>
-                                    <p class="text-base font-normal text-[#6B7280]">28/02/2025 - 03/03/2025</p>
+                                    <p class="text-sm lg:text-base font-normal text-[#6B7280]">28/02/2025 - 03/03/2025
+                                    </p>
                                 </div>
                             </div>
 
@@ -544,9 +571,9 @@
 
                                 </div>
                                 <div>
-                                    <h3 class="font-normal text-[#1F2937] text-lg">Return Policy</h3>
+                                    <h3 class="font-normal text-[#1F2937] text-base lg:text-lg">Return Policy</h3>
                                     <a href="#"
-                                        class="text-base text-[#6B7280] hover:text-[#505152] transition-colors underline">Learn
+                                        class="text-sm lg:text-base text-[#6B7280] hover:text-[#505152] transition-colors underline">Learn
                                         More</a>
                                 </div>
                             </div>
@@ -685,7 +712,7 @@
     <!-- Footer -->
     <footer class="bg-linear-to-r from-[#D72638] to-[#58080E] text-white">
         <!-- Main Footer Content -->
-        <div class="px-6 md:px-12 lg:px-20 mx-auto py-16 text-center md:text-start">
+        <div class="px-6 md:px-12 lg:px-20 py-16 text-center md:text-start 2xl:max-w-[1900px] mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-20">
                 <!-- Left Column - Halal Meat -->
                 <div class="col-span-1 lg:col-span-3">
@@ -1018,6 +1045,8 @@
             const thumbnailContainer = document.getElementById('thumbnail-container');
             const scrollUpBtn = document.getElementById('thumbnail-scroll-up');
             const scrollDownBtn = document.getElementById('thumbnail-scroll-down');
+            const scrollLeftBtn = document.getElementById('thumbnail-scroll-left');
+            const scrollRightBtn = document.getElementById('thumbnail-scroll-right');
 
             // Calculate scroll step based on thumbnail height + gap (112px + 20px = 132px)
             const scrollStep = 132; // pixels to scroll each time (one thumbnail height + gap)
@@ -1027,8 +1056,10 @@
                 const container = thumbnailContainer;
                 const isAtTop = container.scrollTop <= 0;
                 const isAtBottom = container.scrollTop >= (container.scrollHeight - container.clientHeight);
+                const isAtLeft = container.scrollLeft <= 0;
+                const isAtRight = container.scrollLeft >= (container.scrollWidth - container.clientWidth);
 
-                // Update scroll up button
+                // Update scroll up button (desktop)
                 if (isAtTop) {
                     scrollUpBtn.classList.add('opacity-50', 'cursor-not-allowed');
                     scrollUpBtn.disabled = true;
@@ -1037,13 +1068,31 @@
                     scrollUpBtn.disabled = false;
                 }
 
-                // Update scroll down button
+                // Update scroll down button (desktop)
                 if (isAtBottom) {
                     scrollDownBtn.classList.add('opacity-50', 'cursor-not-allowed');
                     scrollDownBtn.disabled = true;
                 } else {
                     scrollDownBtn.classList.remove('opacity-50', 'cursor-not-allowed');
                     scrollDownBtn.disabled = false;
+                }
+
+                // Update scroll left button (mobile)
+                if (isAtLeft) {
+                    scrollLeftBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                    scrollLeftBtn.disabled = true;
+                } else {
+                    scrollLeftBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                    scrollLeftBtn.disabled = false;
+                }
+
+                // Update scroll right button (mobile)
+                if (isAtRight) {
+                    scrollRightBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                    scrollRightBtn.disabled = true;
+                } else {
+                    scrollRightBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                    scrollRightBtn.disabled = false;
                 }
             }
 
@@ -1059,6 +1108,22 @@
             scrollDownBtn.addEventListener('click', () => {
                 thumbnailContainer.scrollBy({
                     top: scrollStep,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Scroll left functionality (mobile)
+            scrollLeftBtn.addEventListener('click', () => {
+                thumbnailContainer.scrollBy({
+                    left: -72, // 64px image + 8px gap
+                    behavior: 'smooth'
+                });
+            });
+
+            // Scroll right functionality (mobile)
+            scrollRightBtn.addEventListener('click', () => {
+                thumbnailContainer.scrollBy({
+                    left: 72, // 64px image + 8px gap
                     behavior: 'smooth'
                 });
             });
