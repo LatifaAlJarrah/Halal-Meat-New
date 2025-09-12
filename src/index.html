@@ -548,14 +548,14 @@
                 <!-- Navigation Controls -->
                 <div class="flex md:hidden gap-2 items-end">
                     <button
-                        class="w-16 h-16 rounded-full bg-[#E0E0E0] flex items-center justify-center hover:bg-gray-300 transition-colors">
+                        class="w-10 h-10 rounded-full bg-[#E0E0E0] flex items-center justify-center hover:bg-gray-300 transition-colors">
                         <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M8 0L10 2L4 8L10 14L8 16L0 8L8 0Z"
                                 fill="black" />
                         </svg>
                     </button>
                     <button
-                        class="w-16 h-16 rounded-full bg-[#D72638] flex items-center justify-center hover:bg-red-700 transition-colors">
+                        class="w-10 h-10 rounded-full bg-[#D72638] flex items-center justify-center hover:bg-red-700 transition-colors">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
                                 d="M9.005 4L17.005 12L9.005 20L7 18L13.005 12L7 6L9.005 4Z" fill="white" />
@@ -2644,18 +2644,18 @@
         // Function to create product card HTML
         function createProductCard(product) {
             return `
-                <div class="flex-shrink-0 w-96 rounded-3xl shadow-lg overflow-hidden product-card">
-                    <div class="relative h-96 rounded-3xl">
+                <div class="flex-shrink-0 w-64 sm:w-72 md:w-84 rounded-3xl shadow-lg overflow-hidden product-card">
+                    <div class="relative h-64 sm:h-72 md:h-96 rounded-3xl">
                         <div class="absolute inset-0 bg-gradient rounded-3xl"></div>
                         <img src="${product.image}" alt="${product.alt}"
                             class="w-full h-full object-cover rounded-3xl" />
-                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-8 font-poppins">
-                            <h3 class="text-white font-medium text-xl mb-4">${product.name}</h3>
-                            <div class="flex items-center gap-2 mb-4">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 sm:p-8 font-poppins">
+                            <h3 class="text-white font-medium text-base sm:text-lg md:text-xl mb-1 sm:mb-4">${product.name}</h3>
+                            <div class="flex items-center gap-2 mb-1 sm:mb-4">
                                 <span class="text-[#D72638] font-bold text-xl">$</span>
-                                <span class="text-white font-bold text-2xl">${product.price}</span>
+                                <span class="text-white font-bold text-lg sm:text-xl md:text-2xl">${product.price}</span>
                             </div>
-                            <a href="" class="text-white font-medium text-lg">
+                            <a href="" class="text-white font-medium text-base sm:text-lg md:text-lg">
                                 <button class="flex items-center gap-2">
                                     Order Now
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
