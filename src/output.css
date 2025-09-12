@@ -582,6 +582,9 @@
   .h-\[365px\] {
     height: 365px;
   }
+  .h-\[389px\] {
+    height: 389px;
+  }
   .h-\[400px\] {
     height: 400px;
   }
@@ -1986,6 +1989,11 @@
       height: 350px;
     }
   }
+  .sm\:h-full {
+    @media (width >= 40rem) {
+      height: 100%;
+    }
+  }
   .sm\:w-\[65\%\] {
     @media (width >= 40rem) {
       width: 65%;
@@ -2209,6 +2217,11 @@
   .md\:h-\[700px\] {
     @media (width >= 48rem) {
       height: 700px;
+    }
+  }
+  .md\:h-full {
+    @media (width >= 48rem) {
+      height: 100%;
     }
   }
   .md\:w-2\/3 {
