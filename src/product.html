@@ -112,12 +112,12 @@
                 <!-- Navigation -->
                 <nav id="mobile-menu" class="hidden xl:flex items-center space-x-4 2xl:space-x-8 font-medium text-base">
                     <a href="./index.html" class="text-black hover:text-white/80 transition-colors">Home</a>
-                    <a href="./build-your-box.html"
-                        class="text-black hover:text-white/80 transition-colors">build your
+                    <a href="./build-your-box.html" class="text-black hover:text-white/80 transition-colors">build your
                         box</a>
                     <a href="./about.html" class="text-black hover:text-white/80 transition-colors">About</a>
                     <a href="./shop.html" class="text-black hover:text-white/80 transition-colors">Shop</a>
-                    <a href="./products.html" class="text-[#D72638] hover:text-white/80 transition-colors font-bold">Product</a>
+                    <a href="./products.html"
+                        class="text-[#D72638] hover:text-white/80 transition-colors font-bold">Product</a>
                     <a href="./checkout.html" class="text-black hover:text-white/80 transition-colors">Checkout</a>
                     <a href="./why-choose-us.html" class="text-black hover:text-white/80 transition-colors">why choose
                         us</a>
@@ -583,41 +583,93 @@
                         <div class="space-y-2">
                             <!-- Description -->
                             <div class="border-b border-gray-200">
-                                <button
+                                <button id="description-btn"
                                     class="flex items-center justify-between w-full py-3 text-left font-semibold text-[#1F2937] hover:text-[#D72638] transition-colors font-euclid-circular">
                                     <span>Description</span>
-                                    <svg class="w-5 h-5 transform transition-transform" fill="none"
+                                    <svg id="description-icon"
+                                        class="w-5 h-5 transform transition-transform duration-300" fill="none"
                                         stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                                     </svg>
                                 </button>
+                                <div id="description-content" class="hidden pb-4">
+                                    <div class="text-gray-600 leading-relaxed">
+                                        <p class="mb-4">
+                                            Our boneless chicken wings are carefully prepared from 100% halal-certified
+                                            poultry. They are skinless, antibiotic-free,
+                                            and cage-free, making them a healthier and safer choice for your family.
+                                            Perfect for grilling, baking, or frying —
+                                            tender, juicy, and full of natural flavor.
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
 
                             <!-- Shipping Information -->
                             <div class="border-b border-gray-200">
-                                <button
+                                <button id="shipping-btn"
                                     class="flex items-center justify-between w-full py-3 text-left font-semibold text-[#1F2937] hover:text-[#D72638] transition-colors font-euclid-circular">
                                     <span>Shipping information</span>
-                                    <svg class="w-5 h-5 transform transition-transform" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg id="shipping-icon" class="w-5 h-5 transform transition-transform duration-300"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                                     </svg>
                                 </button>
+                                <div id="shipping-content" class="hidden pb-4">
+                                    <div class="text-gray-600 leading-relaxed">
+                                        <div class="space-y-4">
+                                            <div>
+                                                <ul class="list-disc list-inside space-y-1">
+                                                    <li>We offer fast and reliable delivery across the USA.
+                                                    </li>
+                                                    <li>Orders placed before 2:00 PM are processed the same day.
+                                                    </li>
+                                                    <li>Standard delivery time: 2–4 business days.
+                                                    </li>
+                                                    <li>Free standard shipping for orders over $9.00.
+                                                    </li>
+                                                    <li>Temperature-controlled packaging ensures your
+                                                        order arrives fresh.</li>
+                                                </ul>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             <!-- Packaging Information -->
                             <div class="border-b border-gray-200">
-                                <button
+                                <button id="packaging-btn"
                                     class="flex items-center justify-between w-full py-3 text-left font-semibold text-[#1F2937] hover:text-[#D72638] transition-colors font-euclid-circular">
                                     <span>Packaging information</span>
-                                    <svg class="w-5 h-5 transform transition-transform" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg id="packaging-icon" class="w-5 h-5 transform transition-transform duration-300"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                                     </svg>
                                 </button>
+                                <div id="packaging-content" class="hidden pb-4">
+                                    <div class="text-gray-600 leading-relaxed">
+                                        <div class="space-y-4">
+                                            <div>
+                                                <ul class="list-disc list-inside space-y-1">
+                                                    <li>Vacuum-sealed packs to lock in freshness and flavor.
+                                                    </li>
+                                                    <li>Packed in eco-friendly, recyclable boxes.
+                                                    </li>
+                                                    <li>Insulated with food-safe materials to maintain cold temperature.
+                                                    </li>
+                                                    <li>Clearly labeled with weight, cut type, and halal certification.
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1138,6 +1190,52 @@
             window.addEventListener('resize', () => {
                 setTimeout(updateScrollButtons, 100);
             });
+
+            // Accordion functionality
+            function initAccordion() {
+                const accordionButtons = [
+                    { btn: 'description-btn', content: 'description-content', icon: 'description-icon' },
+                    { btn: 'shipping-btn', content: 'shipping-content', icon: 'shipping-icon' },
+                    { btn: 'packaging-btn', content: 'packaging-content', icon: 'packaging-icon' }
+                ];
+
+                accordionButtons.forEach(({ btn, content, icon }) => {
+                    const button = document.getElementById(btn);
+                    const contentDiv = document.getElementById(content);
+                    const iconSvg = document.getElementById(icon);
+
+                    if (button && contentDiv && iconSvg) {
+                        button.addEventListener('click', () => {
+                            const isHidden = contentDiv.classList.contains('hidden');
+
+                            // Close all other accordion items
+                            accordionButtons.forEach(({ content: otherContent, icon: otherIcon }) => {
+                                if (otherContent !== content) {
+                                    const otherContentDiv = document.getElementById(otherContent);
+                                    const otherIconSvg = document.getElementById(otherIcon);
+
+                                    if (otherContentDiv && otherIconSvg) {
+                                        otherContentDiv.classList.add('hidden');
+                                        otherIconSvg.style.transform = 'rotate(0deg)';
+                                    }
+                                }
+                            });
+
+                            // Toggle current accordion item
+                            if (isHidden) {
+                                contentDiv.classList.remove('hidden');
+                                iconSvg.style.transform = 'rotate(45deg)';
+                            } else {
+                                contentDiv.classList.add('hidden');
+                                iconSvg.style.transform = 'rotate(0deg)';
+                            }
+                        });
+                    }
+                });
+            }
+
+            // Initialize accordion
+            initAccordion();
         });
     </script>
 </body>

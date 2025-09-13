@@ -254,9 +254,9 @@
                 <div class="lg:col-span-2 space-y-8">
                     <!-- Delivery/Pickup Options -->
                     <div>
-                        <div class="flex space-x-4">
+                        <div class="flex flex-col sm:flex-row space-x-4 gap-2">
                             <label
-                                class="delivery-option-btn active flex-1 px-8 py-4 border-2 border-[#D72638] bg-[#F4F5FE] rounded-lg flex items-center space-x-3 transition-all duration-300 cursor-pointer">
+                                class="delivery-option-btn active flex-1 p-4 border-2 border-[#D72638] bg-[#F4F5FE] rounded-lg flex items-center space-x-3 transition-all duration-300 cursor-pointer w-full">
                                 <input type="radio" id="delivery-btn" name="deliveryOption" value="delivery" checked
                                     class="w-4 h-4 text-[#D72638] focus:ring-[#D72638] border-gray-300 mx-3">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
@@ -290,7 +290,7 @@
                                 <span class="font-medium text-[#D72638]">Delivery</span>
                             </label>
                             <label
-                                class="delivery-option-btn inactive flex-1 p-4 border-2 border-[#415BE7] bg-white rounded-lg flex items-center space-x-3 transition-all duration-300 cursor-pointer">
+                                class="delivery-option-btn inactive flex-1 p-4 border-2 border-[#415BE7] bg-white rounded-lg flex items-center space-x-3 transition-all duration-300 cursor-pointer w-full">
                                 <input type="radio" id="pickup-btn" name="deliveryOption" value="pickup"
                                     class="w-4 h-4 text-[#D72638] focus:ring-[#D72638] border-gray-300 mx-3">
                                 <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor"
@@ -702,7 +702,7 @@
 
                     <!-- Note Box -->
                     <div class="bg-[#FFF0F1] border border-[#FFC0C0] rounded-lg p-4 mt-2">
-                        <div class="flex flex-col text-black font-poppins text-base">
+                        <div class="flex flex-col text-black font-poppins text-sm md:text-base">
                             <p>Note :</p>
                             <div class="mt-2 px-4">
                                 <ul class="list-disc list-inside space-y-1">
@@ -930,6 +930,14 @@
         let selectedHour = '12';
         let selectedMinute = '55';
         let selectedPeriod = 'PM';
+
+        deliveryBtn.addEventListener('click', () => {
+            toggleDeliveryOption(true);
+        })
+
+        pickupBtn.addEventListener('click', () => {
+            toggleDeliveryOption(false);
+        })
 
         // Initialize the page
         document.addEventListener('DOMContentLoaded', function () {
