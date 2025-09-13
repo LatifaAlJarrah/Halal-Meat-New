@@ -8,15 +8,43 @@
     <link href="./output.css" rel="stylesheet">
     <style>
         .delivery-option-btn.active {
-            background-color: #D72638;
-            color: white;
             border-color: #D72638;
+        }
+
+        .delivery-option-btn.active input[type="radio"] {
+            accent-color: #D72638;
+        }
+
+        .delivery-option-btn.active svg {
+            color: #D72638;
+        }
+
+        .delivery-option-btn.active span {
+            color: #D72638;
         }
 
         .delivery-option-btn.inactive {
             background-color: white;
-            color: #6B7280;
             border-color: #D1D5DB;
+        }
+
+        .delivery-option-btn.inactive input[type="radio"] {
+            accent-color: #6B7280;
+        }
+
+        .delivery-option-btn.inactive svg {
+            color: #6B7280;
+        }
+
+        .delivery-option-btn.inactive span {
+            color: #6B7280;
+        }
+
+        /* Hide default radio button and style custom one */
+        .delivery-option-btn input[type="radio"] {
+            margin: 0;
+            width: 16px;
+            height: 16px;
         }
 
         .delivery-time-btn.active {
@@ -227,27 +255,51 @@
                     <!-- Delivery/Pickup Options -->
                     <div>
                         <div class="flex space-x-4">
-                            <button id="delivery-btn"
-                                class="delivery-option-btn active flex-1 p-4 border-2 border-[#D72638] bg-[#D72638] text-white rounded-lg flex items-center justify-center space-x-2 transition-all duration-300">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <label
+                                class="delivery-option-btn active flex-1 px-8 py-4 border-2 border-[#D72638] bg-[#F4F5FE] rounded-lg flex items-center space-x-3 transition-all duration-300 cursor-pointer">
+                                <input type="radio" id="delivery-btn" name="deliveryOption" value="delivery" checked
+                                    class="w-4 h-4 text-[#D72638] focus:ring-[#D72638] border-gray-300 mx-3">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
                                     <path
-                                        d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z">
-                                    </path>
+                                        d="M10.8328 12.292H9.99949C9.65782 12.292 9.37449 12.0087 9.37449 11.667C9.37449 11.3253 9.65782 11.042 9.99949 11.042H10.8328C11.4078 11.042 11.8745 10.5753 11.8745 10.0003V2.29199H4.99949C4.01616 2.29199 3.11613 2.82531 2.6328 3.68364C2.46613 3.98364 2.08283 4.09201 1.78283 3.92534C1.48283 3.75868 1.37447 3.37533 1.54114 3.07533C2.24114 1.82533 3.56616 1.04199 4.99949 1.04199H12.4995C12.8412 1.04199 13.1245 1.32533 13.1245 1.66699V10.0003C13.1245 11.267 12.0995 12.292 10.8328 12.292Z"
+                                        fill="#D72638" />
                                     <path
-                                        d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1V8a1 1 0 00-1-1h-3z">
-                                    </path>
+                                        d="M15.8337 17.292H15.0003C14.6587 17.292 14.3753 17.0087 14.3753 16.667C14.3753 16.092 13.9087 15.6253 13.3337 15.6253C12.7587 15.6253 12.292 16.092 12.292 16.667C12.292 17.0087 12.0087 17.292 11.667 17.292H8.33366C7.99199 17.292 7.70866 17.0087 7.70866 16.667C7.70866 16.092 7.24199 15.6253 6.66699 15.6253C6.09199 15.6253 5.62533 16.092 5.62533 16.667C5.62533 17.0087 5.34199 17.292 5.00033 17.292H4.16699C2.44199 17.292 1.04199 15.892 1.04199 14.167C1.04199 13.8253 1.32533 13.542 1.66699 13.542C2.00866 13.542 2.29199 13.8253 2.29199 14.167C2.29199 15.2003 3.13366 16.042 4.16699 16.042H4.45864C4.73364 15.0837 5.61699 14.3753 6.66699 14.3753C7.71699 14.3753 8.60035 15.0837 8.87535 16.042H11.1336C11.4086 15.0837 12.292 14.3753 13.342 14.3753C14.392 14.3753 15.2753 15.0837 15.5503 16.042H15.8337C16.867 16.042 17.7087 15.2003 17.7087 14.167V12.292H15.8337C15.0337 12.292 14.3753 11.6337 14.3753 10.8337V8.33366C14.3753 7.53366 15.0253 6.87533 15.8337 6.87533L14.942 5.317C14.7587 4.992 14.4087 4.79199 14.0337 4.79199H13.1253V10.0003C13.1253 11.267 12.1003 12.292 10.8337 12.292H10.0003C9.65866 12.292 9.37533 12.0087 9.37533 11.667C9.37533 11.3253 9.65866 11.042 10.0003 11.042H10.8337C11.4087 11.042 11.8753 10.5753 11.8753 10.0003V4.16699C11.8753 3.82533 12.1587 3.54199 12.5003 3.54199H14.0337C14.8587 3.54199 15.617 3.98367 16.0253 4.70034L17.4503 7.192C17.5587 7.38366 17.5587 7.62533 17.4503 7.817C17.342 8.00866 17.1336 8.12533 16.9086 8.12533H15.8337C15.717 8.12533 15.6253 8.21699 15.6253 8.33366V10.8337C15.6253 10.9503 15.717 11.042 15.8337 11.042H18.3337C18.6753 11.042 18.9587 11.3253 18.9587 11.667V14.167C18.9587 15.892 17.5587 17.292 15.8337 17.292Z"
+                                        fill="#D72638" />
+                                    <path
+                                        d="M6.66667 18.9583C5.4 18.9583 4.375 17.9333 4.375 16.6667C4.375 15.4 5.4 14.375 6.66667 14.375C7.93333 14.375 8.95833 15.4 8.95833 16.6667C8.95833 17.9333 7.93333 18.9583 6.66667 18.9583ZM6.66667 15.625C6.09167 15.625 5.625 16.0917 5.625 16.6667C5.625 17.2417 6.09167 17.7083 6.66667 17.7083C7.24167 17.7083 7.70833 17.2417 7.70833 16.6667C7.70833 16.0917 7.24167 15.625 6.66667 15.625Z"
+                                        fill="#D72638" />
+                                    <path
+                                        d="M13.3337 18.9583C12.067 18.9583 11.042 17.9333 11.042 16.6667C11.042 15.4 12.067 14.375 13.3337 14.375C14.6003 14.375 15.6253 15.4 15.6253 16.6667C15.6253 17.9333 14.6003 18.9583 13.3337 18.9583ZM13.3337 15.625C12.7587 15.625 12.292 16.0917 12.292 16.6667C12.292 17.2417 12.7587 17.7083 13.3337 17.7083C13.9087 17.7083 14.3753 17.2417 14.3753 16.6667C14.3753 16.0917 13.9087 15.625 13.3337 15.625Z"
+                                        fill="#D72638" />
+                                    <path
+                                        d="M18.3333 12.2917H15.8333C15.0333 12.2917 14.375 11.6333 14.375 10.8333V8.33333C14.375 7.53333 15.0333 6.875 15.8333 6.875H16.9083C17.1333 6.875 17.3417 6.99167 17.45 7.19167L18.875 9.69167C18.925 9.78334 18.9583 9.89167 18.9583 10V11.6667C18.9583 12.0083 18.675 12.2917 18.3333 12.2917ZM15.8333 8.125C15.7167 8.125 15.625 8.21667 15.625 8.33333V10.8333C15.625 10.95 15.7167 11.0417 15.8333 11.0417H17.7083V10.1667L16.5416 8.125H15.8333Z"
+                                        fill="#D72638" />
+                                    <path
+                                        d="M6.66699 7.29199H1.66699C1.32533 7.29199 1.04199 7.00866 1.04199 6.66699C1.04199 6.32533 1.32533 6.04199 1.66699 6.04199H6.66699C7.00866 6.04199 7.29199 6.32533 7.29199 6.66699C7.29199 7.00866 7.00866 7.29199 6.66699 7.29199Z"
+                                        fill="#D72638" />
+                                    <path
+                                        d="M5.00033 9.79199H1.66699C1.32533 9.79199 1.04199 9.50866 1.04199 9.16699C1.04199 8.82533 1.32533 8.54199 1.66699 8.54199H5.00033C5.34199 8.54199 5.62533 8.82533 5.62533 9.16699C5.62533 9.50866 5.34199 9.79199 5.00033 9.79199Z"
+                                        fill="#D72638" />
+                                    <path
+                                        d="M3.33366 12.292H1.66699C1.32533 12.292 1.04199 12.0087 1.04199 11.667C1.04199 11.3253 1.32533 11.042 1.66699 11.042H3.33366C3.67533 11.042 3.95866 11.3253 3.95866 11.667C3.95866 12.0087 3.67533 12.292 3.33366 12.292Z"
+                                        fill="#D72638" />
                                 </svg>
-                                <span class="font-medium">Delivery</span>
-                            </button>
-                            <button id="pickup-btn"
-                                class="delivery-option-btn inactive flex-1 p-4 border-2 border-gray-300 bg-white text-gray-600 rounded-lg flex items-center justify-center space-x-2 transition-all duration-300">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd"
-                                        d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                                        clip-rule="evenodd"></path>
+
+                                <span class="font-medium text-[#D72638]">Delivery</span>
+                            </label>
+                            <label
+                                class="delivery-option-btn inactive flex-1 p-4 border-2 border-[#415BE7] bg-white rounded-lg flex items-center justify-center space-x-3 transition-all duration-300 cursor-pointer">
+                                <input type="radio" id="pickup-btn" name="deliveryOption" value="pickup"
+                                    class="w-4 h-4 text-[#D72638] focus:ring-[#D72638] border-gray-300 mx-3">
+                                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
                                 </svg>
-                                <span class="font-medium">Pick Up</span>
-                            </button>
+                                <span class="font-medium text-gray-600">Pick Up</span>
+                            </label>
                         </div>
                     </div>
 
@@ -371,14 +423,14 @@
 
                     <!-- Delivery Options -->
                     <div class="border border-[#E5E5E5] rounded-lg p-6">
-                        <div class="flex items-center gap-2">
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2">
                             <h2 class="text-base md:text-xl font-normal mb-4 text-[#1A1A1A]">Delivery Options</h2>
                             <p class="text-sm text-[#424242] mb-4 font-normal">Business hours 09:00 - 17:00 (local time)
                             </p>
                         </div>
 
                         <div class="space-y-4">
-                            <div class="flex items-center gap-8">
+                            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-8">
                                 <div class="flex items-center gap-2">
                                     <input type="radio" id="immediate-btn" value="Immediate (if within business hours)"
                                         name="deliveryTime" class="delivery-time-btn active flex-1 p-3" />
@@ -404,9 +456,9 @@
                                 placeholder="Select date and time from the picker below">
                         </div>
                         <!-- Custom Date & Time Picker (Hidden by default) -->
-                        <div id="datetime-picker"
-                            class="hidden space-y-4 w-fit mx-auto">
-                            <div class="flex flex-col md:flex-row gap-4 md:gap-8 bg-white rounded-lg backdrop-blur-sm shadow-[0_4px_4px_#0000000D] scale-90 p-10">
+                        <div id="datetime-picker" class="hidden space-y-4 w-fit mx-auto">
+                            <div
+                                class="flex flex-col md:flex-row gap-4 md:gap-8 bg-white rounded-lg backdrop-blur-sm shadow-[0_4px_4px_#0000000D] scale-90 p-10">
                                 <!-- Calendar Section -->
                                 <div class="p-4">
                                     <div class="custom-calendar">
@@ -889,9 +941,16 @@
 
         // Setup all event listeners
         function setupEventListeners() {
-            // Delivery/Pickup toggle
-            deliveryBtn.addEventListener('click', () => toggleDeliveryOption(true));
-            pickupBtn.addEventListener('click', () => toggleDeliveryOption(false));
+            // Delivery/Pickup radio button change
+            document.querySelectorAll('input[name="deliveryOption"]').forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    if (e.target.value === 'delivery') {
+                        toggleDeliveryOption(true);
+                    } else {
+                        toggleDeliveryOption(false);
+                    }
+                });
+            });
 
             // Immediate/Scheduled toggle
             immediateBtn.addEventListener('click', () => toggleDeliveryTime(true));
@@ -912,16 +971,33 @@
         function toggleDeliveryOption(delivery) {
             isDelivery = delivery;
 
+            const deliveryLabel = document.querySelector('label[for="delivery-btn"]');
+            const pickupLabel = document.querySelector('label[for="pickup-btn"]');
+
             if (delivery) {
-                deliveryBtn.classList.remove('inactive');
-                deliveryBtn.classList.add('active');
-                pickupBtn.classList.remove('active');
-                pickupBtn.classList.add('inactive');
+                // Set delivery as active
+                deliveryLabel.classList.remove('inactive');
+                deliveryLabel.classList.add('active');
+                deliveryLabel.classList.remove('border-gray-300', 'bg-white');
+                deliveryLabel.classList.add('border-[#D72638]', 'bg-[#FFE5E5]');
+
+                // Set pickup as inactive
+                pickupLabel.classList.remove('active');
+                pickupLabel.classList.add('inactive');
+                pickupLabel.classList.remove('border-[#D72638]', 'bg-[#FFE5E5]');
+                pickupLabel.classList.add('border-gray-300', 'bg-white');
             } else {
-                pickupBtn.classList.remove('inactive');
-                pickupBtn.classList.add('active');
-                deliveryBtn.classList.remove('active');
-                deliveryBtn.classList.add('inactive');
+                // Set pickup as active
+                pickupLabel.classList.remove('inactive');
+                pickupLabel.classList.add('active');
+                pickupLabel.classList.remove('border-gray-300', 'bg-white');
+                pickupLabel.classList.add('border-[#D72638]', 'bg-[#FFE5E5]');
+
+                // Set delivery as inactive
+                deliveryLabel.classList.remove('active');
+                deliveryLabel.classList.add('inactive');
+                deliveryLabel.classList.remove('border-[#D72638]', 'bg-[#FFE5E5]');
+                deliveryLabel.classList.add('border-gray-300', 'bg-white');
             }
 
             updateShippingCost();
