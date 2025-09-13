@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Halal Meat</title>
+    <link href="./output.css" rel="stylesheet">
+    <style>
+        .delivery-option-btn.active {
+            background-color: #D72638;
+            color: white;
+            border-color: #D72638;
+        }
+
+        .delivery-option-btn.inactive {
+            background-color: white;
+            color: #6B7280;
+            border-color: #D1D5DB;
+        }
+
+        .delivery-time-btn.active {
+            background-color: #D72638;
+            color: white;
+            border-color: #D72638;
+        }
+
+        .delivery-time-btn.inactive {
+            background-color: white;
+            color: #6B7280;
+            border-color: #D1D5DB;
+        }
+
+        .form-error {
+            border-color: #EF4444 !important;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+        }
+
+        .error-message {
+            color: #EF4444;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+
+        .success-message {
+            color: #10B981;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Hide scrollbar but keep scroll functionality */
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            /* Internet Explorer 10+ */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+            /* Safari and Chrome */
+        }
+    </style>
+</head>
+
+<body class=" font-livvic min-h-screen">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#ffffff58] backdrop-blur-sm shadow-[0_4px_4px_#0000000D]">
+        <div class="px-10 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="./index.html" class="cursor-pointer">
+                    <h1 class="font-extrabold text-lg lg:text-[32px] text-[#D72638] font-sniglet">
+                        Halal <span class="text-black">Meat</span>
+                    </h1>
+                </a>
+
+                <!-- Navigation -->
+                <nav id="mobile-menu" class="hidden xl:flex items-center space-x-4 2xl:space-x-8 font-medium text-base">
+                    <a href="./index.html" class="text-black hover:text-white/80 transition-colors">Home</a>
+                    <a href="./build-your-box.html"
+                        class="text-[#D72638] hover:text-white/80 transition-colors font-bold">build your
+                        box</a>
+                    <a href="./about.html" class="text-black hover:text-white/80 transition-colors">About</a>
+                    <a href="./shop.html" class="text-black hover:text-white/80 transition-colors">Shop</a>
+                    <a href="./products.html" class="text-black hover:text-white/80 transition-colors">Product</a>
+                    <a href="./checkout.html" class="text-black hover:text-white/80 transition-colors">Checkout</a>
+                    <a href="./why-choose-us.html" class="text-black hover:text-white/80 transition-colors">why choose
+                        us</a>
+                    <a href="./contact.html" class="text-black hover:text-white/80 transition-colors">Contact us</a>
+                </nav>
+
+                <div class="hidden xl:flex items-center justify-between gap-4 2xl:gap-8">
+                    <a href="./build-your-box.html">
+                        <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M18.9995 10.8413L19.0005 15.5003L11.0005 20.0003L3.00045 15.5003L2.99947 10.9183L4.99948 12.0873L5.00047 14.3303L10.0005 17.1423L9.99945 13.6723L11.0074 13.0541L11.9995 13.6643L12.0005 17.1423L17.0005 14.3293L16.9995 12.0093L18.9995 10.8413ZM8.75136 0.704102L10.9728 2.01613L11.0005 2.00029L11.0128 2.00713L13.1166 0.76532L21.5262 5.66699L19.4148 6.96313L21.5265 8.20968L13.0647 13.1512L11.0018 11.8841L8.87417 13.1918L0.412391 8.25027L2.5708 6.97513L0.341797 5.60582L8.75136 0.704102ZM18.0755 7.0003L10.9955 3.1063L4.05791 7.0003L10.9955 10.8943L18.0755 7.0003Z"
+                                fill="black" />
+                        </svg>
+                    </a>
+                    <button>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M15.7549 14.2549H14.9649L14.6849 13.9849C15.6649 12.8449 16.2549 11.3649 16.2549 9.75488C16.2549 6.16488 13.3449 3.25488 9.75488 3.25488C6.16488 3.25488 3.25488 6.16488 3.25488 9.75488C3.25488 13.3449 6.16488 16.2549 9.75488 16.2549C11.3649 16.2549 12.8449 15.6649 13.9849 14.6849L14.2549 14.9649V15.7549L19.2549 20.7449L20.7449 19.2549L15.7549 14.2549ZM9.75488 14.2549C7.26488 14.2549 5.25488 12.2449 5.25488 9.75488C5.25488 7.26488 7.26488 5.25488 9.75488 5.25488C12.2449 5.25488 14.2549 7.26488 14.2549 9.75488C14.2549 12.2449 12.2449 14.2549 9.75488 14.2549Z"
+                                fill="#100404" />
+                        </svg>
+                    </button>
+                    <a href="./card.html">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M16.5461 13C17.2961 13 17.9561 12.59 18.2961 11.97L21.8761 5.48C22.2461 4.82 21.7661 4 21.0061 4H6.20609L5.26609 2H1.99609V4H3.99609L7.59609 11.59L6.24609 14.03C5.51609 15.37 6.47609 17 7.99609 17H19.9961V15H7.99609L9.09609 13H16.5461ZM7.15609 6H19.3061L16.5461 11H9.52609L7.15609 6ZM7.99609 18C6.89609 18 6.00609 18.9 6.00609 20C6.00609 21.1 6.89609 22 7.99609 22C9.09609 22 9.99609 21.1 9.99609 20C9.99609 18.9 9.09609 18 7.99609 18ZM17.9961 18C16.8961 18 16.0061 18.9 16.0061 20C16.0061 21.1 16.8961 22 17.9961 22C19.0961 22 19.9961 21.1 19.9961 20C19.9961 18.9 19.0961 18 17.9961 18Z"
+                                fill="#100404" />
+                        </svg>
+                    </a>
+                    <a href="./notification.html">
+                        <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M3.39404 7.55577C3.84677 5.20157 5.90673 3.5 8.30407 3.5H11.6959C14.0933 3.5 16.1532 5.20156 16.606 7.55576L18.482 17.3112C18.5383 17.6041 18.461 17.9069 18.271 18.1368C18.081 18.3668 17.7983 18.5 17.5 18.5H2.50001C2.20171 18.5 1.91899 18.3668 1.72902 18.1368C1.53905 17.9069 1.46167 17.6041 1.518 17.3112L3.39404 7.55577ZM8.30407 5.5C6.86567 5.5 5.62969 6.52094 5.35805 7.93346L3.71064 16.5H16.2894L14.642 7.93346C14.3703 6.52094 13.1343 5.5 11.6959 5.5H8.30407Z"
+                                fill="#100404" />
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M20 18.5H0V16.5H20V18.5Z" fill="#100404" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M6 17.5C6 16.9477 6.44772 16.5 7 16.5H13C13.5523 16.5 14 16.9477 14 17.5V18.5C14 20.1569 12.6569 21.5 11 21.5H9C7.34315 21.5 6 20.1569 6 18.5V17.5ZM8 18.5C8 19.0523 8.44772 19.5 9 19.5H11C11.5523 19.5 12 19.0523 12 18.5H8Z"
+                                fill="#100404" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M7 4.5C7 5.05228 7.44772 5.5 8 5.5H12C12.5523 5.5 13 5.05228 13 4.5V3.5C13 1.84315 11.6569 0.5 10 0.5C8.34315 0.5 7 1.84315 7 3.5V4.5ZM9 3.5C9 2.94772 9.44772 2.5 10 2.5C10.5523 2.5 11 2.94772 11 3.5H9Z"
+                                fill="#100404" />
+                        </svg>
+                    </a>
+                    <a href="./login.html" class="border border-[#100404] text-black rounded-lg p-2">
+                        Login
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="xl:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16">
+                        </path>
+                    </svg>
+                </button>
+
+                <nav id="mobile-menu-dropdown"
+                    class="xl:hidden hidden gap-4 items-start space-x-8 font-medium text-base bg-black/70 backdrop-blur-md shadow-2xl border-t border-white/10 scrollbar-y-thin absolute top-full left-0 right-0 z-50 p-4 flex flex-col gap-4">
+                    <a href="./index.html"
+                        class="text-white hover:text-red-400 transition-all duration-300 font-bold py-3 px-6 rounded-lg hover:bg-white/10 w-full text-center">Home</a>
+                    <a href="./build-your-box.html"
+                        class="text-white hover:text-red-400 transition-all duration-300 py-3 px-6 rounded-lg hover:bg-white/10 w-full text-center">build
+                        your box</a>
+                    <a href="./about.html"
+                        class="text-white hover:text-red-400 transition-all duration-300 py-3 px-6 rounded-lg hover:bg-white/10 w-full text-center">About</a>
+                    <a href="./shop.html"
+                        class="text-white hover:text-red-400 transition-all duration-300 py-3 px-6 rounded-lg hover:bg-white/10 w-full text-center">Shop</a>
+                    <a href="./products.html"
+                        class="text-white hover:text-red-400 transition-all duration-300 py-3 px-6 rounded-lg hover:bg-white/10 w-full text-center">Product</a>
+                    <a href="./checkout.html"
+                        class="text-white hover:text-red-400 transition-all duration-300 py-3 px-6 rounded-lg hover:bg-white/10 w-full text-center">Checkout</a>
+                    <a href="./why-choose-us.html"
+                        class="text-white hover:text-red-400 transition-all duration-300 py-3 px-6 rounded-lg hover:bg-white/10 w-full text-center">why
+                        choose us</a>
+                    <a href="./contact.html"
+                        class="text-white hover:text-red-400 transition-all duration-300 py-3 px-6 rounded-lg hover:bg-white/10 w-full text-center">Contact
+                        us</a>
+                    <a href="./card.html"
+                        class="flex gap-3 items-center justify-center text-white hover:text-red-400 transition-all duration-300 py-3 px-6 rounded-lg hover:bg-white/10 w-full text-center">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M16.5461 13C17.2961 13 17.9561 12.59 18.2961 11.97L21.8761 5.48C22.2461 4.82 21.7661 4 21.0061 4H6.20609L5.26609 2H1.99609V4H3.99609L7.59609 11.59L6.24609 14.03C5.51609 15.37 6.47609 17 7.99609 17H19.9961V15H7.99609L9.09609 13H16.5461ZM7.15609 6H19.3061L16.5461 11H9.52609L7.15609 6ZM7.99609 18C6.89609 18 6.00609 18.9 6.00609 20C6.00609 21.1 6.89609 22 7.99609 22C9.09609 22 9.99609 21.1 9.99609 20C9.99609 18.9 9.09609 18 7.99609 18ZM17.9961 18C16.8961 18 16.0061 18.9 16.0061 20C16.0061 21.1 16.8961 22 17.9961 22C19.0961 22 19.9961 21.1 19.9961 20C19.9961 18.9 19.0961 18 17.9961 18Z"
+                                fill="#fff" />
+                        </svg>
+                        Cart
+                    </a>
+                    <a href="./notification.html"
+                        class="flex gap-3 items-center justify-center text-white hover:text-red-400 transition-all duration-300 py-3 px-6 rounded-lg hover:bg-white/10 w-full text-center">
+                        <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M3.39404 7.55577C3.84677 5.20157 5.90673 3.5 8.30407 3.5H11.6959C14.0933 3.5 16.1532 5.20156 16.606 7.55576L18.482 17.3112C18.5383 17.6041 18.461 17.9069 18.271 18.1368C18.081 18.3668 17.7983 18.5 17.5 18.5H2.50001C2.20171 18.5 1.91899 18.3668 1.72902 18.1368C1.53905 17.9069 1.46167 17.6041 1.518 17.3112L3.39404 7.55577ZM8.30407 5.5C6.86567 5.5 5.62969 6.52094 5.35805 7.93346L3.71064 16.5H16.2894L14.642 7.93346C14.3703 6.52094 13.1343 5.5 11.6959 5.5H8.30407Z"
+                                fill="#fff" />
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M20 18.5H0V16.5H20V18.5Z" fill="#fff" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M6 17.5C6 16.9477 6.44772 16.5 7 16.5H13C13.5523 16.5 14 16.9477 14 17.5V18.5C14 20.1569 12.6569 21.5 11 21.5H9C7.34315 21.5 6 20.1569 6 18.5V17.5ZM8 18.5C8 19.0523 8.44772 19.5 9 19.5H11C11.5523 19.5 12 19.0523 12 18.5H8Z"
+                                fill="#fff" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M7 4.5C7 5.05228 7.44772 5.5 8 5.5H12C12.5523 5.5 13 5.05228 13 4.5V3.5C13 1.84315 11.6569 0.5 10 0.5C8.34315 0.5 7 1.84315 7 3.5V4.5ZM9 3.5C9 2.94772 9.44772 2.5 10 2.5C10.5523 2.5 11 2.94772 11 3.5H9Z"
+                                fill="#fff" />
+                        </svg>
+                        Notifications
+                    </a>
+                    <a href="./login.html"
+                        class="text-white hover:text-red-400 transition-all duration-300 py-3 px-6 rounded-lg hover:bg-white/10 w-full text-center">
+                        Login
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- Main Content -->
+    <main class="pt-40 pb-16 min-h-screen font-poppins">
+        <div class="container mx-auto px-6 md:px-12 lg:px-20">
+            <!-- Progress Indicator -->
+            <div class="container mx-auto px-6 md:px-12 lg:px-20">
+                <div class="flex flex-col items-center justify-center space-y-4">
+                    <div class="flex items-center justify-between text-center w-full font-euclid-circular">
+                        <span class=" text-[#B30310] font-semibold text-base">Cart</span>
+                        <span class=" text-[#B30310] font-semibold text-base">Checkout</span>
+                        <span class=" text-[#6E7583] font-semibold text-base">Payment</span>
+                    </div>
+                    <div class="flex items-center justify-between space-x-4 sm:space-x-8 w-full">
+                        <div
+                            class="w-5 h-5 border-3 p-2 border-[#B30310] bg-[#B30310] rounded-full flex items-center justify-center text-sm font-semibold">
+                        </div>
+                        <div class="w-full h-[1px] bg-[#B30310]"></div>
+                        <div
+                            class="w-5 h-5 border-3 p-2 border-[#B30310] text-white rounded-full flex items-center justify-center text-sm font-semibold">
+                        </div>
+                        <div class="w-full h-[1px] bg-[#A1A4AC]"></div>
+                        <div
+                            class="w-5 h-5 border-3 p-2 border-[#6E7583] text-white rounded-full flex items-center justify-center text-sm font-semibold">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-10">
+                <!-- Left Column - Checkout Form -->
+                <div class="lg:col-span-2 space-y-8">
+                    <!-- Delivery/Pickup Options -->
+                    <div>
+                        <div class="flex space-x-4">
+                            <button id="delivery-btn"
+                                class="delivery-option-btn active flex-1 p-4 border-2 border-[#D72638] bg-[#D72638] text-white rounded-lg flex items-center justify-center space-x-2 transition-all duration-300">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z">
+                                    </path>
+                                    <path
+                                        d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1V8a1 1 0 00-1-1h-3z">
+                                    </path>
+                                </svg>
+                                <span class="font-medium">Delivery</span>
+                            </button>
+                            <button id="pickup-btn"
+                                class="delivery-option-btn inactive flex-1 p-4 border-2 border-gray-300 bg-white text-gray-600 rounded-lg flex items-center justify-center space-x-2 transition-all duration-300">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="font-medium">Pick Up</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Billing Information -->
+                    <div>
+                        <h2 class="text-2xl font-medium mb-4 text-[#1A1A1A]">Shipping Information</h2>
+                        <form id="checkout-form" class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div>
+                                    <label class="block text-sm font-normal text-[#1A1A1A] mb-1">First Name</label>
+                                    <input type="text" name="firstName" required
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent placeholder-[#999999] font-normal text-base"
+                                        placeholder="Your first name">
+                                    <div class="error-message hidden" id="firstName-error"></div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-normal text-[#1A1A1A] mb-1">Last Name</label>
+                                    <input type="text" name="lastName" required
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent placeholder-[#999999] font-normal text-base"
+                                        placeholder="Your last name">
+                                    <div class="error-message hidden" id="lastName-error"></div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-normal text-[#1A1A1A] mb-1">Company Name
+                                        <span class="text-[#999999]">(Optional)</span></label>
+                                    <input type="text" name="companyName"
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent placeholder-[#999999] font-normal text-base"
+                                        placeholder="Company name">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-normal text-[#1A1A1A] mb-1">Street Address</label>
+                                <input type="text" name="streetAddress" required
+                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent placeholder-[#999999] font-normal text-base"
+                                    placeholder="Street Address">
+                                <div class="error-message hidden" id="streetAddress-error"></div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div>
+                                    <label class="block text-sm font-normal text-[#1A1A1A] mb-1">Country / Region
+                                    </label>
+                                    <select name="country" required
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent placeholder-[#999999] font-normal text-base">
+                                        <option value="">Select</option>
+                                        <option value="US">United States</option>
+                                        <option value="CA">Canada</option>
+                                        <option value="UK">United Kingdom</option>
+                                        <option value="AU">Australia</option>
+                                        <option value="DE">Germany</option>
+                                        <option value="FR">France</option>
+                                        <option value="IT">Italy</option>
+                                        <option value="ES">Spain</option>
+                                    </select>
+                                    <div class="error-message hidden" id="country-error"></div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-normal text-[#1A1A1A] mb-1">State</label>
+                                    <select name="state" required
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent placeholder-[#999999] font-normal text-base">
+                                        <option value="">Select</option>
+                                        <option value="CA">California</option>
+                                        <option value="NY">New York</option>
+                                        <option value="TX">Texas</option>
+                                        <option value="FL">Florida</option>
+                                        <option value="IL">Illinois</option>
+                                        <option value="PA">Pennsylvania</option>
+                                        <option value="OH">Ohio</option>
+                                        <option value="GA">Georgia</option>
+                                    </select>
+                                    <div class="error-message hidden" id="state-error"></div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-normal text-[#1A1A1A] mb-1">Zip Code</label>
+                                    <input type="text" name="zipCode" required
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent placeholder-[#999999] font-normal text-base"
+                                        placeholder="Zip Code">
+                                    <div class="error-message hidden" id="zipCode-error"></div>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-normal text-[#1A1A1A] mb-1">Email</label>
+                                    <input type="email" name="email" required
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent placeholder-[#999999] font-normal text-base"
+                                        placeholder="Email Address">
+                                    <div class="error-message hidden" id="email-error"></div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-normal text-[#1A1A1A] mb-1">Phone</label>
+                                    <input type="tel" name="phone" required
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent placeholder-[#999999] font-normal text-base"
+                                        placeholder="Phone number">
+                                    <div class="error-message hidden" id="phone-error"></div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center">
+                                <input type="checkbox" id="different-address" name="differentAddress"
+                                    class="h-4 w-4 text-[#D72638] focus:ring-[#D72638] border-gray-300 rounded">
+                                <label for="different-address"
+                                    class="ml-2 block text-sm text-[#4D4D4D] font-normal">Ship to a
+                                    different address</label>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="border-t border-[#E6E6E6] h-[1px]"></div>
+                    <!-- Additional Info -->
+                    <div>
+                        <h2 class="text-2xl font-medium mb-4 text-[#1A1A1A]">Additional Info</h2>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Order Notes (Optional)</label>
+                            <textarea name="orderNotes" rows="3"
+                                class="w-full px-3 py-2 border border-[#E6E6E6] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent placeholder-[#999999] font-normal text-base resize-none"
+                                placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Delivery Options -->
+                    <div class="border border-[#E5E5E5] rounded-lg p-6">
+                        <div class="flex items-center gap-2">
+                            <h2 class="text-base md:text-xl font-normal mb-4 text-[#1A1A1A]">Delivery Options</h2>
+                            <p class="text-sm text-[#424242] mb-4 font-normal">Business hours 09:00 - 17:00 (local time)
+                            </p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-8">
+                                <div class="flex items-center gap-2">
+                                    <input type="radio" id="immediate-btn" value="Immediate (if within business hours)"
+                                        name="deliveryTime" class="delivery-time-btn active flex-1 p-3" />
+                                    <label for="immediate-btn" class="text-base font-normal text-[#B30310]">Immediate
+                                        (if within business hours)</label>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <input type="radio" id="scheduled-btn" value="Scheduled" name="deliveryTime"
+                                        class="delivery-time-btn inactive flex-1 p-3" />
+                                    <label for="scheduled-btn"
+                                        class="text-base font-normal text-black">Scheduled</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Delivery Date & Time -->
+                        <div id="delivery-date-time" class="space-y-2 p-4">
+                            <p class="text-base font-normal text-[#676565]">
+                                Delivery Date & Time
+                            </p>
+                            <input type="text" id="delivery-date-display" name="deliveryDateDisplay" readonly
+                                class="w-full px-3 py-2 border border-[#DBDDE3] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent bg-gray-50"
+                                placeholder="Select date and time from the picker below">
+                        </div>
+                        <!-- Custom Date & Time Picker (Hidden by default) -->
+                        <div id="datetime-picker"
+                            class="hidden space-y-4 w-fit mx-auto">
+                            <div class="flex flex-col md:flex-row gap-4 md:gap-8 bg-white rounded-lg backdrop-blur-sm shadow-[0_4px_4px_#0000000D] scale-90 p-10">
+                                <!-- Calendar Section -->
+                                <div class="p-4">
+                                    <div class="custom-calendar">
+                                        <!-- Calendar Header -->
+                                        <div class="flex items-center justify-between mb-4">
+                                            <button type="button" id="prev-month" class="p-2 hover:bg-gray-100 rounded">
+                                                <svg class="w-4 h-4" fill="none" stroke="currentColor"
+                                                    viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                                                </svg>
+                                            </button>
+                                            <h3 id="current-month-year" class="text-lg font-semibold text-gray-800">
+                                                September 2025</h3>
+                                            <button type="button" id="next-month" class="p-2 hover:bg-gray-100 rounded">
+                                                <svg class="w-4 h-4" fill="none" stroke="currentColor"
+                                                    viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+
+                                        <!-- Calendar Grid -->
+                                        <div class="grid grid-cols-7 gap-1 mb-2">
+                                            <div class="text-center text-sm font-medium text-gray-500 py-2">Mo</div>
+                                            <div class="text-center text-sm font-medium text-gray-500 py-2">Tu</div>
+                                            <div class="text-center text-sm font-medium text-gray-500 py-2">We</div>
+                                            <div class="text-center text-sm font-medium text-gray-500 py-2">Th</div>
+                                            <div class="text-center text-sm font-medium text-[#D72638] py-2">Fr</div>
+                                            <div class="text-center text-sm font-medium text-[#D72638] py-2">Sa</div>
+                                            <div class="text-center text-sm font-medium text-[#D72638] py-2">Su</div>
+                                        </div>
+
+                                        <div id="calendar-dates" class="grid grid-cols-7 gap-1">
+                                            <!-- Calendar dates will be generated by JavaScript -->
+                                        </div>
+                                    </div>
+                                    <div class="error-message hidden" id="deliveryDate-error"></div>
+                                </div>
+
+                                <!-- Time Picker Section -->
+                                <div class="border-l border-[#C7C7C7] p-4">
+                                    <div class="custom-time-picker h-full">
+                                        <div class="flex items-center justify-center space-x-4 h-full">
+                                            <!-- Hour Picker -->
+                                            <div class="text-center">
+                                                <div class="relative">
+                                                    <div id="selected-hour"
+                                                        class="w-14 h-10 bg-red-100 border-2 border-red-300 rounded-lg flex items-center justify-center text-lg font-normal text-black mb-2">
+                                                        12</div>
+                                                    <div
+                                                        class="h-52 overflow-y-auto scrollbar-hide border border-gray-200 rounded-lg">
+                                                        <div class="space-y-1 py-2 px-2">
+                                                            <div class="time-option hour-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-hour="12">12</div>
+                                                            <div class="time-option hour-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-hour="01">01</div>
+                                                            <div class="time-option hour-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-hour="02">02</div>
+                                                            <div class="time-option hour-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-hour="03">03</div>
+                                                            <div class="time-option hour-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-hour="04">04</div>
+                                                            <div class="time-option hour-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-hour="05">05</div>
+                                                            <div class="time-option hour-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-hour="06">06</div>
+                                                            <div class="time-option hour-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-hour="07">07</div>
+                                                            <div class="time-option hour-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-hour="08">08</div>
+                                                            <div class="time-option hour-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-hour="09">09</div>
+                                                            <div class="time-option hour-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-hour="10">10</div>
+                                                            <div class="time-option hour-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-hour="11">11</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Minute Picker -->
+                                            <div class="text-center">
+                                                <div class="relative">
+                                                    <div id="selected-minute"
+                                                        class="w-14 h-10 bg-red-100 border-2 border-red-300 rounded-lg flex items-center justify-center text-lg font-normal text-black mb-2">
+                                                        55</div>
+                                                    <div
+                                                        class="h-52 overflow-y-auto scrollbar-hide border border-gray-200 rounded-lg">
+                                                        <div class="space-y-1 p-2">
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="00">00</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="01">01</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="02">02</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="03">03</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="04">04</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="05">05</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="06">06</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="07">07</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="08">08</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="09">09</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="10">10</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="11">11</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="12">12</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="13">13</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="14">14</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="15">15</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="16">16</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="17">17</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="18">18</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="19">19</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="20">20</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="21">21</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="22">22</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="23">23</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="24">24</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="25">25</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="26">26</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="27">27</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="28">28</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="29">29</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="30">30</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="31">31</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="32">32</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="33">33</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="34">34</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="35">35</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="36">36</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="37">37</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="38">38</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="39">39</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="40">40</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="41">41</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="42">42</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="43">43</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="44">44</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="45">45</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="46">46</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="47">47</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="48">48</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="49">49</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="50">50</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="51">51</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="52">52</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="53">53</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="54">54</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="55">55</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="56">56</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="57">57</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="58">58</div>
+                                                            <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                data-minute="59">59</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- AM/PM Picker -->
+                                            <div class="text-center">
+                                                <!-- <div class="text-sm text-gray-600 mb-2">Period</div> -->
+                                                <div class="space-y-2">
+                                                    <div class="space-y-1 font-inter font-normal text-xs">
+                                                        <div class="time-option period-option text-center py-2 px-3 border border-[#D7D7D7] rounded-lg cursor-pointer"
+                                                            data-period="AM">AM</div>
+                                                        <div class="time-option period-option text-center py-2 px-3 bg-[#FFCFD4] border-2 border-[#F48E98] rounded-lg cursor-pointer"
+                                                            data-period="PM">PM</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="error-message hidden" id="deliveryTime-error"></div>
+                                </div>
+                            </div>
+
+                            <!-- Hidden inputs for form submission -->
+                            <input type="hidden" id="delivery-date" name="deliveryDate">
+                            <input type="hidden" id="delivery-time" name="deliveryTime">
+                        </div>
+                    </div>
+
+                    <!-- Note Box -->
+                    <div class="bg-[#FFF0F1] border border-[#FFC0C0] rounded-lg p-4 mt-2">
+                        <div class="flex flex-col text-black font-poppins text-base">
+                            <p>Note :</p>
+                            <div class="mt-2 px-4">
+                                <ul class="list-disc list-inside space-y-1">
+                                    <li>If order is placed outside business hours, it will be auto-scheduled for
+                                        the next day.</li>
+                                    <li>Immediate delivery within hours usually takes 1-2 hours (mock).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Right Column - Order Summary & Payment -->
+                <div class="space-y-6">
+                    <!-- Order Summary -->
+                    <div class="border border-[#E6E6E6] rounded-lg p-6">
+                        <h2 class="text-xl font-medium mb-4 text-[#1A1A1A]">Order Summary</h2>
+                        <div class="space-y-4">
+                            <!-- Sample Products -->
+                            <div class="flex items-center space-x-3">
+                                <img src="./assets/images/meat.jpg" alt="Long Box" class="w-14 h-14 object-cover">
+                                <div class="flex-1 font-normal text-sm text-[#1A1A1A]">
+                                    <h3>Long Box x1</h3>
+                                </div>
+                                <span class="font-medium">$70.00</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <img src="./assets/images/chicken.jpg" alt="Chicken Wings"
+                                    class="w-14 h-14 object-cover">
+                                <div class="flex-1 font-normal text-sm text-[#1A1A1A]">
+                                    <h3>Chicken Wings x1</h3>
+                                </div>
+                                <span class="font-medium">$14.00</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 mt-2 space-y-2">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-[#4D4D4D] font-normal">Subtotal</span>
+                                <span class="text[#1A1A1A] font-medium">$84.00</span>
+                            </div>
+                            <div class="flex justify-between text-sm border-t border-[#E6E6E6] pt-2">
+                                <span class="text-[#4D4D4D] font-normal">Shipping</span>
+                                <span class="text[#1A1A1A] font-medium" id="shipping-cost">$5.00</span>
+                            </div>
+                            <div class="flex justify-between text-lg border-t border-[#E6E6E6] pt-4">
+                                <span class="text-[#4D4D4D] font-normal">Total</span>
+                                <span class="text[#1A1A1A] font-semibold text-lg" id="total-cost">$89.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Method -->
+                    <div class="bg-white rounded-lg shadow-sm p-6">
+                        <h2 class="text-xl font-medium mb-4 text-[#1A1A1A]">Payment Method</h2>
+                        <div class="space-y-1">
+                            <label class="flex items-center p-3 cursor-pointer hover:bg-gray-50 transition-colors">
+                                <input type="radio" name="paymentMethod" value="bankTransfer" checked
+                                    class="h-4 w-4 text-[#D72638] focus:ring-[#D72638] border-gray-300">
+                                <span class="ml-3 text-gray-700">Bank Transfer</span>
+                            </label>
+                            <label class="flex items-center p-3  cursor-pointer hover:bg-gray-50 transition-colors">
+                                <input type="radio" name="paymentMethod" value="paypal"
+                                    class="h-4 w-4 text-[#D72638] focus:ring-[#D72638] border-gray-300">
+                                <span class="ml-3 text-gray-700">PayPal</span>
+                            </label>
+                            <label class="flex items-center p-3 cursor-pointer hover:bg-gray-50 transition-colors">
+                                <input type="radio" name="paymentMethod" value="creditCard"
+                                    class="h-4 w-4 text-[#D72638] focus:ring-[#D72638] border-gray-300">
+                                <span class="ml-3 text-gray-700">Bank Card</span>
+                            </label>
+                        </div>
+
+                        <button id="place-order-btn"
+                            class="w-full mt-6 bg-[#D72638] text-white py-3 px-10 font-semibold text-base rounded-full hover:bg-[#B91C2C] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:ring-offset-2">
+                            Place Order
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-linear-to-r from-[#D72638] to-[#58080E] text-white">
+        <div class="2xl:max-w-[1900px] mx-auto ">
+            <div class="px-6 md:px-12 lg:px-20 mx-auto py-16 text-center md:text-start">
+                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-20">
+                    <!-- Left Column - Halal Meat -->
+                    <div class="col-span-1 lg:col-span-3">
+                        <a href="./index.html" class="cursor-pointer">
+                            <h1 class="font-extrabold text-lg lg:text-[32px] text-white font-sniglet">
+                                Halal Meat</span>
+                            </h1>
+                        </a>
+                        <p class="text-white font-normal text-base my-8 leading-relaxed font-century-gothic">
+                            Lorem ipsum dolor sit amet, adipiscing elit. In hac habitasse platea dictumst. Duis porta,
+                            quam
+                            ut finibus ultrices.
+                        </p>
+
+                        <div class="w-full bg-[#FFFFFF33] h-[1px]"></div>
+                        <!-- Social Media Icons -->
+                        <div class="flex space-x-4 mt-6 justify-center md:justify-start">
+                            <a href="#">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M14 13.5H16.5L17.5 9.5H14V7.5C14 6.47 14 5.5 16 5.5H17.5V2.14C17.174 2.097 15.943 2 14.643 2C11.928 2 10 3.657 10 6.7V9.5H7V13.5H10V22H14V13.5Z"
+                                        fill="white" />
+                                </svg>
+                            </a>
+                            <a href="#">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M22.46 6C21.69 6.35 20.86 6.58 20 6.69C20.88 6.16 21.56 5.32 21.88 4.31C21.05 4.81 20.13 5.16 19.16 5.36C18.37 4.5 17.26 4 16 4C13.65 4 11.73 5.92 11.73 8.29C11.73 8.63 11.77 8.96 11.84 9.27C8.28004 9.09 5.11004 7.38 3.00004 4.79C2.63004 5.42 2.42004 6.16 2.42004 6.94C2.42004 8.43 3.17004 9.75 4.33004 10.5C3.62004 10.5 2.96004 10.3 2.38004 10V10.03C2.38004 12.11 3.86004 13.85 5.82004 14.24C5.19077 14.4122 4.53013 14.4362 3.89004 14.31C4.16165 15.1625 4.69358 15.9084 5.41106 16.4429C6.12854 16.9775 6.99549 17.2737 7.89004 17.29C6.37367 18.4904 4.49404 19.1393 2.56004 19.13C2.22004 19.13 1.88004 19.11 1.54004 19.07C3.44004 20.29 5.70004 21 8.12004 21C16 21 20.33 14.46 20.33 8.79C20.33 8.6 20.33 8.42 20.32 8.23C21.16 7.63 21.88 6.87 22.46 6Z"
+                                        fill="white" />
+                                </svg>
+                            </a>
+                            <a href="#">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M10 15L15.19 12L10 9V15ZM21.56 7.17C21.69 7.64 21.78 8.27 21.84 9.07C21.91 9.87 21.94 10.56 21.94 11.16L22 12C22 14.19 21.84 15.8 21.56 16.83C21.31 17.73 20.73 18.31 19.83 18.56C19.36 18.69 18.5 18.78 17.18 18.84C15.88 18.91 14.69 18.94 13.59 18.94L12 19C7.81 19 5.2 18.84 4.17 18.56C3.27 18.31 2.69 17.73 2.44 16.83C2.31 16.36 2.22 15.73 2.16 14.93C2.09 14.13 2.06 13.44 2.06 12.84L2 12C2 9.81 2.16 8.2 2.44 7.17C2.69 6.27 3.27 5.69 4.17 5.44C4.64 5.31 5.5 5.22 6.82 5.16C8.12 5.09 9.31 5.06 10.41 5.06L12 5C16.19 5 18.8 5.16 19.83 5.44C20.73 5.69 21.31 6.27 21.56 7.17Z"
+                                        fill="white" />
+                                </svg>
+                            </a>
+                            <a href="#">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12 8.75C11.138 8.75 10.3114 9.09241 9.7019 9.7019C9.09241 10.3114 8.75 11.138 8.75 12C8.75 12.862 9.09241 13.6886 9.7019 14.2981C10.3114 14.9076 11.138 15.25 12 15.25C12.862 15.25 13.6886 14.9076 14.2981 14.2981C14.9076 13.6886 15.25 12.862 15.25 12C15.25 11.138 14.9076 10.3114 14.2981 9.7019C13.6886 9.09241 12.862 8.75 12 8.75Z"
+                                        fill="white" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M6.76982 3.08194C10.2458 2.69664 13.7538 2.69664 17.2298 3.08194C19.1288 3.29394 20.6598 4.78894 20.8828 6.69494C21.295 10.2196 21.295 13.7803 20.8828 17.3049C20.6598 19.2109 19.1288 20.7059 17.2308 20.9189C13.7545 21.3043 10.2462 21.3043 6.76982 20.9189C4.87082 20.7059 3.33982 19.2109 3.11682 17.3059C2.70455 13.781 2.70455 10.2199 3.11682 6.69494C3.33982 4.78894 4.87082 3.29394 6.76982 3.08194ZM16.9998 5.99994C16.7346 5.99994 16.4802 6.1053 16.2927 6.29284C16.1052 6.48037 15.9998 6.73473 15.9998 6.99994C15.9998 7.26516 16.1052 7.51951 16.2927 7.70705C16.4802 7.89459 16.7346 7.99994 16.9998 7.99994C17.265 7.99994 17.5194 7.89459 17.7069 7.70705C17.8945 7.51951 17.9998 7.26516 17.9998 6.99994C17.9998 6.73473 17.8945 6.48037 17.7069 6.29284C17.5194 6.1053 17.265 5.99994 16.9998 5.99994ZM7.24982 11.9999C7.24982 10.7402 7.75027 9.53198 8.64106 8.64119C9.53186 7.75039 10.74 7.24994 11.9998 7.24994C13.2596 7.24994 14.4678 7.75039 15.3586 8.64119C16.2494 9.53198 16.7498 10.7402 16.7498 11.9999C16.7498 13.2597 16.2494 14.4679 15.3586 15.3587C14.4678 16.2495 13.2596 16.7499 11.9998 16.7499C10.74 16.7499 9.53186 16.2495 8.64106 15.3587C7.75027 14.4679 7.24982 13.2597 7.24982 11.9999Z"
+                                        fill="white" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Middle Column - Useful Links -->
+                    <div class="col-span-1">
+                        <h3 class="text-xl font-semibold mb-4 font-livvic">Useful Links</h3>
+                        <ul class="space-y-3">
+                            <li><a href="#"
+                                    class="text-white hover:text-white/60 font-normal text-sm font-century-gothic transition-colors">New
+                                    Projects</a></li>
+                            <li><a href="#"
+                                    class="text-white hover:text-white/60 font-normal text-sm font-century-gothic transition-colors">Our
+                                    Services</a></li>
+                            <li><a href="#"
+                                    class="text-white hover:text-white/60 font-normal text-sm font-century-gothic transition-colors">Testimonials</a>
+                            </li>
+                            <li><a href="#"
+                                    class="text-white hover:text-white/60 font-normal text-sm font-century-gothic transition-colors">About
+                                    Us</a></li>
+                            <li><a href="#"
+                                    class="text-white hover:text-white/60 font-normal text-sm font-century-gothic transition-colors">Contact
+                                    us</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Right Column - Newsletter -->
+                    <div class="col-span-1 lg:col-span-2">
+                        <h3 class="text-xl font-semibold mb-4 font-livvic">Newsletter</h3>
+                        <p class="text-white mb-6 font-century-gothic font-normal text-base">
+                            Subscribe to our weekly Newsletter and receive updates via email.
+                        </p>
+                        <!-- Newsletter Form -->
+                        <div
+                            class="flex items-center w-full max-w-md bg-white p-1 bg-opacity-20 rounded-[50px] overflow-hidden focus-within:ring-2 focus-within:ring-white focus-within:ring-opacity-50">
+                            <input type="email" placeholder="Enter your mail here..."
+                                class="flex-1 px-4 py-3 font-normal text-base font-century-gothic bg-transparent text-[#00000080] placeholder-[#00000080] focus:outline-none" />
+                            <button
+                                class="bg-[#FF9CA6] text-[#1A1A1A] font-medium text-base font-livvic p-3 rounded-[50px] hover:bg-opacity-70 transition-colors whitespace-nowrap">
+                                GO
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Footer Bar -->
+            <div class="border-t border-[#FFFFFF80] border-opacity-20">
+                <div class="container px-6 md:px-12 lg:px-20 mx-auto py-6">
+                    <div
+                        class="flex flex-col md:flex-row justify-center md:justify-between text-center md:text-start items-center space-y-4 md:space-y-0 text-base font-century-gothic font-normal">
+                        <div class="text-white hover:text-white/60 transition-colors">
+                            Copyright ©Smart Agro. All Right Reserved.
+                        </div>
+                        <div class="flex space-x-6 text-sm">
+                            <a href="#" class="text-white hover:text-white/60 transition-colors">Terms & Conditions</a>
+                            <a href="#" class="text-white hover:text-white/60 transition-colors">Privacy Policy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./mobile-menu.js"></script>
+    <script>
+        // Global variables
+        let isDelivery = true;
+        let isImmediate = true;
+        let currentShippingCost = 5.00;
+
+        // DOM elements
+        const deliveryBtn = document.getElementById('delivery-btn');
+        const pickupBtn = document.getElementById('pickup-btn');
+        const immediateBtn = document.getElementById('immediate-btn');
+        const scheduledBtn = document.getElementById('scheduled-btn');
+        const datetimePicker = document.getElementById('datetime-picker');
+        const placeOrderBtn = document.getElementById('place-order-btn');
+        const checkoutForm = document.getElementById('checkout-form');
+        const shippingCostElement = document.getElementById('shipping-cost');
+        const totalCostElement = document.getElementById('total-cost');
+
+        // Calendar and time picker variables
+        let currentDate = new Date();
+        let selectedDate = null;
+        let selectedHour = '12';
+        let selectedMinute = '55';
+        let selectedPeriod = 'PM';
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function () {
+            setupEventListeners();
+            updateShippingCost();
+            setMinDate();
+            initializeCustomDateTimePicker();
+        });
+
+        // Setup all event listeners
+        function setupEventListeners() {
+            // Delivery/Pickup toggle
+            deliveryBtn.addEventListener('click', () => toggleDeliveryOption(true));
+            pickupBtn.addEventListener('click', () => toggleDeliveryOption(false));
+
+            // Immediate/Scheduled toggle
+            immediateBtn.addEventListener('click', () => toggleDeliveryTime(true));
+            scheduledBtn.addEventListener('click', () => toggleDeliveryTime(false));
+
+            // Form submission
+            placeOrderBtn.addEventListener('click', handleFormSubmission);
+
+            // Real-time validation
+            const requiredFields = checkoutForm.querySelectorAll('input[required], select[required]');
+            requiredFields.forEach(field => {
+                field.addEventListener('blur', () => validateField(field));
+                field.addEventListener('input', () => clearFieldError(field));
+            });
+        }
+
+        // Toggle delivery/pickup options
+        function toggleDeliveryOption(delivery) {
+            isDelivery = delivery;
+
+            if (delivery) {
+                deliveryBtn.classList.remove('inactive');
+                deliveryBtn.classList.add('active');
+                pickupBtn.classList.remove('active');
+                pickupBtn.classList.add('inactive');
+            } else {
+                pickupBtn.classList.remove('inactive');
+                pickupBtn.classList.add('active');
+                deliveryBtn.classList.remove('active');
+                deliveryBtn.classList.add('inactive');
+            }
+
+            updateShippingCost();
+        }
+
+        // Toggle immediate/scheduled delivery
+        function toggleDeliveryTime(immediate) {
+            isImmediate = immediate;
+
+            if (immediate) {
+                immediateBtn.classList.remove('inactive');
+                immediateBtn.classList.add('active');
+                scheduledBtn.classList.remove('active');
+                scheduledBtn.classList.add('inactive');
+                datetimePicker.classList.add('hidden');
+            } else {
+                scheduledBtn.classList.remove('inactive');
+                scheduledBtn.classList.add('active');
+                immediateBtn.classList.remove('active');
+                immediateBtn.classList.add('inactive');
+                datetimePicker.classList.remove('hidden');
+            }
+        }
+
+        // Update shipping cost based on delivery option
+        function updateShippingCost() {
+            if (isDelivery) {
+                currentShippingCost = 5.00;
+                shippingCostElement.textContent = '$5.00';
+            } else {
+                currentShippingCost = 0.00;
+                shippingCostElement.textContent = 'Free';
+            }
+
+            updateTotalCost();
+        }
+
+        // Update total cost
+        function updateTotalCost() {
+            const subtotal = 84.00;
+            const total = subtotal + currentShippingCost;
+            totalCostElement.textContent = `$${total.toFixed(2)}`;
+        }
+
+        // Set minimum date for delivery date picker
+        function setMinDate() {
+            const today = new Date();
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+
+            const dateInput = document.getElementById('delivery-date');
+            dateInput.min = tomorrow.toISOString().split('T')[0];
+        }
+
+        // Validate individual field
+        function validateField(field) {
+            const value = field.value.trim();
+            const fieldName = field.name;
+            const errorElement = document.getElementById(`${fieldName}-error`);
+
+            let isValid = true;
+            let errorMessage = '';
+
+            // Required field validation
+            if (field.hasAttribute('required') && !value) {
+                isValid = false;
+                errorMessage = `${getFieldLabel(fieldName)} is required.`;
+            }
+
+            // Email validation
+            if (fieldName === 'email' && value) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(value)) {
+                    isValid = false;
+                    errorMessage = 'Please enter a valid email address.';
+                }
+            }
+
+            // Phone validation
+            if (fieldName === 'phone' && value) {
+                const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+                if (!phoneRegex.test(value.replace(/[\s\-\(\)]/g, ''))) {
+                    isValid = false;
+                    errorMessage = 'Please enter a valid phone number.';
+                }
+            }
+
+            // Zip code validation
+            if (fieldName === 'zipCode' && value) {
+                const zipRegex = /^\d{5}(-\d{4})?$/;
+                if (!zipRegex.test(value)) {
+                    isValid = false;
+                    errorMessage = 'Please enter a valid zip code.';
+                }
+            }
+
+            // Update UI
+            if (isValid) {
+                field.classList.remove('form-error');
+                if (errorElement) {
+                    errorElement.classList.add('hidden');
+                    errorElement.textContent = '';
+                }
+            } else {
+                field.classList.add('form-error');
+                if (errorElement) {
+                    errorElement.classList.remove('hidden');
+                    errorElement.textContent = errorMessage;
+                }
+            }
+
+            return isValid;
+        }
+
+        // Clear field error
+        function clearFieldError(field) {
+            field.classList.remove('form-error');
+            const errorElement = document.getElementById(`${field.name}-error`);
+            if (errorElement) {
+                errorElement.classList.add('hidden');
+                errorElement.textContent = '';
+            }
+        }
+
+        // Get field label for error messages
+        function getFieldLabel(fieldName) {
+            const labels = {
+                firstName: 'First Name',
+                lastName: 'Last Name',
+                streetAddress: 'Street Address',
+                country: 'Country',
+                state: 'State',
+                zipCode: 'Zip Code',
+                email: 'Email',
+                phone: 'Phone',
+                deliveryDate: 'Delivery Date',
+                deliveryTime: 'Delivery Time'
+            };
+            return labels[fieldName] || fieldName;
+        }
+
+        // Validate entire form
+        function validateForm() {
+            const requiredFields = checkoutForm.querySelectorAll('input[required], select[required]');
+            let isFormValid = true;
+
+            requiredFields.forEach(field => {
+                if (!validateField(field)) {
+                    isFormValid = false;
+                }
+            });
+
+            // Additional validation for scheduled delivery
+            if (!isImmediate) {
+                const deliveryDate = document.getElementById('delivery-date');
+                const deliveryTime = document.getElementById('delivery-time');
+
+                if (!selectedDate || !selectedHour || !selectedMinute || !selectedPeriod) {
+                    isFormValid = false;
+                    showNotification('Please select both date and time for scheduled delivery.', 'error');
+                }
+            }
+
+            return isFormValid;
+        }
+
+        // Handle form submission
+        function handleFormSubmission() {
+            if (!validateForm()) {
+                showNotification('Please fix the errors in the form before proceeding.', 'error');
+                return;
+            }
+
+            // Get form data
+            const formData = new FormData(checkoutForm);
+            const orderData = {
+                deliveryOption: isDelivery ? 'delivery' : 'pickup',
+                deliveryTime: isImmediate ? 'immediate' : 'scheduled',
+                billing: {
+                    firstName: formData.get('firstName'),
+                    lastName: formData.get('lastName'),
+                    companyName: formData.get('companyName'),
+                    streetAddress: formData.get('streetAddress'),
+                    country: formData.get('country'),
+                    state: formData.get('state'),
+                    zipCode: formData.get('zipCode'),
+                    email: formData.get('email'),
+                    phone: formData.get('phone'),
+                    differentAddress: formData.get('differentAddress') === 'on'
+                },
+                orderNotes: formData.get('orderNotes'),
+                deliveryDate: formData.get('deliveryDate'),
+                deliveryTime: formData.get('deliveryTime'),
+                paymentMethod: formData.get('paymentMethod'),
+                orderSummary: {
+                    subtotal: 84.00,
+                    shipping: currentShippingCost,
+                    total: 84.00 + currentShippingCost
+                }
+            };
+
+            // Show loading state
+            placeOrderBtn.disabled = true;
+            placeOrderBtn.textContent = 'Processing...';
+
+            // Simulate API call
+            setTimeout(() => {
+                console.log('Order Data:', orderData);
+                showNotification('Order placed successfully! Redirecting to payment...', 'success');
+
+                // Reset button
+                placeOrderBtn.disabled = false;
+                placeOrderBtn.textContent = 'Place Order';
+
+                // In a real application, you would redirect to payment page
+                // window.location.href = './payment.html';
+            }, 2000);
+        }
+
+        // Show notification
+        function showNotification(message, type) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 p-4 rounded-lg shadow-lg z-50 ${type === 'success' ? 'bg-green-500 text-white' : 'bg-[#D72638] text-black'
+                }`;
+            notification.textContent = message;
+
+            document.body.appendChild(notification);
+
+            // Remove notification after 5 seconds
+            setTimeout(() => {
+                notification.remove();
+            }, 5000);
+        }
+
+        // Initialize custom date/time picker
+        function initializeCustomDateTimePicker() {
+            generateCalendar();
+            setupTimePickerEvents();
+            setupCalendarEvents();
+        }
+
+        // Generate calendar
+        function generateCalendar() {
+            const calendarDates = document.getElementById('calendar-dates');
+            const currentMonthYear = document.getElementById('current-month-year');
+
+            if (!calendarDates || !currentMonthYear) return;
+
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth();
+
+            currentMonthYear.textContent = currentDate.toLocaleDateString('en-US', {
+                month: 'long',
+                year: 'numeric'
+            });
+
+            // Clear previous dates
+            calendarDates.innerHTML = '';
+
+            // Get first day of month and number of days
+            const firstDay = new Date(year, month, 1);
+            const lastDay = new Date(year, month + 1, 0);
+            const daysInMonth = lastDay.getDate();
+            const startingDayOfWeek = (firstDay.getDay() + 6) % 7; // Convert Sunday=0 to Monday=0
+
+            // Add empty cells for days before the first day of the month
+            for (let i = 0; i < startingDayOfWeek; i++) {
+                const emptyCell = document.createElement('div');
+                emptyCell.className = 'h-8';
+                calendarDates.appendChild(emptyCell);
+            }
+
+            // Add days of the month
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dateCell = document.createElement('div');
+                dateCell.className = 'h-8 flex items-center justify-center text-sm cursor-pointer hover:bg-gray-100 rounded';
+                dateCell.textContent = day;
+                dateCell.dataset.day = day;
+                dateCell.dataset.date = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+
+                // Highlight weekends in red
+                const dayOfWeek = new Date(year, month, day).getDay();
+                if (dayOfWeek === 0 || dayOfWeek === 6) { // Sunday or Saturday
+                    dateCell.classList.add('text-[#D72638]');
+                }
+
+                // Highlight selected date
+                if (selectedDate && dateCell.dataset.date === selectedDate) {
+                    dateCell.classList.add('bg-[#D72638]', 'text-black', 'rounded');
+                }
+
+                dateCell.addEventListener('click', () => selectDate(dateCell));
+                calendarDates.appendChild(dateCell);
+            }
+        }
+
+        // Select date
+        function selectDate(dateElement) {
+            // Remove previous selection
+            document.querySelectorAll('#calendar-dates > div').forEach(cell => {
+                cell.classList.remove('bg-[#D72638]', 'text-black');
+                if (cell.classList.contains('text-[#D72638]')) {
+                    cell.classList.add('text-[#D72638]');
+                }
+            });
+
+            // Add selection to clicked date
+            dateElement.classList.add('bg-[#D72638]', 'text-black', 'rounded');
+            dateElement.classList.remove('text-[#D72638]');
+
+            selectedDate = dateElement.dataset.date;
+            updateHiddenInputs();
+        }
+
+        // Setup calendar navigation events
+        function setupCalendarEvents() {
+            const prevMonthBtn = document.getElementById('prev-month');
+            const nextMonthBtn = document.getElementById('next-month');
+
+            if (prevMonthBtn) {
+                prevMonthBtn.addEventListener('click', () => {
+                    currentDate.setMonth(currentDate.getMonth() - 1);
+                    generateCalendar();
+                });
+            }
+
+            if (nextMonthBtn) {
+                nextMonthBtn.addEventListener('click', () => {
+                    currentDate.setMonth(currentDate.getMonth() + 1);
+                    generateCalendar();
+                });
+            }
+        }
+
+        // Setup time picker events
+        function setupTimePickerEvents() {
+            // Hour selection
+            document.querySelectorAll('.hour-option').forEach(option => {
+                option.addEventListener('click', () => {
+                    selectedHour = option.dataset.hour;
+                    document.getElementById('selected-hour').textContent = selectedHour;
+                    updateHiddenInputs();
+                });
+            });
+
+            // Minute selection
+            document.querySelectorAll('.minute-option').forEach(option => {
+                option.addEventListener('click', () => {
+                    selectedMinute = option.dataset.minute;
+                    document.getElementById('selected-minute').textContent = selectedMinute;
+                    updateHiddenInputs();
+                });
+            });
+
+            // Period selection
+            document.querySelectorAll('.period-option').forEach(option => {
+                option.addEventListener('click', () => {
+                    selectedPeriod = option.dataset.period;
+
+                    // Update styling - toggle between AM and PM
+                    document.querySelectorAll('.period-option').forEach(opt => {
+                        // Reset all options to default styling
+                        opt.classList.remove('bg-[#FFCFD4]', 'border-[#F48E98]', 'border-2');
+                        opt.classList.add('border', 'border-[#D7D7D7]');
+                    });
+
+                    // Apply selected styling to clicked option
+                    option.classList.remove('border', 'border-[#D7D7D7]');
+                    option.classList.add('bg-[#FFCFD4]', 'border-2', 'border-[#F48E98]');
+
+                    updateHiddenInputs();
+                });
+            });
+        }
+
+        // Update hidden inputs and display
+        function updateHiddenInputs() {
+            const dateInput = document.getElementById('delivery-date');
+            const timeInput = document.getElementById('delivery-time');
+            const displayInput = document.getElementById('delivery-date-display');
+
+            if (dateInput && selectedDate) {
+                dateInput.value = selectedDate;
+            }
+
+            if (timeInput) {
+                // Convert 12-hour to 24-hour format
+                let hour24 = parseInt(selectedHour);
+                if (selectedPeriod === 'PM' && hour24 !== 12) {
+                    hour24 += 12;
+                } else if (selectedPeriod === 'AM' && hour24 === 12) {
+                    hour24 = 0;
+                }
+
+                const time24 = `${String(hour24).padStart(2, '0')}:${selectedMinute}`;
+                timeInput.value = time24;
+            }
+
+            // Update display input
+            if (displayInput && selectedDate) {
+                const displayDate = new Date(selectedDate).toLocaleDateString('en-US', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                const displayTime = `${selectedHour}:${selectedMinute} ${selectedPeriod}`;
+                displayInput.value = `${displayDate} at ${displayTime}`;
+            }
+        }
+    </script>
+</body>
+
+</html>
