@@ -105,17 +105,17 @@
 
                 <!-- Navigation -->
                 <nav id="mobile-menu" class="hidden xl:flex items-center space-x-4 2xl:space-x-8 font-medium text-base">
-                    <a href="./index.html" class="text-black hover:text-white/80 transition-colors">Home</a>
+                    <a href="./index.html" class="text-black hover:text-[#D72638] transition-colors">Home</a>
                     <a href="./build-your-box.html"
-                        class="text-[#D72638] hover:text-white/80 transition-colors font-bold">build your
+                        class="text-[#D72638] hover:text-[#D72638] transition-colors font-bold">build your
                         box</a>
-                    <a href="./about.html" class="text-black hover:text-white/80 transition-colors">About</a>
-                    <a href="./shop.html" class="text-black hover:text-white/80 transition-colors">Shop</a>
-                    <a href="./products.html" class="text-black hover:text-white/80 transition-colors">Product</a>
-                    <a href="./checkout.html" class="text-black hover:text-white/80 transition-colors">Checkout</a>
-                    <a href="./why-choose-us.html" class="text-black hover:text-white/80 transition-colors">why choose
+                    <a href="./about.html" class="text-black hover:text-[#D72638] transition-colors">About</a>
+                    <a href="./shop.html" class="text-black hover:text-[#D72638] transition-colors">Shop</a>
+                    <a href="./products.html" class="text-black hover:text-[#D72638] transition-colors">Product</a>
+                    <a href="./checkout.html" class="text-black hover:text-[#D72638] transition-colors">Checkout</a>
+                    <a href="./why-choose-us.html" class="text-black hover:text-[#D72638] transition-colors">why choose
                         us</a>
-                    <a href="./contact.html" class="text-black hover:text-white/80 transition-colors">Contact us</a>
+                    <a href="./contact.html" class="text-black hover:text-[#D72638] transition-colors">Contact us</a>
                 </nav>
 
                 <div class="hidden xl:flex items-center justify-between gap-4 2xl:gap-8">
@@ -806,7 +806,7 @@
         </div>
     </main>
     <!-- Footer -->
-    <footer class="bg-gradient-to-r from-[#D72638] to-[#58080E] text-white">
+    <footer class="bg-linear-to-r from-[#D72638] to-[#58080E] text-white">
         <div class="2xl:max-w-[1900px] mx-auto ">
             <div class="px-6 md:px-12 lg:px-20 mx-auto py-16 text-center md:text-start">
                 <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-20">
@@ -950,16 +950,25 @@
         let selectedMinute = '55';
         let selectedPeriod = 'PM';
 
-        deliveryBtn.addEventListener('click', () => {
-            toggleDeliveryOption(true);
+      
+    document.querySelectorAll('.quantity-increase').forEach(button => {
+        button.addEventListener('click', function () {
+            const productId = this.getAttribute('data-product');
+            console.log('Product ID:', productId); // طباعة productId
+            const quantityInput = document.querySelector(`[data-product="${productId}"].quantity-input`);
+            console.log('Quantity Input:', quantityInput); // طباعة حقل الإدخال
+            const currentQuantity = parseInt(quantityInput.value);
+            console.log('Current Quantity:', currentQuantity); // طباعة الكمية الحالية
+            quantityInput.value = currentQuantity + 1;
+            const item = cartItems.find(item => item.id === productId);
+            if (item) {
+                item.quantity = currentQuantity + 1;
+                updateItemSubtotal(productId);
+            }
         });
-
-        pickupBtn.addEventListener('click', () => {
-            toggleDeliveryOption(false);
-        });
-
+    });
         // Initialize the page
-        document.addEventListener('DOMContentLoaded', function () {
+      document.addEventListener('DOMContentLoaded', function () {
             setupEventListeners();
             updateShippingCost();
             setMinDate();
@@ -994,7 +1003,7 @@
             });
         }
 
-        // Toggle delivery/pickup options
+       // Toggle delivery/pickup options
         function toggleDeliveryOption(delivery) {
             isDelivery = delivery;
 
@@ -1044,7 +1053,6 @@
 
             updateShippingCost();
         }
-
         // Toggle immediate/scheduled delivery
         function toggleDeliveryTime(immediate) {
             isImmediate = immediate;
@@ -1191,11 +1199,11 @@
             // Get visible required fields based on delivery/pickup selection
             let requiredFields;
             if (isDelivery) {
-                // For delivery: validate delivery fields, contact fields, and common fields
-                requiredFields = document.querySelectorAll('#delivery-fields input[required], #contact-fields input[required], input[name="streetAddress"][required], select[required]');
+                // For delivery: validate delivery fields and contact fields
+                requiredFields = document.querySelectorAll('#delivery-fields input[required], #contact-fields input[required], select[required]');
             } else {
-                // For pickup: validate pickup fields and common fields (but not contact fields)
-                requiredFields = document.querySelectorAll('#pickup-fields input[required], input[name="streetAddress"][required], select[required]');
+                // For pickup: validate pickup fields only
+                requiredFields = document.querySelectorAll('#pickup-fields input[required], select[required]');
             }
 
             requiredFields.forEach(field => {
@@ -1244,7 +1252,6 @@
                 } : {
                     addressLine1: formData.get('addressLine1'),
                     addressLine2: formData.get('addressLine2'),
-                    streetAddress: formData.get('streetAddress'),
                     country: formData.get('country'),
                     state: formData.get('state'),
                     zipCode: formData.get('zipCode')
