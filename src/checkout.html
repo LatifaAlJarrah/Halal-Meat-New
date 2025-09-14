@@ -307,7 +307,8 @@
                     <div>
                         <h2 class="text-2xl font-medium mb-4 text-[#1A1A1A]">Shipping Information</h2>
                         <form id="checkout-form" class="space-y-4">
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <!-- Delivery Fields -->
+                            <div id="delivery-fields" class="grid grid-cols-1 md:grid-cols-3 gap-4">
                                 <div>
                                     <label class="block text-sm font-normal text-[#1A1A1A] mb-1">First Name</label>
                                     <input type="text" name="firstName" required
@@ -328,6 +329,24 @@
                                     <input type="text" name="companyName"
                                         class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent placeholder-[#999999] font-normal text-base"
                                         placeholder="Company name">
+                                </div>
+                            </div>
+
+                            <!-- Pickup Fields -->
+                            <div id="pickup-fields" class="grid grid-cols-1 md:grid-cols-2 gap-4 hidden">
+                                <div>
+                                    <label class="block text-sm font-normal text-[#1A1A1A] mb-1">Address Line 1</label>
+                                    <input type="text" name="addressLine1" required
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent placeholder-[#999999] font-normal text-base"
+                                        placeholder="Street address, P.O. box, company name">
+                                    <div class="error-message hidden" id="addressLine1-error"></div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-normal text-[#1A1A1A] mb-1">Address Line 2
+                                        <span class="text-[#999999]">(Optional)</span></label>
+                                    <input type="text" name="addressLine2"
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent placeholder-[#999999] font-normal text-base"
+                                        placeholder="Apartment, suite, unit, building, floor, etc.">
                                 </div>
                             </div>
 
@@ -382,7 +401,7 @@
                                 </div>
                             </div>
 
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div id="contact-fields" class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-sm font-normal text-[#1A1A1A] mb-1">Email</label>
                                     <input type="email" name="email" required
@@ -787,7 +806,7 @@
         </div>
     </main>
     <!-- Footer -->
-    <footer class="bg-linear-to-r from-[#D72638] to-[#58080E] text-white">
+    <footer class="bg-gradient-to-r from-[#D72638] to-[#58080E] text-white">
         <div class="2xl:max-w-[1900px] mx-auto ">
             <div class="px-6 md:px-12 lg:px-20 mx-auto py-16 text-center md:text-start">
                 <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-20">
@@ -933,11 +952,11 @@
 
         deliveryBtn.addEventListener('click', () => {
             toggleDeliveryOption(true);
-        })
+        });
 
         pickupBtn.addEventListener('click', () => {
             toggleDeliveryOption(false);
-        })
+        });
 
         // Initialize the page
         document.addEventListener('DOMContentLoaded', function () {
@@ -967,9 +986,9 @@
             // Form submission
             placeOrderBtn.addEventListener('click', handleFormSubmission);
 
-            // Real-time validation
-            const requiredFields = checkoutForm.querySelectorAll('input[required], select[required]');
-            requiredFields.forEach(field => {
+            // Real-time validation for all fields (both visible and hidden)
+            const allFields = checkoutForm.querySelectorAll('input, select');
+            allFields.forEach(field => {
                 field.addEventListener('blur', () => validateField(field));
                 field.addEventListener('input', () => clearFieldError(field));
             });
@@ -981,6 +1000,11 @@
 
             const deliveryLabel = document.querySelector('label[for="delivery-btn"]');
             const pickupLabel = document.querySelector('label[for="pickup-btn"]');
+
+            // Get form field containers
+            const deliveryFields = document.getElementById('delivery-fields');
+            const pickupFields = document.getElementById('pickup-fields');
+            const contactFields = document.getElementById('contact-fields');
 
             if (delivery) {
                 // Set delivery as active
@@ -994,6 +1018,11 @@
                 pickupLabel.classList.add('inactive');
                 pickupLabel.classList.remove('border-[#D72638]', 'bg-[#FFE5E5]');
                 pickupLabel.classList.add('border-gray-300', 'bg-white');
+
+                // Show delivery fields, hide pickup fields
+                deliveryFields.classList.remove('hidden');
+                pickupFields.classList.add('hidden');
+                contactFields.classList.remove('hidden');
             } else {
                 // Set pickup as active
                 pickupLabel.classList.remove('inactive');
@@ -1006,6 +1035,11 @@
                 deliveryLabel.classList.add('inactive');
                 deliveryLabel.classList.remove('border-[#D72638]', 'bg-[#FFE5E5]');
                 deliveryLabel.classList.add('border-gray-300', 'bg-white');
+
+                // Hide delivery fields, show pickup fields
+                deliveryFields.classList.add('hidden');
+                pickupFields.classList.remove('hidden');
+                contactFields.classList.add('hidden');
             }
 
             updateShippingCost();
@@ -1135,7 +1169,10 @@
             const labels = {
                 firstName: 'First Name',
                 lastName: 'Last Name',
+                companyName: 'Company Name',
                 streetAddress: 'Street Address',
+                addressLine1: 'Address Line 1',
+                addressLine2: 'Address Line 2',
                 country: 'Country',
                 state: 'State',
                 zipCode: 'Zip Code',
@@ -1149,8 +1186,17 @@
 
         // Validate entire form
         function validateForm() {
-            const requiredFields = checkoutForm.querySelectorAll('input[required], select[required]');
             let isFormValid = true;
+
+            // Get visible required fields based on delivery/pickup selection
+            let requiredFields;
+            if (isDelivery) {
+                // For delivery: validate delivery fields, contact fields, and common fields
+                requiredFields = document.querySelectorAll('#delivery-fields input[required], #contact-fields input[required], input[name="streetAddress"][required], select[required]');
+            } else {
+                // For pickup: validate pickup fields and common fields (but not contact fields)
+                requiredFields = document.querySelectorAll('#pickup-fields input[required], input[name="streetAddress"][required], select[required]');
+            }
 
             requiredFields.forEach(field => {
                 if (!validateField(field)) {
@@ -1158,8 +1204,8 @@
                 }
             });
 
-            // Additional validation for scheduled delivery
-            if (!isImmediate) {
+            // Additional validation for scheduled delivery (only for delivery option)
+            if (isDelivery && !isImmediate) {
                 const deliveryDate = document.getElementById('delivery-date');
                 const deliveryTime = document.getElementById('delivery-time');
 
@@ -1184,7 +1230,7 @@
             const orderData = {
                 deliveryOption: isDelivery ? 'delivery' : 'pickup',
                 deliveryTime: isImmediate ? 'immediate' : 'scheduled',
-                billing: {
+                billing: isDelivery ? {
                     firstName: formData.get('firstName'),
                     lastName: formData.get('lastName'),
                     companyName: formData.get('companyName'),
@@ -1195,6 +1241,13 @@
                     email: formData.get('email'),
                     phone: formData.get('phone'),
                     differentAddress: formData.get('differentAddress') === 'on'
+                } : {
+                    addressLine1: formData.get('addressLine1'),
+                    addressLine2: formData.get('addressLine2'),
+                    streetAddress: formData.get('streetAddress'),
+                    country: formData.get('country'),
+                    state: formData.get('state'),
+                    zipCode: formData.get('zipCode')
                 },
                 orderNotes: formData.get('orderNotes'),
                 deliveryDate: formData.get('deliveryDate'),
