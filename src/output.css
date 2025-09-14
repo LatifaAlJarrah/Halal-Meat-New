@@ -787,6 +787,9 @@
   .max-w-7xl {
     max-width: var(--container-7xl);
   }
+  .max-w-\[2\] {
+    max-width: 2;
+  }
   .max-w-\[90\%\] {
     max-width: 90%;
   }
@@ -795,6 +798,9 @@
   }
   .max-w-\[272px\] {
     max-width: 272px;
+  }
+  .max-w-\[298px\] {
+    max-width: 298px;
   }
   .max-w-\[525\] {
     max-width: 525;
@@ -1285,6 +1291,9 @@
   .bg-\[\#F4F5FE\] {
     background-color: #F4F5FE;
   }
+  .bg-\[\#F8F7F0\] {
+    background-color: #F8F7F0;
+  }
   .bg-\[\#FF9CA6\] {
     background-color: #FF9CA6;
   }
@@ -1765,6 +1774,9 @@
   .text-\[\#717171\] {
     color: #717171;
   }
+  .text-\[\#757575\] {
+    color: #757575;
+  }
   .text-\[\#808080\] {
     color: #808080;
   }
@@ -1884,6 +1896,9 @@
   }
   .bg-blend-overlay {
     background-blend-mode: overlay;
+  }
+  .mix-blend-multiply {
+    mix-blend-mode: multiply;
   }
   .mix-blend-overlay {
     mix-blend-mode: overlay;
