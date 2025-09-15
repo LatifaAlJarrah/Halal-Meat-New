@@ -11,24 +11,41 @@
         input[type="radio"]:checked {
             accent-color: #D72638;
         }
+
         .delivery-option-btn.inactive input[type="radio"],
         input[type="radio"]:not(:checked) {
             accent-color: #6B7280;
         }
+
+        /* Address Options Styling */
+        .address-option.active {
+            border-color: #D72638 !important;
+            background-color: #FEF2F2;
+            box-shadow: 0 0 0 3px rgba(215, 38, 56, 0.1);
+        }
+
+        .address-option:hover {
+            border-color: #D72638;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
         .form-error {
             border-color: #EF4444 !important;
             box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
         }
+
         .error-message {
             color: #EF4444;
             font-size: 0.875rem;
             margin-top: 0.25rem;
         }
+
         .success-message {
             color: #10B981;
             font-size: 0.875rem;
             margin-top: 0.25rem;
         }
+
         /* Hide scrollbar but keep scroll functionality */
         .scrollbar-hide {
             -ms-overflow-style: none;
@@ -210,175 +227,89 @@
                     <div>
                         <div class="flex flex-col sm:flex-row space-x-4 gap-2">
                             <label
-                                class="delivery-option-btn active flex-1 p-4 border-2 border-[#D72638] bg-[#F4F5FE] font-medium text-[#D72638] rounded-lg flex items-center space-x-3 transition-all duration-300 cursor-pointer w-full" for="delivery-btn">
+                                class="delivery-option-btn active flex-1 p-4 border-2 border-[#D72638] bg-[#F4F5FE] font-medium text-[#D72638] rounded-lg flex items-center space-x-3 transition-all duration-300 cursor-pointer w-full"
+                                for="delivery-btn">
                                 <input type="radio" id="delivery-btn" name="deliveryOption" value="delivery" checked
                                     class="w-4 h-4 text-[#D72638] focus:ring-[#D72638] border-gray-300 mx-3">
-                                <svg class="text-[#D72638] svg-delivery-option mr-2" width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
+                                <svg class="text-[#D72638] svg-delivery-option mr-2" width="20" height="20"
+                                    viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M10.8328 12.292H9.99949C9.65782 12.292 9.37449 12.0087 9.37449 11.667C9.37449 11.3253 9.65782 11.042 9.99949 11.042H10.8328C11.4078 11.042 11.8745 10.5753 11.8745 10.0003V2.29199H4.99949C4.01616 2.29199 3.11613 2.82531 2.6328 3.68364C2.46613 3.98364 2.08283 4.09201 1.78283 3.92534C1.48283 3.75868 1.37447 3.37533 1.54114 3.07533C2.24114 1.82533 3.56616 1.04199 4.99949 1.04199H12.4995C12.8412 1.04199 13.1245 1.32533 13.1245 1.66699V10.0003C13.1245 11.267 12.0995 12.292 10.8328 12.292Z"
-                                        fill="currentColor"/>
+                                        fill="currentColor" />
                                     <path
                                         d="M15.8337 17.292H15.0003C14.6587 17.292 14.3753 17.0087 14.3753 16.667C14.3753 16.092 13.9087 15.6253 13.3337 15.6253C12.7587 15.6253 12.292 16.092 12.292 16.667C12.292 17.0087 12.0087 17.292 11.667 17.292H8.33366C7.99199 17.292 7.70866 17.0087 7.70866 16.667C7.70866 16.092 7.24199 15.6253 6.66699 15.6253C6.09199 15.6253 5.62533 16.092 5.62533 16.667C5.62533 17.0087 5.34199 17.292 5.00033 17.292H4.16699C2.44199 17.292 1.04199 15.892 1.04199 14.167C1.04199 13.8253 1.32533 13.542 1.66699 13.542C2.00866 13.542 2.29199 13.8253 2.29199 14.167C2.29199 15.2003 3.13366 16.042 4.16699 16.042H4.45864C4.73364 15.0837 5.61699 14.3753 6.66699 14.3753C7.71699 14.3753 8.60035 15.0837 8.87535 16.042H11.1336C11.4086 15.0837 12.292 14.3753 13.342 14.3753C14.392 14.3753 15.2753 15.0837 15.5503 16.042H15.8337C16.867 16.042 17.7087 15.2003 17.7087 14.167V12.292H15.8337C15.0337 12.292 14.3753 11.6337 14.3753 10.8337V8.33366C14.3753 7.53366 15.0253 6.87533 15.8337 6.87533L14.942 5.317C14.7587 4.992 14.4087 4.79199 14.0337 4.79199H13.1253V10.0003C13.1253 11.267 12.1003 12.292 10.8337 12.292H10.0003C9.65866 12.292 9.37533 12.0087 9.37533 11.667C9.37533 11.3253 9.65866 11.042 10.0003 11.042H10.8337C11.4087 11.042 11.8753 10.5753 11.8753 10.0003V4.16699C11.8753 3.82533 12.1587 3.54199 12.5003 3.54199H14.0337C14.8587 3.54199 15.617 3.98367 16.0253 4.70034L17.4503 7.192C17.5587 7.38366 17.5587 7.62533 17.4503 7.817C17.342 8.00866 17.1336 8.12533 16.9086 8.12533H15.8337C15.717 8.12533 15.6253 8.21699 15.6253 8.33366V10.8337C15.6253 10.9503 15.717 11.042 15.8337 11.042H18.3337C18.6753 11.042 18.9587 11.3253 18.9587 11.667V14.167C18.9587 15.892 17.5587 17.292 15.8337 17.292Z"
-                                        fill="currentColor"/>
+                                        fill="currentColor" />
                                     <path
                                         d="M6.66667 18.9583C5.4 18.9583 4.375 17.9333 4.375 16.6667C4.375 15.4 5.4 14.375 6.66667 14.375C7.93333 14.375 8.95833 15.4 8.95833 16.6667C8.95833 17.9333 7.93333 18.9583 6.66667 18.9583ZM6.66667 15.625C6.09167 15.625 5.625 16.0917 5.625 16.6667C5.625 17.2417 6.09167 17.7083 6.66667 17.7083C7.24167 17.7083 7.70833 17.2417 7.70833 16.6667C7.70833 16.0917 7.24167 15.625 6.66667 15.625Z"
-                                       fill="currentColor"/>
+                                        fill="currentColor" />
                                     <path
                                         d="M13.3337 18.9583C12.067 18.9583 11.042 17.9333 11.042 16.6667C11.042 15.4 12.067 14.375 13.3337 14.375C14.6003 14.375 15.6253 15.4 15.6253 16.6667C15.6253 17.9333 14.6003 18.9583 13.3337 18.9583ZM13.3337 15.625C12.7587 15.625 12.292 16.0917 12.292 16.6667C12.292 17.2417 12.7587 17.7083 13.3337 17.7083C13.9087 17.7083 14.3753 17.2417 14.3753 16.6667C14.3753 16.0917 13.9087 15.625 13.3337 15.625Z"
-                                        fill="currentColor"/>
+                                        fill="currentColor" />
                                     <path
                                         d="M18.3333 12.2917H15.8333C15.0333 12.2917 14.375 11.6333 14.375 10.8333V8.33333C14.375 7.53333 15.0333 6.875 15.8333 6.875H16.9083C17.1333 6.875 17.3417 6.99167 17.45 7.19167L18.875 9.69167C18.925 9.78334 18.9583 9.89167 18.9583 10V11.6667C18.9583 12.0083 18.675 12.2917 18.3333 12.2917ZM15.8333 8.125C15.7167 8.125 15.625 8.21667 15.625 8.33333V10.8333C15.625 10.95 15.7167 11.0417 15.8333 11.0417H17.7083V10.1667L16.5416 8.125H15.8333Z"
-                                       fill="currentColor" />
+                                        fill="currentColor" />
                                     <path
                                         d="M6.66699 7.29199H1.66699C1.32533 7.29199 1.04199 7.00866 1.04199 6.66699C1.04199 6.32533 1.32533 6.04199 1.66699 6.04199H6.66699C7.00866 6.04199 7.29199 6.32533 7.29199 6.66699C7.29199 7.00866 7.00866 7.29199 6.66699 7.29199Z"
                                         fill="currentColor" />
                                     <path
                                         d="M5.00033 9.79199H1.66699C1.32533 9.79199 1.04199 9.50866 1.04199 9.16699C1.04199 8.82533 1.32533 8.54199 1.66699 8.54199H5.00033C5.34199 8.54199 5.62533 8.82533 5.62533 9.16699C5.62533 9.50866 5.34199 9.79199 5.00033 9.79199Z"
-                                       fill="currentColor" />
+                                        fill="currentColor" />
                                     <path
                                         d="M3.33366 12.292H1.66699C1.32533 12.292 1.04199 12.0087 1.04199 11.667C1.04199 11.3253 1.32533 11.042 1.66699 11.042H3.33366C3.67533 11.042 3.95866 11.3253 3.95866 11.667C3.95866 12.0087 3.67533 12.292 3.33366 12.292Z"
-                                      fill="currentColor" />
+                                        fill="currentColor" />
                                 </svg>
 
-                              Delivery
+                                Delivery
                             </label>
                             <label
-                                class="delivery-option-btn inactive flex-1 p-4 border-2 border-[#DBDDE3] font-medium text-[#818EA1] bg-white rounded-lg flex items-center space-x-3 transition-all duration-300 cursor-pointer w-full" for="pickup-btn">
+                                class="delivery-option-btn inactive flex-1 p-4 border-2 border-[#DBDDE3] font-medium text-[#818EA1] bg-white rounded-lg flex items-center space-x-3 transition-all duration-300 cursor-pointer w-full"
+                                for="pickup-btn">
                                 <input type="radio" id="pickup-btn" name="deliveryOption" value="pickup"
                                     class="w-4 h-4 text-[#D72638] focus:ring-[#D72638] border-gray-300 mx-3">
-                                <svg class="w-6 h-6 text-[#818EA1] svg-pickup-option mr-2" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
+                                <svg class="w-6 h-6 text-[#818EA1] svg-pickup-option mr-2" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" fill="currentColor"></path>
+                                        d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                                        fill="currentColor"></path>
                                 </svg>
-                              Pick Up
+                                Pick Up
                             </label>
                         </div>
                     </div>
 
                     <!-- Billing Information -->
                     <div>
-                        <h2 class="text-2xl font-medium mb-4 text-[#1A1A1A]">Shipping Information</h2>
+                        <h2 class="text-2xl font-medium mb-4 text-[#1A1A1A]">Delivery / Shipping Address</h2>
+                        <p class="text-base font-normal font-poppins text-black mb-4">Choose a Saved shipping adress</p>
                         <form id="checkout-form" class="space-y-4">
-                            <!-- Delivery Fields -->
-                            <div id="delivery-fields" class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                <div>
-                                    <label class="block text-sm font-normal text-[#1A1A1A] mb-1">First Name</label>
-                                    <input type="text" name="firstName" required
-                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent placeholder-[#999999] font-normal text-base"
-                                        placeholder="Your first name">
-                                    <div class="error-message hidden" id="firstName-error"></div>
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-normal text-[#1A1A1A] mb-1">Last Name</label>
-                                    <input type="text" name="lastName" required
-                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent placeholder-[#999999] font-normal text-base"
-                                        placeholder="Your last name">
-                                    <div class="error-message hidden" id="lastName-error"></div>
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-normal text-[#1A1A1A] mb-1">Company Name
-                                        <span class="text-[#999999]">(Optional)</span></label>
-                                    <input type="text" name="companyName"
-                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent placeholder-[#999999] font-normal text-base"
-                                        placeholder="Company name">
+                            <div class="address-option flex items-center justify-between gap-2 border border-[#C8C8C8] rounded-lg p-4 cursor-pointer transition-all duration-200 hover:border-[#D72638] hover:shadow-md active"
+                                data-address="home">
+                                <label class="flex flex-col gap-2 cursor-pointer">
+                                    <p class="font-semibold text-base text-black">Home</p>
+                                    <p class="text-base text-[#9E9494] font-normal">123 Wellness Ave, Suite 4, Austin,
+                                        TX 78701</p>
+                                </label>
+                                <div class="flex items-center gap-2">
+                                    <input type="radio" name="deliveryAddress" value="saved" checked
+                                        class="w-4 h-4 text-[#D72638] focus:ring-[#D72638] border-gray-300"
+                                        id="home-address" />
                                 </div>
                             </div>
-
-                            <!-- Pickup Fields -->
-                            <div id="pickup-fields" class="grid grid-cols-1 md:grid-cols-2 gap-4 hidden">
-                                <div>
-                                    <label class="block text-sm font-normal text-[#1A1A1A] mb-1">Address Line 1</label>
-                                    <input type="text" name="addressLine1" required
-                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent placeholder-[#999999] font-normal text-base"
-                                        placeholder="Street address, P.O. box, company name">
-                                    <div class="error-message hidden" id="addressLine1-error"></div>
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-normal text-[#1A1A1A] mb-1">Address Line 2
-                                        <span class="text-[#999999]">(Optional)</span></label>
-                                    <input type="text" name="addressLine2"
-                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent placeholder-[#999999] font-normal text-base"
-                                        placeholder="Apartment, suite, unit, building, floor, etc.">
+                            <div class="address-option flex items-center justify-between gap-2 border border-[#C8C8C8] rounded-lg p-4 cursor-pointer transition-all duration-200 hover:border-[#D72638] hover:shadow-md"
+                                data-address="work">
+                                <label class="flex flex-col gap-2 cursor-pointer" for="work-address">
+                                    <p class="font-semibold text-base text-black">Work</p>
+                                    <p class="text-base text-[#9E9494] font-normal">456 Oak Dr, Austin, TX 78702</p>
+                                </label>
+                                <div class="flex items-center gap-2">
+                                    <input type="radio" name="deliveryAddress" value="saved"
+                                        class="w-4 h-4 text-[#D72638] focus:ring-[#D72638] border-gray-300"
+                                        id="work-address" />
                                 </div>
                             </div>
-
-                            <div>
-                                <label class="block text-sm font-normal text-[#1A1A1A] mb-1">Street Address</label>
-                                <input type="text" name="streetAddress" required
-                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent placeholder-[#999999] font-normal text-base"
-                                    placeholder="Street Address">
-                                <div class="error-message hidden" id="streetAddress-error"></div>
-                            </div>
-
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                <div>
-                                    <label class="block text-sm font-normal text-[#1A1A1A] mb-1">Country / Region
-                                    </label>
-                                    <select name="country" required
-                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent placeholder-[#999999] font-normal text-base">
-                                        <option value="">Select</option>
-                                        <option value="US">United States</option>
-                                        <option value="CA">Canada</option>
-                                        <option value="UK">United Kingdom</option>
-                                        <option value="AU">Australia</option>
-                                        <option value="DE">Germany</option>
-                                        <option value="FR">France</option>
-                                        <option value="IT">Italy</option>
-                                        <option value="ES">Spain</option>
-                                    </select>
-                                    <div class="error-message hidden" id="country-error"></div>
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-normal text-[#1A1A1A] mb-1">State</label>
-                                    <select name="state" required
-                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent placeholder-[#999999] font-normal text-base">
-                                        <option value="">Select</option>
-                                        <option value="CA">California</option>
-                                        <option value="NY">New York</option>
-                                        <option value="TX">Texas</option>
-                                        <option value="FL">Florida</option>
-                                        <option value="IL">Illinois</option>
-                                        <option value="PA">Pennsylvania</option>
-                                        <option value="OH">Ohio</option>
-                                        <option value="GA">Georgia</option>
-                                    </select>
-                                    <div class="error-message hidden" id="state-error"></div>
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-normal text-[#1A1A1A] mb-1">Zip Code</label>
-                                    <input type="text" name="zipCode" required
-                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent placeholder-[#999999] font-normal text-base"
-                                        placeholder="Zip Code">
-                                    <div class="error-message hidden" id="zipCode-error"></div>
-                                </div>
-                            </div>
-
-                            <div id="contact-fields" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-sm font-normal text-[#1A1A1A] mb-1">Email</label>
-                                    <input type="email" name="email" required
-                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent placeholder-[#999999] font-normal text-base"
-                                        placeholder="Email Address">
-                                    <div class="error-message hidden" id="email-error"></div>
-                                </div>
-                                <div>
-                                    <label class="block text-sm font-normal text-[#1A1A1A] mb-1">Phone</label>
-                                    <input type="tel" name="phone" required
-                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent placeholder-[#999999] font-normal text-base"
-                                        placeholder="Phone number">
-                                    <div class="error-message hidden" id="phone-error"></div>
-                                </div>
-                            </div>
-
-                            <div class="flex items-center">
-                                <input type="checkbox" id="different-address" name="differentAddress"
-                                    class="h-4 w-4 text-[#D72638] focus:ring-[#D72638] border-gray-300 rounded">
-                                <label for="different-address"
-                                    class="ml-2 block text-sm text-[#4D4D4D] font-normal">Ship to a
-                                    different address</label>
-                            </div>
+<button class="text-base font-normal text-[#1A1C1B] border border-[#7B7F7C] rounded-lg py-2 px-6">
+    Add new shipping address
+</button>
                         </form>
                     </div>
 
@@ -904,25 +835,46 @@
         let selectedMinute = '55';
         let selectedPeriod = 'PM';
 
-      
-    document.querySelectorAll('.quantity-increase').forEach(button => {
-        button.addEventListener('click', function () {
-            const productId = this.getAttribute('data-product');
-            console.log('Product ID:', productId); // طباعة productId
-            const quantityInput = document.querySelector(`[data-product="${productId}"].quantity-input`);
-            console.log('Quantity Input:', quantityInput); // طباعة حقل الإدخال
-            const currentQuantity = parseInt(quantityInput.value);
-            console.log('Current Quantity:', currentQuantity); // طباعة الكمية الحالية
-            quantityInput.value = currentQuantity + 1;
-            const item = cartItems.find(item => item.id === productId);
-            if (item) {
-                item.quantity = currentQuantity + 1;
-                updateItemSubtotal(productId);
-            }
+        // Address selection functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const addressOptions = document.querySelectorAll('.address-option');
+
+            addressOptions.forEach(option => {
+                option.addEventListener('click', function () {
+                    // Remove active class from all options
+                    addressOptions.forEach(opt => opt.classList.remove('active'));
+
+                    // Add active class to clicked option
+                    this.classList.add('active');
+
+                    // Check the radio button inside this option
+                    const radioInput = this.querySelector('input[type="radio"]');
+                    if (radioInput) {
+                        radioInput.checked = true;
+                    }
+                });
+            });
         });
-    });
+
+
+        document.querySelectorAll('.quantity-increase').forEach(button => {
+            button.addEventListener('click', function () {
+                const productId = this.getAttribute('data-product');
+                console.log('Product ID:', productId); // طباعة productId
+                const quantityInput = document.querySelector(`[data-product="${productId}"].quantity-input`);
+                console.log('Quantity Input:', quantityInput); // طباعة حقل الإدخال
+                const currentQuantity = parseInt(quantityInput.value);
+                console.log('Current Quantity:', currentQuantity); // طباعة الكمية الحالية
+                quantityInput.value = currentQuantity + 1;
+                const item = cartItems.find(item => item.id === productId);
+                if (item) {
+                    item.quantity = currentQuantity + 1;
+                    updateItemSubtotal(productId);
+                }
+            });
+        });
         // Initialize the page
-      document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function () {
             setupEventListeners();
             updateShippingCost();
             setMinDate();
@@ -957,7 +909,7 @@
             });
         }
 
-       // Toggle delivery/pickup options
+        // Toggle delivery/pickup options
         function toggleDeliveryOption(delivery) {
             isDelivery = delivery;
 
@@ -975,16 +927,16 @@
                 // Set delivery as active
                 deliveryLabel.classList.remove('inactive');
                 deliveryLabel.classList.add('active');
-                deliveryLabel.classList.remove('border-[#DBDDE3]', 'bg-white','text-[#818EA1]');
-                deliveryLabel.classList.add('border-[#D72638]', 'bg-[#F4F5FE]','text-[#D72638]');
+                deliveryLabel.classList.remove('border-[#DBDDE3]', 'bg-white', 'text-[#818EA1]');
+                deliveryLabel.classList.add('border-[#D72638]', 'bg-[#F4F5FE]', 'text-[#D72638]');
                 deliveryOption.classList.remove('text-[#818EA1]');
                 deliveryOption.classList.add('text-[#D72638]');
 
                 // Set pickup as inactive
                 pickupLabel.classList.remove('active');
                 pickupLabel.classList.add('inactive');
-                pickupLabel.classList.remove('border-[#D72638]', 'bg-[#F4F5FE]','text-[#D72638]');
-                pickupLabel.classList.add('border-[#DBDDE3]', 'bg-white','text-[#818EA1]');
+                pickupLabel.classList.remove('border-[#D72638]', 'bg-[#F4F5FE]', 'text-[#D72638]');
+                pickupLabel.classList.add('border-[#DBDDE3]', 'bg-white', 'text-[#818EA1]');
                 pickupOption.classList.remove('text-[#D72638]');
                 pickupOption.classList.add('text-[#818EA1]');
 
@@ -996,16 +948,16 @@
                 // Set pickup as active
                 pickupLabel.classList.remove('inactive');
                 pickupLabel.classList.add('active');
-                pickupLabel.classList.remove('border-[#DBDDE3]', 'bg-white','text-[#818EA1]');
-                pickupLabel.classList.add('border-[#D72638]', 'bg-[#F4F5FE]','text-[#D72638]');
+                pickupLabel.classList.remove('border-[#DBDDE3]', 'bg-white', 'text-[#818EA1]');
+                pickupLabel.classList.add('border-[#D72638]', 'bg-[#F4F5FE]', 'text-[#D72638]');
                 pickupOption.classList.remove('text-[#818EA1]');
                 pickupOption.classList.add('text-[#D72638]');
 
                 // Set delivery as inactive
                 deliveryLabel.classList.remove('active');
                 deliveryLabel.classList.add('inactive');
-                deliveryLabel.classList.remove('border-[#D72638]', 'bg-[#F4F5FE]','text-[#D72638]');
-                deliveryLabel.classList.add('border-[#DBDDE3]', 'bg-white','text-[#818EA1]');
+                deliveryLabel.classList.remove('border-[#D72638]', 'bg-[#F4F5FE]', 'text-[#D72638]');
+                deliveryLabel.classList.add('border-[#DBDDE3]', 'bg-white', 'text-[#818EA1]');
                 deliveryOption.classList.remove('text-[#D72638]');
                 deliveryOption.classList.add('text-[#818EA1]');
 
@@ -1017,7 +969,7 @@
 
             updateShippingCost();
         }
-       
+
         // Toggle immediate/scheduled delivery
         function toggleDeliveryTime(immediate) {
             isImmediate = immediate;
