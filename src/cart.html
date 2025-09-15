@@ -214,9 +214,9 @@
                                                                 stroke-width="2" d="M20 12H4"></path>
                                                         </svg>
                                                     </button>
-                                                    <input type="text" value="5" min="1"
-                                                        class="quantity-input w-12 text-center text-sm"
-                                                        data-product="lang-box" data-price="14.00">
+                                                    <div class="quantity-input w-12 text-center text-sm"
+                                                        data-product="lang-box" data-price="14.00" data-quantity="5">5
+                                                    </div>
                                                     <button
                                                         class="quantity-increase w-7 h-7 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors"
                                                         data-product="lang-box">
@@ -268,9 +268,9 @@
                                                                 stroke-width="2" d="M20 12H4"></path>
                                                         </svg>
                                                     </button>
-                                                    <input type="text" value="1" min="1"
-                                                        class="quantity-input w-12 text-center text-sm"
-                                                        data-product="chicken-wings" data-price="14.00">
+                                                    <div class="quantity-input w-12 text-center text-sm"
+                                                        data-product="chicken-wings" data-price="14.00"
+                                                        data-quantity="1">1</div>
                                                     <button
                                                         class="quantity-increase w-7 h-7 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors"
                                                         data-product="chicken-wings">
@@ -335,9 +335,8 @@
                                                             stroke-width="2" d="M20 12H4"></path>
                                                     </svg>
                                                 </button>
-                                                <input type="text" value="5" min="1"
-                                                    class="quantity-input w-16 text-center rounded px-2 py-1"
-                                                    data-product="lang-box" data-price="14.00">
+                                                <div class="quantity-input w-12 text-center text-sm"
+                                                    data-product="lang-box" data-price="14.00" data-quantity="5">5</div>
                                                 <button
                                                     class="quantity-increase w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors"
                                                     data-product="lang-box">
@@ -401,9 +400,9 @@
                                                             stroke-width="2" d="M20 12H4"></path>
                                                     </svg>
                                                 </button>
-                                                <input type="text" value="1" min="1"
-                                                    class="quantity-input w-16 text-center py-1"
-                                                    data-product="chicken-wings" data-price="14.00">
+                                                <div class="quantity-input w-16 text-center py-1"
+                                                    data-product="chicken-wings" data-price="14.00" data-quantity="1">1
+                                                </div>
                                                 <button
                                                     class="quantity-increase w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors"
                                                     data-product="chicken-wings">
@@ -672,13 +671,16 @@
             document.querySelectorAll('.quantity-increase').forEach(button => {
                 button.addEventListener('click', function () {
                     const productId = this.getAttribute('data-product');
-                    const quantityInput = document.querySelector(`[data-product="${productId}"].quantity-input`);
-                    const currentQuantity = parseInt(quantityInput.value);
-                    quantityInput.value = currentQuantity + 1;
+                    const quantityDiv = document.querySelector(`[data-product="${productId}"].quantity-input`);
+                    const currentQuantity = parseInt(quantityDiv.getAttribute('data-quantity'));
+                    const newQuantity = currentQuantity + 1;
+
+                    quantityDiv.setAttribute('data-quantity', newQuantity);
+                    quantityDiv.textContent = newQuantity;
 
                     const item = cartItems.find(item => item.id === productId);
                     if (item) {
-                        item.quantity = currentQuantity + 1;
+                        item.quantity = newQuantity;
                         updateItemSubtotal(productId);
                     }
                 });
@@ -688,38 +690,23 @@
             document.querySelectorAll('.quantity-decrease').forEach(button => {
                 button.addEventListener('click', function () {
                     const productId = this.getAttribute('data-product');
-                    const quantityInput = document.querySelector(`[data-product="${productId}"].quantity-input`);
-                    const currentQuantity = parseInt(quantityInput.value);
+                    const quantityDiv = document.querySelector(`[data-product="${productId}"].quantity-input`);
+                    const currentQuantity = parseInt(quantityDiv.getAttribute('data-quantity'));
 
                     if (currentQuantity > 1) {
-                        quantityInput.value = currentQuantity - 1;
+                        const newQuantity = currentQuantity - 1;
+                        quantityDiv.setAttribute('data-quantity', newQuantity);
+                        quantityDiv.textContent = newQuantity;
+
                         const item = cartItems.find(item => item.id === productId);
                         if (item) {
-                            item.quantity = currentQuantity - 1;
+                            item.quantity = newQuantity;
                             updateItemSubtotal(productId);
                         }
                     }
                 });
             });
 
-            // Quantity input change
-            document.querySelectorAll('.quantity-input').forEach(input => {
-                input.addEventListener('change', function () {
-                    const productId = this.getAttribute('data-product');
-                    const quantity = parseInt(this.value);
-
-                    if (quantity < 1) {
-                        this.value = 1;
-                        return;
-                    }
-
-                    const item = cartItems.find(item => item.id === productId);
-                    if (item) {
-                        item.quantity = quantity;
-                        updateItemSubtotal(productId);
-                    }
-                });
-            });
 
             // Remove item
             document.querySelectorAll('.remove-item').forEach(button => {
@@ -834,8 +821,6 @@
 
                 setTimeout(() => {
                     alert('Payment processed successfully! Redirecting to confirmation page...');
-                    // In a real application, redirect to checkout or payment page
-                    // window.location.href = './checkout.html';
                 }, 2000);
             });
 
