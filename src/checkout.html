@@ -76,13 +76,14 @@
                 <!-- Navigation -->
                 <nav id="mobile-menu" class="hidden xl:flex items-center space-x-4 2xl:space-x-8 font-medium text-base">
                     <a href="./index.html" class="text-black hover:text-[#D72638] transition-colors">Home</a>
-                    <a href="./build-your-box.html"
-                        class="text-black hover:text-[#D72638] transition-colors ">build your
+                    <a href="./build-your-box.html" class="text-black hover:text-[#D72638] transition-colors ">build
+                        your
                         box</a>
                     <a href="./about.html" class="text-black hover:text-[#D72638] transition-colors">About</a>
                     <a href="./shop.html" class="text-black hover:text-[#D72638] transition-colors">Shop</a>
                     <a href="./products.html" class="text-black hover:text-[#D72638] transition-colors">Product</a>
-                    <a href="./checkout.html" class="text-[#D72638] hover:text-[#D72638] transition-colors font-bold">Checkout</a>
+                    <a href="./checkout.html"
+                        class="text-[#D72638] hover:text-[#D72638] transition-colors font-bold">Checkout</a>
                     <a href="./why-choose-us.html" class="text-black hover:text-[#D72638] transition-colors">why choose
                         us</a>
                     <a href="./contact.html" class="text-black hover:text-[#D72638] transition-colors">Contact us</a>
@@ -421,28 +422,14 @@
                                             <div class="error-message hidden" id="new-zip-code-error"></div>
                                         </div>
                                     </div>
-
-                                    <!-- Form Actions -->
-                                    <div class="flex justify-end space-x-3 pt-4">
-                                        <button type="button" id="cancel-address-btn"
-                                            class="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
-                                            onclick="hideShippingAddressForm();">
-                                            Cancel
-                                        </button>
-                                        <button type="submit" id="save-address-btn"
-                                            class="px-6 py-2 bg-[#D72638] text-white rounded-lg hover:bg-[#B91C2C] transition-colors">
-                                            Save shipping address
-                                        </button>
-                                    </div>
                                 </form>
                             </div>
                         </form>
                     </div>
 
-
                     <div class="space-y-4">
                         <h3 class="text-2xl font-medium text-[#1A1A1A]">Billing Address</h3>
-                        <div class="flex gap-2">
+                        <div class="flex gap-2" id="billing-address-checkbox">
                             <input type="checkbox" name="differentAddress" id="differentAddress" />
                             <label for="differentAddress" class="font-normal text-sm text-[#4D4D4D]">Use a different
                                 billing address?</label>
@@ -453,7 +440,7 @@
                         </p>
                     </div>
 
-                    <form id="billig-form" class="space-y-4">
+                    <form id="billing-form" class="space-y-4 hidden">
                         <div class="billing-address-option flex items-center justify-between gap-2 border border-[#C8C8C8] rounded-lg p-4 cursor-pointer transition-all duration-200 hover:border-[#D72638] hover:shadow-md active"
                             data-address="home">
                             <label class="flex flex-col gap-2 cursor-pointer">
@@ -608,23 +595,9 @@
                                         <div class="error-message hidden" id="new-billing-zip-code-error"></div>
                                     </div>
                                 </div>
-
-                                <!-- Form Actions -->
-                                <div class="flex justify-end space-x-3 pt-4">
-                                    <button type="button" id="cancel-billing-address-btn"
-                                        class="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
-                                        onclick="hideBillingAddressForm();">
-                                        Cancel
-                                    </button>
-                                    <button type="submit" id="save-billing-address-btn"
-                                        class="px-6 py-2 bg-[#D72638] text-white rounded-lg hover:bg-[#B91C2C] transition-colors">
-                                        Save billing address
-                                    </button>
-                                </div>
                             </form>
                         </div>
                     </form>
-
 
                     <div>
                         <h5 class="font-medium text-lg md:text-2xl text-[#1A1A1A]">Summary / Next</h5>
@@ -632,6 +605,320 @@
                             session). In a real app, you'd fetch and persist these to your backend and
                             associate them with the authenticated user.
                         </p>
+                    </div>
+
+                    <div class="bg-[#FAFAFA] border border-[#E5E5E5] rounded-lg p-6 space-y-6">
+                        <!-- Delivery Options -->
+                        <div>
+                            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2">
+                                <h2 class="text-base md:text-xl font-normal mb-4 text-[#1A1A1A]">Delivery Options</h2>
+                                <p class="text-sm text-[#424242] mb-4 font-normal">Business hours 09:00 - 17:00 (local
+                                    time)
+                                </p>
+                            </div>
+
+                            <div class="space-y-4">
+                                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-8">
+                                    <div class="flex items-center gap-2">
+                                        <input type="radio" id="immediate-btn"
+                                            value="Immediate (if within business hours)" name="deliveryTime"
+                                            class="delivery-time-btn active flex-1 p-3" />
+                                        <label for="immediate-btn"
+                                            class="text-base font-normal text-[#B30310]">Immediate
+                                            (if within business hours)</label>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <input type="radio" id="scheduled-btn" value="Scheduled" name="deliveryTime"
+                                            class="delivery-time-btn inactive flex-1 p-3" />
+                                        <label for="scheduled-btn"
+                                            class="text-base font-normal text-black">Scheduled</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Delivery Date & Time -->
+                            <div id="delivery-date-time" class="space-y-2 p-4">
+                                <p class="text-base font-normal text-[#676565]" id="delivery-date-display-label">
+                                    Delivery Date & Time
+                                </p>
+                                <input type="text" id="delivery-date-display-input" name="deliveryDateDisplay" readonly
+                                    class="hidden w-full px-3 py-2 border border-[#DBDDE3] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent bg-gray-50"
+                                    placeholder="Select date and time from the picker below">
+                            </div>
+                            <!-- Custom Date & Time Picker (Hidden by default) -->
+                            <div id="datetime-picker"
+                                class="hidden space-y-4 w-full mx-auto fixed inset-0 bg-black/60 flex items-center justify-center">
+                                <div class="flex flex-col w-fit md:flex-row gap-4 md:gap-8 bg-white rounded-lg backdrop-blur-sm shadow-[0_4px_4px_#0000000D] scale-90 p-10 relative"
+                                    onclick="event.stopPropagation()">
+                                    <!-- Close button -->
+                                    <button type="button" id="close-datetime-picker"
+                                        class="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full transition-colors duration-200">
+                                        <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M6 18L18 6M6 6l12 12"></path>
+                                        </svg>
+                                    </button>
+                                    <!-- Calendar Section -->
+                                    <div class="p-4">
+                                        <div class="custom-calendar">
+                                            <!-- Calendar Header -->
+                                            <div class="flex items-center justify-between mb-4">
+                                                <button type="button" id="prev-month"
+                                                    class="p-2 hover:bg-gray-100 rounded">
+                                                    <svg class="w-4 h-4" fill="none" stroke="currentColor"
+                                                        viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                                                    </svg>
+                                                </button>
+                                                <h3 id="current-month-year" class="text-lg font-semibold text-gray-800">
+                                                    September 2025</h3>
+                                                <button type="button" id="next-month"
+                                                    class="p-2 hover:bg-gray-100 rounded">
+                                                    <svg class="w-4 h-4" fill="none" stroke="currentColor"
+                                                        viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="M9 5l7 7-7 7">
+                                                        </path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+
+                                            <!-- Calendar Grid -->
+                                            <div class="grid grid-cols-7 gap-1 mb-2">
+                                                <div class="text-center text-sm font-medium text-gray-500 py-2">Mo</div>
+                                                <div class="text-center text-sm font-medium text-gray-500 py-2">Tu</div>
+                                                <div class="text-center text-sm font-medium text-gray-500 py-2">We</div>
+                                                <div class="text-center text-sm font-medium text-gray-500 py-2">Th</div>
+                                                <div class="text-center text-sm font-medium text-[#D72638] py-2">Fr
+                                                </div>
+                                                <div class="text-center text-sm font-medium text-[#D72638] py-2">Sa
+                                                </div>
+                                                <div class="text-center text-sm font-medium text-[#D72638] py-2">Su
+                                                </div>
+                                            </div>
+
+                                            <div id="calendar-dates" class="grid grid-cols-7 gap-1">
+                                                <!-- Calendar dates will be generated by JavaScript -->
+                                            </div>
+                                        </div>
+                                        <div class="error-message hidden" id="deliveryDate-error"></div>
+                                    </div>
+
+                                    <!-- Time Picker Section -->
+                                    <div class="border-l border-[#C7C7C7] p-4">
+                                        <div class="custom-time-picker h-full">
+                                            <div class="flex items-center justify-center space-x-4 h-full">
+                                                <!-- Hour Picker -->
+                                                <div class="text-center">
+                                                    <div class="relative">
+                                                        <div id="selected-hour"
+                                                            class="w-14 h-10 bg-red-100 border-2 border-red-300 rounded-lg flex items-center justify-center text-lg font-normal text-black mb-2">
+                                                            12</div>
+                                                        <div
+                                                            class="h-52 overflow-y-auto scrollbar-hide border border-gray-200 rounded-lg">
+                                                            <div class="space-y-1 py-2 px-2">
+                                                                <div class="time-option hour-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-hour="12">12</div>
+                                                                <div class="time-option hour-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-hour="01">01</div>
+                                                                <div class="time-option hour-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-hour="02">02</div>
+                                                                <div class="time-option hour-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-hour="03">03</div>
+                                                                <div class="time-option hour-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-hour="04">04</div>
+                                                                <div class="time-option hour-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-hour="05">05</div>
+                                                                <div class="time-option hour-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-hour="06">06</div>
+                                                                <div class="time-option hour-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-hour="07">07</div>
+                                                                <div class="time-option hour-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-hour="08">08</div>
+                                                                <div class="time-option hour-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-hour="09">09</div>
+                                                                <div class="time-option hour-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-hour="10">10</div>
+                                                                <div class="time-option hour-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-hour="11">11</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Minute Picker -->
+                                                <div class="text-center">
+                                                    <div class="relative">
+                                                        <div id="selected-minute"
+                                                            class="w-14 h-10 bg-red-100 border-2 border-red-300 rounded-lg flex items-center justify-center text-lg font-normal text-black mb-2">
+                                                            55</div>
+                                                        <div
+                                                            class="h-52 overflow-y-auto scrollbar-hide border border-gray-200 rounded-lg">
+                                                            <div class="space-y-1 p-2">
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="00">00</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="01">01</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="02">02</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="03">03</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="04">04</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="05">05</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="06">06</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="07">07</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="08">08</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="09">09</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="10">10</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="11">11</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="12">12</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="13">13</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="14">14</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="15">15</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="16">16</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="17">17</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="18">18</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="19">19</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="20">20</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="21">21</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="22">22</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="23">23</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="24">24</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="25">25</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="26">26</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="27">27</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="28">28</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="29">29</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="30">30</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="31">31</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="32">32</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="33">33</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="34">34</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="35">35</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="36">36</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="37">37</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="38">38</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="39">39</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="40">40</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="41">41</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="42">42</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="43">43</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="44">44</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="45">45</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="46">46</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="47">47</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="48">48</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="49">49</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="50">50</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="51">51</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="52">52</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="53">53</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="54">54</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="55">55</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="56">56</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="57">57</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="58">58</div>
+                                                                <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
+                                                                    data-minute="59">59</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- AM/PM Picker -->
+                                                <div class="text-center">
+                                                    <!-- <div class="text-sm text-gray-600 mb-2">Period</div> -->
+                                                    <div class="space-y-2">
+                                                        <div class="space-y-1 font-inter font-normal text-xs">
+                                                            <div class="time-option period-option text-center py-2 px-3 border border-[#D7D7D7] rounded-lg cursor-pointer"
+                                                                data-period="AM">AM</div>
+                                                            <div class="time-option period-option text-center py-2 px-3 bg-[#FFCFD4] border-2 border-[#F48E98] rounded-lg cursor-pointer"
+                                                                data-period="PM">PM</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="error-message hidden" id="deliveryTime-error"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Hidden inputs for form submission -->
+                                <input type="hidden" id="delivery-date" name="deliveryDate">
+                                <input type="hidden" id="delivery-time" name="deliveryTime">
+                            </div>
+                        </div>
+
+                        <!-- Note Box -->
+                        <div class="bg-[#FFF0F1] border border-[#FFC0C0] rounded-lg p-4 mt-2">
+                            <div class="flex flex-col text-black font-poppins text-sm md:text-base">
+                                <p>Note :</p>
+                                <div class="mt-2 px-4">
+                                    <ul class="list-disc list-inside space-y-1">
+                                        <li>If order is placed outside business hours, it will be auto-scheduled for
+                                            the next day.</li>
+                                        <li>Immediate delivery within hours usually takes 1-2 hours (mock).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -682,18 +969,18 @@
                     <!-- Payment Method -->
                     <div class="bg-white rounded-lg shadow-sm p-6">
                         <h2 class="text-xl font-medium mb-4 text-[#1A1A1A]">Payment Method</h2>
-                        <div class="space-y-1">
-                            <label class="flex items-center p-3 cursor-pointer hover:bg-gray-50 transition-colors">
+                        <div class="space-y-2">
+                            <label class="flex items-center px-3 cursor-pointer hover:bg-gray-50 transition-colors">
                                 <input type="radio" name="paymentMethod" value="bankTransfer" checked
                                     class="h-4 w-4 text-[#D72638] focus:ring-[#D72638] border-gray-300">
                                 <span class="ml-3 text-gray-700">Bank Transfer</span>
                             </label>
-                            <label class="flex items-center p-3  cursor-pointer hover:bg-gray-50 transition-colors">
+                            <label class="flex items-center px-3 cursor-pointer hover:bg-gray-50 transition-colors">
                                 <input type="radio" name="paymentMethod" value="paypal"
                                     class="h-4 w-4 text-[#D72638] focus:ring-[#D72638] border-gray-300">
                                 <span class="ml-3 text-gray-700">PayPal</span>
                             </label>
-                            <label class="flex items-center p-3 cursor-pointer hover:bg-gray-50 transition-colors">
+                            <label class="flex items-center px-3 cursor-pointer hover:bg-gray-50 transition-colors">
                                 <input type="radio" name="paymentMethod" value="creditCard"
                                     class="h-4 w-4 text-[#D72638] focus:ring-[#D72638] border-gray-300">
                                 <span class="ml-3 text-gray-700">Bank Card</span>
@@ -889,6 +1176,8 @@
         const immediateBtn = document.getElementById('immediate-btn');
         const scheduledBtn = document.getElementById('scheduled-btn');
         const datetimePicker = document.getElementById('datetime-picker');
+        const deliveryDateDisplayInput = document.getElementById('delivery-date-display-input');
+        const deliveryDateDisplayLabel = document.getElementById('delivery-date-display-label');
         const placeOrderBtn = document.getElementById('place-order-btn');
         const checkoutForm = document.getElementById('checkout-form');
         const shippingCostElement = document.getElementById('shipping-cost');
@@ -970,6 +1259,10 @@
                 console.log('initializeCustomDateTimePicker completed');
                 setupAddressModal();
                 console.log('setupAddressModal completed');
+                updateDeliveryDateDisplayVisibility();
+                console.log('updateDeliveryDateDisplayVisibility completed');
+                updateDeliveryDateDisplayLabelVisibility();
+                console.log('updateDeliveryDateDisplayLabelVisibility completed');
                 console.log('Page initialization complete!');
             } catch (error) {
                 console.error('Error during page initialization:', error);
@@ -995,6 +1288,27 @@
 
             // Form submission
             placeOrderBtn.addEventListener('click', handleFormSubmission);
+
+            // Close datetime picker when clicking outside
+            datetimePicker.addEventListener('click', (e) => {
+                // Only close if clicking on the backdrop (not the modal content)
+                if (e.target === datetimePicker) {
+                    closeDateTimePicker();
+                }
+            });
+
+            // Close datetime picker when pressing Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !datetimePicker.classList.contains('hidden')) {
+                    closeDateTimePicker();
+                }
+            });
+
+            // Close datetime picker when close button is clicked
+            const closeDateTimeBtn = document.getElementById('close-datetime-picker');
+            if (closeDateTimeBtn) {
+                closeDateTimeBtn.addEventListener('click', closeDateTimePicker);
+            }
 
             // Real-time validation for all fields (both visible and hidden)
             const allFields = checkoutForm.querySelectorAll('input, select');
@@ -1062,7 +1376,50 @@
                 contactFields.classList.add('hidden');
             }
 
+            // Update delivery date display visibility
+            updateDeliveryDateDisplayVisibility();
+            updateDeliveryDateDisplayLabelVisibility();
             updateShippingCost();
+        }
+
+        // Helper function to update button state
+        function updateButtonState(activeBtn, inactiveBtn) {
+            // Set active button state
+            activeBtn.classList.remove('inactive');
+            activeBtn.classList.add('active');
+            activeBtn.classList.remove('text-black');
+            activeBtn.classList.add('text-[#B30310]');
+
+            // Set inactive button state
+            inactiveBtn.classList.remove('active');
+            inactiveBtn.classList.add('inactive');
+            inactiveBtn.classList.remove('text-[#B30310]');
+            inactiveBtn.classList.add('text-black');
+        }
+
+        // Helper function to manage delivery date display visibility
+        function updateDeliveryDateDisplayVisibility() {
+            // Show delivery date display only when delivery is selected AND scheduled is chosen
+            if (isDelivery && !isImmediate) {
+                deliveryDateDisplayInput.classList.remove('hidden');
+            } else {
+                deliveryDateDisplayInput.classList.add('hidden');
+            }
+        }
+
+        // Close datetime picker modal
+        function closeDateTimePicker() {
+            datetimePicker.classList.add('hidden');
+        }
+
+        // Helper function to manage delivery date display label visibility
+        function updateDeliveryDateDisplayLabelVisibility() {
+            // Show delivery date display only when delivery is selected AND scheduled is chosen
+            if (isDelivery && !isImmediate) {
+                deliveryDateDisplayLabel.classList.remove('hidden');
+            } else {
+                deliveryDateDisplayLabel.classList.add('hidden');
+            }
         }
 
         // Toggle immediate/scheduled delivery
@@ -1070,18 +1427,16 @@
             isImmediate = immediate;
 
             if (immediate) {
-                immediateBtn.classList.remove('inactive');
-                immediateBtn.classList.add('active');
-                scheduledBtn.classList.remove('active');
-                scheduledBtn.classList.add('inactive');
+                updateButtonState(immediateBtn, scheduledBtn);
                 datetimePicker.classList.add('hidden');
             } else {
-                scheduledBtn.classList.remove('inactive');
-                scheduledBtn.classList.add('active');
-                immediateBtn.classList.remove('active');
-                immediateBtn.classList.add('inactive');
+                updateButtonState(scheduledBtn, immediateBtn);
                 datetimePicker.classList.remove('hidden');
             }
+
+            // Update delivery date display visibility
+            updateDeliveryDateDisplayVisibility();
+            updateDeliveryDateDisplayLabelVisibility();
         }
 
         // Update shipping cost based on delivery option
@@ -1458,7 +1813,8 @@
         function updateHiddenInputs() {
             const dateInput = document.getElementById('delivery-date');
             const timeInput = document.getElementById('delivery-time');
-            const displayInput = document.getElementById('delivery-date-display');
+            const displayInput = document.getElementById('delivery-date-display-input');
+            const displayLabel = document.getElementById('delivery-date-display-label');
 
             if (dateInput && selectedDate) {
                 dateInput.value = selectedDate;
@@ -1522,7 +1878,7 @@
                     addAddressBtn.addEventListener('click', function (e) {
                         e.preventDefault();
                         console.log('Shipping address button clicked!');
-                        alert('Shipping address button clicked!');
+                        // alert('Shipping address button clicked!');
                         addressFormContainer.classList.remove('hidden');
                         // Scroll to the form
                         addressFormContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -1537,7 +1893,7 @@
                     addBillingAddressBtn.addEventListener('click', function (e) {
                         e.preventDefault();
                         console.log('Billing address button clicked!');
-                        alert('Billing address button clicked!');
+                        // alert('Billing address button clicked!');
                         billingAddressFormContainer.classList.remove('hidden');
                         // Scroll to the form
                         billingAddressFormContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -1947,6 +2303,17 @@
                 field.classList.remove('form-error');
             });
         }
+        const differentAddressCheckbox = document.getElementById('billing-address-checkbox');
+        const billingForm = document.getElementById('billing-form');
+        differentAddressCheckbox.addEventListener('click', (e) => {
+            if (e.target.checked) {
+                billingForm.classList.remove('hidden');
+            } else {
+                billingForm.classList.add('hidden');
+            }
+        });
+
+
     </script>
 </body>
 
