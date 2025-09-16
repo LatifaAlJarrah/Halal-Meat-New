@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
@@ -7,6 +7,43 @@
     <link href="./output.css" rel="stylesheet">
     <title>Halal Meat</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        /* Custom Swiper Styles */
+        .products-swiper {
+            width: 100%;
+            height: auto;
+        }
+
+        .products-swiper .swiper-slide {
+            height: auto;
+        }
+
+        .products-swiper-pagination {
+            position: relative !important;
+            margin-top: 20px;
+        }
+
+        .products-swiper-pagination .swiper-pagination-bullet {
+            background: #D72638;
+            opacity: 0.3;
+        }
+
+        .products-swiper-pagination .swiper-pagination-bullet-active {
+            opacity: 1;
+        }
+
+        /* Navigation buttons visibility */
+        .products-swiper-prev,
+        .products-swiper-next {
+            position: relative !important;
+            margin: 0 !important;
+            top: auto !important;
+            left: auto !important;
+            right: auto !important;
+            transform: none !important;
+        }
+    </style>
 
 </head>
 
@@ -190,7 +227,8 @@
 
                 <!-- Description -->
                 <p class="text-white text-lg md:text-xl leading-relaxed mb-8 max-w-3xl font-poppins font-semibold">
-                    Discover premium, hand-slaughtered Halal meats delivered fresh to your doorstep — ethically sourced,
+                    Discover premium, hand-slaughtered Halal meats delivered fresh to your doorstep â€” ethically
+                    sourced,
                     USDA certified, and prepared with care to bring authentic taste and peace of mind to every meal.
                 </p>
 
@@ -392,21 +430,21 @@
                 <div>
                     <h3 class="text-[#D72638] font-semibold text-xl uppercase">OUR MENU</h3>
                     <h2 class="font-semibold text-[#010F1C] text-2xl md:text-4xl my-2 max-w-4xl">
-                        Explore Our Wide Range of Fresh, Premium Halal Meats – From Beef and Lamb to Chicken and Goat.
+                        Explore Our Wide Range of Fresh, Premium Halal Meats â€“ From Beef and Lamb to Chicken and Goat.
                     </h2>
                 </div>
 
                 <!-- Navigation Controls -->
-                <div class="hidden md:flex gap-2 items-end">
+                <div class="flex gap-2 items-end justify-end">
                     <button
-                        class="products-prev w-10 h-10 rounded-full bg-[#E0E0E0] flex items-center justify-center hover:bg-gray-300 transition-colors">
+                        class="products-swiper-prev w-10 h-10 rounded-full bg-[#E0E0E0] flex items-center justify-center hover:bg-gray-300 transition-colors">
                         <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M8 0L10 2L4 8L10 14L8 16L0 8L8 0Z"
                                 fill="black" />
                         </svg>
                     </button>
                     <button
-                        class="products-next w-10 h-10 rounded-full bg-[#D72638] flex items-center justify-center hover:bg-red-700 transition-colors">
+                        class="products-swiper-next w-10 h-10 rounded-full bg-[#D72638] flex items-center justify-center hover:bg-red-700 transition-colors">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
                                 d="M9.005 4L17.005 12L9.005 20L7 18L13.005 12L7 6L9.005 4Z" fill="white" />
@@ -417,7 +455,8 @@
 
             <!-- See All Link -->
             <div class="flex justify-end mb-6">
-                <a href="#" class="text-[#010F1C] font-medium hover:text-[#D72638] transition-colors">
+                <a href="./chicken-category.html"
+                    class="text-[#010F1C] font-medium hover:text-[#D72638] transition-colors see-all-link">
                     see All >
                 </a>
             </div>
@@ -576,26 +615,12 @@
                             <div class="swiper-wrapper" id="products-container">
                                 <!-- Products will be dynamically loaded here -->
                             </div>
+
+
+                            <!-- Pagination -->
+                            <!-- <div class="swiper-pagination products-swiper-pagination"></div> -->
                         </div>
                     </div>
-                </div>
-
-                <!-- Navigation Controls -->
-                <div class="flex md:hidden gap-2 items-end">
-                    <button
-                        class="w-10 h-10 rounded-full bg-[#E0E0E0] flex items-center justify-center hover:bg-gray-300 transition-colors">
-                        <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M8 0L10 2L4 8L10 14L8 16L0 8L8 0Z"
-                                fill="black" />
-                        </svg>
-                    </button>
-                    <button
-                        class="w-10 h-10 rounded-full bg-[#D72638] flex items-center justify-center hover:bg-red-700 transition-colors">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M9.005 4L17.005 12L9.005 20L7 18L13.005 12L7 6L9.005 4Z" fill="white" />
-                        </svg>
-                    </button>
                 </div>
             </div>
         </section>
@@ -688,7 +713,7 @@
                                     tradition, but also a symbol of purity and quality. Carefully prepared and ethically
                                     sourced, it ensures both health and peace of mind. Choosing halal means choosing
                                     freshness, trust, and a mindful way of enjoying food. Every cut tells a story of
-                                    care, making each meal wholesome and satisfying.</span>
+                                    care, making each meal wholesomeÂ andÂ satisfying.</span>
                             </div>
                         </div>
                     </div>
@@ -1037,7 +1062,7 @@
                                         <div
                                             class="space-y-4 text-black text-sm lg:text-lg leading-relaxed font-poppins font-normal max-w-xl content-section-talk">
                                             <p>
-                                                Halal Harvest is more than just a meal – it's a journey into
+                                                Halal Harvest is more than just a meal â€“ it's a journey into
                                                 the heart of tradition, flavor, and mindful eating. Every cut of
                                                 meat we serve tells a story of care, ethics, and respect for
                                                 both food and faith. From the rich spices of Middle Eastern
@@ -1121,7 +1146,7 @@
           <button
             class="w-10 h-10 bg-white rounded-lg shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors"
             onclick="zoomOut()">
-            <span class="text-gray-700 font-bold text-lg">−</span>
+            <span class="text-gray-700 font-bold text-lg">âˆ’</span>
           </button>
         </div> -->
             </div>
@@ -2476,7 +2501,7 @@
                     <div
                         class="flex flex-col md:flex-row justify-center md:justify-between text-center md:text-start items-center space-y-4 md:space-y-0 text-base font-century-gothic font-normal">
                         <div class="text-white hover:text-white/60 transition-colors">
-                            Copyright ©Smart Agro. All Right Reserved.
+                            Copyright Â©Smart Agro. All Right Reserved.
                         </div>
                         <div class="flex space-x-6 text-sm">
                             <a href="#" class="text-white hover:text-white/60 transition-colors">Terms & Conditions</a>
@@ -2490,7 +2515,7 @@
 
     <script src="./mobile-menu.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="./product-swiper.js"></script>
+    <script src="./products-swiper.js"></script>
 
     <script>
         // Initialize all Swipers and other functionality
@@ -2842,242 +2867,8 @@
         // Initialize carousel
         updateCarousel();
 
-        // Dynamic Product Categories Functionality
-        const productsData = {
-            beef: [
-                {
-                    name: "Premium Beef Steak",
-                    price: "12.99",
-                    image: "assets/images/cow1.jpg",
-                    alt: "Premium Beef Steak"
-                },
-                {
-                    name: "Beef Ribs",
-                    price: "15.49",
-                    image: "assets/images/cow2.jpg",
-                    alt: "Beef Ribs"
-                },
-                {
-                    name: "Beef Tenderloin",
-                    price: "18.99",
-                    image: "assets/images/cow3.jpg",
-                    alt: "Beef Tenderloin"
-                },
-                {
-                    name: "Ground Beef",
-                    price: "8.99",
-                    image: "assets/images/meat.jpg",
-                    alt: "Ground Beef"
-                }
-            ],
-            chicken: [
-                {
-                    name: "Whole Chicken",
-                    price: "7.49",
-                    image: "assets/images/chicken.jpg",
-                    alt: "Whole Chicken"
-                },
-                {
-                    name: "Chicken Breast",
-                    price: "9.99",
-                    image: "assets/images/uncooked-chicken.jpg",
-                    alt: "Chicken Breast"
-                },
-                {
-                    name: "Chicken Wings",
-                    price: "6.99",
-                    image: "assets/images/image1.jpg",
-                    alt: "Chicken Wings"
-                },
-                {
-                    name: "Chicken Thighs",
-                    price: "5.99",
-                    image: "assets/images/image2.jpg",
-                    alt: "Chicken Thighs"
-                }
-            ],
-            lamb: [
-                {
-                    name: "Lamb Chops",
-                    price: "14.99",
-                    image: "assets/images/lamp-ribs.png",
-                    alt: "Lamb Chops"
-                },
-                {
-                    name: "Lamb Leg",
-                    price: "16.99",
-                    image: "assets/images/lamp-ribs2.jpg",
-                    alt: "Lamb Leg"
-                },
-                {
-                    name: "Lamb Shoulder",
-                    price: "13.49",
-                    image: "assets/images/lamp-ribs3.jpg",
-                    alt: "Lamb Shoulder"
-                },
-                {
-                    name: "Lamb Ribs",
-                    price: "11.99",
-                    image: "assets/images/raw-lamb.png",
-                    alt: "Lamb Ribs"
-                }
-            ],
-            goat: [
-                {
-                    name: "Goat Leg",
-                    price: "12.99",
-                    image: "assets/images/meat-board2.jpg",
-                    alt: "Goat Leg"
-                },
-                {
-                    name: "Goat Shoulder",
-                    price: "10.99",
-                    image: "assets/images/meat-board3.jpg",
-                    alt: "Goat Shoulder"
-                },
-                {
-                    name: "Goat Chops",
-                    price: "13.49",
-                    image: "assets/images/meat-cubes2.jpg",
-                    alt: "Goat Chops"
-                },
-                {
-                    name: "Goat Ribs",
-                    price: "11.99",
-                    image: "assets/images/meat-cubes3.jpg",
-                    alt: "Goat Ribs"
-                }
-            ],
-            special: [
-                {
-                    name: "Mixed Grill Platter",
-                    price: "24.99",
-                    image: "assets/images/product1.jpg",
-                    alt: "Mixed Grill Platter"
-                },
-                {
-                    name: "Premium Cuts Box",
-                    price: "29.99",
-                    image: "assets/images/product2.jpg",
-                    alt: "Premium Cuts Box"
-                },
-                {
-                    name: "BBQ Special",
-                    price: "19.99",
-                    image: "assets/images/product3.jpg",
-                    alt: "BBQ Special"
-                },
-                {
-                    name: "Chef's Selection",
-                    price: "22.99",
-                    image: "assets/images/product5.jpg",
-                    alt: "Chef's Selection"
-                }
-            ]
-        };
-
-        // Function to create product card HTML
-        function createProductCard(product) {
-            return `
-                <div class="flex-shrink-0 w-64 w-full rounded-3xl shadow-lg overflow-hidden product-card">
-                    <div class="relative h-64 sm:h-72 md:h-96 rounded-3xl">
-                        <div class="absolute inset-0 bg-gradient rounded-3xl"></div>
-                        <img src="${product.image}" alt="${product.alt}"
-                            class="w-full h-full object-cover rounded-3xl" />
-                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 sm:p-8 font-poppins">
-                            <h3 class="text-white font-medium text-base sm:text-lg md:text-xl mb-1 sm:mb-4">${product.name}</h3>
-                            <div class="flex items-center gap-2 mb-1 sm:mb-4">
-                                <span class="text-[#D72638] font-bold text-xl">$</span>
-                                <span class="text-white font-bold text-lg sm:text-xl md:text-2xl">${product.price}</span>
-                            </div>
-                            <a href="" class="text-white font-medium text-base sm:text-lg md:text-lg">
-                                <button class="flex items-center gap-2">
-                                    Order Now
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M9.005 4L17.005 12L9.005 20L7 18L13.005 12L7 6L9.005 4Z"
-                                            fill="white" />
-                                    </svg>
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Function to render products for a category
-        function renderProducts(category) {
-            const productsContainer = document.getElementById('products-container');
-            const products = productsData[category] || [];
-
-            if (!productsContainer) {
-                console.error('Products container not found!');
-                return;
-            }
-
-            console.log(`Rendering ${products.length} products for category: ${category}`);
-
-            // Add fade out effect
-            productsContainer.style.opacity = '0';
-            productsContainer.style.transform = 'translateX(20px)';
-            productsContainer.style.transition = 'all 0.3s ease';
-
-            setTimeout(() => {
-                // Clear existing content
-                productsContainer.innerHTML = '';
-
-                // Add new products
-                products.forEach(product => {
-                    const slideElement = document.createElement('div');
-                    slideElement.className = 'swiper-slide';
-                    slideElement.innerHTML = createProductCard(product);
-                    productsContainer.appendChild(slideElement);
-                });
-
-                // Add fade in effect
-                productsContainer.style.opacity = '1';
-                productsContainer.style.transform = 'translateX(0)';
-
-                // Update Swiper after a short delay to ensure DOM is updated
-                setTimeout(() => {
-                    if (window.productsSwiper) {
-                        window.productsSwiper.update();
-                        window.productsSwiper.slideTo(0, 0); // Reset to first slide
-                        console.log('Swiper updated with new products');
-                    }
-                }, 50);
-            }, 200);
-        }
-
-        // Function to update active category
-        function updateActiveCategory(selectedCategory) {
-            // Remove active class from all category items
-            document.querySelectorAll('.category-item').forEach(item => {
-                item.classList.remove('active', 'bg-[#D72638]');
-                item.classList.add('hover:bg-gray-50');
-
-                // Update text color
-                const span = item.querySelector('span');
-                if (span) {
-                    span.classList.remove('text-white');
-                    span.classList.add('text-[#010F1C]');
-                }
-            });
-
-            // Add active class to selected category items
-            document.querySelectorAll(`[data-category="${selectedCategory}"]`).forEach(item => {
-                item.classList.add('active', 'bg-[#D72638]');
-                item.classList.remove('hover:bg-gray-50');
-
-                // Update text color
-                const span = item.querySelector('span');
-                if (span) {
-                    span.classList.add('text-white');
-                    span.classList.remove('text-[#010F1C]');
-                }
-            });
-        }
+        // Products functionality moved to products-swiper.js
+        // Old products code removed - now handled by products-swiper.js
     </script>
 
 

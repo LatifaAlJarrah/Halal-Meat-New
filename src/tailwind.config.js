@@ -3,11 +3,11 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        '3xl': '1920px', // breakpoint الجديد
+        '3xl': '1920px', 
       },
     },
   },
   content: [
-    "./src/**/*.{html,js,ts,jsx,tsx}", // عدلي حسب مكان ملفاتك
+    "./src/**/*.{html,js,ts,jsx,tsx}", 
   ],
 };
