@@ -218,20 +218,20 @@
             <div class="relative py-8 lg:py-12 my-12 md:my-0">
                 <!-- Background Pattern -->
                 <div
-                    class="absolute top-0 left-0 w-[60%] sm:w-[65%] md:w-[70%] h-[250px] md:h-[500px]  bg-pattern z-10">
+                    class="absolute top-0 left-0 w-[60%] sm:w-[65%] md:w-[70%] h-[250px] md:h-[500px] lg:h-[550px] xl:h-[651px] bg-pattern z-10">
                     <img src="assets/images/background.png" alt="background overlay" class="w-full h-full" />
                     <div class="absolute inset-0 bg-[#D72638] opacity-90 h-full"></div>
                 </div>
 
                 <!-- Main Meat Image -->
-                <div class="relative z-30 mt-8 md:mt-16 ml-4 md:ml-8 container-left-image">
+                <div class="relative z-30 mt-8 md:mt-16 ml-4 md:ml-8 lg:ml-30 xl:ml-40 container-left-image">
                     <!-- Red Sidebar behind image -->
                     <div
                         class="absolute -left-2 md:-left-4 bottom-4 md:bottom-8 bg-[#B6282D] w-4 md:w-8 h-32 md:h-64 rounded-l-xl z-20">
                     </div>
 
                     <img src="assets/images/high-angle.jpg" alt="High Quality Halal Meat"
-                        class="w-full relative  high-angle-image h-[250px] sm:h-[350px] md:h-[450px] lg:h-[550px] object-cover rounded-2xl shadow-lg z-30 high-quality-halal-meat" />
+                        class="w-full relative  high-angle-image h-[250px] sm:h-[350px] md:h-[450px] lg:h-[550px] xl:h-[651px] object-cover rounded-lg shadow-lg z-30 high-quality-halal-meat" />
 
                     <!-- Call-to-Action Box positioned in middle of image -->
                     <div
@@ -263,7 +263,7 @@
                             </svg>
                         </div>
                         <div
-                            class="flex flex-col gap-1 md:gap-2 text-white w-full sm:w-[200px] md:w-[250px] border-l-0 sm:border-l border-white pl-0 sm:pl-6 md:pl-12 text-center sm:text-left">
+                            class="flex flex-col gap-1 md:gap-2 text-white w-full sm:w-[200px] md:w-[250px] 2xl:w-[400px] border-l-0 sm:border-l border-white pl-0 sm:pl-6 md:pl-12 text-center sm:text-left">
                             <div class="text-2xl md:text-4xl font-normal font-mistral">86,700</div>
                             <div>
                                 <div class="text-xs sm:text-sm md:text-base font-medium">Savor the Taste of Pure Halal
@@ -274,7 +274,7 @@
                 </div>
             </div>
             <!-- Right Section - Text Content -->
-            <div class="p-8 lg:p-12 flex flex-col my-6 sm:my-12 w-full 2xl">
+            <div class="p-8 lg:p-12 flex flex-col my-6 sm:my-12 w-full 2xl justify-center">
                 <div>
                     <!-- Small heading -->
                     <div class="text-sm font-semibold text-gray-800 uppercase tracking-wider mb-4">OUR INTRODUCTION
@@ -351,6 +351,26 @@
                             <span class="text-black">Fresh cuts delivered to meet your needs</span>
                         </div>
 
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 bg-[#B6282D] rounded-full flex items-center justify-center">
+                                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <span class="text-black">Meat processed under strict hygiene standards</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-6 h-6 bg-[#B6282D] rounded-full flex items-center justify-center">
+                                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <span class="text-black">Meat processed under strict hygiene standards</span>
+                        </div>
                         <div class="flex items-center gap-3">
                             <div class="w-6 h-6 bg-[#B6282D] rounded-full flex items-center justify-center">
                                 <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -1880,10 +1900,9 @@
                     class="w-full h-full object-cover mix-blend-overlay" />
             </div> -->
 
-            <div class="absolute inset-0 h-[500px] ">
-                <img src="assets/images/AdobeStock.jpeg"
-                    class="w-full h-full object-cover" />
-                    <div class="absolute inset-0 bg-[#00000080]"></div>
+            <div class="absolute inset-0 h-[508px] ">
+                <img src="assets/images/how-it-work.jpg" class="w-full h-full object-cover object-top" />
+                <div class="absolute inset-0 bg-[#0000004D]"></div>
             </div>
 
             <!-- Content -->
@@ -2471,10 +2490,11 @@
 
     <script src="./mobile-menu.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-        // Initialize Team Swiper
-        document.addEventListener('DOMContentLoaded', function () {
+    <script src="./product-swiper.js"></script>
 
+    <script>
+        // Initialize all Swipers and other functionality
+        document.addEventListener('DOMContentLoaded', function () {
             // Testimonials Swiper
             const testimonialsSwiper = new Swiper('.testimonials-swiper', {
                 loop: true,
@@ -2486,7 +2506,6 @@
                 spaceBetween: 20,
                 slidesPerGroup: 1,
                 centeredSlides: false,
-
                 breakpoints: {
                     320: {
                         slidesPerView: 1,
@@ -2501,48 +2520,13 @@
                         spaceBetween: 30,
                     }
                 },
-
                 navigation: {
                     nextEl: '.testimonial-next',
                     prevEl: '.testimonial-prev',
                 },
-
                 effect: 'slide',
                 speed: 600,
                 grabCursor: true,
-            });
-
-            // Products Swiper
-            window.productsSwiper = new Swiper('.products-swiper', {
-                loop: true,
-                autoplay: {
-                    delay: 4000,
-                    disableOnInteraction: false,
-                },
-                slidesPerView: 'auto',
-                spaceBetween: 24,
-                speed: 600,
-                grabCursor: true,
-                effect: 'slide',
-                allowTouchMove: true,
-                navigation: {
-                    nextEl: '.products-next',
-                    prevEl: '.products-prev',
-                },
-                breakpoints: {
-                    320: {
-                        slidesPerView: 1,
-                        spaceBetween: 16,
-                    },
-                    640: {
-                        slidesPerView: 2,
-                        spaceBetween: 20,
-                    },
-                    1024: {
-                        slidesPerView: 3,
-                        spaceBetween: 24,
-                    }
-                }
             });
 
             // Featured Products Swiper
@@ -2581,11 +2565,8 @@
                     }
                 }
             });
-        });
-    </script>
-    <script>
-        // Wait for DOM to be fully loaded
-        document.addEventListener('DOMContentLoaded', function () {
+
+
             // Meat board slides
             const slides = document.querySelectorAll(".meat-board .slide");
             let index = 0;
@@ -2619,9 +2600,8 @@
                     bgSlides[bgIndex].classList.remove("active");
                     bgIndex = (bgIndex + 1) % bgSlides.length;
                     bgSlides[bgIndex].classList.add("active");
-                }, 2000);
+                }, 4000);
             }
-
             // Mobile main title background slides
             const mobileBgSlides = document.querySelectorAll(".mobile-main-title .mobile-bg-slide");
             let mobileBgIndex = 0;
@@ -3031,23 +3011,42 @@
             const productsContainer = document.getElementById('products-container');
             const products = productsData[category] || [];
 
+            if (!productsContainer) {
+                console.error('Products container not found!');
+                return;
+            }
+
+            console.log(`Rendering ${products.length} products for category: ${category}`);
+
             // Add fade out effect
             productsContainer.style.opacity = '0';
             productsContainer.style.transform = 'translateX(20px)';
+            productsContainer.style.transition = 'all 0.3s ease';
 
             setTimeout(() => {
-                productsContainer.innerHTML = products.map(product =>
-                    `<div class="swiper-slide">${createProductCard(product)}</div>`
-                ).join('');
+                // Clear existing content
+                productsContainer.innerHTML = '';
+
+                // Add new products
+                products.forEach(product => {
+                    const slideElement = document.createElement('div');
+                    slideElement.className = 'swiper-slide';
+                    slideElement.innerHTML = createProductCard(product);
+                    productsContainer.appendChild(slideElement);
+                });
 
                 // Add fade in effect
                 productsContainer.style.opacity = '1';
                 productsContainer.style.transform = 'translateX(0)';
 
-                // Update Swiper
-                if (window.productsSwiper) {
-                    window.productsSwiper.update();
-                }
+                // Update Swiper after a short delay to ensure DOM is updated
+                setTimeout(() => {
+                    if (window.productsSwiper) {
+                        window.productsSwiper.update();
+                        window.productsSwiper.slideTo(0, 0); // Reset to first slide
+                        console.log('Swiper updated with new products');
+                    }
+                }, 50);
             }, 200);
         }
 
@@ -3079,22 +3078,8 @@
                 }
             });
         }
-
-        // Add click event listeners to category items
-        document.addEventListener('DOMContentLoaded', function () {
-            // Initialize with chicken category (default active)
-            renderProducts('chicken');
-
-            // Add click event listeners
-            document.querySelectorAll('.category-item').forEach(item => {
-                item.addEventListener('click', function () {
-                    const category = this.getAttribute('data-category');
-                    updateActiveCategory(category);
-                    renderProducts(category);
-                });
-            });
-        });
     </script>
+
 
 </body>
 
