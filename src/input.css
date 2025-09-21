@@ -1163,3 +1163,115 @@
   z-index: 2;
   text-align: center; 
 }
+.location-pin {
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); */
+            position: relative;
+            /* animation: pulse 2s infinite; */
+            cursor: pointer;
+            /* transition: all 0.3s ease; */
+        }
+
+        .location-pin:hover {
+            transform: scale(1.1);
+            /* box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5); */
+        }
+        .full-page-map {
+            position: relative;
+            min-height: 600px;
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .location-pin {
+                width: 50px;
+                height: 50px;
+            }
+
+            .location-pin::after {
+                height: 30px;
+            }
+
+            .location-pin::before {
+                bottom: -40px;
+            }
+
+            .full-page-map {
+                background-attachment: scroll;
+            }
+
+            
+        }
+
+          .map-gradient-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, #FAFAFA, #FFFFFF00);
+            z-index: 1;
+            pointer-events: none;
+        }
+         .content-section {
+            position: relative;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+        }
+        .content-section {
+  position: relative; 
+}
+
+.content-section::before {
+  content: '';
+  position: absolute;
+  left: -40px;
+  width: 2px;
+  height: 100%;
+  background: #022700;
+}
+
+@media (max-width: 768px) {
+  .content-section::before {
+  content: '';
+  position: absolute;
+  left: -14px;
+  width: 2px;
+  height: 100%;
+  background: #022700;
+}
+}
+
+        .read-more-btn {
+            background: #D72638;
+            transition: all 0.3s ease;
+            border: none;
+            outline: none;
+        }
+
+        .read-more-btn:hover {
+            background: #D72638;
+            transform: translateY(-2px);
+            /* box-shadow: 0 8px 25px rgba(80, 128, 65, 0.4); */
+        }
+
+        .read-more-btn:active {
+            transform: translateY(0);
+        }
+      .chef-image {
+            background-image: url('./assets/images/chef-cooking.jpg');
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+.map-interactive-section {
+            position: relative;
+            z-index: 10;
+            /* height: 100vh; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }

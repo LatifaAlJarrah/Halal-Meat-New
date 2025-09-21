@@ -83,7 +83,7 @@
                         box</a>
                     <a href="./about.html" class="text-black hover:text-[#D72638] transition-colors">About</a>
                     <a href="./shop.html" class="text-black hover:text-[#D72638] transition-colors">Shop</a>
-                    <a href="./products.html" class="text-black hover:text-[#D72638] transition-colors">Product</a>
+                    <a href="./product.html" class="text-black hover:text-[#D72638] transition-colors">Product</a>
                     <a href="./checkout.html"
                         class="text-[#D72638] hover:text-[#D72638] transition-colors font-bold">Checkout</a>
                     <a href="./why-choose-us.html" class="text-black hover:text-[#D72638] transition-colors">why choose
@@ -106,7 +106,7 @@
                                 fill="#100404" />
                         </svg>
                     </button>
-                    <a href="./card.html">
+                    <a href="./cart.html">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M16.5461 13C17.2961 13 17.9561 12.59 18.2961 11.97L21.8761 5.48C22.2461 4.82 21.7661 4 21.0061 4H6.20609L5.26609 2H1.99609V4H3.99609L7.59609 11.59L6.24609 14.03C5.51609 15.37 6.47609 17 7.99609 17H19.9961V15H7.99609L9.09609 13H16.5461ZM7.15609 6H19.3061L16.5461 11H9.52609L7.15609 6ZM7.99609 18C6.89609 18 6.00609 18.9 6.00609 20C6.00609 21.1 6.89609 22 7.99609 22C9.09609 22 9.99609 21.1 9.99609 20C9.99609 18.9 9.09609 18 7.99609 18ZM17.9961 18C16.8961 18 16.0061 18.9 16.0061 20C16.0061 21.1 16.8961 22 17.9961 22C19.0961 22 19.9961 21.1 19.9961 20C19.9961 18.9 19.0961 18 17.9961 18Z"
@@ -152,7 +152,7 @@
                         class="text-white hover:text-red-400 transition-all duration-300 py-3 px-6 rounded-lg hover:bg-white/10 w-full text-center">About</a>
                     <a href="./shop.html"
                         class="text-white hover:text-red-400 transition-all duration-300 py-3 px-6 rounded-lg hover:bg-white/10 w-full text-center">Shop</a>
-                    <a href="./products.html"
+                    <a href="./product.html"
                         class="text-white hover:text-red-400 transition-all duration-300 py-3 px-6 rounded-lg hover:bg-white/10 w-full text-center">Product</a>
                     <a href="./checkout.html"
                         class="text-white hover:text-red-400 transition-all duration-300 py-3 px-6 rounded-lg hover:bg-white/10 w-full text-center">Checkout</a>
@@ -162,7 +162,7 @@
                     <a href="./contact.html"
                         class="text-white hover:text-red-400 transition-all duration-300 py-3 px-6 rounded-lg hover:bg-white/10 w-full text-center">Contact
                         us</a>
-                    <a href="./card.html"
+                    <a href="./cart.html"
                         class="flex gap-3 items-center justify-center text-white hover:text-red-400 transition-all duration-300 py-3 px-6 rounded-lg hover:bg-white/10 w-full text-center">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -424,6 +424,14 @@
                                             <div class="error-message hidden" id="new-zip-code-error"></div>
                                         </div>
                                     </div>
+
+                                    <!-- Manual Save Button -->
+                                    <div class="pt-4">
+                                        <button type="button" id="manual-save-shipping-btn"
+                                            class="w-full bg-[#B30310] text-white py-2 px-4 rounded-md hover:bg-[#8B0000] transition-colors">
+                                            Save Address
+                                        </button>
+                                    </div>
                                 </form>
                             </div>
                         </form>
@@ -448,7 +456,8 @@
                                 data-address="store1">
                                 <label class="flex flex-col gap-2 cursor-pointer">
                                     <p class="font-semibold text-base text-black">Card Billing</p>
-                                    <p class="text-base text-[#9E9494] font-normal">789 Market St, Floor 2, Austin, TX 78703</p>
+                                    <p class="text-base text-[#9E9494] font-normal">789 Market St, Floor 2, Austin, TX
+                                        78703</p>
                                 </label>
                                 <div class="flex items-center gap-2">
                                     <input type="radio" name="pickupAddress" value="saved" checked
@@ -456,7 +465,7 @@
                                         id="main-store-pickup" />
                                 </div>
                             </div>
-                            
+
                             <button id="add-pickup-address-btn"
                                 class="text-base font-normal text-[#1A1C1B] border border-[#7B7F7C] rounded-lg py-2 px-6 hover:bg-gray-50 transition-colors"
                                 onclick="showPickupAddressForm();">
@@ -1279,9 +1288,24 @@
         function showShippingAddressForm() {
             console.log('showShippingAddressForm called');
             const addressFormContainer = document.getElementById('new-address-form-container');
+            console.log('Container found:', addressFormContainer);
+
             if (addressFormContainer) {
+                console.log('Container innerHTML before showing:', addressFormContainer.innerHTML);
                 addressFormContainer.classList.remove('hidden');
                 addressFormContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                // تحقق من وجود النموذج بعد إظهار الحاوية
+                const formAfterShow = document.getElementById('new-address-form');
+                console.log('Form exists after showing:', formAfterShow);
+
+                // تحقق من وجود النموذج داخل الحاوية بعد إظهارها
+                const formInContainerAfterShow = addressFormContainer.querySelector('form');
+                console.log('Form in container after showing:', formInContainerAfterShow);
+
+                // تحقق من وجود جميع النماذج
+                const allFormsAfterShow = document.querySelectorAll('form');
+                console.log('All forms after showing:', allFormsAfterShow);
             } else {
                 console.error('Shipping address form container not found');
             }
@@ -1777,64 +1801,64 @@
             return isFormValid;
         }
 
-        // Handle form submission
-        function handleFormSubmission() {
-            if (!validateForm()) {
-                showNotification('Please fix the errors in the form before proceeding.', 'error');
-                return;
-            }
+        // // Handle form submission
+        // function handleFormSubmission() {
+        //     if (!validateForm()) {
+        //         showNotification('Please fix the errors in the form before proceeding.', 'error');
+        //         return;
+        //     }
 
-            // Get form data
-            const formData = new FormData(checkoutForm);
-            const orderData = {
-                deliveryOption: isDelivery ? 'delivery' : 'pickup',
-                deliveryTime: isImmediate ? 'immediate' : 'scheduled',
-                billing: isDelivery ? {
-                    firstName: formData.get('firstName'),
-                    lastName: formData.get('lastName'),
-                    companyName: formData.get('companyName'),
-                    streetAddress: formData.get('streetAddress'),
-                    country: formData.get('country'),
-                    state: formData.get('state'),
-                    zipCode: formData.get('zipCode'),
-                    email: formData.get('email'),
-                    phone: formData.get('phone'),
-                    differentAddress: formData.get('differentAddress') === 'on'
-                } : {
-                    addressLine1: formData.get('addressLine1'),
-                    addressLine2: formData.get('addressLine2'),
-                    country: formData.get('country'),
-                    state: formData.get('state'),
-                    zipCode: formData.get('zipCode')
-                },
-                orderNotes: formData.get('orderNotes'),
-                deliveryDate: formData.get('deliveryDate'),
-                deliveryTime: formData.get('deliveryTime'),
-                paymentMethod: formData.get('paymentMethod'),
-                orderSummary: {
-                    subtotal: 84.00,
-                    shipping: currentShippingCost,
-                    total: 84.00 + currentShippingCost
-                }
-            };
+        //     // Get form data
+        //     const formData = new FormData(checkoutForm);
+        //     const orderData = {
+        //         deliveryOption: isDelivery ? 'delivery' : 'pickup',
+        //         deliveryTime: isImmediate ? 'immediate' : 'scheduled',
+        //         billing: isDelivery ? {
+        //             firstName: formData.get('firstName'),
+        //             lastName: formData.get('lastName'),
+        //             companyName: formData.get('companyName'),
+        //             streetAddress: formData.get('streetAddress'),
+        //             country: formData.get('country'),
+        //             state: formData.get('state'),
+        //             zipCode: formData.get('zipCode'),
+        //             email: formData.get('email'),
+        //             phone: formData.get('phone'),
+        //             differentAddress: formData.get('differentAddress') === 'on'
+        //         } : {
+        //             addressLine1: formData.get('addressLine1'),
+        //             addressLine2: formData.get('addressLine2'),
+        //             country: formData.get('country'),
+        //             state: formData.get('state'),
+        //             zipCode: formData.get('zipCode')
+        //         },
+        //         orderNotes: formData.get('orderNotes'),
+        //         deliveryDate: formData.get('deliveryDate'),
+        //         deliveryTime: formData.get('deliveryTime'),
+        //         paymentMethod: formData.get('paymentMethod'),
+        //         orderSummary: {
+        //             subtotal: 84.00,
+        //             shipping: currentShippingCost,
+        //             total: 84.00 + currentShippingCost
+        //         }
+        //     };
 
-            // Show loading state
-            placeOrderBtn.disabled = true;
-            placeOrderBtn.textContent = 'Processing...';
+        //     // Show loading state
+        //     placeOrderBtn.disabled = true;
+        //     placeOrderBtn.textContent = 'Processing...';
 
-            // Simulate API call
-            setTimeout(() => {
-                console.log('Order Data:', orderData);
-                showNotification('Order placed successfully! Redirecting to payment...', 'success');
+        //     // Simulate API call
+        //     setTimeout(() => {
+        //         console.log('Order Data:', orderData);
+        //         showNotification('Order placed successfully! Redirecting to payment...', 'success');
 
-                // Reset button
-                placeOrderBtn.disabled = false;
-                placeOrderBtn.textContent = 'Place Order';
+        //         // Reset button
+        //         placeOrderBtn.disabled = false;
+        //         placeOrderBtn.textContent = 'Place Order';
 
-                // In a real application, you would redirect to payment page
-                // window.location.href = './payment.html';
-            }, 2000);
-        }
+        //         // In a real application, you would redirect to payment page
+        //         // window.location.href = './payment.html';
+        //     }, 2000);
+        // }
 
         // Show notification
         function showNotification(message, type) {
@@ -2034,6 +2058,25 @@
         function setupAddressModal() {
             console.log('Setting up address modal...');
 
+            // تحقق من وجود النموذج عند التحميل
+            const formCheck = document.getElementById('new-address-form');
+            console.log('Form exists at setup:', formCheck);
+
+            const containerCheck = document.getElementById('new-address-form-container');
+            console.log('Container exists at setup:', containerCheck);
+
+            if (containerCheck) {
+                console.log('Container innerHTML at setup:', containerCheck.innerHTML);
+
+                // تحقق من وجود النموذج داخل الحاوية
+                const formInContainer = containerCheck.querySelector('form');
+                console.log('Form in container at setup:', formInContainer);
+
+                // تحقق من وجود النموذج بالـ ID
+                const formById = document.getElementById('new-address-form');
+                console.log('Form by ID at setup:', formById);
+            }
+
             try {
                 // Shipping Address Form Setup
                 const addAddressBtn = document.getElementById('add-address-btn');
@@ -2102,6 +2145,7 @@
 
                 // Handle shipping address form submission
                 if (newAddressForm) {
+                    console.log('Shipping form found, adding event listeners...');
                     newAddressForm.addEventListener('submit', function (e) {
                         e.preventDefault();
 
@@ -2112,10 +2156,36 @@
 
                     // Real-time validation for shipping form fields
                     const formFields = newAddressForm.querySelectorAll('input, select');
+                    console.log('Found form fields:', formFields.length);
                     formFields.forEach(field => {
+                        console.log('Adding event listener to field:', field.id);
                         field.addEventListener('blur', () => validateNewAddressField(field));
-                        field.addEventListener('input', () => clearNewAddressFieldError(field));
+                        field.addEventListener('input', () => {
+                            clearNewAddressFieldError(field);
+                            // Auto-save when all required fields are filled
+                            console.log('Shipping field input detected:', field.id, field.value);
+                            autoSaveShippingAddress();
+                        });
                     });
+                } else {
+                    console.log('Shipping form NOT found!');
+                }
+
+                // Add manual save button event listener
+                const manualSaveBtn = document.getElementById('manual-save-shipping-btn');
+                if (manualSaveBtn) {
+                    console.log('Manual save button found, adding event listener...');
+                    manualSaveBtn.addEventListener('click', function () {
+                        console.log('Manual save button clicked!');
+                        if (validateNewAddressForm()) {
+                            console.log('Form is valid, saving...');
+                            saveNewAddress();
+                        } else {
+                            console.log('Form is not valid');
+                        }
+                    });
+                } else {
+                    console.log('Manual save button NOT found!');
                 }
 
                 // Handle billing address form submission
@@ -2132,7 +2202,12 @@
                     const billingFormFields = newBillingAddressForm.querySelectorAll('input, select');
                     billingFormFields.forEach(field => {
                         field.addEventListener('blur', () => validateNewBillingAddressField(field));
-                        field.addEventListener('input', () => clearNewBillingAddressFieldError(field));
+                        field.addEventListener('input', () => {
+                            clearNewBillingAddressFieldError(field);
+                            // Auto-save when all required fields are filled
+                            console.log('Billing field input detected:', field.id, field.value);
+                            autoSaveBillingAddress();
+                        });
                     });
                 }
 
@@ -2151,7 +2226,12 @@
                     const pickupFormFields = newPickupAddressForm.querySelectorAll('input, select');
                     pickupFormFields.forEach(field => {
                         field.addEventListener('blur', () => validateNewPickupAddressField(field));
-                        field.addEventListener('input', () => clearNewPickupAddressFieldError(field));
+                        field.addEventListener('input', () => {
+                            clearNewPickupAddressFieldError(field);
+                            // Auto-save when all required fields are filled
+                            console.log('Pickup field input detected:', field.id, field.value);
+                            autoSavePickupAddress();
+                        });
                     });
                 }
             } catch (error) {
@@ -2252,52 +2332,167 @@
         }
 
         function saveNewAddress() {
-            const formData = new FormData(document.getElementById('new-address-form'));
+            console.log('saveNewAddress function called - NEW VERSION');
+
+            // الحصول على النموذج
+            const form = document.getElementById('new-address-form');
+            console.log('Form found:', form);
+
+            // إذا لم يتم العثور على النموذج، جرب البحث في الحاوية المخفية
+            if (!form) {
+                console.log('Form not found by ID, trying to find in hidden container...');
+
+                // جرب البحث عن النموذج في الحاوية المخفية
+                const formContainer = document.getElementById('new-address-form-container');
+                console.log('Form container:', formContainer);
+
+                if (formContainer) {
+                    console.log('Form container innerHTML:', formContainer.innerHTML);
+                    const formInContainer = formContainer.querySelector('form');
+                    console.log('Form in container:', formInContainer);
+
+                    // جرب البحث عن النموذج بالـ ID مباشرة
+                    const formById = document.getElementById('new-address-form');
+                    console.log('Form by ID:', formById);
+
+                    // جرب البحث عن جميع النماذج
+                    const allForms = document.querySelectorAll('form');
+                    console.log('All forms in document:', allForms);
+
+                    // جرب البحث عن النموذج بالاسم
+                    const formByName = document.querySelector('form[id="new-address-form"]');
+                    console.log('Form by querySelector:', formByName);
+
+                    if (formInContainer) {
+                        console.log('Found form in hidden container, using it');
+                        // استخدم النموذج من الحاوية المخفية
+                        const addressLine1 = formInContainer.querySelector('#new-address-line1').value;
+                        const addressLine2 = formInContainer.querySelector('#new-address-line2').value;
+                        const city = formInContainer.querySelector('#new-city').value;
+                        const state = formInContainer.querySelector('#new-state').value;
+                        const zipCode = formInContainer.querySelector('#new-zip-code').value;
+
+                        console.log('Form data from hidden form:', { addressLine1, addressLine2, city, state, zipCode });
+
+                        // التحقق من أن الحقول المطلوبة مملوءة
+                        if (!addressLine1 || !city || !state || !zipCode) {
+                            console.log('Required fields missing');
+                            alert('يرجى ملء جميع الحقول المطلوبة');
+                            return;
+                        }
+                        console.log('All required fields filled');
+
+                        // إنشاء العنوان الجديد
+                        console.log('Creating new address object...');
+                        const newAddress = {
+                            addressLine1: addressLine1,
+                            addressLine2: addressLine2,
+                            city: city,
+                            state: state,
+                            zipCode: zipCode
+                        };
+                        console.log('New address created:', newAddress);
+
+                        // إضافة العنوان الجديد للقائمة
+                        console.log('Calling addAddressToList...');
+                        addAddressToList(newAddress);
+                        console.log('addAddressToList completed');
+
+                        // مسح النموذج
+                        console.log('Resetting form...');
+                        formInContainer.reset();
+
+                        // إخفاء النموذج
+                        console.log('Hiding form...');
+                        formContainer.classList.add('hidden');
+                        console.log('Form hidden');
+
+                        // رسالة نجاح
+                        console.log('Showing success alert...');
+                        alert('تم إضافة العنوان بنجاح!');
+                        console.log('saveNewAddress completed successfully');
+                        return;
+                    }
+                }
+
+                console.log('Form not found anywhere, returning');
+                return;
+            }
+
+            // الحصول على البيانات من النموذج
+            console.log('Getting form data...');
+            const addressLine1 = document.getElementById('new-address-line1').value;
+            const addressLine2 = document.getElementById('new-address-line2').value;
+            const city = document.getElementById('new-city').value;
+            const state = document.getElementById('new-state').value;
+            const zipCode = document.getElementById('new-zip-code').value;
+
+            console.log('Form data:', { addressLine1, addressLine2, city, state, zipCode });
+
+            // التحقق من أن الحقول المطلوبة مملوءة
+            if (!addressLine1 || !city || !state || !zipCode) {
+                console.log('Required fields missing');
+                alert('يرجى ملء جميع الحقول المطلوبة');
+                return;
+            }
+            console.log('All required fields filled');
+
+            // إنشاء العنوان الجديد
+            console.log('Creating new address object...');
             const newAddress = {
-                addressLine1: formData.get('addressLine1'),
-                addressLine2: formData.get('addressLine2'),
-                city: formData.get('city'),
-                state: formData.get('state'),
-                zipCode: formData.get('zipCode')
+                addressLine1: addressLine1,
+                addressLine2: addressLine2,
+                city: city,
+                state: state,
+                zipCode: zipCode
             };
+            console.log('New address created:', newAddress);
 
-            // Show loading state
-            const saveBtn = document.getElementById('save-address-btn');
-            const originalText = saveBtn.textContent;
-            saveBtn.disabled = true;
-            saveBtn.textContent = 'Saving...';
+            // إضافة العنوان الجديد للقائمة
+            console.log('Calling addAddressToList...');
+            addAddressToList(newAddress);
+            console.log('addAddressToList completed');
 
-            // Simulate API call
-            setTimeout(() => {
-                // Add the new address to the address options
-                addNewAddressOption(newAddress);
+            // مسح النموذج
+            console.log('Resetting form...');
+            form.reset();
 
-                // Show success message
-                showNotification('New address added successfully!', 'success');
+            // إخفاء النموذج
+            console.log('Hiding form...');
+            const formContainer = document.getElementById('new-address-form-container');
+            if (formContainer) {
+                formContainer.classList.add('hidden');
+                console.log('Form hidden');
+            }
 
-                // Reset button
-                saveBtn.disabled = false;
-                saveBtn.textContent = originalText;
-
-                // Hide form
-                hideAddressForm();
-            }, 1000);
+            // رسالة نجاح
+            console.log('Showing success alert...');
+            alert('تم إضافة العنوان بنجاح!');
+            console.log('saveNewAddress completed successfully');
         }
 
-        function addNewAddressOption(address) {
-            const addressOptionsContainer = document.querySelector('.address-option').parentNode;
+        function addAddressToList(address) {
+            console.log('addAddressToList called with:', address);
 
-            // Create new address option element
-            const newAddressOption = document.createElement('div');
-            newAddressOption.className = 'address-option flex items-center justify-between gap-2 border border-[#C8C8C8] rounded-lg p-4 cursor-pointer transition-all duration-200 hover:border-[#D72638] hover:shadow-md';
-            newAddressOption.setAttribute('data-address', 'new');
+            // العثور على الحاوية التي تحتوي على العناوين
+            const addressContainer = document.querySelector('.address-option').parentNode;
+            console.log('Address container found:', addressContainer);
 
-            const addressId = `new-address-${Date.now()}`;
+            // إنشاء معرف فريد للعنوان
+            const addressId = 'address-' + Date.now();
+
+            // إنشاء العنوان الكامل
             const fullAddress = `${address.addressLine1}${address.addressLine2 ? ', ' + address.addressLine2 : ''}, ${address.city}, ${address.state} ${address.zipCode}`;
 
-            newAddressOption.innerHTML = `
+            // إنشاء العنصر الجديد
+            const newAddressElement = document.createElement('div');
+            newAddressElement.className = 'address-option flex items-center justify-between gap-2 border border-[#C8C8C8] rounded-lg p-4 cursor-pointer transition-all duration-200 hover:border-[#D72638] hover:shadow-md';
+            newAddressElement.setAttribute('data-address', 'new');
+
+            // محتوى العنصر
+            newAddressElement.innerHTML = `
                 <label class="flex flex-col gap-2 cursor-pointer" for="${addressId}">
-                    <p class="font-semibold text-base text-black">New Address</p>
+                    <p class="font-semibold text-base text-black">عنوان جديد</p>
                     <p class="text-base text-[#9E9494] font-normal">${fullAddress}</p>
                 </label>
                 <div class="flex items-center gap-2">
@@ -2307,24 +2502,32 @@
                 </div>
             `;
 
-            // Add click event listener to the new address option
-            newAddressOption.addEventListener('click', function () {
-                // Remove active class from all options
+            // إضافة حدث النقر
+            newAddressElement.addEventListener('click', function () {
+                // إزالة التحديد من جميع العناوين
                 document.querySelectorAll('.address-option').forEach(opt => opt.classList.remove('active'));
 
-                // Add active class to clicked option
+                // إضافة التحديد للعنوان المختار
                 this.classList.add('active');
 
-                // Check the radio button inside this option
+                // تحديد الراديو بوتن
                 const radioInput = this.querySelector('input[type="radio"]');
                 if (radioInput) {
                     radioInput.checked = true;
                 }
             });
 
-            // Insert the new address option before the "Add new shipping address" button
+            // العثور على زر "إضافة عنوان جديد"
             const addButton = document.getElementById('add-address-btn');
-            addressOptionsContainer.insertBefore(newAddressOption, addButton);
+
+            // إدراج العنوان الجديد قبل الزر
+            if (addressContainer && addButton) {
+                addressContainer.insertBefore(newAddressElement, addButton);
+                console.log('Address element inserted successfully');
+            } else {
+                console.log('Could not insert address - container or button not found');
+            }
+            console.log('addAddressToList completed');
         }
 
         function resetNewAddressForm() {
@@ -2424,31 +2627,25 @@
                 zipCode: formData.get('zipCode')
             };
 
-            // Show loading state
-            const saveBtn = document.getElementById('save-billing-address-btn');
-            const originalText = saveBtn.textContent;
-            saveBtn.disabled = true;
-            saveBtn.textContent = 'Saving...';
+            console.log('Saving new billing address:', newAddress);
 
-            // Simulate API call
-            setTimeout(() => {
-                // Add the new address to the billing address options
-                addNewBillingAddressOption(newAddress);
+            // Add the new address to the billing address options immediately
+            addNewBillingAddressOption(newAddress);
 
-                // Show success message
-                showNotification('New billing address added successfully!', 'success');
+            // Show success message
+            showNotification('New billing address added successfully!', 'success');
 
-                // Reset button
-                saveBtn.disabled = false;
-                saveBtn.textContent = originalText;
-
-                // Hide form
-                hideBillingAddressForm();
-            }, 1000);
+            // Clear the form
+            resetNewBillingAddressForm();
         }
 
         function addNewBillingAddressOption(address) {
             const billingAddressOptionsContainer = document.querySelector('.billing-address-option').parentNode;
+
+            // Count existing new billing addresses to create unique names
+            const existingNewBillingAddresses = document.querySelectorAll('.billing-address-option[data-address="new"]');
+            const addressNumber = existingNewBillingAddresses.length + 1;
+            const addressName = `Billing Address ${addressNumber}`;
 
             // Create new billing address option element
             const newAddressOption = document.createElement('div');
@@ -2460,7 +2657,7 @@
 
             newAddressOption.innerHTML = `
                 <label class="flex flex-col gap-2 cursor-pointer" for="${addressId}">
-                    <p class="font-semibold text-base text-black">New Billing Address</p>
+                    <p class="font-semibold text-base text-black">${addressName}</p>
                     <p class="text-base text-[#9E9494] font-normal">${fullAddress}</p>
                 </label>
                 <div class="flex items-center gap-2">
@@ -2488,6 +2685,9 @@
             // Insert the new billing address option before the "Add new billing address" button
             const addButton = document.getElementById('add-billing-address-btn');
             billingAddressOptionsContainer.insertBefore(newAddressOption, addButton);
+
+            // Show success message
+            showNotification(`${addressName} added successfully!`, 'success');
         }
 
         function resetNewBillingAddressForm() {
@@ -2572,6 +2772,11 @@
                 zipCode: formData.get('zipCode')
             };
 
+            // Count existing new pickup addresses to create unique names
+            const existingNewPickupAddresses = document.querySelectorAll('.pickup-address-option[data-address^="pickup-"]');
+            const addressNumber = existingNewPickupAddresses.length + 1;
+            const addressName = `Pickup Location ${addressNumber}`;
+
             // Create a unique ID for the new address
             const addressId = 'pickup-' + Date.now();
 
@@ -2581,7 +2786,7 @@
             newAddressOption.setAttribute('data-address', addressId);
             newAddressOption.innerHTML = `
                 <label class="flex flex-col gap-2 cursor-pointer">
-                    <p class="font-semibold text-base text-black">New Pickup Location</p>
+                    <p class="font-semibold text-base text-black">${addressName}</p>
                     <p class="text-base text-[#9E9494] font-normal">${newAddress.addressLine1}${newAddress.addressLine2 ? ', ' + newAddress.addressLine2 : ''}, ${newAddress.city}, ${newAddress.state} ${newAddress.zipCode}</p>
                 </label>
                 <div class="flex items-center gap-2">
@@ -2614,7 +2819,77 @@
             document.getElementById('new-pickup-address-form').reset();
 
             // Show success message
-            showNotification('New pickup location added successfully!', 'success');
+            showNotification(`${addressName} added successfully!`, 'success');
+        }
+
+        // Auto-save functions
+        function autoSaveShippingAddress() {
+            const form = document.getElementById('new-address-form');
+            if (!form) return;
+
+            const requiredFields = ['new-address-line1', 'new-city', 'new-state', 'new-zip-code'];
+            const allFilled = requiredFields.every(fieldId => {
+                const field = document.getElementById(fieldId);
+                return field && field.value.trim() !== '';
+            });
+
+            console.log('Auto-save shipping check:', { allFilled, formValid: validateNewAddressForm() });
+
+            if (allFilled && validateNewAddressForm()) {
+                console.log('Auto-saving shipping address...');
+                saveNewAddress();
+                // Hide the form after auto-save
+                const formContainer = document.getElementById('new-address-form-container');
+                if (formContainer) {
+                    formContainer.classList.add('hidden');
+                }
+            }
+        }
+
+        function autoSaveBillingAddress() {
+            const form = document.getElementById('new-billing-address-form');
+            if (!form) return;
+
+            const requiredFields = ['new-billing-address-line1', 'new-billing-city', 'new-billing-state', 'new-billing-zip-code'];
+            const allFilled = requiredFields.every(fieldId => {
+                const field = document.getElementById(fieldId);
+                return field && field.value.trim() !== '';
+            });
+
+            console.log('Auto-save billing check:', { allFilled, formValid: validateNewBillingAddressForm() });
+
+            if (allFilled && validateNewBillingAddressForm()) {
+                console.log('Auto-saving billing address...');
+                saveNewBillingAddress();
+                // Hide the form after auto-save
+                const formContainer = document.getElementById('new-billing-address-form-container');
+                if (formContainer) {
+                    formContainer.classList.add('hidden');
+                }
+            }
+        }
+
+        function autoSavePickupAddress() {
+            const form = document.getElementById('new-pickup-address-form');
+            if (!form) return;
+
+            const requiredFields = ['new-pickup-address-line1', 'new-pickup-city', 'new-pickup-state', 'new-pickup-zip-code'];
+            const allFilled = requiredFields.every(fieldId => {
+                const field = document.getElementById(fieldId);
+                return field && field.value.trim() !== '';
+            });
+
+            console.log('Auto-save pickup check:', { allFilled, formValid: validateNewPickupAddressForm() });
+
+            if (allFilled && validateNewPickupAddressForm()) {
+                console.log('Auto-saving pickup address...');
+                saveNewPickupAddress();
+                // Hide the form after auto-save
+                const formContainer = document.getElementById('new-pickup-address-form-container');
+                if (formContainer) {
+                    formContainer.classList.add('hidden');
+                }
+            }
         }
     </script>
 </body>

@@ -354,6 +354,9 @@
   .left-2 {
     left: calc(var(--spacing) * 2);
   }
+  .left-4 {
+    left: calc(var(--spacing) * 4);
+  }
   .left-5 {
     left: calc(var(--spacing) * 5);
   }
@@ -636,6 +639,12 @@
   .h-\[27\%\] {
     height: 27%;
   }
+  .h-\[40\%\] {
+    height: 40%;
+  }
+  .h-\[60\%\] {
+    height: 60%;
+  }
   .h-\[100px\] {
     height: 100px;
   }
@@ -684,8 +693,8 @@
   .h-\[730px\] {
     height: 730px;
   }
-  .h-auto {
-    height: auto;
+  .h-\[1200px\] {
+    height: 1200px;
   }
   .h-full {
     height: 100%;
@@ -1502,9 +1511,6 @@
   .p-10 {
     padding: calc(var(--spacing) * 10);
   }
-  .p-20 {
-    padding: calc(var(--spacing) * 20);
-  }
   .px-2 {
     padding-inline: calc(var(--spacing) * 2);
   }
@@ -2109,6 +2115,13 @@
     &:hover {
       @media (hover: hover) {
         border-color: #D72638;
+      }
+    }
+  }
+  .hover\:bg-\[\#8B0000\] {
+    &:hover {
+      @media (hover: hover) {
+        background-color: #8B0000;
       }
     }
   }
@@ -4517,6 +4530,99 @@
   position: relative;
   z-index: 2;
   text-align: center;
+}
+.location-pin {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+.location-pin:hover {
+  transform: scale(1.1);
+}
+.full-page-map {
+  position: relative;
+  min-height: 600px;
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .location-pin {
+    width: 50px;
+    height: 50px;
+  }
+  .location-pin::after {
+    height: 30px;
+  }
+  .location-pin::before {
+    bottom: -40px;
+  }
+  .full-page-map {
+    background-attachment: scroll;
+  }
+}
+.map-gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, #FAFAFA, #FFFFFF00);
+  z-index: 1;
+  pointer-events: none;
+}
+.content-section {
+  position: relative;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+}
+.content-section {
+  position: relative;
+}
+.content-section::before {
+  content: '';
+  position: absolute;
+  left: -40px;
+  width: 2px;
+  height: 100%;
+  background: #022700;
+}
+@media (max-width: 768px) {
+  .content-section::before {
+    content: '';
+    position: absolute;
+    left: -14px;
+    width: 2px;
+    height: 100%;
+    background: #022700;
+  }
+}
+.read-more-btn {
+  background: #D72638;
+  transition: all 0.3s ease;
+  border: none;
+  outline: none;
+}
+.read-more-btn:hover {
+  background: #D72638;
+  transform: translateY(-2px);
+}
+.read-more-btn:active {
+  transform: translateY(0);
+}
+.chef-image {
+  background-image: url('./assets/images/chef-cooking.jpg');
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+.map-interactive-section {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 @property --tw-translate-x {
   syntax: "*";
