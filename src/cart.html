@@ -23,8 +23,7 @@
                 <!-- Navigation -->
                 <nav id="mobile-menu" class="hidden xl:flex items-center space-x-4 2xl:space-x-8 font-medium text-base">
                     <a href="./index.html" class="text-black hover:text-[#D72638] transition-colors">Home</a>
-                    <a href="./build-your-box.html"
-                        class="text-black hover:text-[#D72638] transition-colors">build your
+                    <a href="./build-your-box.html" class="text-black hover:text-[#D72638] transition-colors">build your
                         box</a>
                     <a href="./about.html" class="text-black hover:text-[#D72638] transition-colors">About</a>
                     <a href="./shop.html" class="text-black hover:text-[#D72638] transition-colors">Shop</a>
@@ -654,11 +653,20 @@
                 }
             }
 
-            // Update individual item subtotal
+           // تحديث دالة updateItemSubtotal لتحديث جميع العناصر
             function updateItemSubtotal(productId) {
                 const item = cartItems.find(item => item.id === productId);
                 if (item) {
                     const subtotal = item.price * item.quantity;
+
+                    // تحديث ALL عناصر الكمية لهذا المنتج
+                    const quantityElements = document.querySelectorAll(`[data-product="${productId}"].quantity-input`);
+                    quantityElements.forEach(element => {
+                        element.setAttribute('data-quantity', item.quantity);
+                        element.textContent = item.quantity;
+                    });
+
+                    // تحديث ALL عناصر المجموع الفرعي لهذا المنتج
                     const subtotalElements = document.querySelectorAll(`[data-product="${productId}"].subtotal`);
                     subtotalElements.forEach(element => {
                         element.textContent = `$${subtotal.toFixed(2)}`;
@@ -667,25 +675,18 @@
                 updateCartTotals();
             }
 
-            // Quantity increase
+            // تحديث أحداث الزيادة والنقصان لتعديل المصفوفة مباشرة
             document.querySelectorAll('.quantity-increase').forEach(button => {
                 button.addEventListener('click', function () {
                     const productId = this.getAttribute('data-product');
-                    const quantityDiv = document.querySelector(`[data-product="${productId}"].quantity-input`);
-                    const currentQuantity = parseInt(quantityDiv.getAttribute('data-quantity'));
-                    const newQuantity = currentQuantity + 1;
-
-                    quantityDiv.setAttribute('data-quantity', newQuantity);
-                    quantityDiv.textContent = newQuantity;
 
                     const item = cartItems.find(item => item.id === productId);
                     if (item) {
-                        item.quantity = newQuantity;
+                        item.quantity += 1;
                         updateItemSubtotal(productId);
                     }
                 });
             });
-
             // Quantity decrease
             document.querySelectorAll('.quantity-decrease').forEach(button => {
                 button.addEventListener('click', function () {
