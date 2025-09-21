@@ -279,255 +279,222 @@
                             </label>
                         </div>
                     </div>
+                    <div class="container mx-auto py-8">
+                        <!-- Delivery Information Section -->
+                        <div id="delivery-address-section" class="mb-6">
+                            <h2 class="text-2xl font-medium mb-4 text-gray-900">Delivery / Shipping Address</h2>
+                            <p class="text-base font-normal text-black mb-4">Choose a Saved shipping address</p>
 
-                    <!-- Delivery Information Section -->
-                    <div class="bg-white rounded-lg shadow-sm mb-6">
-                        <h2 class="text-2xl font-medium mb-4 text-gray-900">Delivery / Shipping Address</h2>
-                        <p class="text-base font-normal text-black mb-4">Choose a Saved shipping address</p>
-
-                        <div class="space-y-4">
-                            <!-- Existing Address Options -->
-                            <div class="address-option flex items-center justify-between gap-2 border border-gray-300 rounded-lg p-4 cursor-pointer transition-all duration-200 hover:border-red-600 hover:shadow-md active"
-                                data-address="home">
-                                <label class="flex flex-col gap-2 cursor-pointer">
-                                    <p class="font-semibold text-base text-black">Home</p>
-                                    <p class="text-base text-gray-500 font-normal">123 Wellness Ave, Suite 4, Austin, TX
-                                        78701</p>
-                                </label>
-                                <div class="flex items-center gap-2">
-                                    <input type="radio" name="deliveryAddress" value="saved" checked
-                                        class="w-4 h-4 text-red-600 focus:ring-red-600 border-gray-300"
-                                        id="home-address" />
-                                </div>
-                            </div>
-
-                            <div class="address-option flex items-center justify-between gap-2 border border-gray-300 rounded-lg p-4 cursor-pointer transition-all duration-200 hover:border-red-600 hover:shadow-md"
-                                data-address="work">
-                                <label class="flex flex-col gap-2 cursor-pointer" for="work-address">
-                                    <p class="font-semibold text-base text-black">Work</p>
-                                    <p class="text-base text-gray-500 font-normal">456 Oak Dr, Austin, TX 78702</p>
-                                </label>
-                                <div class="flex items-center gap-2">
-                                    <input type="radio" name="deliveryAddress" value="saved"
-                                        class="w-4 h-4 text-red-600 focus:ring-red-600 border-gray-300"
-                                        id="work-address" />
-                                </div>
-                            </div>
-
-                            <!-- Add Address Button -->
-                            <button id="add-address-btn"
-                                class="text-base font-normal text-gray-800 border border-gray-500 rounded-lg py-2 px-6 hover:bg-gray-50 transition-colors">
-                                Add new shipping address
-                            </button>
-                        </div>
-
-                        <!-- New Address Form (Hidden by default) -->
-                        <div id="new-address-form-container"
-                            class="hidden mt-6 p-6 border border-gray-200 rounded-lg bg-gray-50">
-                            <h3 class="text-xl font-semibold text-gray-800 mb-4">Add New Address</h3>
                             <div class="space-y-4">
-                                <!-- Address Line 1 -->
-                                <div>
-                                    <label for="new-address-line1"
-                                        class="block text-sm font-medium text-gray-700 mb-1">Address Line 1
-                                        *</label>
-                                    <input type="text" id="new-address-line1" name="addressLine1" required
-                                        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
-                                        placeholder="Enter your address">
-                                    <div class="error-message hidden" id="new-address-line1-error"></div>
-                                </div>
-
-                                <!-- Address Line 2 -->
-                                <div>
-                                    <label for="new-address-line2"
-                                        class="block text-sm font-medium text-gray-700 mb-1">Address Line
-                                        2</label>
-                                    <input type="text" id="new-address-line2" name="addressLine2"
-                                        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
-                                        placeholder="Apartment, suite, etc. (optional)">
-                                </div>
-
-                                <!-- City -->
-                                <div>
-                                    <label for="new-city" class="block text-sm font-medium text-gray-700 mb-1">City
-                                        *</label>
-                                    <input type="text" id="new-city" name="city" required
-                                        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
-                                        placeholder="Enter city">
-                                    <div class="error-message hidden" id="new-city-error"></div>
-                                </div>
-
-                                <!-- State and Zip Code Row -->
-                                <div class="grid grid-cols-2 gap-4">
-                                    <!-- State -->
-                                    <div>
-                                        <label for="new-state"
-                                            class="block text-sm font-medium text-gray-700 mb-1">State *</label>
-                                        <select id="new-state" name="state" required
-                                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent">
-                                            <option value="">Select State</option>
-                                            <option value="TX">Texas</option>
-                                            <option value="CA">California</option>
-                                            <option value="NY">New York</option>
-                                            <option value="FL">Florida</option>
-                                        </select>
-                                        <div class="error-message hidden" id="new-state-error"></div>
+                                <!-- Existing Address Options -->
+                                <div class="address-option flex items-center justify-between gap-2 border border-gray-300 rounded-lg p-4 cursor-pointer transition-all duration-200 hover:border-red-600 hover:shadow-md active"
+                                    data-address="home">
+                                    <label class="flex flex-col gap-2 cursor-pointer">
+                                        <p class="font-semibold text-base text-black">Home</p>
+                                        <p class="text-base text-gray-500 font-normal">123 Wellness Ave, Suite 4,
+                                            Austin, TX 78701</p>
+                                    </label>
+                                    <div class="flex items-center gap-2">
+                                        <input type="radio" name="deliveryAddress" value="saved" checked
+                                            class="w-4 h-4 text-red-600 focus:ring-red-600 border-gray-300"
+                                            id="home-address" />
                                     </div>
+                                </div>
 
-                                    <!-- Zip Code -->
+                                <div class="address-option flex items-center justify-between gap-2 border border-gray-300 rounded-lg p-4 cursor-pointer transition-all duration-200 hover:border-red-600 hover:shadow-md"
+                                    data-address="work">
+                                    <label class="flex flex-col gap-2 cursor-pointer" for="work-address">
+                                        <p class="font-semibold text-base text-black">Work</p>
+                                        <p class="text-base text-gray-500 font-normal">456 Oak Dr, Austin, TX 78702</p>
+                                    </label>
+                                    <div class="flex items-center gap-2">
+                                        <input type="radio" name="deliveryAddress" value="saved"
+                                            class="w-4 h-4 text-red-600 focus:ring-red-600 border-gray-300"
+                                            id="work-address" />
+                                    </div>
+                                </div>
+
+                                <!-- Add Address Button -->
+                                <button id="add-address-btn"
+                                    class="text-base font-normal text-gray-800 border border-gray-500 rounded-lg py-2 px-6 hover:bg-gray-50 transition-colors">
+                                    Add new shipping address
+                                </button>
+                            </div>
+
+                            <!-- New Address Form (Hidden by default) -->
+                            <div id="new-address-form-container"
+                                class="hidden mt-6 p-6 border border-gray-200 rounded-lg bg-gray-50">
+                                <h3 class="text-xl font-semibold text-gray-800 mb-4">Add New Address</h3>
+                                <div class="space-y-4">
+                                    <!-- Address Line 1 -->
                                     <div>
-                                        <label for="new-zip-code"
-                                            class="block text-sm font-medium text-gray-700 mb-1">Zip Code *</label>
-                                        <input type="text" id="new-zip-code" name="zipCode" required
+                                        <label for="new-address-line1"
+                                            class="block text-sm font-medium text-gray-700 mb-1">Address Line 1
+                                            *</label>
+                                        <input type="text" id="new-address-line1" name="addressLine1" required
                                             class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
-                                            placeholder="12345">
-                                        <div class="error-message hidden" id="new-zip-code-error"></div>
+                                            placeholder="Enter your address">
+                                        <div class="error-message hidden" id="new-address-line1-error"></div>
                                     </div>
-                                </div>
 
-                                <!-- Buttons -->
-                                <div class="pt-4 flex gap-3">
-                                    <button type="button" id="save-address-btn"
-                                        class="flex-1 bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 transition-colors">
-                                        Save Address
-                                    </button>
-                                    <button type="button" id="cancel-address-btn"
-                                        class="flex-1 bg-gray-500 text-white py-2 px-4 rounded-md hover:bg-gray-600 transition-colors">
-                                        Cancel
-                                    </button>
+                                    <!-- Address Line 2 -->
+                                    <div>
+                                        <label for="new-address-line2"
+                                            class="block text-sm font-medium text-gray-700 mb-1">Address Line
+                                            2</label>
+                                        <input type="text" id="new-address-line2" name="addressLine2"
+                                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
+                                            placeholder="Apartment, suite, etc. (optional)">
+                                    </div>
+
+                                    <!-- City -->
+                                    <div>
+                                        <label for="new-city" class="block text-sm font-medium text-gray-700 mb-1">City
+                                            *</label>
+                                        <input type="text" id="new-city" name="city" required
+                                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
+                                            placeholder="Enter city">
+                                        <div class="error-message hidden" id="new-city-error"></div>
+                                    </div>
+
+                                    <!-- State and Zip Code Row -->
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <!-- State -->
+                                        <div>
+                                            <label for="new-state"
+                                                class="block text-sm font-medium text-gray-700 mb-1">State *</label>
+                                            <select id="new-state" name="state" required
+                                                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent">
+                                                <option value="">Select State</option>
+                                                <option value="TX">Texas</option>
+                                                <option value="CA">California</option>
+                                                <option value="NY">New York</option>
+                                                <option value="FL">Florida</option>
+                                            </select>
+                                            <div class="error-message hidden" id="new-state-error"></div>
+                                        </div>
+
+                                        <!-- Zip Code -->
+                                        <div>
+                                            <label for="new-zip-code"
+                                                class="block text-sm font-medium text-gray-700 mb-1">Zip Code
+                                                *</label>
+                                            <input type="text" id="new-zip-code" name="zipCode" required
+                                                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
+                                                placeholder="12345">
+                                            <div class="error-message hidden" id="new-zip-code-error"></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Buttons -->
+                                    <div class="pt-4 flex gap-3">
+                                        <button type="button" id="save-address-btn"
+                                            class="flex-1 bg-[#D72638] text-white py-2 px-4 rounded-md hover:bg-red-700 transition-colors">
+                                            Save Address
+                                        </button>
+                                        <button type="button" id="cancel-address-btn"
+                                            class="flex-1 bg-gray-500 text-white py-2 px-4 rounded-md hover:bg-gray-600 transition-colors">
+                                            Cancel
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Pickup Information -->
-                    <div id="pickup-fields" class="hidden">
+
+                    <!-- Pickup Information Section -->
+                    <div id="pickup-fields" class="space-y-6">
                         <div class="space-y-4 my-4">
-                            <h2 class="text-2xl font-medium mb-4 text-[#1A1A1A]">Billing Address</h2>
-                            <div class="flex gap-2" id="billing-address-checkbox">
-                                <input type="checkbox" name="differentAddress" id="differentAddress" />
-                                <label for="differentAddress" class="font-normal text-sm text-[#4D4D4D]">Use a different
-                                    billing address?</label>
-                            </div>
-                            <p class="font-normal text-sm text-black">If you prefer to reuse a shipping address (for
-                                Delivery), choose it as billing address. Otherwise add a billing address
-                                below.
-                            </p>
+                            <h2 class="text-2xl font-medium mb-4 text-gray-800">Pickup Address</h2>
+                            <p class="font-normal text-sm text-gray-600">Choose a pickup location from the list below or
+                                add a new one.</p>
                         </div>
+
                         <form id="pickup-form" class="space-y-4">
-                            <div class="pickup-address-option flex items-center justify-between gap-2 border border-[#C8C8C8] rounded-lg p-4 cursor-pointer transition-all duration-200 hover:border-[#D72638] hover:shadow-md active"
+                            <!-- Existing Pickup Address Options -->
+                            <div class="pickup-address-option flex items-center justify-between gap-2 border border-gray-300 rounded-lg p-4 cursor-pointer transition-all duration-200 hover:border-red-600 hover:shadow-md active"
                                 data-address="store1">
                                 <label class="flex flex-col gap-2 cursor-pointer">
-                                    <p class="font-semibold text-base text-black">Card Billing</p>
-                                    <p class="text-base text-[#9E9494] font-normal">789 Market St, Floor 2, Austin, TX
+                                    <p class="font-semibold text-base text-black">Main Store</p>
+                                    <p class="text-base text-gray-500 font-normal">789 Market St, Floor 2, Austin, TX
                                         78703</p>
                                 </label>
                                 <div class="flex items-center gap-2">
-                                    <input type="radio" name="pickupAddress" value="saved" checked
-                                        class="w-4 h-4 text-[#D72638] focus:ring-[#D72638] border-gray-300"
+                                    <input type="radio" name="pickupAddress" value="store1" checked
+                                        class="w-4 h-4 text-red-600 focus:ring-red-600 border-gray-300"
                                         id="main-store-pickup" />
                                 </div>
                             </div>
 
-                            <button id="add-pickup-address-btn"
-                                class="text-base font-normal text-[#1A1C1B] border border-[#7B7F7C] rounded-lg py-2 px-6 hover:bg-gray-50 transition-colors"
-                                onclick="showPickupAddressForm();">
+                            <div class="pickup-address-option flex items-center justify-between gap-2 border border-gray-300 rounded-lg p-4 cursor-pointer transition-all duration-200 hover:border-red-600 hover:shadow-md"
+                                data-address="store2">
+                                <label class="flex flex-col gap-2 cursor-pointer">
+                                    <p class="font-semibold text-base text-black">Branch Store</p>
+                                    <p class="text-base text-gray-500 font-normal">456 Oak Dr, Austin, TX 78702</p>
+                                </label>
+                                <div class="flex items-center gap-2">
+                                    <input type="radio" name="pickupAddress" value="store2"
+                                        class="w-4 h-4 text-red-600 focus:ring-red-600 border-gray-300"
+                                        id="branch-store-pickup" />
+                                </div>
+                            </div>
+
+                            <!-- Add New Pickup Location Button -->
+                            <button id="add-pickup-address-btn" type="button"
+                                class="text-base font-normal text-gray-800 border border-gray-500 rounded-lg py-2 px-6 hover:bg-gray-50 transition-colors">
                                 Add new pickup location
                             </button>
 
-                            <!-- New Pickup Location Form (Hidden by default) -->
+                            <!-- New Pickup Address Form (Hidden by default) -->
                             <div id="new-pickup-address-form-container"
-                                class="hidden mt-4 p-6 border border-[#E6E6E6] rounded-lg bg-gray-50">
-                                <h3 class="text-xl font-semibold text-[#1A1C1B] mb-4">Add New Pickup Location</h3>
+                                class="hidden mt-6 p-6 border border-gray-200 rounded-lg bg-gray-50">
+                                <h3 class="text-xl font-semibold text-gray-800 mb-4">Add New Pickup Location</h3>
                                 <form id="new-pickup-address-form" class="space-y-4">
                                     <!-- Address Line 1 -->
                                     <div>
                                         <label for="new-pickup-address-line1"
-                                            class="block text-sm font-medium text-gray-700 mb-1">Address Line 1</label>
+                                            class="block text-sm font-medium text-gray-700 mb-1">Address
+                                            Line 1 *</label>
                                         <input type="text" id="new-pickup-address-line1" name="addressLine1" required
-                                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent"
-                                            placeholder="Address Line 1">
+                                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
+                                            placeholder="Enter address">
                                         <div class="error-message hidden" id="new-pickup-address-line1-error"></div>
                                     </div>
 
                                     <!-- Address Line 2 -->
                                     <div>
                                         <label for="new-pickup-address-line2"
-                                            class="block text-sm font-medium text-gray-700 mb-1">Address Line 2</label>
+                                            class="block text-sm font-medium text-gray-700 mb-1">Address
+                                            Line 2</label>
                                         <input type="text" id="new-pickup-address-line2" name="addressLine2"
-                                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent"
-                                            placeholder="Address Line 2">
+                                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
+                                            placeholder="Apartment, suite, etc. (optional)">
                                     </div>
 
                                     <!-- City -->
                                     <div>
                                         <label for="new-pickup-city"
-                                            class="block text-sm font-medium text-gray-700 mb-1">City</label>
+                                            class="block text-sm font-medium text-gray-700 mb-1">City *</label>
                                         <input type="text" id="new-pickup-city" name="city" required
-                                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent"
-                                            placeholder="City">
+                                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
+                                            placeholder="Enter city">
                                         <div class="error-message hidden" id="new-pickup-city-error"></div>
                                     </div>
 
                                     <!-- State and Zip Code Row -->
                                     <div class="grid grid-cols-2 gap-4">
-                                        <!-- Choose State -->
+                                        <!-- State -->
                                         <div>
                                             <label for="new-pickup-state"
-                                                class="block text-sm font-medium text-gray-700 mb-1">Choose
-                                                State</label>
+                                                class="block text-sm font-medium text-gray-700 mb-1">State
+                                                *</label>
                                             <select id="new-pickup-state" name="state" required
-                                                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent">
-                                                <option value="">Select</option>
-                                                <option value="AL">Alabama</option>
-                                                <option value="AK">Alaska</option>
-                                                <option value="AZ">Arizona</option>
-                                                <option value="AR">Arkansas</option>
-                                                <option value="CA">California</option>
-                                                <option value="CO">Colorado</option>
-                                                <option value="CT">Connecticut</option>
-                                                <option value="DE">Delaware</option>
-                                                <option value="FL">Florida</option>
-                                                <option value="GA">Georgia</option>
-                                                <option value="HI">Hawaii</option>
-                                                <option value="ID">Idaho</option>
-                                                <option value="IL">Illinois</option>
-                                                <option value="IN">Indiana</option>
-                                                <option value="IA">Iowa</option>
-                                                <option value="KS">Kansas</option>
-                                                <option value="KY">Kentucky</option>
-                                                <option value="LA">Louisiana</option>
-                                                <option value="ME">Maine</option>
-                                                <option value="MD">Maryland</option>
-                                                <option value="MA">Massachusetts</option>
-                                                <option value="MI">Michigan</option>
-                                                <option value="MN">Minnesota</option>
-                                                <option value="MS">Mississippi</option>
-                                                <option value="MO">Missouri</option>
-                                                <option value="MT">Montana</option>
-                                                <option value="NE">Nebraska</option>
-                                                <option value="NV">Nevada</option>
-                                                <option value="NH">New Hampshire</option>
-                                                <option value="NJ">New Jersey</option>
-                                                <option value="NM">New Mexico</option>
-                                                <option value="NY">New York</option>
-                                                <option value="NC">North Carolina</option>
-                                                <option value="ND">North Dakota</option>
-                                                <option value="OH">Ohio</option>
-                                                <option value="OK">Oklahoma</option>
-                                                <option value="OR">Oregon</option>
-                                                <option value="PA">Pennsylvania</option>
-                                                <option value="RI">Rhode Island</option>
-                                                <option value="SC">South Carolina</option>
-                                                <option value="SD">South Dakota</option>
-                                                <option value="TN">Tennessee</option>
+                                                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent">
+                                                <option value="">Select State</option>
                                                 <option value="TX">Texas</option>
-                                                <option value="UT">Utah</option>
-                                                <option value="VT">Vermont</option>
-                                                <option value="VA">Virginia</option>
-                                                <option value="WA">Washington</option>
-                                                <option value="WV">West Virginia</option>
-                                                <option value="WI">Wisconsin</option>
-                                                <option value="WY">Wyoming</option>
+                                                <option value="CA">California</option>
+                                                <option value="NY">New York</option>
+                                                <option value="FL">Florida</option>
                                             </select>
                                             <div class="error-message hidden" id="new-pickup-state-error"></div>
                                         </div>
@@ -535,18 +502,36 @@
                                         <!-- Zip Code -->
                                         <div>
                                             <label for="new-pickup-zip-code"
-                                                class="block text-sm font-medium text-gray-700 mb-1">Zip Code</label>
+                                                class="block text-sm font-medium text-gray-700 mb-1">Zip Code
+                                                *</label>
                                             <input type="text" id="new-pickup-zip-code" name="zipCode" required
-                                                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent"
-                                                placeholder="Select">
+                                                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
+                                                placeholder="12345">
                                             <div class="error-message hidden" id="new-pickup-zip-code-error"></div>
                                         </div>
+                                    </div>
+
+                                    <!-- Buttons -->
+                                    <div class="pt-4 flex gap-3">
+                                        <button type="button" id="save-pickup-address-btn"
+                                            class="flex-1 bg[#D72638] text-white py-2 px-4 rounded-md hover:bg-red-700 transition-colors">
+                                            Save Address
+                                        </button>
+                                        <button type="button" id="cancel-pickup-address-btn"
+                                            class="flex-1 bg-gray-500 text-white py-2 px-4 rounded-md hover:bg-gray-600 transition-colors">
+                                            Cancel
+                                        </button>
                                     </div>
                                 </form>
                             </div>
                         </form>
                     </div>
 
+                    <!-- Success Message Area -->
+                    <div id="success-message"
+                        class="hidden mt-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded-md">
+                        Address saved successfully!
+                    </div>
                     <div id="billing-address-section" class="space-y-4">
                         <h3 class="text-2xl font-medium text-[#1A1A1A]">Billing Address</h3>
                         <div class="flex gap-2" id="billing-address-checkbox">
@@ -560,7 +545,20 @@
                         </p>
                     </div>
 
-                    <form id="billing-form" class="space-y-4 hidden">
+                    <!-- Billing Address Section -->
+                    <!-- <div id="billing-address-section" class="space-y-4">
+                        <h3 class="text-2xl font-medium text-[#1A1A1A]">Billing Address</h3>
+                        <div class="flex gap-2">
+                            <input type="checkbox" name="differentAddress" id="differentAddress" />
+                            <label for="differentAddress" class="font-normal text-sm text-[#4D4D4D]">Use a different
+                                billing address?</label>
+                        </div>
+                        <p class="font-normal text-sm text-black">If you prefer to reuse a shipping address (for
+                            Delivery), choose it as billing address. Otherwise add a billing address below.
+                        </p>
+                    </div> -->
+
+                    <div id="billing-form" class="space-y-4 hidden">
                         <div class="billing-address-option flex items-center justify-between gap-2 border border-[#C8C8C8] rounded-lg p-4 cursor-pointer transition-all duration-200 hover:border-[#D72638] hover:shadow-md active"
                             data-address="home">
                             <label class="flex flex-col gap-2 cursor-pointer">
@@ -587,7 +585,7 @@
                             </div>
                         </div>
                         <div class="billing-address-option flex items-center justify-between gap-2 border border-[#C8C8C8] rounded-lg p-4 cursor-pointer transition-all duration-200 hover:border-[#D72638] hover:shadow-md"
-                            data-address="work">
+                            data-address="card">
                             <label class="flex flex-col gap-2 cursor-pointer" for="billing-card-address">
                                 <p class="font-semibold text-base text-black">Card Billing</p>
                                 <p class="text-base text-[#9E9494] font-normal">789 Market St, Floor 2, Austin, TX 78703
@@ -599,42 +597,31 @@
                                     id="billing-card-address" />
                             </div>
                         </div>
-                        <button id="add-billing-address-btn"
-                            class="text-base font-normal text-[#1A1C1B] border border-[#7B7F7C] rounded-lg py-2 px-6 hover:bg-gray-50 transition-colors"
-                            onclick="showBillingAddressForm();">
+                        <button id="add-billing-address-btn" type="button"
+                            class="text-base font-normal text-[#1A1C1B] border border-[#7B7F7C] rounded-lg py-2 px-6 hover:bg-gray-50 transition-colors">
                             Add new billing address
                         </button>
 
-                        <!-- New Address Form (Hidden by default) -->
+                        <!-- New Billing Address Form (Hidden by default) -->
                         <div id="new-billing-address-form-container"
                             class="hidden mt-4 p-6 border border-[#E6E6E6] rounded-lg bg-gray-50">
-                            <h3 class="text-xl font-semibold text-[#1A1C1B] mb-4">Add New Address</h3>
-                            <form id="new-billing-address-form" class="space-y-4">
+                            <h3 class="text-xl font-semibold text-[#1A1C1B] mb-4">Add New Billing Address</h3>
+                            <div class="space-y-4">
                                 <!-- Address Line 1 -->
                                 <div>
                                     <label for="new-billing-address-line1"
                                         class="block text-sm font-medium text-gray-700 mb-1">Address Line
-                                        1</label>
+                                        1 *</label>
                                     <input type="text" id="new-billing-address-line1" name="addressLine1" required
                                         class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent"
                                         placeholder="Address Line 1">
                                     <div class="error-message hidden" id="new-billing-address-line1-error"></div>
                                 </div>
 
-                                <!-- Address Line 2 -->
-                                <div>
-                                    <label for="new-billing-address-line2"
-                                        class="block text-sm font-medium text-gray-700 mb-1">Address Line
-                                        2</label>
-                                    <input type="text" id="new-billing-address-line2" name="addressLine2"
-                                        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent"
-                                        placeholder="Address Line 2">
-                                </div>
-
                                 <!-- City -->
                                 <div>
                                     <label for="new-billing-city"
-                                        class="block text-sm font-medium text-gray-700 mb-1">City</label>
+                                        class="block text-sm font-medium text-gray-700 mb-1">City *</label>
                                     <input type="text" id="new-billing-city" name="city" required
                                         class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent"
                                         placeholder="City">
@@ -646,61 +633,14 @@
                                     <!-- Choose State -->
                                     <div>
                                         <label for="new-billing-state"
-                                            class="block text-sm font-medium text-gray-700 mb-1">Choose
-                                            State</label>
+                                            class="block text-sm font-medium text-gray-700 mb-1">State *</label>
                                         <select id="new-billing-state" name="state" required
                                             class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent">
                                             <option value="">Select</option>
-                                            <option value="AL">Alabama</option>
-                                            <option value="AK">Alaska</option>
-                                            <option value="AZ">Arizona</option>
-                                            <option value="AR">Arkansas</option>
-                                            <option value="CA">California</option>
-                                            <option value="CO">Colorado</option>
-                                            <option value="CT">Connecticut</option>
-                                            <option value="DE">Delaware</option>
-                                            <option value="FL">Florida</option>
-                                            <option value="GA">Georgia</option>
-                                            <option value="HI">Hawaii</option>
-                                            <option value="ID">Idaho</option>
-                                            <option value="IL">Illinois</option>
-                                            <option value="IN">Indiana</option>
-                                            <option value="IA">Iowa</option>
-                                            <option value="KS">Kansas</option>
-                                            <option value="KY">Kentucky</option>
-                                            <option value="LA">Louisiana</option>
-                                            <option value="ME">Maine</option>
-                                            <option value="MD">Maryland</option>
-                                            <option value="MA">Massachusetts</option>
-                                            <option value="MI">Michigan</option>
-                                            <option value="MN">Minnesota</option>
-                                            <option value="MS">Mississippi</option>
-                                            <option value="MO">Missouri</option>
-                                            <option value="MT">Montana</option>
-                                            <option value="NE">Nebraska</option>
-                                            <option value="NV">Nevada</option>
-                                            <option value="NH">New Hampshire</option>
-                                            <option value="NJ">New Jersey</option>
-                                            <option value="NM">New Mexico</option>
-                                            <option value="NY">New York</option>
-                                            <option value="NC">North Carolina</option>
-                                            <option value="ND">North Dakota</option>
-                                            <option value="OH">Ohio</option>
-                                            <option value="OK">Oklahoma</option>
-                                            <option value="OR">Oregon</option>
-                                            <option value="PA">Pennsylvania</option>
-                                            <option value="RI">Rhode Island</option>
-                                            <option value="SC">South Carolina</option>
-                                            <option value="SD">South Dakota</option>
-                                            <option value="TN">Tennessee</option>
                                             <option value="TX">Texas</option>
-                                            <option value="UT">Utah</option>
-                                            <option value="VT">Vermont</option>
-                                            <option value="VA">Virginia</option>
-                                            <option value="WA">Washington</option>
-                                            <option value="WV">West Virginia</option>
-                                            <option value="WI">Wisconsin</option>
-                                            <option value="WY">Wyoming</option>
+                                            <option value="CA">California</option>
+                                            <option value="NY">New York</option>
+                                            <option value="FL">Florida</option>
                                         </select>
                                         <div class="error-message hidden" id="new-billing-state-error"></div>
                                     </div>
@@ -708,17 +648,35 @@
                                     <!-- Zip Code -->
                                     <div>
                                         <label for="new-billing-zip-code"
-                                            class="block text-sm font-medium text-gray-700 mb-1">Zip Code</label>
+                                            class="block text-sm font-medium text-gray-700 mb-1">Zip Code
+                                            *</label>
                                         <input type="text" id="new-billing-zip-code" name="zipCode" required
                                             class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent"
-                                            placeholder="Select">
+                                            placeholder="12345">
                                         <div class="error-message hidden" id="new-billing-zip-code-error"></div>
                                     </div>
                                 </div>
-                            </form>
-                        </div>
-                    </form>
 
+                                <!-- Buttons -->
+                                <div class="pt-4 flex gap-3">
+                                    <button type="button" id="save-billing-address-btn"
+                                        class="flex-1 bg-[#D72638] text-white py-2 px-4 rounded-md hover:bg-red-700 transition-colors">
+                                        Save Address
+                                    </button>
+                                    <button type="button" id="cancel-billing-address-btn"
+                                        class="flex-1 bg-gray-500 text-white py-2 px-4 rounded-md hover:bg-gray-600 transition-colors">
+                                        Cancel
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Success Message Area -->
+                    <div id="success-message"
+                        class="hidden mt-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded-md">
+                        Address saved successfully!
+                    </div>
                     <div>
                         <h5 class="font-medium text-lg md:text-2xl text-[#1A1A1A]">Summary / Next</h5>
                         <p class="font-normal text-sm text-black">This demo stores addresses in-memory (for the
@@ -1079,10 +1037,6 @@
                             <div class="flex justify-between text-sm border-t border-[#E6E6E6] pt-2">
                                 <span class="text-[#4D4D4D] font-normal">Shipping</span>
                                 <span class="text[#1A1A1A] font-medium" id="shipping-cost">$5.00</span>
-                            </div>
-                            <div class="flex justify-between text-sm pt-2">
-                                <span class="text-[#4D4D4D] font-normal">Coupon</span>
-                                <span class="text[#1A1A1A] font-medium" id="shipping-cost">25%</span>
                             </div>
                             <div class="flex justify-between text-lg border-t border-[#E6E6E6] pt-4">
                                 <span class="text-[#4D4D4D] font-normal">Total</span>
@@ -1502,6 +1456,7 @@
             const pickupFields = document.getElementById('pickup-fields');
             const billingAddressSection = document.getElementById('billing-address-section');
             const deliveryOptionsSection = document.getElementById('delivery-options-section');
+            const deliveryAddressSection = document.getElementById('delivery-address-section');
 
 
             if (delivery) {
@@ -1526,6 +1481,7 @@
                 if (pickupFields) pickupFields.classList.add('hidden');
                 if (billingAddressSection) billingAddressSection.classList.remove('hidden');
                 if (deliveryOptionsSection) deliveryOptionsSection.classList.remove('hidden');
+                if (deliveryAddressSection) deliveryAddressSection.classList.remove('hidden');
             } else {
                 // Set pickup as active
                 pickupLabel.classList.remove('inactive');
@@ -1548,6 +1504,7 @@
                 if (pickupFields) pickupFields.classList.remove('hidden');
                 if (billingAddressSection) billingAddressSection.classList.add('hidden');
                 if (deliveryOptionsSection) deliveryOptionsSection.classList.add('hidden');
+                if (deliveryAddressSection) deliveryAddressSection.classList.add('hidden');
             }
 
             // Update delivery date display visibility
@@ -2199,6 +2156,39 @@
                             autoSavePickupAddress();
                         });
                     });
+
+                    // Handle save button click
+                    const savePickupAddressBtn = document.getElementById('save-pickup-address-btn');
+                    if (savePickupAddressBtn) {
+                        savePickupAddressBtn.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            console.log('Save pickup address button clicked');
+                            if (validateNewPickupAddressForm()) {
+                                saveNewPickupAddress();
+                                // Hide the form after saving
+                                const formContainer = document.getElementById('new-pickup-address-form-container');
+                                if (formContainer) {
+                                    formContainer.classList.add('hidden');
+                                }
+                            }
+                        });
+                    }
+
+                    // Handle cancel button click
+                    const cancelPickupAddressBtn = document.getElementById('cancel-pickup-address-btn');
+                    if (cancelPickupAddressBtn) {
+                        cancelPickupAddressBtn.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            console.log('Cancel pickup address button clicked');
+                            // Hide the form
+                            const formContainer = document.getElementById('new-pickup-address-form-container');
+                            if (formContainer) {
+                                formContainer.classList.add('hidden');
+                            }
+                            // Reset the form
+                            newPickupAddressForm.reset();
+                        });
+                    }
                 }
             } catch (error) {
                 console.error('Error in setupAddressModal:', error);
@@ -2741,7 +2731,7 @@
             // Count existing new pickup addresses to create unique names
             const existingNewPickupAddresses = document.querySelectorAll('.pickup-address-option[data-address^="pickup-"]');
             const addressNumber = existingNewPickupAddresses.length + 1;
-            const addressName = `Pickup Location ${addressNumber}`;
+            const addressName = `New Address`;
 
             // Create a unique ID for the new address
             const addressId = 'pickup-' + Date.now();
@@ -2858,7 +2848,6 @@
             }
         }
     </script>
-
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             console.log('DOM loaded, initializing address management...');
@@ -3124,6 +3113,813 @@
                 element.classList.add('hidden');
                 element.textContent = '';
             });
+        }
+    </script>
+    <script>
+        // Find the pickup container and add button
+        const addPickupButton = document.getElementById('add-pickup-address-btn');
+        const pickupContainer = addPickupButton.parentNode;
+
+        // Insert before the add pickup button
+        pickupContainer.insertBefore(newPickupAddressElement, addPickupButton);
+
+        // Remove active class from all existing pickup options
+        document.querySelectorAll('.pickup-address-option').forEach(option => {
+            option.classList.remove('active');
+        });
+
+        // Set new pickup address as active and checked
+        newPickupAddressElement.classList.add('active');
+        const radioInput = newPickupAddressElement.querySelector('input[type="radio"]');
+        if (radioInput) {
+            radioInput.checked = true;
+        }
+
+        // Add click event listener for pickup address selection
+        newPickupAddressElement.addEventListener('click', function () {
+            document.querySelectorAll('.pickup-address-option').forEach(option => {
+                option.classList.remove('active');
+            });
+            this.classList.add('active');
+            const radio = this.querySelector('input[type="radio"]');
+            if (radio) {
+                radio.checked = true;
+            }
+        });
+
+        console.log('Pickup address added to list successfully');
+
+
+        function resetForm() {
+            // Reset all delivery form fields
+            const fields = ['new-address-line1', 'new-address-line2', 'new-city', 'new-state', 'new-zip-code'];
+            fields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (field) {
+                    field.value = '';
+                    field.classList.remove('form-error');
+                }
+            });
+
+            // Hide all error messages
+            const errorElements = document.querySelectorAll('.error-message');
+            errorElements.forEach(element => {
+                element.classList.add('hidden');
+                element.textContent = '';
+            });
+        }
+
+        function resetPickupForm() {
+            // Reset all pickup form fields
+            const pickupFields = ['new-address-line1-pickup', 'new-address-line2-pickup', 'new-city-pickup', 'new-state-pickup', 'new-zip-code-pickup'];
+            pickupFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (field) {
+                    field.value = '';
+                    field.classList.remove('form-error');
+                }
+            });
+
+            // Hide all error messages
+            const errorElements = document.querySelectorAll('.error-message');
+            errorElements.forEach(element => {
+                element.classList.add('hidden');
+                element.textContent = '';
+            });
+        }
+    </script>
+    <script>
+        console.log('Script starting...');
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('DOM loaded, initializing pickup address management...');
+            setupPickupAddressManagement();
+        });
+
+        function setupPickupAddressManagement() {
+            console.log('Setting up pickup address management...');
+
+            // Get elements
+            const addPickupBtn = document.getElementById('add-pickup-address-btn');
+            const formContainer = document.getElementById('new-pickup-address-form-container');
+            const saveBtn = document.getElementById('save-pickup-address-btn');
+            const cancelBtn = document.getElementById('cancel-pickup-address-btn');
+            const form = document.getElementById('new-pickup-address-form');
+
+            console.log('Elements found:', {
+                addPickupBtn: !!addPickupBtn,
+                formContainer: !!formContainer,
+                saveBtn: !!saveBtn,
+                cancelBtn: !!cancelBtn,
+                form: !!form
+            });
+
+            // Show form when add button is clicked
+            if (addPickupBtn) {
+                addPickupBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    console.log('Add pickup address button clicked');
+                    showPickupAddressForm();
+                });
+            }
+
+            // Save address when save button is clicked
+            if (saveBtn) {
+                saveBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    console.log('Save pickup address button clicked');
+                    savePickupAddress();
+                });
+            }
+
+            // Cancel and hide form
+            if (cancelBtn) {
+                cancelBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    console.log('Cancel pickup address button clicked');
+                    hidePickupAddressForm();
+                });
+            }
+
+            // Setup form validation
+            if (form) {
+                setupPickupFormValidation();
+            }
+
+            // Setup address selection
+            setupPickupAddressSelection();
+        }
+
+        function showPickupAddressForm() {
+            console.log('Showing pickup address form...');
+            const formContainer = document.getElementById('new-pickup-address-form-container');
+            if (formContainer) {
+                formContainer.classList.remove('hidden');
+                formContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                console.log('Form shown');
+            } else {
+                console.error('Form container not found');
+            }
+        }
+
+        function hidePickupAddressForm() {
+            console.log('Hiding pickup address form...');
+            const formContainer = document.getElementById('new-pickup-address-form-container');
+            if (formContainer) {
+                formContainer.classList.add('hidden');
+                resetPickupForm();
+                console.log('Form hidden');
+            }
+        }
+
+        function setupPickupFormValidation() {
+            console.log('Setting up form validation...');
+            const requiredFields = [
+                'new-pickup-address-line1',
+                'new-pickup-city',
+                'new-pickup-state',
+                'new-pickup-zip-code'
+            ];
+
+            requiredFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (field) {
+                    field.addEventListener('blur', function () {
+                        validatePickupField(this);
+                    });
+
+                    field.addEventListener('input', function () {
+                        clearPickupFieldError(this);
+                    });
+                } else {
+                    console.warn(`Field ${fieldId} not found`);
+                }
+            });
+        }
+
+        function validatePickupField(field) {
+            const value = field.value.trim();
+            const fieldId = field.id;
+            const errorElement = document.getElementById(fieldId + '-error');
+
+            console.log(`Validating field ${fieldId} with value: "${value}"`);
+
+            let isValid = true;
+            let errorMessage = '';
+
+            // Required field validation
+            if (field.hasAttribute('required') && !value) {
+                isValid = false;
+                errorMessage = 'This field is required';
+            }
+
+            // ZIP code validation
+            if (fieldId === 'new-pickup-zip-code' && value && !/^\d{5}(-\d{4})?$/.test(value)) {
+                isValid = false;
+                errorMessage = 'Please enter a valid ZIP code';
+            }
+
+            // Update UI
+            if (isValid) {
+                field.classList.remove('form-error');
+                if (errorElement) {
+                    errorElement.classList.add('hidden');
+                    errorElement.textContent = '';
+                }
+            } else {
+                field.classList.add('form-error');
+                if (errorElement) {
+                    errorElement.classList.remove('hidden');
+                    errorElement.textContent = errorMessage;
+                }
+            }
+
+            return isValid;
+        }
+
+        function clearPickupFieldError(field) {
+            field.classList.remove('form-error');
+            const errorElement = document.getElementById(field.id + '-error');
+            if (errorElement) {
+                errorElement.classList.add('hidden');
+                errorElement.textContent = '';
+            }
+        }
+
+        function validatePickupForm() {
+            console.log('Validating entire pickup form...');
+            const requiredFields = [
+                'new-pickup-address-line1',
+                'new-pickup-city',
+                'new-pickup-state',
+                'new-pickup-zip-code'
+            ];
+
+            let isFormValid = true;
+
+            requiredFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (field && !validatePickupField(field)) {
+                    isFormValid = false;
+                }
+            });
+
+            console.log('Form validation result:', isFormValid);
+            return isFormValid;
+        }
+
+        function savePickupAddress() {
+            console.log('savePickupAddress called');
+
+            // Validate form first
+            if (!validatePickupForm()) {
+                console.log('Form validation failed');
+                showMessage('Please fill in all required fields correctly', 'error');
+                return;
+            }
+
+            // Get form data
+            const addressLine1 = document.getElementById('new-pickup-address-line1').value.trim();
+            const addressLine2 = document.getElementById('new-pickup-address-line2').value.trim();
+            const city = document.getElementById('new-pickup-city').value.trim();
+            const state = document.getElementById('new-pickup-state').value;
+            const zipCode = document.getElementById('new-pickup-zip-code').value.trim();
+
+            console.log('Form data:', { addressLine1, addressLine2, city, state, zipCode });
+
+            // Create address object
+            const newAddress = {
+                addressLine1: addressLine1,
+                addressLine2: addressLine2,
+                city: city,
+                state: state,
+                zipCode: zipCode
+            };
+
+            // Add to pickup address list
+            addPickupAddressToList(newAddress);
+
+            // Reset and hide form
+            resetPickupForm();
+            hidePickupAddressForm();
+
+            // Show success message
+            showMessage('Pickup address added successfully!', 'success');
+        }
+
+        function addPickupAddressToList(address) {
+            console.log('Adding pickup address to list:', address);
+
+            // Count existing pickup addresses to create unique name
+            const existingAddresses = document.querySelectorAll('.pickup-address-option[data-address^="pickup-"]');
+            const addressNumber = existingAddresses.length + 1;
+            const addressName = `New Address`;
+
+            // Create unique IDs
+            const addressId = 'pickup-' + Date.now();
+            const radioId = 'radio-pickup-' + Date.now();
+
+            // Create full address string
+            const fullAddress = `${address.addressLine1}${address.addressLine2 ? ', ' + address.addressLine2 : ''}, ${address.city}, ${address.state} ${address.zipCode}`;
+
+            // Create new pickup address element
+            const newAddressElement = document.createElement('div');
+            newAddressElement.className = 'pickup-address-option flex items-center justify-between gap-2 border border-gray-300 rounded-lg p-4 cursor-pointer transition-all duration-200 hover:border-red-600 hover:shadow-md active';
+            newAddressElement.setAttribute('data-address', addressId);
+
+            newAddressElement.innerHTML = `
+                    <label class="flex flex-col gap-2 cursor-pointer">
+                        <p class="font-semibold text-base text-black">${addressName}</p>
+                        <p class="text-base text-gray-500 font-normal">${fullAddress}</p>
+                    </label>
+                    <div class="flex items-center gap-2">
+                        <input type="radio" name="pickupAddress" value="${addressId}"
+                            class="w-4 h-4 text-red-600 focus:ring-red-600 border-gray-300"
+                            id="${radioId}" />
+                    </div>
+                `;
+
+            // Add click event listener
+            newAddressElement.addEventListener('click', function (e) {
+                // Don't trigger if clicking on the radio button directly
+                if (e.target.type === 'radio') return;
+
+                selectPickupAddress(this);
+            });
+
+            // Find container and add button
+            const addButton = document.getElementById('add-pickup-address-btn');
+            const container = addButton.parentNode;
+
+            // Insert new address before the add button
+            container.insertBefore(newAddressElement, addButton);
+
+            // Select the new address automatically
+            selectPickupAddress(newAddressElement);
+
+            console.log('Pickup address added to list successfully');
+        }
+
+        function setupPickupAddressSelection() {
+            console.log('Setting up pickup address selection...');
+
+            // Add click listeners to existing pickup address options
+            document.addEventListener('click', function (e) {
+                const pickupOption = e.target.closest('.pickup-address-option');
+                if (pickupOption) {
+                    // Don't trigger if clicking on the radio button directly
+                    if (e.target.type === 'radio') return;
+
+                    selectPickupAddress(pickupOption);
+                }
+            });
+
+            // Handle radio button changes
+            document.addEventListener('change', function (e) {
+                if (e.target.name === 'pickupAddress') {
+                    const option = e.target.closest('.pickup-address-option');
+                    if (option) {
+                        selectPickupAddress(option);
+                    }
+                }
+            });
+        }
+
+        function selectPickupAddress(selectedOption) {
+            console.log('Selecting pickup address...');
+
+            // Remove active class from all pickup options
+            document.querySelectorAll('.pickup-address-option').forEach(option => {
+                option.classList.remove('active');
+            });
+
+            // Add active class to selected option
+            selectedOption.classList.add('active');
+
+            // Check the radio button
+            const radioInput = selectedOption.querySelector('input[type="radio"]');
+            if (radioInput) {
+                radioInput.checked = true;
+                console.log('Radio button checked:', radioInput.value);
+            }
+        }
+
+        function resetPickupForm() {
+            console.log('Resetting pickup form...');
+            const form = document.getElementById('new-pickup-address-form');
+            if (form) {
+                form.reset();
+
+                // Clear error states
+                const errorElements = form.querySelectorAll('.error-message');
+                errorElements.forEach(element => {
+                    element.classList.add('hidden');
+                    element.textContent = '';
+                });
+
+                const formFields = form.querySelectorAll('input, select');
+                formFields.forEach(field => {
+                    field.classList.remove('form-error');
+                });
+            }
+        }
+
+        function showMessage(message, type) {
+            console.log(`Showing ${type} message:`, message);
+
+            // Create or update success message
+            let messageEl = document.getElementById('success-message');
+            if (messageEl) {
+                messageEl.textContent = message;
+                messageEl.className = type === 'success'
+                    ? 'mt-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded-md'
+                    : 'mt-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-md';
+                messageEl.classList.remove('hidden');
+
+                // Hide after 3 seconds
+                setTimeout(() => {
+                    messageEl.classList.add('hidden');
+                }, 3000);
+            }
+        }
+    </script>
+    <script>
+        // Billing Address Section JavaScript Fix
+
+        document.addEventListener('DOMContentLoaded', function () {
+            setupBillingAddressSection();
+        });
+
+        function setupBillingAddressSection() {
+            console.log('Setting up billing address section...');
+
+            // Get the checkbox and billing form elements
+            const differentAddressCheckbox = document.getElementById('differentAddress');
+            const billingForm = document.getElementById('billing-form');
+            const addBillingAddressBtn = document.getElementById('add-billing-address-btn');
+            const billingFormContainer = document.getElementById('new-billing-address-form-container');
+            const saveBillingBtn = document.getElementById('save-billing-address-btn');
+            const cancelBillingBtn = document.getElementById('cancel-billing-address-btn');
+
+            console.log('Billing elements found:', {
+                differentAddressCheckbox: !!differentAddressCheckbox,
+                billingForm: !!billingForm,
+                addBillingAddressBtn: !!addBillingAddressBtn,
+                billingFormContainer: !!billingFormContainer,
+                saveBillingBtn: !!saveBillingBtn,
+                cancelBillingBtn: !!cancelBillingBtn
+            });
+
+            // Handle checkbox toggle for showing/hiding billing form
+            if (differentAddressCheckbox && billingForm) {
+                differentAddressCheckbox.addEventListener('change', function (e) {
+                    console.log('Billing checkbox changed:', e.target.checked);
+
+                    if (e.target.checked) {
+                        billingForm.classList.remove('hidden');
+                        console.log('Billing form shown');
+                    } else {
+                        billingForm.classList.add('hidden');
+                        // Also hide the new address form if it's open
+                        if (billingFormContainer) {
+                            billingFormContainer.classList.add('hidden');
+                        }
+                        console.log('Billing form hidden');
+                    }
+                });
+            }
+
+            // Handle "Add new billing address" button
+            if (addBillingAddressBtn && billingFormContainer) {
+                addBillingAddressBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    console.log('Add billing address button clicked');
+
+                    billingFormContainer.classList.remove('hidden');
+                    billingFormContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            }
+
+            // Handle save billing address button
+            if (saveBillingBtn) {
+                saveBillingBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    console.log('Save billing address button clicked');
+                    saveBillingAddress();
+                });
+            }
+
+            // Handle cancel billing address button
+            if (cancelBillingBtn) {
+                cancelBillingBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    console.log('Cancel billing address button clicked');
+                    hideBillingAddressForm();
+                });
+            }
+
+            // Setup billing address selection
+            setupBillingAddressSelection();
+
+            // Setup billing form validation
+            setupBillingFormValidation();
+        }
+
+        function setupBillingAddressSelection() {
+            console.log('Setting up billing address selection...');
+
+            // Handle billing address option clicks
+            document.addEventListener('click', function (e) {
+                const billingOption = e.target.closest('.billing-address-option');
+                if (billingOption) {
+                    // Don't trigger if clicking on the radio button directly
+                    if (e.target.type === 'radio') return;
+
+                    selectBillingAddress(billingOption);
+                }
+            });
+
+            // Handle radio button changes for billing addresses
+            document.addEventListener('change', function (e) {
+                if (e.target.name === 'billingAddress') {
+                    const option = e.target.closest('.billing-address-option');
+                    if (option) {
+                        selectBillingAddress(option);
+                    }
+                }
+            });
+        }
+
+        function selectBillingAddress(selectedOption) {
+            console.log('Selecting billing address...');
+
+            // Remove active class from all billing options
+            document.querySelectorAll('.billing-address-option').forEach(option => {
+                option.classList.remove('active');
+            });
+
+            // Add active class to selected option
+            selectedOption.classList.add('active');
+
+            // Check the radio button
+            const radioInput = selectedOption.querySelector('input[type="radio"]');
+            if (radioInput) {
+                radioInput.checked = true;
+                console.log('Billing radio button checked:', radioInput.value);
+            }
+        }
+
+        function setupBillingFormValidation() {
+            console.log('Setting up billing form validation...');
+
+            const requiredFields = [
+                'new-billing-address-line1',
+                'new-billing-city',
+                'new-billing-state',
+                'new-billing-zip-code'
+            ];
+
+            requiredFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (field) {
+                    field.addEventListener('blur', function () {
+                        validateBillingField(this);
+                    });
+
+                    field.addEventListener('input', function () {
+                        clearBillingFieldError(this);
+                    });
+                }
+            });
+        }
+
+        function validateBillingField(field) {
+            const value = field.value.trim();
+            const fieldId = field.id;
+            const errorElement = document.getElementById(fieldId + '-error');
+
+            console.log(`Validating billing field ${fieldId} with value: "${value}"`);
+
+            let isValid = true;
+            let errorMessage = '';
+
+            // Required field validation
+            if (field.hasAttribute('required') && !value) {
+                isValid = false;
+                errorMessage = 'This field is required';
+            }
+
+            // ZIP code validation
+            if (fieldId === 'new-billing-zip-code' && value && !/^\d{5}(-\d{4})?$/.test(value)) {
+                isValid = false;
+                errorMessage = 'Please enter a valid ZIP code';
+            }
+
+            // Update UI
+            if (isValid) {
+                field.classList.remove('form-error');
+                if (errorElement) {
+                    errorElement.classList.add('hidden');
+                    errorElement.textContent = '';
+                }
+            } else {
+                field.classList.add('form-error');
+                if (errorElement) {
+                    errorElement.classList.remove('hidden');
+                    errorElement.textContent = errorMessage;
+                }
+            }
+
+            return isValid;
+        }
+
+        function clearBillingFieldError(field) {
+            field.classList.remove('form-error');
+            const errorElement = document.getElementById(field.id + '-error');
+            if (errorElement) {
+                errorElement.classList.add('hidden');
+                errorElement.textContent = '';
+            }
+        }
+
+        function validateBillingForm() {
+            console.log('Validating entire billing form...');
+
+            const requiredFields = [
+                'new-billing-address-line1',
+                'new-billing-city',
+                'new-billing-state',
+                'new-billing-zip-code'
+            ];
+
+            let isFormValid = true;
+
+            requiredFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (field && !validateBillingField(field)) {
+                    isFormValid = false;
+                }
+            });
+
+            console.log('Billing form validation result:', isFormValid);
+            return isFormValid;
+        }
+
+        function saveBillingAddress() {
+            console.log('saveBillingAddress called');
+
+            // Validate form first
+            if (!validateBillingForm()) {
+                console.log('Billing form validation failed');
+                showBillingMessage('Please fill in all required fields correctly', 'error');
+                return;
+            }
+
+            // Get form data
+            const addressLine1 = document.getElementById('new-billing-address-line1').value.trim();
+            const city = document.getElementById('new-billing-city').value.trim();
+            const state = document.getElementById('new-billing-state').value;
+            const zipCode = document.getElementById('new-billing-zip-code').value.trim();
+
+            console.log('Billing form data:', { addressLine1, city, state, zipCode });
+
+            // Create address object
+            const newBillingAddress = {
+                addressLine1: addressLine1,
+                city: city,
+                state: state,
+                zipCode: zipCode
+            };
+
+            // Add to billing address list
+            addBillingAddressToList(newBillingAddress);
+
+            // Reset and hide form
+            resetBillingForm();
+            hideBillingAddressForm();
+
+            // Show success message
+            showBillingMessage('Billing address added successfully!', 'success');
+        }
+
+        function addBillingAddressToList(address) {
+            console.log('Adding billing address to list:', address);
+
+            // Count existing billing addresses to create unique name
+            const existingAddresses = document.querySelectorAll('.billing-address-option[data-address^="billing-"]');
+            const addressNumber = existingAddresses.length + 1;
+            const addressName = `New Billing Address`;
+
+            // Create unique IDs
+            const addressId = 'billing-' + Date.now();
+            const radioId = 'radio-billing-' + Date.now();
+
+            // Create full address string
+            const fullAddress = `${address.addressLine1}, ${address.city}, ${address.state} ${address.zipCode}`;
+
+            // Create new billing address element
+            const newAddressElement = document.createElement('div');
+            newAddressElement.className = 'billing-address-option flex items-center justify-between gap-2 border border-[#C8C8C8] rounded-lg p-4 cursor-pointer transition-all duration-200 hover:border-[#D72638] hover:shadow-md active';
+            newAddressElement.setAttribute('data-address', addressId);
+
+            newAddressElement.innerHTML = `
+        <label class="flex flex-col gap-2 cursor-pointer">
+            <p class="font-semibold text-base text-black">${addressName}</p>
+            <p class="text-base text-[#9E9494] font-normal">${fullAddress}</p>
+        </label>
+        <div class="flex items-center gap-2">
+            <input type="radio" name="billingAddress" value="${addressId}"
+                class="w-4 h-4 text-[#D72638] focus:ring-[#D72638] border-gray-300"
+                id="${radioId}" />
+        </div>
+    `;
+
+            // Add click event listener
+            newAddressElement.addEventListener('click', function (e) {
+                // Don't trigger if clicking on the radio button directly
+                if (e.target.type === 'radio') return;
+
+                selectBillingAddress(this);
+            });
+
+            // Find container and add button
+            const addButton = document.getElementById('add-billing-address-btn');
+            const container = addButton.parentNode;
+
+            // Insert new address before the add button
+            container.insertBefore(newAddressElement, addButton);
+
+            // Select the new address automatically
+            selectBillingAddress(newAddressElement);
+
+            console.log('Billing address added to list successfully');
+        }
+
+        function hideBillingAddressForm() {
+            console.log('Hiding billing address form...');
+            const billingFormContainer = document.getElementById('new-billing-address-form-container');
+            if (billingFormContainer) {
+                billingFormContainer.classList.add('hidden');
+                resetBillingForm();
+                console.log('Billing form hidden');
+            }
+        }
+
+        function resetBillingForm() {
+            console.log('Resetting billing form...');
+            const formFields = [
+                'new-billing-address-line1',
+                'new-billing-city',
+                'new-billing-state',
+                'new-billing-zip-code'
+            ];
+
+            // Reset field values and remove error states
+            formFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (field) {
+                    field.value = '';
+                    field.classList.remove('form-error');
+                }
+            });
+
+            // Hide all error messages
+            const errorElements = document.querySelectorAll('.error-message');
+            errorElements.forEach(element => {
+                element.classList.add('hidden');
+                element.textContent = '';
+            });
+        }
+
+        function showBillingMessage(message, type) {
+            console.log(`Showing billing ${type} message:`, message);
+
+            // Create or update message element
+            let messageEl = document.getElementById('billing-success-message');
+            if (!messageEl) {
+                messageEl = document.createElement('div');
+                messageEl.id = 'billing-success-message';
+
+                // Insert after billing form container
+                const billingFormContainer = document.getElementById('new-billing-address-form-container');
+                if (billingFormContainer && billingFormContainer.parentNode) {
+                    billingFormContainer.parentNode.insertBefore(messageEl, billingFormContainer.nextSibling);
+                }
+            }
+
+            if (messageEl) {
+                messageEl.textContent = message;
+                messageEl.className = type === 'success'
+                    ? 'mt-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded-md'
+                    : 'mt-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-md';
+                messageEl.classList.remove('hidden');
+
+                // Hide after 3 seconds
+                setTimeout(() => {
+                    messageEl.classList.add('hidden');
+                }, 3000);
+            }
         }
     </script>
 </body>
