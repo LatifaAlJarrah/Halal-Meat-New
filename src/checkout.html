@@ -60,6 +60,21 @@
             display: none;
             /* Safari and Chrome */
         }
+
+        /* Modal specific styles */
+        #datetime-picker.hidden {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
+
+        #datetime-picker:not(.hidden) {
+            display: flex !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            pointer-events: auto !important;
+        }
     </style>
 </head>
 
@@ -279,7 +294,7 @@
                             </label>
                         </div>
                     </div>
-                    <div class="container mx-auto py-8">
+                    <div class="container mx-auto pt-8">
                         <!-- Delivery Information Section -->
                         <div id="delivery-address-section" class="mb-6">
                             <h2 class="text-2xl font-medium mb-4 text-gray-900">Delivery / Shipping Address</h2>
@@ -349,7 +364,7 @@
 
                                     <!-- City -->
                                     <div>
-                                        <label for="new-city" class="block text-sm font-medium text-gray-700 mb-1">City
+                                        <label for="new-city" class="block text-sm font-medium text-gray-700 mb-1">Town
                                             *</label>
                                         <input type="text" id="new-city" name="city" required
                                             class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
@@ -401,9 +416,13 @@
                             </div>
                         </div>
                     </div>
-
+                    <!-- Success Message Area -->
+                    <div id="delivery-success-message"
+                        class="hidden mt-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded-md">
+                        Address saved successfully!
+                    </div>
                     <!-- Pickup Information Section -->
-                    <div id="pickup-fields" class="space-y-6">
+                    <div id="pickup-fields" class="space-y-6 hidden">
                         <div class="space-y-4 my-4">
                             <h2 class="text-2xl font-medium mb-4 text-gray-800">Pickup Address</h2>
                             <p class="font-normal text-sm text-gray-600">Choose a pickup location from the list below or
@@ -474,7 +493,7 @@
                                     <!-- City -->
                                     <div>
                                         <label for="new-pickup-city"
-                                            class="block text-sm font-medium text-gray-700 mb-1">City *</label>
+                                            class="block text-sm font-medium text-gray-700 mb-1">Town *</label>
                                         <input type="text" id="new-pickup-city" name="city" required
                                             class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
                                             placeholder="Enter city">
@@ -514,7 +533,7 @@
                                     <!-- Buttons -->
                                     <div class="pt-4 flex gap-3">
                                         <button type="button" id="save-pickup-address-btn"
-                                            class="flex-1 bg[#D72638] text-white py-2 px-4 rounded-md hover:bg-red-700 transition-colors">
+                                            class="flex-1 bg-[#D72638] text-white py-2 px-4 rounded-md hover:bg-red-700 transition-colors">
                                             Save Address
                                         </button>
                                         <button type="button" id="cancel-pickup-address-btn"
@@ -524,6 +543,8 @@
                                     </div>
                                 </form>
                             </div>
+
+
                         </form>
                     </div>
 
@@ -532,6 +553,8 @@
                         class="hidden mt-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded-md">
                         Address saved successfully!
                     </div>
+
+
                     <div id="billing-address-section" class="space-y-4">
                         <h3 class="text-2xl font-medium text-[#1A1A1A]">Billing Address</h3>
                         <div class="flex gap-2" id="billing-address-checkbox">
@@ -544,19 +567,6 @@
                             below.
                         </p>
                     </div>
-
-                    <!-- Billing Address Section -->
-                    <!-- <div id="billing-address-section" class="space-y-4">
-                        <h3 class="text-2xl font-medium text-[#1A1A1A]">Billing Address</h3>
-                        <div class="flex gap-2">
-                            <input type="checkbox" name="differentAddress" id="differentAddress" />
-                            <label for="differentAddress" class="font-normal text-sm text-[#4D4D4D]">Use a different
-                                billing address?</label>
-                        </div>
-                        <p class="font-normal text-sm text-black">If you prefer to reuse a shipping address (for
-                            Delivery), choose it as billing address. Otherwise add a billing address below.
-                        </p>
-                    </div> -->
 
                     <div id="billing-form" class="space-y-4 hidden">
                         <div class="billing-address-option flex items-center justify-between gap-2 border border-[#C8C8C8] rounded-lg p-4 cursor-pointer transition-all duration-200 hover:border-[#D72638] hover:shadow-md active"
@@ -617,11 +627,21 @@
                                         placeholder="Address Line 1">
                                     <div class="error-message hidden" id="new-billing-address-line1-error"></div>
                                 </div>
+                                <!-- Address Line 2 -->
+                                <div>
+                                    <label for="new-billing-address-line2"
+                                        class="block text-sm font-medium text-gray-700 mb-1">Address Line
+                                        2 *</label>
+                                    <input type="text" id="new-billing-address-line2" name="addressLine2" required
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent"
+                                        placeholder="Address Line 2">
+                                    <div class="error-message hidden" id="new-billing-address-line2-error"></div>
+                                </div>
 
                                 <!-- City -->
                                 <div>
                                     <label for="new-billing-city"
-                                        class="block text-sm font-medium text-gray-700 mb-1">City *</label>
+                                        class="block text-sm font-medium text-gray-700 mb-1">Town *</label>
                                     <input type="text" id="new-billing-city" name="city" required
                                         class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent"
                                         placeholder="City">
@@ -701,7 +721,7 @@
                                     <div class="flex items-center gap-2">
                                         <input type="radio" id="immediate-btn"
                                             value="Immediate (if within business hours)" name="deliveryTime"
-                                            class="delivery-time-btn active flex-1 p-3" />
+                                            class="delivery-time-btn active flex-1 p-3" checked />
                                         <label for="immediate-btn"
                                             class="text-base font-normal text-[#B30310]">Immediate
                                             (if within business hours)</label>
@@ -721,30 +741,36 @@
                                     Delivery Date & Time
                                 </p>
                                 <input type="text" id="delivery-date-display-input" name="deliveryDateDisplay" readonly
-                                    class="hidden w-full px-3 py-2 border border-[#DBDDE3] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent bg-gray-50"
-                                    placeholder="Select date and time from the picker below">
+                                    class="w-full px-3 py-2 border border-[#DBDDE3] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#D72638] focus:border-transparent bg-gray-50 cursor-pointer"
+                                    placeholder="Click to select date and time">
                             </div>
+
                             <!-- Custom Date & Time Picker (Hidden by default) -->
                             <div id="datetime-picker"
-                                class="hidden space-y-4 w-full mx-auto fixed inset-0 bg-black/60 flex items-center justify-center">
+                                class="hidden space-y-4 w-full mx-auto fixed inset-0 bg-black/60 flex items-center justify-center"
+                                style="z-index: 9999;">
                                 <div class="flex flex-col w-fit md:flex-row gap-4 md:gap-8 bg-white rounded-lg backdrop-blur-sm shadow-[0_4px_4px_#0000000D] scale-90 p-10 relative"
-                                    onclick="event.stopPropagation()">
+                                    id="modal-content">
                                     <!-- Close button -->
                                     <button type="button" id="close-datetime-picker"
-                                        class="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full transition-colors duration-200">
+                                        class="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full transition-colors duration-200 z-50 cursor-pointer"
+                                        style="pointer-events: auto;"
+                                        onclick="closeDateTimePicker(); console.log('Direct onclick called');">
                                         <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor"
                                             viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M6 18L18 6M6 6l12 12"></path>
                                         </svg>
                                     </button>
+
                                     <!-- Calendar Section -->
                                     <div class="p-4">
                                         <div class="custom-calendar">
                                             <!-- Calendar Header -->
                                             <div class="flex items-center justify-between mb-4">
                                                 <button type="button" id="prev-month"
-                                                    class="p-2 hover:bg-gray-100 rounded">
+                                                    class="p-2 hover:bg-gray-100 rounded z-40 cursor-pointer"
+                                                    style="pointer-events: auto;">
                                                     <svg class="w-4 h-4" fill="none" stroke="currentColor"
                                                         viewBox="0 0 24 24">
                                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -752,9 +778,11 @@
                                                     </svg>
                                                 </button>
                                                 <h3 id="current-month-year" class="text-lg font-semibold text-gray-800">
-                                                    September 2025</h3>
+                                                    <!-- Month and year will be updated by JavaScript -->
+                                                </h3>
                                                 <button type="button" id="next-month"
-                                                    class="p-2 hover:bg-gray-100 rounded">
+                                                    class="p-2 hover:bg-gray-100 rounded z-40 cursor-pointer"
+                                                    style="pointer-events: auto;">
                                                     <svg class="w-4 h-4" fill="none" stroke="currentColor"
                                                         viewBox="0 0 24 24">
                                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -796,7 +824,7 @@
                                                             class="w-14 h-10 bg-red-100 border-2 border-red-300 rounded-lg flex items-center justify-center text-lg font-normal text-black mb-2">
                                                             12</div>
                                                         <div
-                                                            class="h-52 overflow-y-auto scrollbar-hide border border-gray-200 rounded-lg">
+                                                            class="h-48 max-h-48 overflow-y-auto scrollbar-hide border border-gray-200 rounded-lg">
                                                             <div class="space-y-1 py-2 px-2">
                                                                 <div class="time-option hour-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
                                                                     data-hour="12">12</div>
@@ -834,7 +862,7 @@
                                                             class="w-14 h-10 bg-red-100 border-2 border-red-300 rounded-lg flex items-center justify-center text-lg font-normal text-black mb-2">
                                                             55</div>
                                                         <div
-                                                            class="h-52 overflow-y-auto scrollbar-hide border border-gray-200 rounded-lg">
+                                                            class="h-48 max-h-48 overflow-y-auto scrollbar-hide border border-gray-200 rounded-lg">
                                                             <div class="space-y-1 p-2">
                                                                 <div class="time-option minute-option text-center py-1 px-2 hover:bg-gray-100 cursor-pointer"
                                                                     data-minute="00">00</div>
@@ -1001,10 +1029,6 @@
                     </div>
                 </div>
 
-
-
-
-
                 <!-- Right Column - Order Summary & Payment -->
                 <div class="space-y-6">
                     <!-- Order Summary -->
@@ -1038,6 +1062,10 @@
                                 <span class="text-[#4D4D4D] font-normal">Shipping</span>
                                 <span class="text[#1A1A1A] font-medium" id="shipping-cost">$5.00</span>
                             </div>
+                            <div class="flex justify-between text-sm pt-2">
+                                <span class="text-[#4D4D4D] font-normal">Coupon</span>
+                                <span class="text[#1A1A1A] font-medium" id="coupon-cost">25%</span>
+                            </div>
                             <div class="flex justify-between text-lg border-t border-[#E6E6E6] pt-4">
                                 <span class="text-[#4D4D4D] font-normal">Total</span>
                                 <span class="text[#1A1A1A] font-semibold text-lg" id="total-cost">$89.00</span>
@@ -1049,17 +1077,17 @@
                     <div class="bg-white rounded-lg shadow-sm p-6">
                         <h2 class="text-xl font-medium mb-4 text-[#1A1A1A]">Payment Method</h2>
                         <div class="space-y-2">
-                            <label class="flex items-center px-3 cursor-pointer hover:bg-gray-50 transition-colors">
+                            <label class="flex items-center px-3 cursor-pointer">
                                 <input type="radio" name="paymentMethod" value="bankTransfer" checked
                                     class="h-4 w-4 text-[#D72638] focus:ring-[#D72638] border-gray-300">
                                 <span class="ml-3 text-gray-700">Bank Transfer</span>
                             </label>
-                            <label class="flex items-center px-3 cursor-pointer hover:bg-gray-50 transition-colors">
+                            <label class="flex items-center px-3 cursor-pointer">
                                 <input type="radio" name="paymentMethod" value="paypal"
                                     class="h-4 w-4 text-[#D72638] focus:ring-[#D72638] border-gray-300">
                                 <span class="ml-3 text-gray-700">PayPal</span>
                             </label>
-                            <label class="flex items-center px-3 cursor-pointer hover:bg-gray-50 transition-colors">
+                            <label class="flex items-center px-3 cursor-pointer ">
                                 <input type="radio" name="paymentMethod" value="creditCard"
                                     class="h-4 w-4 text-[#D72638] focus:ring-[#D72638] border-gray-300">
                                 <span class="ml-3 text-gray-700">Bank Card</span>
@@ -1075,7 +1103,6 @@
             </div>
         </div>
     </main>
-
 
     <!-- Footer -->
     <footer class="bg-linear-to-r from-[#D72638] to-[#58080E] text-white">
@@ -1290,6 +1317,8 @@
 
         // Calendar and time picker variables
         let currentDate = new Date();
+        // Set to first day of current month to ensure proper display
+        currentDate.setDate(1);
         let selectedDate = null;
         let selectedHour = '12';
         let selectedMinute = '55';
@@ -1412,26 +1441,64 @@
 
             // Form submission
             placeOrderBtn.addEventListener('click', handleFormSubmission);
-
-            // Close datetime picker when clicking outside
+            // Backdrop click - improved approach
             datetimePicker.addEventListener('click', (e) => {
-                // Only close if clicking on the backdrop (not the modal content)
-                if (e.target === datetimePicker) {
+                console.log('=== MODAL AREA CLICKED ===');
+                console.log('Clicked element:', e.target);
+                console.log('Target ID:', e.target.id);
+
+                // Close if clicked on the backdrop (datetime-picker) directly
+                if (e.target.id === 'datetime-picker') {
+                    console.log('=== BACKDROP CLICKED - CLOSING ===');
                     closeDateTimePicker();
                 }
             });
 
             // Close datetime picker when pressing Escape key
             document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && !datetimePicker.classList.contains('hidden')) {
+                console.log('Key pressed:', e.key);
+                // Check if modal is visible (not hidden AND display is flex)
+                const isModalVisible = !datetimePicker.classList.contains('hidden') &&
+                    getComputedStyle(datetimePicker).display !== 'none';
+                if (e.key === 'Escape' && isModalVisible) {
+                    e.preventDefault(); // منع أي default behavior
+                    console.log('Closing modal via Escape key');
                     closeDateTimePicker();
                 }
             });
 
-            // Close datetime picker when close button is clicked
-            const closeDateTimeBtn = document.getElementById('close-datetime-picker');
-            if (closeDateTimeBtn) {
-                closeDateTimeBtn.addEventListener('click', closeDateTimePicker);
+            // Close button - direct event listener
+            document.addEventListener('click', (e) => {
+                // Check if the clicked element or its parent is the close button
+                if (e.target.closest('#close-datetime-picker')) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log('=== CLOSE BUTTON CLICKED ===');
+                    closeDateTimePicker();
+                    return;
+                }
+            });
+            // Open datetime picker when display input is clicked
+            if (deliveryDateDisplayInput) {
+                deliveryDateDisplayInput.addEventListener('click', () => {
+                    if (!isImmediate) {
+                        console.log('Opening datetime picker modal');
+
+                        // Simple approach - just remove hidden class
+                        datetimePicker.classList.remove('hidden');
+
+                        console.log('Modal opened - hidden class removed');
+                        console.log('Modal classes after opening:', datetimePicker.className);
+
+                        // Regenerate calendar and setup time picker when modal is shown
+                        setTimeout(() => {
+                            generateCalendar();
+                            setupTimePickerEvents();
+                            setupCalendarEvents(); // Re-attach navigation events
+                            console.log('Calendar and events setup completed');
+                        }, 150);
+                    }
+                });
             }
 
             // Real-time validation for all fields (both visible and hidden)
@@ -1538,11 +1605,30 @@
             }
         }
 
-        // Close datetime picker modal
         function closeDateTimePicker() {
-            datetimePicker.classList.add('hidden');
-        }
+            console.log('=== CLOSING MODAL ===');
 
+            const modal = document.getElementById('datetime-picker');
+            if (!modal) {
+                console.error('Modal element not found!');
+                return;
+            }
+
+            // Force hide the modal with multiple approaches
+            modal.style.display = 'none';
+            modal.style.visibility = 'hidden';
+            modal.style.opacity = '0';
+            modal.style.pointerEvents = 'none';
+            modal.classList.add('hidden');
+
+            console.log('Modal forcefully hidden');
+            console.log('Final modal state:', {
+                display: modal.style.display,
+                visibility: modal.style.visibility,
+                opacity: modal.style.opacity,
+                classes: modal.className
+            });
+        }
         // Helper function to manage delivery date display label visibility
         function updateDeliveryDateDisplayLabelVisibility() {
             // Show delivery date display only when delivery is selected AND scheduled is chosen
@@ -1559,10 +1645,28 @@
 
             if (immediate) {
                 updateButtonState(immediateBtn, scheduledBtn);
+                // Hide the modal
                 datetimePicker.classList.add('hidden');
+                datetimePicker.style.display = 'none';
+                datetimePicker.style.visibility = 'hidden';
+                datetimePicker.style.opacity = '0';
+                datetimePicker.style.pointerEvents = 'none';
             } else {
                 updateButtonState(scheduledBtn, immediateBtn);
+                // Show the modal
                 datetimePicker.classList.remove('hidden');
+                datetimePicker.style.display = 'flex';
+                datetimePicker.style.visibility = 'visible';
+                datetimePicker.style.opacity = '1';
+                datetimePicker.style.pointerEvents = 'auto';
+
+                // Regenerate calendar and setup time picker when modal is shown
+                console.log('Regenerating calendar after modal open (second location)');
+                setTimeout(() => {
+                    generateCalendar();
+                    setupTimePickerEvents();
+                    setupCalendarEvents(); // Re-attach navigation events
+                }, 150);
             }
 
             // Update delivery date display visibility
@@ -1801,6 +1905,8 @@
 
         // Initialize custom date/time picker
         function initializeCustomDateTimePicker() {
+            console.log('initializeCustomDateTimePicker called');
+            console.log('currentDate:', currentDate);
             generateCalendar();
             setupTimePickerEvents();
             setupCalendarEvents();
@@ -1808,57 +1914,75 @@
 
         // Generate calendar
         function generateCalendar() {
-            const calendarDates = document.getElementById('calendar-dates');
-            const currentMonthYear = document.getElementById('current-month-year');
+            console.log('generateCalendar called');
+            console.log('Current date for calendar:', currentDate);
 
-            if (!calendarDates || !currentMonthYear) return;
+            // Wait a bit to ensure DOM is ready
+            setTimeout(() => {
+                const calendarDates = document.getElementById('calendar-dates');
+                const currentMonthYear = document.getElementById('current-month-year');
 
-            const year = currentDate.getFullYear();
-            const month = currentDate.getMonth();
+                console.log('calendarDates element:', calendarDates);
+                console.log('currentMonthYear element:', currentMonthYear);
 
-            currentMonthYear.textContent = currentDate.toLocaleDateString('en-US', {
-                month: 'long',
-                year: 'numeric'
-            });
-
-            // Clear previous dates
-            calendarDates.innerHTML = '';
-
-            // Get first day of month and number of days
-            const firstDay = new Date(year, month, 1);
-            const lastDay = new Date(year, month + 1, 0);
-            const daysInMonth = lastDay.getDate();
-            const startingDayOfWeek = (firstDay.getDay() + 6) % 7; // Convert Sunday=0 to Monday=0
-
-            // Add empty cells for days before the first day of the month
-            for (let i = 0; i < startingDayOfWeek; i++) {
-                const emptyCell = document.createElement('div');
-                emptyCell.className = 'h-8';
-                calendarDates.appendChild(emptyCell);
-            }
-
-            // Add days of the month
-            for (let day = 1; day <= daysInMonth; day++) {
-                const dateCell = document.createElement('div');
-                dateCell.className = 'h-8 flex items-center justify-center text-sm cursor-pointer hover:bg-gray-100 rounded';
-                dateCell.textContent = day;
-                dateCell.dataset.day = day;
-                dateCell.dataset.date = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-
-                // Highlight weekends in red
-                const dayOfWeek = new Date(year, month, day).getDay();
-                if (dayOfWeek === 0 || dayOfWeek === 6) { // Sunday or Saturday
-                    dateCell.classList.add('text-[#D72638]');
+                if (!calendarDates || !currentMonthYear) {
+                    console.error('Calendar elements not found!');
+                    return;
                 }
 
-                // Highlight selected date
-                if (selectedDate && dateCell.dataset.date === selectedDate) {
-                    dateCell.classList.add('bg-[#D72638]', 'text-black', 'rounded');
+                const year = currentDate.getFullYear();
+                const month = currentDate.getMonth();
+
+                console.log('Generating calendar for:', year, month);
+
+                currentMonthYear.textContent = currentDate.toLocaleDateString('en-US', {
+                    month: 'long',
+                    year: 'numeric'
+                });
+
+                // Clear previous dates
+                calendarDates.innerHTML = '';
+
+                // Get first day of month and number of days
+                const firstDay = new Date(year, month, 1);
+                const lastDay = new Date(year, month + 1, 0);
+                const daysInMonth = lastDay.getDate();
+                const startingDayOfWeek = (firstDay.getDay() + 6) % 7; // Convert Sunday=0 to Monday=0
+
+                console.log('Days in month:', daysInMonth, 'Starting day of week:', startingDayOfWeek);
+
+                // Add empty cells for days before the first day of the month
+                for (let i = 0; i < startingDayOfWeek; i++) {
+                    const emptyCell = document.createElement('div');
+                    emptyCell.className = 'h-8';
+                    calendarDates.appendChild(emptyCell);
                 }
 
-                dateCell.addEventListener('click', () => selectDate(dateCell));
-                calendarDates.appendChild(dateCell);
-            }
+                // Add days of the month
+                for (let day = 1; day <= daysInMonth; day++) {
+                    const dateCell = document.createElement('div');
+                    dateCell.className = 'h-8 flex items-center justify-center text-sm cursor-pointer hover:bg-gray-100 rounded text-gray-800';
+                    dateCell.textContent = day;
+                    dateCell.dataset.day = day;
+                    dateCell.dataset.date = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+
+                    // Highlight weekends in red
+                    const dayOfWeek = new Date(year, month, day).getDay();
+                    if (dayOfWeek === 0 || dayOfWeek === 6) { // Sunday or Saturday
+                        dateCell.classList.add('text-[#D72638]');
+                    }
+
+                    // Highlight selected date
+                    if (selectedDate && dateCell.dataset.date === selectedDate) {
+                        dateCell.classList.add('bg-[#D72638]', 'text-black', 'rounded');
+                    }
+
+                    dateCell.addEventListener('click', () => selectDate(dateCell));
+                    calendarDates.appendChild(dateCell);
+                }
+
+                console.log('Calendar generation completed. Total cells:', calendarDates.children.length);
+            }, 50);
         }
 
         // Select date
@@ -1866,7 +1990,9 @@
             // Remove previous selection
             document.querySelectorAll('#calendar-dates > div').forEach(cell => {
                 cell.classList.remove('bg-[#D72638]', 'text-black');
-                if (cell.classList.contains('text-[#D72638]')) {
+                // Preserve weekend highlighting
+                const dayOfWeek = new Date(cell.dataset.date).getDay();
+                if (dayOfWeek === 0 || dayOfWeek === 6) { // Sunday or Saturday
                     cell.classList.add('text-[#D72638]');
                 }
             });
@@ -1881,67 +2007,138 @@
 
         // Setup calendar navigation events
         function setupCalendarEvents() {
-            const prevMonthBtn = document.getElementById('prev-month');
-            const nextMonthBtn = document.getElementById('next-month');
+            console.log('Setting up calendar events...');
 
-            if (prevMonthBtn) {
-                prevMonthBtn.addEventListener('click', () => {
-                    currentDate.setMonth(currentDate.getMonth() - 1);
-                    generateCalendar();
-                });
-            }
+            // Use setTimeout to ensure DOM is ready
+            setTimeout(() => {
+                const prevMonthBtn = document.getElementById('prev-month');
+                const nextMonthBtn = document.getElementById('next-month');
 
-            if (nextMonthBtn) {
-                nextMonthBtn.addEventListener('click', () => {
-                    currentDate.setMonth(currentDate.getMonth() + 1);
-                    generateCalendar();
-                });
-            }
+                console.log('prevMonthBtn found:', !!prevMonthBtn);
+                console.log('nextMonthBtn found:', !!nextMonthBtn);
+
+                if (prevMonthBtn) {
+                    // Remove any existing listeners first
+                    prevMonthBtn.replaceWith(prevMonthBtn.cloneNode(true));
+                    const newPrevBtn = document.getElementById('prev-month');
+
+                    newPrevBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        console.log('Previous month clicked');
+                        currentDate.setMonth(currentDate.getMonth() - 1);
+                        console.log('New date:', currentDate);
+                        generateCalendar();
+                    });
+                    console.log('Previous month button event attached');
+                }
+
+                if (nextMonthBtn) {
+                    // Remove any existing listeners first
+                    nextMonthBtn.replaceWith(nextMonthBtn.cloneNode(true));
+                    const newNextBtn = document.getElementById('next-month');
+
+                    newNextBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        console.log('Next month clicked');
+                        currentDate.setMonth(currentDate.getMonth() + 1);
+                        console.log('New date:', currentDate);
+                        generateCalendar();
+                    });
+                    console.log('Next month button event attached');
+                }
+            }, 100);
         }
 
         // Setup time picker events
         function setupTimePickerEvents() {
-            // Hour selection
-            document.querySelectorAll('.hour-option').forEach(option => {
-                option.addEventListener('click', () => {
-                    selectedHour = option.dataset.hour;
-                    document.getElementById('selected-hour').textContent = selectedHour;
-                    updateHiddenInputs();
+            console.log('setupTimePickerEvents called');
+
+            // Wait a bit to ensure DOM is ready
+            setTimeout(() => {
+                // Hour selection
+                const hourOptions = document.querySelectorAll('.hour-option');
+                console.log('Found hour options:', hourOptions.length);
+
+                hourOptions.forEach(option => {
+                    // Remove existing event listeners to prevent duplicates
+                    option.removeEventListener('click', handleHourClick);
+                    option.addEventListener('click', handleHourClick);
                 });
+
+                // Minute selection
+                const minuteOptions = document.querySelectorAll('.minute-option');
+                console.log('Found minute options:', minuteOptions.length);
+
+                minuteOptions.forEach(option => {
+                    // Remove existing event listeners to prevent duplicates
+                    option.removeEventListener('click', handleMinuteClick);
+                    option.addEventListener('click', handleMinuteClick);
+                });
+
+                // Period selection
+                const periodOptions = document.querySelectorAll('.period-option');
+                console.log('Found period options:', periodOptions.length);
+
+                periodOptions.forEach(option => {
+                    // Remove existing event listeners to prevent duplicates
+                    option.removeEventListener('click', handlePeriodClick);
+                    option.addEventListener('click', handlePeriodClick);
+                });
+            }, 100);
+        }
+
+        // Hour click handler
+        function handleHourClick(event) {
+            console.log('Hour clicked:', event.target.dataset.hour);
+            selectedHour = event.target.dataset.hour;
+            const selectedHourElement = document.getElementById('selected-hour');
+            if (selectedHourElement) {
+                selectedHourElement.textContent = selectedHour;
+            }
+            updateHiddenInputs();
+        }
+
+        // Minute click handler
+        function handleMinuteClick(event) {
+            console.log('Minute clicked:', event.target.dataset.minute);
+            selectedMinute = event.target.dataset.minute;
+            const selectedMinuteElement = document.getElementById('selected-minute');
+            if (selectedMinuteElement) {
+                selectedMinuteElement.textContent = selectedMinute;
+            }
+            updateHiddenInputs();
+        }
+
+        // Period click handler
+        function handlePeriodClick(event) {
+            console.log('Period clicked:', event.target.dataset.period);
+            selectedPeriod = event.target.dataset.period;
+
+            // Update styling - toggle between AM and PM
+            document.querySelectorAll('.period-option').forEach(opt => {
+                // Reset all options to default styling
+                opt.classList.remove('bg-[#FFCFD4]', 'border-[#F48E98]', 'border-2');
+                opt.classList.add('border', 'border-[#D7D7D7]');
             });
 
-            // Minute selection
-            document.querySelectorAll('.minute-option').forEach(option => {
-                option.addEventListener('click', () => {
-                    selectedMinute = option.dataset.minute;
-                    document.getElementById('selected-minute').textContent = selectedMinute;
-                    updateHiddenInputs();
-                });
-            });
+            // Apply selected styling to clicked option
+            event.target.classList.remove('border', 'border-[#D7D7D7]');
+            event.target.classList.add('bg-[#FFCFD4]', 'border-2', 'border-[#F48E98]');
 
-            // Period selection
-            document.querySelectorAll('.period-option').forEach(option => {
-                option.addEventListener('click', () => {
-                    selectedPeriod = option.dataset.period;
-
-                    // Update styling - toggle between AM and PM
-                    document.querySelectorAll('.period-option').forEach(opt => {
-                        // Reset all options to default styling
-                        opt.classList.remove('bg-[#FFCFD4]', 'border-[#F48E98]', 'border-2');
-                        opt.classList.add('border', 'border-[#D7D7D7]');
-                    });
-
-                    // Apply selected styling to clicked option
-                    option.classList.remove('border', 'border-[#D7D7D7]');
-                    option.classList.add('bg-[#FFCFD4]', 'border-2', 'border-[#F48E98]');
-
-                    updateHiddenInputs();
-                });
-            });
+            updateHiddenInputs();
         }
 
         // Update hidden inputs and display
         function updateHiddenInputs() {
+            console.log('updateHiddenInputs called with:', {
+                selectedDate,
+                selectedHour,
+                selectedMinute,
+                selectedPeriod
+            });
+
             const dateInput = document.getElementById('delivery-date');
             const timeInput = document.getElementById('delivery-time');
             const displayInput = document.getElementById('delivery-date-display-input');
@@ -1949,6 +2146,7 @@
 
             if (dateInput && selectedDate) {
                 dateInput.value = selectedDate;
+                console.log('Updated date input:', dateInput.value);
             }
 
             if (timeInput) {
@@ -1962,6 +2160,7 @@
 
                 const time24 = `${String(hour24).padStart(2, '0')}:${selectedMinute}`;
                 timeInput.value = time24;
+                console.log('Updated time input:', timeInput.value);
             }
 
             // Update display input
@@ -1974,6 +2173,7 @@
                 });
                 const displayTime = `${selectedHour}:${selectedMinute} ${selectedPeriod}`;
                 displayInput.value = `${displayDate} at ${displayTime}`;
+                console.log('Updated display input:', displayInput.value);
             }
         }
 
@@ -2421,31 +2621,28 @@
                 console.log('Form hidden');
             }
 
-            // رسالة نجاح
             console.log('Showing success alert...');
-            alert('تم إضافة العنوان بنجاح!');
+            showDeliveryMessage('Delivery address added successfully!', 'success');
             console.log('saveNewAddress completed successfully');
         }
 
         function addAddressToList(address) {
             console.log('addAddressToList called with:', address);
 
-            // العثور على الحاوية التي تحتوي على العناوين
             const addressContainer = document.querySelector('.address-option').parentNode;
             console.log('Address container found:', addressContainer);
 
-            // إنشاء معرف فريد للعنوان
             const addressId = 'address-' + Date.now();
 
-            // إنشاء العنوان الكامل
+
             const fullAddress = `${address.addressLine1}${address.addressLine2 ? ', ' + address.addressLine2 : ''}, ${address.city}, ${address.state} ${address.zipCode}`;
 
-            // إنشاء العنصر الجديد
+
             const newAddressElement = document.createElement('div');
             newAddressElement.className = 'address-option flex items-center justify-between gap-2 border border-[#C8C8C8] rounded-lg p-4 cursor-pointer transition-all duration-200 hover:border-[#D72638] hover:shadow-md';
             newAddressElement.setAttribute('data-address', 'new');
 
-            // محتوى العنصر
+
             newAddressElement.innerHTML = `
                 <label class="flex flex-col gap-2 cursor-pointer" for="${addressId}">
                     <p class="font-semibold text-base text-black">عنوان جديد</p>
@@ -2458,25 +2655,23 @@
                 </div>
             `;
 
-            // إضافة حدث النقر
+
             newAddressElement.addEventListener('click', function () {
-                // إزالة التحديد من جميع العناوين
+
                 document.querySelectorAll('.address-option').forEach(opt => opt.classList.remove('active'));
 
-                // إضافة التحديد للعنوان المختار
+
                 this.classList.add('active');
 
-                // تحديد الراديو بوتن
+
                 const radioInput = this.querySelector('input[type="radio"]');
                 if (radioInput) {
                     radioInput.checked = true;
                 }
             });
 
-            // العثور على زر "إضافة عنوان جديد"
             const addButton = document.getElementById('add-address-btn');
 
-            // إدراج العنوان الجديد قبل الزر
             if (addressContainer && addButton) {
                 addressContainer.insertBefore(newAddressElement, addButton);
                 console.log('Address element inserted successfully');
@@ -3036,7 +3231,7 @@
             hideAddressForm();
 
             // Show success message
-            alert('Address added successfully!');
+            showDeliveryMessage('Delivery address added successfully!', 'success');
         }
 
         function addAddressToList(address) {
@@ -3748,6 +3943,7 @@
 
             const requiredFields = [
                 'new-billing-address-line1',
+                'new-billing-address-line2',
                 'new-billing-city',
                 'new-billing-state',
                 'new-billing-zip-code'
@@ -3905,6 +4101,35 @@
                 const billingFormContainer = document.getElementById('new-billing-address-form-container');
                 if (billingFormContainer && billingFormContainer.parentNode) {
                     billingFormContainer.parentNode.insertBefore(messageEl, billingFormContainer.nextSibling);
+                }
+            }
+
+            if (messageEl) {
+                messageEl.textContent = message;
+                messageEl.className = type === 'success'
+                    ? 'mt-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded-md'
+                    : 'mt-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-md';
+                messageEl.classList.remove('hidden');
+
+                // Hide after 3 seconds
+                setTimeout(() => {
+                    messageEl.classList.add('hidden');
+                }, 3000);
+            }
+        }
+
+        function showDeliveryMessage(message, type) {
+
+            // Create or update message element
+            let messageEl = document.getElementById('delivery-success-message');
+            if (!messageEl) {
+                messageEl = document.createElement('div');
+                messageEl.id = 'delivery-success-message';
+
+                // Insert after delivery form container
+                const deliveryFormContainer = document.getElementById('new-address-form-container');
+                if (deliveryFormContainer && deliveryFormContainer.parentNode) {
+                    deliveryFormContainer.parentNode.insertBefore(messageEl, deliveryFormContainer.nextSibling);
                 }
             }
 
