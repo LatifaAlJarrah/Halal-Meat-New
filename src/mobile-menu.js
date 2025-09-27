@@ -144,4 +144,122 @@ document.addEventListener('DOMContentLoaded', function () {
             closeNotificationsModal();
         }
     });
+
+    // Account dropdown functionality
+    const accountBtn = document.getElementById('account-btn');
+    const accountDropdownMenu = document.getElementById('account-dropdown-menu');
+
+    function openAccountDropdown() {
+        if (accountDropdownMenu) {
+            accountDropdownMenu.classList.remove('hidden');
+        }
+    }
+
+    function closeAccountDropdown() {
+        if (accountDropdownMenu) {
+            accountDropdownMenu.classList.add('hidden');
+        }
+    }
+
+    // Toggle account dropdown
+    if (accountBtn) {
+        accountBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (accountDropdownMenu.classList.contains('hidden')) {
+                openAccountDropdown();
+            } else {
+                closeAccountDropdown();
+            }
+        });
+    }
+
+    // Close account dropdown when clicking outside
+    document.addEventListener('click', function (event) {
+        const accountDropdown = document.getElementById('account-dropdown');
+        if (accountDropdown && !accountDropdown.contains(event.target)) {
+            closeAccountDropdown();
+        }
+    });
+
+    // Close account dropdown when clicking on a menu item (except logout which is handled separately)
+    if (accountDropdownMenu) {
+        const menuItems = accountDropdownMenu.querySelectorAll('a');
+        menuItems.forEach(item => {
+            item.addEventListener('click', function () {
+                closeAccountDropdown();
+            });
+        });
+    }
+
+    // Handle logout button click
+    const logoutBtn = accountDropdownMenu?.querySelector('.logout');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', function() {
+            // You can add logout logic here
+            alert('Logout clicked!');
+            closeAccountDropdown();
+        });
+    }
+
+    // Close account dropdown with Escape key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && accountDropdownMenu && !accountDropdownMenu.classList.contains('hidden')) {
+            closeAccountDropdown();
+        }
+    });
+
+    // Mobile Account dropdown functionality
+    const mobileAccountBtn = document.getElementById('mobile-account-btn');
+    const mobileAccountDropdownMenu = document.getElementById('mobile-account-dropdown-menu');
+
+    function openMobileAccountDropdown() {
+        if (mobileAccountDropdownMenu) {
+            mobileAccountDropdownMenu.classList.remove('hidden');
+        }
+    }
+
+    function closeMobileAccountDropdown() {
+        if (mobileAccountDropdownMenu) {
+            mobileAccountDropdownMenu.classList.add('hidden');
+        }
+    }
+
+    // Toggle mobile account dropdown
+    if (mobileAccountBtn) {
+        mobileAccountBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (mobileAccountDropdownMenu.classList.contains('hidden')) {
+                openMobileAccountDropdown();
+            } else {
+                closeMobileAccountDropdown();
+            }
+        });
+    }
+
+    // Close mobile account dropdown when clicking on a menu item (except logout)
+    if (mobileAccountDropdownMenu) {
+        const menuItems = mobileAccountDropdownMenu.querySelectorAll('a');
+        menuItems.forEach(item => {
+            item.addEventListener('click', function () {
+                closeMobileAccountDropdown();
+            });
+        });
+    }
+
+    // Handle mobile logout button click
+    const mobileLogoutBtn = mobileAccountDropdownMenu?.querySelector('.logout');
+    if (mobileLogoutBtn) {
+        mobileLogoutBtn.addEventListener('click', function() {
+            // You can add logout logic here
+            alert('Logout clicked!');
+            closeMobileAccountDropdown();
+        });
+    }
+
+    // Close mobile account dropdown with Escape key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && mobileAccountDropdownMenu && !mobileAccountDropdownMenu.classList.contains('hidden')) {
+            closeMobileAccountDropdown();
+        }
+    });
 });
